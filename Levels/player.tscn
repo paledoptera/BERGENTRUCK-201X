@@ -1,11 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=13 format=3 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
 [ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="3_umq7g"]
 [ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="4_ln1lg"]
+[ext_resource type="Texture2D" uid="uid://bbntqmtppwjx7" path="res://Levels/Assets/Visuals/asgore arm.png" id="5_umq7g"]
 [ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="5_wpukm"]
 [ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="6_yiue1"]
+[ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="8_ln1lg"]
+[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="9_wpukm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ln1lg"]
+top_radius = 500.0
+bottom_radius = 500.0
+height = 400.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpukm"]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("8_ln1lg")
+uv1_scale = Vector3(3, 1, 2)
+uv1_offset = Vector3(0, -0.635, 0)
+uv1_triplanar_sharpness = 0.353554
+texture_filter = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xeq3v"]
 radius = 49.02
@@ -13,31 +30,46 @@ radius = 49.02
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_vyvq2")
 
-[node name="Visuals" type="CanvasLayer" parent="."]
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+top_level = true
+mesh = SubResource("CylinderMesh_ln1lg")
+surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+position = Vector2(160, 120)
+texture = ExtResource("2_xeq3v")
+offset = Vector2(0.5, 0)
 
 [node name="SteeringWheel" type="Sprite2D" parent="Visuals"]
-position = Vector2(132, 196)
-scale = Vector2(1.44, 1.44)
+position = Vector2(-45, 60)
 texture = ExtResource("3_umq7g")
 
 [node name="GearShift" type="Sprite2D" parent="Visuals"]
-position = Vector2(320, 210)
+position = Vector2(81, 94)
 texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-texture = ExtResource("2_xeq3v")
+[node name="AsgoreArm" type="Sprite2D" parent="Visuals"]
+position = Vector2(53, 67)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("5_umq7g")
+offset = Vector2(0, 140)
+hframes = 2
+
+[node name="Asgore" type="Sprite2D" parent="Visuals"]
+position = Vector2(-210, -127)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("9_wpukm")
+centered = false
 
 [node name="WidgetGear" parent="." instance=ExtResource("5_wpukm")]
 modulate = Color(1, 1, 1, 0)
-offset_left = 258.0
-offset_top = 124.0
-offset_right = 685.0
-offset_bottom = 188.0
-scale = Vector2(0.295, 1.655)
+offset_left = 198.0
+offset_top = 137.0
+offset_right = 625.0
+offset_bottom = 201.0
+scale = Vector2(0.225, 1.5)
 snap_speed = 0.9
 
 [node name="DraggableItem" parent="WidgetGear" index="1"]
@@ -55,8 +87,8 @@ position = Vector2(427, 32)
 
 [node name="WidgetWheel" parent="." instance=ExtResource("6_yiue1")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(130, 220)
-scale = Vector2(0.745, 0.865)
+position = Vector2(116, 191)
+scale = Vector2(0.5, 0.54)
 drag_speed = 0.1
 snap_speed = 0.05
 
@@ -67,15 +99,16 @@ position = Vector2(0, -150)
 position = Vector2(0, -150)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(134, 194)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_xeq3v")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.760406, 0.649448, 0, -0.649448, 0.760406, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.876307, 0.481754, 0, -0.481754, 0.876307, 0, 1.5, 1.619)
 current = true
-fov = 86.5
+fov = 90.0
 size = 6.128
 
 [connection signal="drag_started" from="WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]

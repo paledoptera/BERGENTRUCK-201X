@@ -21,9 +21,9 @@ Utility="*res://Utility.gd"
 
 [display]
 
-window/size/viewport_width=427
+window/size/viewport_width=320
 window/size/viewport_height=240
-window/size/window_width_override=854
+window/size/window_width_override=640
 window/size/window_height_override=480
 window/stretch/mode="viewport"
 

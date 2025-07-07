@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://dumjjo7i6g7hs"]
+
+[ext_resource type="Texture2D" uid="uid://c4sf6rpiu2a44" path="res://Entities/Assets/Visuals/tree.png" id="1_o3mp4"]
+[ext_resource type="Texture2D" uid="uid://d1mdkawxifsd7" path="res://Entities/Assets/Visuals/bigtree.png" id="2_p0f0o"]
+[ext_resource type="Texture2D" uid="uid://dvayhq68f83oe" path="res://Entities/Assets/Visuals/sparsetree.png" id="3_pbx4q"]
+[ext_resource type="Texture2D" uid="uid://b70stsktcni20" path="res://Entities/Assets/Visuals/pinetree.png" id="4_qnx6e"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o3mp4"]
+size = Vector2(20, 20)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0f0o"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_o3mp4")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.615
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pbx4q"]
+size = Vector2(40, 40)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6ow8"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_p0f0o")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.615
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qnx6e"]
+size = Vector2(25, 40)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3v7g"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_pbx4q")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.615
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56fxl"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_qnx6e")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.615
+
+[node name="TileLibrary" type="Node3D"]
+
+[node name="Tree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+mesh = SubResource("PlaneMesh_o3mp4")
+surface_material_override/0 = SubResource("StandardMaterial3D_p0f0o")
+
+[node name="TreeBig" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.855, 0)
+mesh = SubResource("PlaneMesh_pbx4q")
+surface_material_override/0 = SubResource("StandardMaterial3D_y6ow8")
+
+[node name="TreeSparse" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.855, 0)
+mesh = SubResource("PlaneMesh_qnx6e")
+surface_material_override/0 = SubResource("StandardMaterial3D_x3v7g")
+
+[node name="TreePine" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.855, 0)
+mesh = SubResource("PlaneMesh_qnx6e")
+surface_material_override/0 = SubResource("StandardMaterial3D_56fxl")

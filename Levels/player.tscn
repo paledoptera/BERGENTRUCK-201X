@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmxrsb6vf3fo0"]
+
+[ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
+[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
+[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="3_umq7g"]
+[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="4_ln1lg"]
+[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="5_wpukm"]
+[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="6_yiue1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xeq3v"]
+radius = 49.02
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_vyvq2")
+
+[node name="Visuals" type="CanvasLayer" parent="."]
+
+[node name="SteeringWheel" type="Sprite2D" parent="Visuals"]
+position = Vector2(132, 196)
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("3_umq7g")
+
+[node name="GearShift" type="Sprite2D" parent="Visuals"]
+position = Vector2(320, 210)
+texture = ExtResource("4_ln1lg")
+offset = Vector2(0, -30)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_xeq3v")
+
+[node name="WidgetGear" parent="." instance=ExtResource("5_wpukm")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 258.0
+offset_top = 124.0
+offset_right = 685.0
+offset_bottom = 188.0
+scale = Vector2(0.295, 1.655)
+snap_speed = 0.9
+
+[node name="DraggableItem" parent="WidgetGear" index="1"]
+scale = Vector2(1.62, 0.5)
+
+[node name="Marker2D" type="Marker2D" parent="WidgetGear"]
+position = Vector2(32, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="WidgetGear"]
+position = Vector2(213.5, 32)
+scale = Vector2(1, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="WidgetGear"]
+position = Vector2(427, 32)
+
+[node name="WidgetWheel" parent="." instance=ExtResource("6_yiue1")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(130, 220)
+scale = Vector2(0.745, 0.865)
+drag_speed = 0.1
+snap_speed = 0.05
+
+[node name="Marker2D" parent="WidgetWheel/Notches" index="0"]
+position = Vector2(0, -150)
+
+[node name="DraggableItem" parent="WidgetWheel" index="3"]
+position = Vector2(0, -150)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(134, 194)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xeq3v")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.760406, 0.649448, 0, -0.649448, 0.760406, 0, 0, 0)
+current = true
+fov = 86.5
+size = 6.128
+
+[connection signal="drag_started" from="WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
+
+[editable path="WidgetGear"]
+[editable path="WidgetWheel"]
+[editable path="WidgetWheel/DraggableItem"]

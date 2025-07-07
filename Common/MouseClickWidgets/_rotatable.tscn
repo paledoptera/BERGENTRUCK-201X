@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5farrf2dyyup"]
+
+[ext_resource type="Script" uid="uid://dmx6esgflk4cc" path="res://Common/MouseClickWidgets/Scripts/_rotatable.gd" id="1_60i83"]
+[ext_resource type="Script" uid="uid://re6hm7uvl73n" path="res://Common/MouseClickWidgets/Components/mouse_drag_component.gd" id="2_jmo5e"]
+[ext_resource type="Texture2D" uid="uid://m3nlr4mo5igk" path="res://icon.svg" id="3_lpajs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60i83"]
+size = Vector2(128, 128)
+
+[node name="RotatableItem" type="Area2D"]
+script = ExtResource("1_60i83")
+
+[node name="MouseDragComponent" type="Node" parent="."]
+script = ExtResource("2_jmo5e")
+metadata/_custom_type_script = "uid://re6hm7uvl73n"
+
+[node name="Parent" type="Sprite2D" parent="."]
+self_modulate = Color(0.171637, 0.171637, 0.171637, 1)
+
+[node name="RotationAnchor" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_60i83")
+
+[node name="TextureRect" type="Sprite2D" parent="RotationAnchor"]
+texture = ExtResource("3_lpajs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -60.0
+offset_top = -30.0
+offset_right = 64.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+scroll_active = false
+horizontal_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="drag_ended" from="MouseDragComponent" to="." method="_on_item_drag_ended"]
+[connection signal="drag_started" from="MouseDragComponent" to="." method="_on_item_drag_started"]

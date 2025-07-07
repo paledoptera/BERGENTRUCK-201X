@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://djvs06q7hibqx"]
+
+[ext_resource type="Script" uid="uid://deenga26pwrhg" path="res://Common/MouseClickWidgets/Scripts/widget_joystick.gd" id="1_btklk"]
+[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2_tkl3a"]
+
+[sub_resource type="Gradient" id="Gradient_fqrrl"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.666667, 0.710526)
+colors = PackedColorArray(0.0936694, 0.0936694, 0.0936694, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vuaqh"]
+gradient = SubResource("Gradient_fqrrl")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqrrl"]
+radius = 150.0
+
+[node name="WidgetJoystick" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_vuaqh")
+script = ExtResource("1_btklk")
+snap_to_cursor = true
+
+[node name="Notches" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Notches"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fqrrl")
+
+[node name="DraggableItem" parent="." instance=ExtResource("2_tkl3a")]
+scale = Vector2(0.7, 0.7)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DraggableItem"]
+offset_left = -60.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = 44.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 29
+text = "x"
+scroll_active = false
+autowrap_mode = 1
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DraggableItem"]
+offset_left = -60.0
+offset_top = -8.0
+offset_right = 64.0
+offset_bottom = 76.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 29
+text = "y"
+scroll_active = false
+autowrap_mode = 1
+horizontal_alignment = 1
+
+[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
+[connection signal="dragging" from="DraggableItem" to="." method="_on_drag"]

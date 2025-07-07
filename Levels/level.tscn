@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdp7l4q8u8ijj"]
+
+[ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_s41d2"]
+[ext_resource type="PackedScene" uid="uid://bedjed0tcvqqu" path="res://Levels/Assets/Visuals/road.blend" id="2_gtnvv"]
+[ext_resource type="Texture2D" uid="uid://cgbls7vqt4a5m" path="res://Levels/Assets/Visuals/road texture.png" id="3_wav5q"]
+
+[sub_resource type="Environment" id="Environment_54b6e"]
+background_mode = 1
+background_color = Color(0.282038, 0.624029, 0.599942, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xto7t"]
+resource_name = "Road"
+shading_mode = 0
+albedo_texture = ExtResource("3_wav5q")
+heightmap_scale = 16.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 1
+heightmap_max_layers = 64
+heightmap_texture = ExtResource("3_wav5q")
+texture_filter = 0
+disable_receive_shadows = true
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_54b6e")
+
+[node name="Player" parent="." instance=ExtResource("1_s41d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55851, 0)
+
+[node name="road" parent="." instance=ExtResource("2_gtnvv")]
+
+[node name="Road" parent="road" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xto7t")
+
+[editable path="road"]

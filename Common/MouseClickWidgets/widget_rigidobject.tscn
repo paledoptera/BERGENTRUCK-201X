@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://damk4alcsir7j"]
+
+[ext_resource type="Script" uid="uid://3mexkc8ixujo" path="res://Common/MouseClickWidgets/Scripts/widget_rigidobject.gd" id="1_yn32i"]
+[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2_chkhv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4diyq"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4diyq"]
+size = Vector2(90, 90)
+
+[node name="WidgetRigidObject" type="RigidBody2D"]
+input_pickable = true
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_4diyq")
+script = ExtResource("1_yn32i")
+
+[node name="DraggableItem" parent="." instance=ExtResource("2_chkhv")]
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" parent="DraggableItem" index="2"]
+shape = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4diyq")
+
+[node name="GrabBox" type="TextureRect" parent="."]
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
+mouse_filter = 0
+
+[connection signal="gui_input" from="GrabBox" to="." method="_on_input_event"]
+
+[editable path="DraggableItem"]

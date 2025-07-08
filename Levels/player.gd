@@ -117,6 +117,19 @@ func _on_area_entered(area: Area3D) -> void:
 			if entity.stompable:
 				velocity.y = 20
 		
+		if entity.items:
+			var items = entity.items.duplicate()
+			for itemdata in items:
+				var chance = randf_range(1,100)
+				var target_mult = 1.0-((itemdata.speed_effect/100)-(speed/27))
+				var target = itemdata.drop_chance * target_mult
+				if chance <= target:
+					var item_scene = itemdata.item.instantiate()
+					item_scene.global_position = Vector2(200,-20)
+					add_child(item_scene)
+					entity.items.erase(itemdata)
+				
+		
 		if entity.hp > 0:
 			entity.hp -= 1
 			if entity.hp <= 0:

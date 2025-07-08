@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=16 format=3 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -27,13 +27,16 @@ uv1_offset = Vector3(0, -0.635, 0)
 uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xeq3v"]
-radius = 49.02
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_wpukm"]
 radius = 1.52588
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpukm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpukm"]
+size = Vector2(337, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
+size = Vector2(131, 158)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_vyvq2")
@@ -60,20 +63,20 @@ texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
 
 [node name="AsgoreArm" type="Sprite2D" parent="Visuals"]
+z_index = 50
 position = Vector2(53, 67)
-scale = Vector2(0.595, 0.595)
 texture = ExtResource("5_umq7g")
-offset = Vector2(0, 140)
+offset = Vector2(0, 87.99)
 hframes = 2
 
 [node name="Asgore" type="Sprite2D" parent="Visuals"]
+z_index = 999
 position = Vector2(-210, -127)
-scale = Vector2(1.1, 1.1)
 texture = ExtResource("9_wpukm")
 centered = false
 
 [node name="WidgetGear" parent="." instance=ExtResource("5_wpukm")]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0.760784, 0.760784, 0.760784, 0)
 offset_left = 198.0
 offset_top = 137.0
 offset_right = 625.0
@@ -106,13 +109,6 @@ position = Vector2(0, -150)
 [node name="DraggableItem" parent="WidgetWheel" index="3"]
 position = Vector2(0, -150)
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-position = Vector2(134, 194)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_xeq3v")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 0)
 keep_aspect = 0
@@ -132,6 +128,21 @@ debug_color = Color(0, 1, 0.486275, 0.972549)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 shape = SubResource("BoxShape3D_wpukm")
 debug_color = Color(0.941176, 0, 0.619608, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 284)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(158.5, 0)
+shape = SubResource("RectangleShape2D_wpukm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-61.5, -69)
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(387, -69)
+shape = SubResource("RectangleShape2D_yiue1")
 
 [connection signal="drag_started" from="WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]

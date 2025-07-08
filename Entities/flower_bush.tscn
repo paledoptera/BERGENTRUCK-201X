@@ -1,7 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnn5y7tkfk8rg"]
+[gd_scene load_steps=11 format=3 uid="uid://bnn5y7tkfk8rg"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
 [ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/flower bush.png" id="2_j58kf"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="2_x4tte"]
+
+[sub_resource type="Resource" id="Resource_nbtnd"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("2_x4tte")
+drop_chance = 100
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_x4tte"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("2_x4tte")
+drop_chance = 50
+speed_effect = 100
+drop_amount_min = 0
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_d4hl2"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("2_x4tte")
+drop_chance = 30
+speed_effect = 100
+drop_amount_min = 0
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x4tte"]
 radius = 5.03302
@@ -24,6 +53,8 @@ billboard_keep_scale = true
 grow_amount = 0.615
 
 [node name="FlowerBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_jvw54")]
+hp = 1
+items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd"), SubResource("Resource_x4tte"), SubResource("Resource_d4hl2")])
 solid = false
 stompable = true
 collision_shape = NodePath("CollisionShape3D")

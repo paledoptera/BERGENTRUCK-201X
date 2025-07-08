@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnn5y7tkfk8rg"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
+[ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/flower bush.png" id="2_j58kf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x4tte"]
+radius = 5.03302
+height = 11.401
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d4hl2"]
+size = Vector2(10, 10)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbtnd"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_j58kf")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.615
+
+[node name="FlowerBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_jvw54")]
+solid = false
+stompable = true
+collision_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46399, 0)
+shape = SubResource("CapsuleShape3D_x4tte")
+
+[node name="FlowerBush" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83706, 0)
+mesh = SubResource("PlaneMesh_d4hl2")
+surface_material_override/0 = SubResource("StandardMaterial3D_nbtnd")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bos6rfssdin4y"]
+
+[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="1_qgafo"]
+
+[node name="Entity" type="Area3D"]
+script = ExtResource("1_qgafo")

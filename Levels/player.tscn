@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=15 format=3 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -16,6 +16,9 @@ bottom_radius = 500.0
 height = 400.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpukm"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 cull_mode = 1
 shading_mode = 0
 albedo_texture = ExtResource("8_ln1lg")
@@ -27,12 +30,18 @@ texture_filter = 0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xeq3v"]
 radius = 49.02
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wpukm"]
+radius = 1.52588
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wpukm"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_vyvq2")
 
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 top_level = true
+visible = false
 mesh = SubResource("CylinderMesh_ln1lg")
 surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 
@@ -80,7 +89,6 @@ position = Vector2(32, 32)
 
 [node name="Marker2D3" type="Marker2D" parent="WidgetGear"]
 position = Vector2(213.5, 32)
-scale = Vector2(1, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="WidgetGear"]
 position = Vector2(427, 32)
@@ -106,12 +114,27 @@ position = Vector2(134, 194)
 shape = SubResource("CircleShape2D_xeq3v")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.876307, 0.481754, 0, -0.481754, 0.876307, 0, 1.5, 1.619)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 0)
+keep_aspect = 0
 current = true
-fov = 90.0
-size = 6.128
+fov = 100.0
+size = 0.075
+near = 0.1
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.875616, 0, 0.483007, 0, 1, 0, -0.483007, 0, 0.875616, 0, 4.48697, 0.294868)
+shape = SubResource("SphereShape3D_wpukm")
+debug_color = Color(0, 1, 0.486275, 0.972549)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+shape = SubResource("BoxShape3D_wpukm")
+debug_color = Color(0.941176, 0, 0.619608, 1)
 
 [connection signal="drag_started" from="WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
 
 [editable path="WidgetGear"]
 [editable path="WidgetWheel"]

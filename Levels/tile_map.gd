@@ -7,10 +7,32 @@ const ENTITIES = {
 			"scene_id": preload("uid://bujhn23r8iqh8")
 		},
 	
+	"treebig": {
+			"cell_id": 1,
+			"scene_id": preload("uid://b1827bq762t8p")
+		},
+	
+	"treesparse": {
+			"cell_id": 2,
+			"scene_id": preload("uid://diypywkpjhkox")
+		},
+	
+	"treepine": {
+			"cell_id": 3,
+			"scene_id": preload("uid://bkmg2kl55uhax")
+		},
+	
 	"flowerbush": {
 			"cell_id": 4,
 			"scene_id": preload("uid://bnn5y7tkfk8rg")
 		},
+	
+	"treegiant": {
+			"cell_id": 5,
+			"scene_id": preload("uid://dmu0m8eco3yyj")
+		},
+	
+
 	
 	}
 

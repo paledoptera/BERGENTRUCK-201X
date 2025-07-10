@@ -1,14 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=20 format=3 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
 [ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="3_umq7g"]
 [ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="4_ln1lg"]
-[ext_resource type="Texture2D" uid="uid://bbntqmtppwjx7" path="res://Levels/Assets/Visuals/asgore arm.png" id="5_umq7g"]
+[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="5_d1kdx"]
 [ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="5_wpukm"]
 [ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="6_yiue1"]
+[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="7_yiue1"]
+[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="8_7v3gk"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="8_ln1lg"]
+[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Assets/Visuals/arm upperarm.png" id="9_i638c"]
 [ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="9_wpukm"]
+[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="10_i638c"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ln1lg"]
 top_radius = 500.0
@@ -51,23 +55,46 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 [node name="Visuals" type="Sprite2D" parent="."]
 position = Vector2(160, 120)
 texture = ExtResource("2_xeq3v")
-offset = Vector2(0.5, 0)
+offset = Vector2(3.075, -1.565)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
+position = Vector2(106.575, 50.5)
+scale = Vector2(1.305, 1.305)
+texture = ExtResource("10_i638c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
+position = Vector2(35.575, 56)
+scale = Vector2(1.305, 1.305)
+texture = ExtResource("5_d1kdx")
 
 [node name="SteeringWheel" type="Sprite2D" parent="Visuals"]
-position = Vector2(-45, 60)
+position = Vector2(-56, 59)
 texture = ExtResource("3_umq7g")
 
 [node name="GearShift" type="Sprite2D" parent="Visuals"]
-position = Vector2(81, 94)
+position = Vector2(81, 129.5)
 texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
 
-[node name="AsgoreArm" type="Sprite2D" parent="Visuals"]
+[node name="Hand" type="Sprite2D" parent="Visuals"]
 z_index = 50
-position = Vector2(53, 67)
-texture = ExtResource("5_umq7g")
-offset = Vector2(0, 87.99)
+position = Vector2(42, 90)
+texture = ExtResource("7_yiue1")
+offset = Vector2(-10, 15)
 hframes = 2
+
+[node name="Forearm" type="Sprite2D" parent="Visuals/Hand"]
+show_behind_parent = true
+position = Vector2(-1, 57)
+texture = ExtResource("8_7v3gk")
+offset = Vector2(5, 53)
+
+[node name="UpperArm" type="Sprite2D" parent="Visuals/Hand/Forearm"]
+show_behind_parent = true
+position = Vector2(4.45293, 103.542)
+rotation = 0.125094
+texture = ExtResource("9_i638c")
+offset = Vector2(-3.78546, 60.0349)
 
 [node name="Asgore" type="Sprite2D" parent="Visuals"]
 z_index = 999
@@ -78,9 +105,9 @@ centered = false
 [node name="WidgetGear" parent="." instance=ExtResource("5_wpukm")]
 modulate = Color(0.760784, 0.760784, 0.760784, 0)
 offset_left = 198.0
-offset_top = 137.0
+offset_top = 172.5
 offset_right = 625.0
-offset_bottom = 201.0
+offset_bottom = 236.5
 scale = Vector2(0.225, 1.5)
 snap_speed = 0.9
 
@@ -98,7 +125,7 @@ position = Vector2(427, 32)
 
 [node name="WidgetWheel" parent="." instance=ExtResource("6_yiue1")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(116, 191)
+position = Vector2(105, 190)
 scale = Vector2(0.5, 0.54)
 drag_speed = 0.1
 snap_speed = 0.05
@@ -110,12 +137,12 @@ position = Vector2(0, -150)
 position = Vector2(0, -150)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 0)
 keep_aspect = 0
 current = true
 fov = 100.0
 size = 0.075
-near = 0.1
+near = 0.01
 
 [node name="Area3D" type="Area3D" parent="."]
 

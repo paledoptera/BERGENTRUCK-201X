@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdp7l4q8u8ijj"]
+[gd_scene load_steps=14 format=3 uid="uid://cdp7l4q8u8ijj"]
 
 [ext_resource type="Texture2D" uid="uid://c2p8146bn16ug" path="res://Levels/Assets/Visuals/sky.png" id="1_8a2b0"]
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_s41d2"]
-[ext_resource type="Texture2D" uid="uid://cgbls7vqt4a5m" path="res://Levels/Assets/Visuals/road texture.png" id="3_wav5q"]
+[ext_resource type="MeshLibrary" uid="uid://t256nq4u4bn2" path="res://Levels/Road.tres" id="3_t2u7g"]
 [ext_resource type="Script" uid="uid://belm43xw8eeo7" path="res://Levels/tile_map.gd" id="4_ecu0b"]
 [ext_resource type="MeshLibrary" uid="uid://cwklp3kpilfsp" path="res://Levels/TileLibrary.tres" id="4_xto7t"]
-[ext_resource type="PackedScene" uid="uid://dbkp7kbgorfc7" path="res://Levels/Assets/Visuals/level1.blend" id="5_t80w2"]
 [ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="5_uhyyw"]
 [ext_resource type="Texture2D" uid="uid://xdxd7xkm753k" path="res://Levels/Assets/Visuals/shadow.png" id="7_8a2b0"]
 
@@ -35,26 +34,28 @@ size = Vector2(3000, 3000)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ecu0b"]
 size = Vector3(3000, 3.27875, 3000)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a2b0"]
-resource_name = "Road"
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("3_wav5q")
-texture_filter = 0
-
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_54b6e")
 
 [node name="Player" parent="." instance=ExtResource("1_s41d2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44324, 1.55851, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.443, 2.5, 0)
 
-[node name="TileMap" type="GridMap" parent="."]
+[node name="Road" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -50, 0)
+mesh_library = ExtResource("3_t2u7g")
+cell_size = Vector3(100, 100, 100)
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 65535, 65534, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 4, 2, 65528, 1441792, 3, 65528, 1441792, 4, 65528, 1441792, 5, 65528, 1441792, 6, 65528, 1441792, 7, 65528, 1441792, 8, 65528, 1441792, 9, 65528, 1441792, 10, 65528, 1441793, 11, 65530, 655360, 11, 65531, 655360, 11, 65532, 655360, 11, 65533, 655360, 11, 65534, 1048583, 12, 65534, 1048576, 10, 65534, 1048576, 9, 65534, 1048576, 8, 65534, 1048576, 6, 65535, 1, 6, 0, 655360, 6, 1, 655360, 6, 2, 655365, 6, 4, 655366, 6, 7, 6, 6, 9, 5, 13, 65534, 1441793, 14, 0, 655360, 14, 1, 655360, 14, 2, 655360, 14, 3, 655360, 14, 4, 655363, 11, 7, 1, 11, 8, 655360, 11, 9, 655361, 9, 10, 1048576, 8, 10, 1048576, 7, 10, 1048576, 6, 10, 1048583, 5, 10, 1048576, 4, 10, 1048576, 3, 10, 1048576, 2, 10, 1048576, 1, 10, 1048577, 0, 7, 655366, 0, 5, 655365, 0, 4, 655360, 0, 3, 655360, 0, 1, 1441794, 0, 2, 0, 65535, 1, 1048578, 65535, 0, 0)
+}
+
+[node name="Entities" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("4_xto7t")
 cell_size = Vector3(20, 20, 20)
 data = {
-"cells": PackedInt32Array(30, 65338, 4, 65535, 65533, 196608, 0, 65533, 196608, 1, 65533, 196608, 65534, 65533, 196608, 65533, 65533, 196608, 0, 65526, 196612, 1, 65527, 196612, 65535, 65527, 196612)
+"cells": PackedInt32Array(30, 65338, 4, 3, 65531, 5, 65532, 65528, 1048581, 3, 65524, 1048581, 65533, 65530, 1048577, 3, 65525, 1048579, 65533, 65526, 1048578)
 }
 script = ExtResource("4_ecu0b")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
@@ -71,16 +72,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.72654, 0)
 shape = SubResource("BoxShape3D_ecu0b")
 debug_color = Color(0.94902, 0, 0.568627, 1)
 
-[node name="level1" parent="." instance=ExtResource("5_t80w2")]
-
-[node name="Road" parent="level1" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8a2b0")
-
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0029, 0.0276303, -14.5641)
 pixel_size = 0.2
 axis = 1
 texture_filter = 0
 texture = ExtResource("7_8a2b0")
-
-[editable path="level1"]

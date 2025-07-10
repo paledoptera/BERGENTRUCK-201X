@@ -16,6 +16,7 @@ var siner = 0.0
 var friction = 1.0
 var car_velocity = Vector3.ZERO
 var last_direction = Vector2.ZERO
+var hp = 100
 
 
 #func _steering_wheel_get_y(event_position):
@@ -28,9 +29,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("click"):
-		$Visuals/AsgoreArm.frame = 1
+		$Visuals/Hand.frame = 1
 	else:
-		$Visuals/AsgoreArm.frame = 0
+		$Visuals/Hand.frame = 0
 	
 	siner += delta
 	turn_angle.x = $WidgetWheel.value.x
@@ -89,11 +90,11 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector3(car_velocity.x, velocity.y, car_velocity.z)#velocity.move_toward(car_velocity,friction)
 	move_and_slide()
 	
-	$Visuals/AsgoreArm.global_position = $Visuals.get_global_mouse_position()
-	$Visuals/AsgoreArm.rotation = (-200+$Visuals.get_global_mouse_position().x)/320
+	$Visuals/Hand.global_position = $Visuals.get_global_mouse_position()
+	$Visuals/Hand.rotation = (-200+$Visuals.get_global_mouse_position().x)/320
 	if $WidgetWheel/DraggableItem.drag:
-		$Visuals/AsgoreArm.global_position = $Visuals/SteeringWheel.global_position+$Visuals/SteeringWheel.global_position.direction_to($Visuals/AsgoreArm.global_position)*62.5
-		$Visuals/AsgoreArm.rotation -= ($Visuals/SteeringWheel.global_position.angle_to($Visuals/AsgoreArm.global_position))/2
+		$Visuals/Hand.global_position = $Visuals/SteeringWheel.global_position+$Visuals/SteeringWheel.global_position.direction_to($Visuals/Hand.global_position)*62.5
+		$Visuals/Hand.rotation -= ($Visuals/SteeringWheel.global_position.angle_to($Visuals/Hand.global_position))/2
 
 	$Background.global_position = global_position
 

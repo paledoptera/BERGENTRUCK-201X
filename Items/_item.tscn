@@ -4,4 +4,11 @@
 
 [node name="Item" instance=ExtResource("1_o3gxl")]
 
+[node name="Timer" type="Timer" parent="." index="3"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
 [editable path="DraggableItem"]

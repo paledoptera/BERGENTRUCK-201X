@@ -1,135 +1,54 @@
-[gd_scene load_steps=18 format=3 uid="uid://dumjjo7i6g7hs"]
+[gd_scene load_steps=8 format=3 uid="uid://dumjjo7i6g7hs"]
 
-[ext_resource type="Texture2D" uid="uid://c4sf6rpiu2a44" path="res://Entities/Assets/Visuals/tree.png" id="1_o3mp4"]
-[ext_resource type="Texture2D" uid="uid://d1mdkawxifsd7" path="res://Entities/Assets/Visuals/bigtree.png" id="2_p0f0o"]
-[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/gianttree.png" id="3_56fxl"]
-[ext_resource type="Texture2D" uid="uid://dvayhq68f83oe" path="res://Entities/Assets/Visuals/sparsetree.png" id="3_pbx4q"]
-[ext_resource type="Texture2D" uid="uid://b70stsktcni20" path="res://Entities/Assets/Visuals/pinetree.png" id="4_qnx6e"]
-[ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/flower bush.png" id="5_x3v7g"]
+[sub_resource type="BoxMesh" id="BoxMesh_qnx6e"]
+size = Vector3(40, 40, 40)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_o3mp4"]
-size = Vector2(20, 20)
-orientation = 2
+[sub_resource type="BoxMesh" id="BoxMesh_x3v7g"]
+size = Vector3(80, 80, 80)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0f0o"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("1_o3mp4")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
+[sub_resource type="BoxMesh" id="BoxMesh_p0f0o"]
+size = Vector3(80, 80, 80)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_pbx4q"]
-size = Vector2(40, 40)
-orientation = 2
+[sub_resource type="BoxMesh" id="BoxMesh_pbx4q"]
+size = Vector3(160, 160, 160)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6ow8"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("2_p0f0o")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
+[sub_resource type="BoxMesh" id="BoxMesh_o3mp4"]
+size = Vector3(60, 80, 60)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_x3v7g"]
-size = Vector2(80, 80)
-orientation = 2
+[sub_resource type="BoxMesh" id="BoxMesh_donge"]
+size = Vector3(20, 20, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2dxr"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("3_56fxl")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qnx6e"]
-size = Vector2(25, 40)
-orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3v7g"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("3_pbx4q")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56fxl"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("4_qnx6e")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_56fxl"]
-size = Vector2(10, 10)
-orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs2bt"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("5_x3v7g")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3mp4"]
+albedo_color = Color(0, 0.894285, 0.895487, 1)
 
 [node name="TileLibrary" type="Node3D"]
 
 [node name="Tree" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.75792, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 visible = false
-mesh = SubResource("PlaneMesh_o3mp4")
-surface_material_override/0 = SubResource("StandardMaterial3D_p0f0o")
+mesh = SubResource("BoxMesh_qnx6e")
 
 [node name="TreeBig" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.4474, 0)
-mesh = SubResource("PlaneMesh_pbx4q")
-surface_material_override/0 = SubResource("StandardMaterial3D_y6ow8")
-
-[node name="TreeGiant" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.3574, 0)
-mesh = SubResource("PlaneMesh_x3v7g")
-surface_material_override/0 = SubResource("StandardMaterial3D_e2dxr")
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 40, 0)
+visible = false
+mesh = SubResource("BoxMesh_x3v7g")
 
 [node name="TreeSparse" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.2369, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
 visible = false
-mesh = SubResource("PlaneMesh_qnx6e")
-surface_material_override/0 = SubResource("StandardMaterial3D_x3v7g")
+mesh = SubResource("BoxMesh_p0f0o")
+
+[node name="TreeGiant" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 0)
+visible = false
+mesh = SubResource("BoxMesh_pbx4q")
 
 [node name="TreePine" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
 visible = false
-mesh = SubResource("PlaneMesh_qnx6e")
-surface_material_override/0 = SubResource("StandardMaterial3D_56fxl")
+mesh = SubResource("BoxMesh_o3mp4")
 
 [node name="FlowerBush" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83706, 0)
-mesh = SubResource("PlaneMesh_56fxl")
-surface_material_override/0 = SubResource("StandardMaterial3D_bs2bt")
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 10, 0)
+mesh = SubResource("BoxMesh_donge")
+surface_material_override/0 = SubResource("StandardMaterial3D_o3mp4")

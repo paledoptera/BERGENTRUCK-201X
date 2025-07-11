@@ -1,45 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bujhn23r8iqh8"]
+[gd_scene load_steps=5 format=3 uid="uid://bujhn23r8iqh8"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p4wtv"]
 [ext_resource type="Texture2D" uid="uid://c4sf6rpiu2a44" path="res://Entities/Assets/Visuals/tree.png" id="2_q1jem"]
 [ext_resource type="Texture2D" uid="uid://xdxd7xkm753k" path="res://Levels/Assets/Visuals/shadow.png" id="3_pnx8q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pnx8q"]
-radius = 6.77824
-height = 16.8961
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_rlqi6"]
-size = Vector2(20, 20)
-orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d36mn"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("2_q1jem")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
+radius = 15.0
+height = 40.0
 
 [node name="Tree" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_p4wtv")]
 collision_shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409634, 7.07889, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 shape = SubResource("CapsuleShape3D_pnx8q")
 
 [node name="Shadow" type="Sprite3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 sorting_offset = -50.0
-pixel_size = 0.095
+modulate = Color(1, 1, 1, 0.392157)
+pixel_size = 0.4018
 texture_filter = 0
 texture = ExtResource("3_pnx8q")
 
-[node name="Tree" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.75792, 0)
-mesh = SubResource("PlaneMesh_rlqi6")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_d36mn")
+[node name="Sprite3D" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+sorting_offset = 50.0
+pixel_size = 0.3125
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_q1jem")

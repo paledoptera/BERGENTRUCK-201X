@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6isk1oqmri8h"]
+[gd_scene load_steps=5 format=3 uid="uid://b6isk1oqmri8h"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_gi2e2"]
 [ext_resource type="Texture2D" uid="uid://dyr6s7eqrecta" path="res://Items/Assets/Visuals/flower.png" id="2_fw78p"]
+[ext_resource type="AudioStream" uid="uid://bwrewdkj3pqlf" path="res://Global/SFX/Sniff.wav" id="2_gfcs1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
 radius = 37.0135
 
-[node name="Item" instance=ExtResource("1_gi2e2")]
+[node name="Flower" instance=ExtResource("1_gi2e2")]
+use_sound = ExtResource("2_gfcs1")
 
 [node name="TextureRect" parent="DraggableItem" index="1"]
 texture = ExtResource("2_fw78p")

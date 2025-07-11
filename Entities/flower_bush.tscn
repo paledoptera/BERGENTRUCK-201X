@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnn5y7tkfk8rg"]
+[gd_scene load_steps=7 format=3 uid="uid://bnn5y7tkfk8rg"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
@@ -14,47 +14,13 @@ drop_amount_min = 1
 drop_amount_max = 1
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
-[sub_resource type="Resource" id="Resource_x4tte"]
-script = ExtResource("2_d4hl2")
-item = ExtResource("2_x4tte")
-drop_chance = 50
-speed_effect = 100
-drop_amount_min = 0
-drop_amount_max = 1
-metadata/_custom_type_script = "uid://x4oraccw1vua"
-
-[sub_resource type="Resource" id="Resource_d4hl2"]
-script = ExtResource("2_d4hl2")
-item = ExtResource("2_x4tte")
-drop_chance = 30
-speed_effect = 100
-drop_amount_min = 0
-drop_amount_max = 1
-metadata/_custom_type_script = "uid://x4oraccw1vua"
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x4tte"]
-radius = 5.03302
-height = 11.401
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_d4hl2"]
-size = Vector2(10, 10)
-orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbtnd"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-cull_mode = 2
-shading_mode = 0
-albedo_texture = ExtResource("2_j58kf")
-texture_filter = 0
-billboard_mode = 1
-billboard_keep_scale = true
-grow_amount = 0.615
+radius = 20.5542
+height = 41.1085
 
 [node name="FlowerBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_jvw54")]
 hp = 1
-items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd"), SubResource("Resource_x4tte"), SubResource("Resource_d4hl2")])
+items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd")])
 solid = false
 stompable = true
 collision_shape = NodePath("CollisionShape3D")
@@ -62,8 +28,12 @@ collision_shape = NodePath("CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46399, 0)
 shape = SubResource("CapsuleShape3D_x4tte")
+debug_color = Color(0, 1, 0.286275, 1)
 
-[node name="FlowerBush" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83706, 0)
-mesh = SubResource("PlaneMesh_d4hl2")
-surface_material_override/0 = SubResource("StandardMaterial3D_nbtnd")
+[node name="Sprite3D" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.05371, 0)
+sorting_offset = 50.0
+pixel_size = 0.3
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_j58kf")

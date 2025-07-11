@@ -334,46 +334,54 @@ shadow_mesh = SubResource("ArrayMesh_o4yf2")
 [node name="RoadTiles" type="Node3D"]
 
 [node name="Straight" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
+visible = false
 mesh = SubResource("ArrayMesh_a8a0c")
 skeleton = NodePath("")
 
 [node name="Turn" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0.2, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
+visible = false
 mesh = SubResource("ArrayMesh_osu8x")
 skeleton = NodePath("")
 
 [node name="TurnLong" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0.2, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0.01, -5)
+visible = false
 mesh = SubResource("ArrayMesh_r3sk8")
 skeleton = NodePath("")
 
 [node name="TurnLongMax" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0.2, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0.001, -5)
+visible = false
 mesh = SubResource("ArrayMesh_yxcti")
 skeleton = NodePath("")
 
 [node name="TurnSharp" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0.2, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0.001, -5)
+visible = false
 mesh = SubResource("ArrayMesh_1j4hn")
 skeleton = NodePath("")
 
 [node name="Wiggly" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
+visible = false
 mesh = SubResource("ArrayMesh_wrhh7")
 skeleton = NodePath("")
 
 [node name="WigglyBend" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
+visible = false
 mesh = SubResource("ArrayMesh_gl6pq")
 skeleton = NodePath("")
 
 [node name="Junction" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
+visible = false
 mesh = SubResource("ArrayMesh_vetll")
 skeleton = NodePath("")
 
 [node name="JunctionCross" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, -50, 0, 50)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5, 0, -5)
 mesh = SubResource("ArrayMesh_2vgi1")
 skeleton = NodePath("")

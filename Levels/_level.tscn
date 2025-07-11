@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmfdo622wwei3"]
+
+[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="1_4ntuo"]
+[ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
+[ext_resource type="MeshLibrary" uid="uid://t256nq4u4bn2" path="res://Levels/Road.tres" id="3_eybv3"]
+[ext_resource type="MeshLibrary" uid="uid://cwklp3kpilfsp" path="res://Levels/TileLibrary.tres" id="4_wnisn"]
+[ext_resource type="Script" uid="uid://belm43xw8eeo7" path="res://Levels/tile_map.gd" id="5_43noc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ntuo"]
+size = Vector3(2000, 1, 2000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nv0ke"]
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_4ntuo")
+texture_filter = 0
+disable_receive_shadows = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eybv3"]
+size = Vector3(3000, 2, 3000)
+
+[node name="Level" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_nv0ke")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_4ntuo")
+surface_material_override/0 = SubResource("StandardMaterial3D_nv0ke")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_eybv3")
+debug_color = Color(0.94902, 0, 0.568627, 1)
+
+[node name="Road" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9, 0)
+mesh_library = ExtResource("3_eybv3")
+cell_size = Vector3(10, 10, 10)
+
+[node name="Entities" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh_library = ExtResource("4_wnisn")
+cell_size = Vector3(5, 5, 5)
+data = {
+"cells": PackedInt32Array(30, 65338, 4)
+}
+script = ExtResource("5_43noc")
+metadata/_editor_floor_ = Vector3(0, 0, 0)

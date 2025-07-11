@@ -40,7 +40,7 @@ const ENTITIES = {
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	position.y -= 4
+	position.y -= 11
 	for val in ENTITIES:
 		var entity = ENTITIES.get(val)
 		var used_cells = get_used_cells_by_id(entity.get("cell_id"))

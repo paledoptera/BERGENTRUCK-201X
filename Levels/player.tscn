@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=22 format=3 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -37,13 +37,23 @@ radius = 1.52588
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpukm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpukm"]
-size = Vector2(337, 20)
+size = Vector2(460, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
-size = Vector2(131, 158)
+size = Vector2(52.25, 122)
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
+size = Vector2(290, 2000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1kdx"]
+radius = 23.91
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("widget_gear", "widget_wheel", "visual_gear", "visual_wheel")]
 script = ExtResource("1_vyvq2")
+widget_gear = NodePath("Visuals/WidgetGear")
+widget_wheel = NodePath("Visuals/WidgetWheel")
+visual_gear = NodePath("Visuals/WidgetGear/GearShift")
+visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
 
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -53,7 +63,7 @@ mesh = SubResource("CylinderMesh_ln1lg")
 surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 
 [node name="Visuals" type="Sprite2D" parent="."]
-position = Vector2(160, 120)
+position = Vector2(160, 130)
 texture = ExtResource("2_xeq3v")
 offset = Vector2(3.075, -1.565)
 
@@ -63,16 +73,51 @@ scale = Vector2(1.305, 1.305)
 texture = ExtResource("10_i638c")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
+visible = false
 position = Vector2(35.575, 56)
 scale = Vector2(1.305, 1.305)
 texture = ExtResource("5_d1kdx")
 
-[node name="SteeringWheel" type="Sprite2D" parent="Visuals"]
-position = Vector2(-56, 59)
+[node name="WidgetWheel" parent="Visuals" instance=ExtResource("6_yiue1")]
+position = Vector2(-60, 40)
+scale = Vector2(0.5, 0.5)
+drag_speed = 0.1
+snap_speed = 0.05
+
+[node name="Marker2D" parent="Visuals/WidgetWheel/Notches" index="0"]
+position = Vector2(0, -150)
+
+[node name="DraggableItem" parent="Visuals/WidgetWheel" index="3"]
+position = Vector2(0, -150)
+
+[node name="SteeringWheel" type="Sprite2D" parent="Visuals/WidgetWheel"]
+position = Vector2(0, -6.00001)
+scale = Vector2(2, 2)
 texture = ExtResource("3_umq7g")
 
-[node name="GearShift" type="Sprite2D" parent="Visuals"]
-position = Vector2(81, 129.5)
+[node name="WidgetGear" parent="Visuals" instance=ExtResource("5_wpukm")]
+offset_left = 38.0
+offset_top = 42.5
+offset_right = 465.0
+offset_bottom = 106.5
+scale = Vector2(0.225, 1.5)
+snap_speed = 0.9
+
+[node name="DraggableItem" parent="Visuals/WidgetGear" index="1"]
+scale = Vector2(1.62, 0.5)
+
+[node name="Marker2D" type="Marker2D" parent="Visuals/WidgetGear"]
+position = Vector2(32, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="Visuals/WidgetGear"]
+position = Vector2(213.5, 32)
+
+[node name="Marker2D2" type="Marker2D" parent="Visuals/WidgetGear"]
+position = Vector2(427, 32)
+
+[node name="GearShift" type="Sprite2D" parent="Visuals/WidgetGear"]
+position = Vector2(191.111, 58)
+scale = Vector2(4.44444, 0.666667)
 texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
 
@@ -102,46 +147,12 @@ position = Vector2(-210, -127)
 texture = ExtResource("9_wpukm")
 centered = false
 
-[node name="WidgetGear" parent="." instance=ExtResource("5_wpukm")]
-modulate = Color(0.760784, 0.760784, 0.760784, 0)
-offset_left = 198.0
-offset_top = 172.5
-offset_right = 625.0
-offset_bottom = 236.5
-scale = Vector2(0.225, 1.5)
-snap_speed = 0.9
-
-[node name="DraggableItem" parent="WidgetGear" index="1"]
-scale = Vector2(1.62, 0.5)
-
-[node name="Marker2D" type="Marker2D" parent="WidgetGear"]
-position = Vector2(32, 32)
-
-[node name="Marker2D3" type="Marker2D" parent="WidgetGear"]
-position = Vector2(213.5, 32)
-
-[node name="Marker2D2" type="Marker2D" parent="WidgetGear"]
-position = Vector2(427, 32)
-
-[node name="WidgetWheel" parent="." instance=ExtResource("6_yiue1")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(105, 190)
-scale = Vector2(0.5, 0.54)
-drag_speed = 0.1
-snap_speed = 0.05
-
-[node name="Marker2D" parent="WidgetWheel/Notches" index="0"]
-position = Vector2(0, -150)
-
-[node name="DraggableItem" parent="WidgetWheel" index="3"]
-position = Vector2(0, -150)
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 0.894934, 0.446198, 0, -0.446198, 0.894934, 0, 1.5, 0)
 keep_aspect = 0
 current = true
 fov = 100.0
-size = 0.075
+size = 2000.0
 near = 0.01
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -160,20 +171,54 @@ debug_color = Color(0.941176, 0, 0.619608, 1)
 position = Vector2(0, 284)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(158.5, 0)
+position = Vector2(163, 0)
 shape = SubResource("RectangleShape2D_wpukm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-61.5, -69)
+position = Vector2(-93, -51)
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(387, -69)
+position = Vector2(418.875, -51)
 shape = SubResource("RectangleShape2D_yiue1")
 
-[connection signal="drag_started" from="WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[node name="ItemDespawnZone" type="Area2D" parent="."]
 
-[editable path="WidgetGear"]
-[editable path="WidgetWheel"]
-[editable path="WidgetWheel/DraggableItem"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDespawnZone"]
+position = Vector2(-264, 17.5)
+shape = SubResource("RectangleShape2D_d1kdx")
+debug_color = Color(0.992855, 0, 0.246118, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ItemDespawnZone"]
+position = Vector2(590, 18)
+shape = SubResource("RectangleShape2D_d1kdx")
+debug_color = Color(0.992855, 0, 0.246118, 0.42)
+
+[node name="FaceZone" type="Area2D" parent="."]
+position = Vector2(-10, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FaceZone"]
+position = Vector2(61, 183)
+shape = SubResource("CircleShape2D_d1kdx")
+debug_color = Color(0.976471, 0.482353, 0, 0.717647)
+
+[node name="FaceActionTimer" type="Timer" parent="."]
+wait_time = 0.33
+one_shot = true
+
+[node name="SpawnZone" type="ColorRect" parent="."]
+offset_left = 79.0
+offset_top = -259.0
+offset_right = 320.0
+offset_bottom = -159.0
+
+[connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="ItemDespawnZone" to="." method="_on_item_despawn_zone_body_entered"]
+[connection signal="body_entered" from="FaceZone" to="." method="_item_entered_face"]
+[connection signal="body_exited" from="FaceZone" to="." method="_item_exited_face"]
+[connection signal="timeout" from="FaceActionTimer" to="." method="_item_action_timeout"]
+
+[editable path="Visuals/WidgetWheel"]
+[editable path="Visuals/WidgetWheel/DraggableItem"]
+[editable path="Visuals/WidgetGear"]

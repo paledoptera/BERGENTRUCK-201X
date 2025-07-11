@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Utility="*res://Utility.gd"
+Audio="*res://Common/Audio.gd"
+Global="*res://global.gd"
 
 [display]
 

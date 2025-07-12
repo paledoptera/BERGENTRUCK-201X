@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b30enj4fl0sv6"
-path.s3tc="res://.godot/imported/gianttree.png-22e7e7a9279eb61d2949b91d12361d3d.s3tc.ctex"
+uid="uid://d1mdkawxifsd7"
+path.s3tc="res://.godot/imported/tree_big.png-233e1f003dda82b63039633229533f13.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Assets/Visuals/gianttree.png"
-dest_files=["res://.godot/imported/gianttree.png-22e7e7a9279eb61d2949b91d12361d3d.s3tc.ctex"]
+source_file="res://Entities/Assets/Visuals/tree_big.png"
+dest_files=["res://.godot/imported/tree_big.png-233e1f003dda82b63039633229533f13.s3tc.ctex"]
 
 [params]
 

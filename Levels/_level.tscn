@@ -24,8 +24,10 @@ size = Vector3(3000, 2, 3000)
 [node name="Level" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nv0ke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.648905, 9.33571)
 
 [node name="Floor" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -39,6 +41,7 @@ debug_color = Color(0.94902, 0, 0.568627, 1)
 
 [node name="Road" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9, 0)
+visible = false
 mesh_library = ExtResource("3_eybv3")
 cell_size = Vector3(10, 10, 10)
 

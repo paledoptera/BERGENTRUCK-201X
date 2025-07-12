@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_qsfim"]
 [ext_resource type="Texture2D" uid="uid://xdxd7xkm753k" path="res://Levels/Assets/Visuals/shadow.png" id="2_bdwmb"]
-[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/gianttree.png" id="3_qsfim"]
+[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="3_qsfim"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r8lw4"]
 radius = 19.9014

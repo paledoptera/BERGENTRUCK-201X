@@ -11,12 +11,14 @@ const DRIFT_ACCELERATION = 0.01
 @export var visual_gear : Node
 @export var visual_wheel : Node
 @export var visual_asgore : Node
+@export var entities : Node
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
 var last_turn_speed = 0.0
 var turn_start_y = 0.0
 var gear: int = 1
 var speed: float = 0.0
+var horn: bool = false
 var angle = 0.0
 var drift = 0.0
 var siner = 0.0
@@ -24,6 +26,7 @@ var friction = 1.0
 
 var car_position = Vector3.ZERO
 var car_velocity = Vector3.ZERO
+var last_velocity = Vector3.ZERO
 var car_angle = Vector2.ZERO
 var car_shake = Vector2.ZERO
 
@@ -38,11 +41,15 @@ var current_items_in_face_region : Array[Item]
 
 func _ready() -> void:
 	$Background.visible = true
+	_correct_sprite_size($Ground)
+	
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	last_velocity = car_velocity
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
+	entities.rotation.x += car_velocity.z
 	#$Ground.rotation.x += (0.003*speed)*friction
 	
 	var last_velocity = car_velocity
@@ -51,14 +58,15 @@ func _physics_process(delta: float) -> void:
 	speed = lerp(speed,float(gear*3.34),friction*delta)
 	_steering_mechanics()
 	_hand_visuals()
+	_horn_mechanics(delta)
 	_shake(delta)
 	
 	
-	$Camera3D.position = lerp($Camera3D.position,car_position+Vector3(10,8,10),(friction*5)*delta)
+	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,(friction*5)*delta)
 	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
 	$Visuals.rotation = lerp($Visuals.rotation,visuals_angle*0.6,0.45)
 	$Visuals.global_position.x = (160+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)))+(car_shake.x)
-	$Visuals.global_position.y = (130+(car_shake.y))
+	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*30),0.4)
 	$Visuals.skew = ((-visuals_angle)*(1-friction))/2
 	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)),0.3)
 	visual_asgore.position.y = -127+((hand.position.y)/50)
@@ -130,7 +138,8 @@ func _steering_mechanics() -> void:
 	friction = clamp(friction, 0.0, 1.0)
 	friction = lerp(friction,1.0,0.1)
 	
-	car_position.x += (car_angle.x)*friction
+	car_velocity.x = (car_angle.x)*friction
+	car_position.x += car_velocity.x
 	
 	
 	
@@ -285,3 +294,39 @@ func _shake(delta: float) -> void:
 		#
 	#print("car_shake: ", car_shake)
 	#car_shake *= 0.9
+
+func _horn_mechanics(delta: float) -> void:
+	car_velocity.y -= 1*delta
+	if car_velocity.y > 0:
+		car_velocity.y *= 0.9
+	print(car_velocity.y)
+	
+	$Camera3D.position.y += car_velocity.y
+	
+	if $Camera3D.position.y <= 8.0:
+		$Camera3D.position.y = 8.0
+		car_velocity.y = 0
+		
+func _horn(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				horn = true
+				if $Camera3D.position.y == 8.0:
+					car_velocity.y = 1
+			elif not event.pressed:
+				horn = false
+				if car_velocity.y > 0:
+					car_velocity.y *= 0.4
+
+func _correct_sprite_size(object: Node) -> void:
+	var children = object.get_children()
+	
+	for child in children:
+		if child.get_child_count() > 0:
+			_correct_sprite_size(child)
+		if child is Sprite3D:
+			child.pixel_size = 0.06
+			child.offset.y = 64.0
+			child.sorting_offset = -999999
+			child.position.y += 2

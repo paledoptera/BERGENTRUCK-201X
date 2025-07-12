@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://p7xe4agr330n"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_ii0kp"]
+[ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="2_3rfto"]
+[ext_resource type="Script" uid="uid://rovgfym0g30y" path="res://Entities/knight.gd" id="2_qfq7r"]
+
+[node name="Knight" instance=ExtResource("1_ii0kp")]
+script = ExtResource("2_qfq7r")
+hp = 100
+solid = false
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+offset = Vector2(0, 30)
+pixel_size = 0.14
+billboard = 1
+texture = ExtResource("2_3rfto")

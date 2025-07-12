@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=25 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="9_wpukm"]
 [ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="10_i638c"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="14_hunlg"]
-[ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/chunk.tscn" id="15_hunlg"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ln1lg"]
 top_radius = 100.0
@@ -49,7 +48,7 @@ size = Vector2(290, 2000)
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1kdx"]
 radius = 23.91
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fwwsh"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_q103l"]
 _surfaces = [{
 "aabb": AABB(-67.5, -10, -10, 135, 20, 20),
 "format": 34896613377,
@@ -78,7 +77,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD///9//7/+/2H/c3P/w///////f/+/AABh/3Nz/8MAAGH/i4z/u///if0GZ//H/v9h/4uM/7sAAIn9Bmf/xwAAif34mP+3//98+tda/8v//4n9+Jj/twAAfPrXWv/LAAB8+iel/7P//0D2A0//z///fPonpf+zAABA9gNP/88AAED2+7D/r///4fCpQ//T//9A9vuw/68AAOHwqUP/0wAA4fBVvP+r/v9s6uI4/9f//+HwVbz/qwAAbOriOP/XAABs6hzH/6f///HizC7/2/7/bOocx/+nAADx4swu/9v+/4HafSX/3wAAgdp9Jf/fAADx4jLR/6P+//HiMtH/owAAgdqB2v+f//+B2oHa/58AAIHafSX/H/7/MtENHQAc/v+B2n0l/x8AADLRDR0AHP7/HMeSFf8XAAAcx5IV/xf+/1W8HQ8AFAAAVbwdDwAU/v/7sL4JABAAAPuwvgkAEP7/J6WCBQAMAAAnpYIFAAz+//iYdQIACAAA+Jh1AgAI/v+LjJ0A/wMAAIuMnQD/A/7//38AAAAAAAD/fwAAAAD+/3NznQD/AwAAc3OdAP8D/v8GZ3UCAAgAAAZndQIACP7/11qCBQAMAADXWoIFAAz+/wNPvgkAEAAAA0++CQAQ/v+pQx0PABQAAKlDHQ8AFP7/4jiSFf8XAADiOJIV/xf+/8wuDR0AHAAAzC4NHQAc/v99JX0l/x8AAH0lfSX/HwAAfSV9Jf8f/v8NHcwu/yP+/30lfSX/HwAADR3MLv8j/v+SFeI4/ycAAJIV4jj/J/7/HQ+pQ/8rAAAdD6lD/yv+/74JA0//LwAAvgkDT/8v/v+CBdda/zMAAIIF11r/M/7/dQIGZ/83AAB1AgZn/zf+/50Ac3P/OwAAnQBzc/87/v8AAP9//z8AAAAA/3//P/7/nQCLjP9DAACdAIuM/0P//3UC+Jj/RwAAdQL4mP9H//+CBSel/0sAAIIFJ6X/S///vgn7sP9PAAC+Cfuw/0///x0PVbz/UwAAHQ9VvP9T/v+SFRzH/1cAAJIVHMf/V/7/DR0y0f9bAAANHTLR/1v//30lgdr/XwAAfSWB2v9fAAB9JYHa/5///8wu8eL/m///fSWB2v+fAADMLvHi/5v//+I4bOr/lwAA4jhs6v+X//+pQ+Hw/5MAAKlD4fD/k/7/A09A9v+PAAADT0D2/4///9dafPr/iwAA11p8+v+L/v8GZ4n9/4cAAAZnif3/h///c3Nh//+DAABzc2H//4P///9///8AgAAA/3///wCA//+LjGH//4MAAIuMYf//g/7/+JiJ/f+HAAD4mIn9/4f//yelfPr/iwAAJ6V8+v+L/v/7sED2/48AAPuwQPb/j///Vbzh8P+TAABVvOHw/5P//xzHbOr/lwAAHMds6v+X//8y0fHi/5sAADLR8eL/m///gdqB2v+fAACB2oHa/5////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//3////9///////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_fwwsh")
+shadow_mesh = SubResource("ArrayMesh_q103l")
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore")]
 script = ExtResource("1_vyvq2")
@@ -113,16 +112,21 @@ scale = Vector2(1.305, 1.305)
 texture = ExtResource("5_d1kdx")
 
 [node name="WidgetWheel" parent="Visuals" instance=ExtResource("6_yiue1")]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-60, 90)
 scale = Vector2(0.5, 0.5)
 snap_to_cursor = false
 drag_speed = 0.1
 snap_speed = 0.05
 
+[node name="ColorRect" parent="Visuals/WidgetWheel" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+
 [node name="Marker2D" parent="Visuals/WidgetWheel/Notches" index="0"]
 position = Vector2(0, -150)
 
 [node name="DraggableItem" parent="Visuals/WidgetWheel" index="3"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -150)
 
 [node name="SteeringWheel" type="Sprite2D" parent="Visuals/WidgetWheel"]
@@ -131,7 +135,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_umq7g")
 
 [node name="WidgetGear" parent="Visuals" instance=ExtResource("5_wpukm")]
-self_modulate = Color(1, 1, 1, 0.466667)
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 62.0
 offset_top = 20.0
 offset_right = 489.0
@@ -141,6 +145,7 @@ snap_to_cursor = true
 snap_speed = 0.9
 
 [node name="DraggableItem" parent="Visuals/WidgetGear" index="1"]
+modulate = Color(1, 1, 1, 0)
 scale = Vector2(3.165, 0.5)
 
 [node name="Marker2D" type="Marker2D" parent="Visuals/WidgetGear"]
@@ -157,6 +162,13 @@ top_level = true
 position = Vector2(255, 247)
 texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
+
+[node name="Horn" type="ColorRect" parent="Visuals"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -80.0
+offset_top = 66.0
+offset_right = -40.0
+offset_bottom = 106.0
 
 [node name="Hand" type="Sprite2D" parent="Visuals"]
 z_index = 50
@@ -256,21 +268,8 @@ mesh = SubResource("ArrayMesh_hunlg")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("14_hunlg")
 
-[node name="Trees" type="Node3D" parent="Ground"]
-
-[node name="Chunk1" parent="Ground/Trees" instance=ExtResource("15_hunlg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Chunk2" parent="Ground/Trees" instance=ExtResource("15_hunlg")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-
-[node name="Chunk3" parent="Ground/Trees" instance=ExtResource("15_hunlg")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
-
-[node name="Chunk4" parent="Ground/Trees" instance=ExtResource("15_hunlg")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
+[connection signal="gui_input" from="Visuals/Horn" to="." method="_horn"]
 [connection signal="area_entered" from="Camera3D/Area3D" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="ItemDespawnZone" to="." method="_on_item_despawn_zone_body_entered"]
 [connection signal="body_entered" from="FaceZone" to="." method="_item_entered_face"]

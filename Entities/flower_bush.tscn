@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnn5y7tkfk8rg"]
+[gd_scene load_steps=6 format=3 uid="uid://bnn5y7tkfk8rg"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
@@ -14,26 +14,14 @@ drop_amount_min = 1
 drop_amount_max = 1
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x4tte"]
-radius = 20.5542
-height = 41.1085
-
-[node name="FlowerBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_jvw54")]
+[node name="FlowerBush" instance=ExtResource("1_jvw54")]
 hp = 1
 items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd")])
 solid = false
 stompable = true
-collision_shape = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46399, 0)
-shape = SubResource("CapsuleShape3D_x4tte")
-debug_color = Color(0, 1, 0.286275, 1)
-
-[node name="Sprite3D" type="Sprite3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.05371, 0)
-sorting_offset = 50.0
-pixel_size = 0.3
-billboard = 2
-texture_filter = 0
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+sorting_offset = -50.0
+offset = Vector2(0, 30)
+pixel_size = 0.08
 texture = ExtResource("2_j58kf")

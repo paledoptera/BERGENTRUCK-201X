@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bos6rfssdin4y"]
+[gd_scene load_steps=4 format=3 uid="uid://bos6rfssdin4y"]
 
 [ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="1_qgafo"]
+[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="2_qmwl5"]
 
-[node name="Entity" type="Area3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
+radius = 10.3834
+height = 20.7668
+
+[node name="Entity" type="Node3D"]
 script = ExtResource("1_qgafo")
+
+[node name="EntityContainer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntityContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.84367, 0)
+shape = SubResource("CapsuleShape3D_aqyan")
+debug_color = Color(0, 1, 0.286275, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="EntityContainer"]
+sorting_use_aabb_center = false
+pixel_size = 0.06
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_qmwl5")

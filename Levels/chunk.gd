@@ -2,6 +2,7 @@ extends Node3D
 class_name Chunk
 
 func _ready() -> void:
+	$GroundRef.visible = false
 	_correct_sprite_size(self)
 
 func _correct_sprite_size(object: Node) -> void:
@@ -12,4 +13,3 @@ func _correct_sprite_size(object: Node) -> void:
 			_correct_sprite_size(child)
 		if child is Sprite3D:
 			child.pixel_size = 0.06
-		

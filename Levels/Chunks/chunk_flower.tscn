@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqdss3tvo5rr"]
+
+[ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_y6khm"]
+[ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/flower_bush.tscn" id="2_n2rsl"]
+
+[node name="Chunk" instance=ExtResource("1_y6khm")]
+
+[node name="GroundRef" parent="." index="0"]
+visible = true
+
+[node name="FlowerBush" parent="." index="1" instance=ExtResource("2_n2rsl")]

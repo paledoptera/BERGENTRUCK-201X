@@ -1,0 +1,326 @@
+[gd_scene load_steps=6 format=3 uid="uid://b66rrowbfljuf"]
+
+[ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_3763n"]
+[ext_resource type="PackedScene" uid="uid://b1827bq762t8p" path="res://Entities/entity_tree.tscn" id="2_74yxu"]
+[ext_resource type="Texture2D" uid="uid://d1mdkawxifsd7" path="res://Entities/Assets/Visuals/tree_big.png" id="3_e5if2"]
+[ext_resource type="Texture2D" uid="uid://cysf0f7go2467" path="res://Entities/Assets/Visuals/tree_pine.png" id="4_6uaar"]
+[ext_resource type="Texture2D" uid="uid://cetvub4tbbdy2" path="res://Entities/Assets/Visuals/tree_sparse.png" id="5_axinm"]
+
+[node name="ChunkTrees1" instance=ExtResource("1_3763n")]
+
+[node name="Trees1" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Tree1" parent="Trees1" index="0" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3614, 0, 0)
+
+[node name="Tree2" parent="Trees1" index="1" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree2/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.932457, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree3" parent="Trees1" index="2" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -33.2844, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree3/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree4" parent="Trees1" index="3" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -37.1236, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree4/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+flip_h = true
+
+[node name="Tree5" parent="Trees1" index="4" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -34.5601, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree5/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -2.35921, 0, 0)
+texture = ExtResource("5_axinm")
+
+[node name="Tree6" parent="Trees1" index="5" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.642788, -0.766045, 0, 0.766045, 0.642788, -35.6288, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree6/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree7" parent="Trees1" index="6" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866026, 0, 0.866026, 0.5, -33.0017, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree7/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree8" parent="Trees1" index="7" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, -35.1833, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree8/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree9" parent="Trees1" index="8" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, -36.3244, 0, 0)
+
+[node name="Sprite3D" parent="Trees1/Tree9/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+
+[node name="Trees3" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="Tree1" parent="Trees3" index="0" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3614, 0, 0)
+
+[node name="Tree2" parent="Trees3" index="1" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree2/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.932457, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree3" parent="Trees3" index="2" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -33.2844, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree3/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree4" parent="Trees3" index="3" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -37.1236, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree4/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+flip_h = true
+
+[node name="Tree5" parent="Trees3" index="4" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -34.5601, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree5/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -2.35921, 0, 0)
+texture = ExtResource("5_axinm")
+
+[node name="Tree6" parent="Trees3" index="5" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.642788, -0.766045, 0, 0.766045, 0.642788, -35.6288, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree6/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree7" parent="Trees3" index="6" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866026, 0, 0.866026, 0.5, -33.0017, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree7/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree8" parent="Trees3" index="7" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, -35.1833, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree8/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree9" parent="Trees3" index="8" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, -36.3244, 0, 0)
+
+[node name="Sprite3D" parent="Trees3/Tree9/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+
+[node name="Trees2" type="Node3D" parent="." index="3"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Tree1" parent="Trees2" index="0" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree1/EntityContainer" index="1"]
+flip_h = true
+
+[node name="Tree2" parent="Trees2" index="1" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree2/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.932457, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree3" parent="Trees2" index="2" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -33.2844, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree3/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree4" parent="Trees2" index="3" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -37.1236, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree4/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+
+[node name="Tree5" parent="Trees2" index="4" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -34.5601, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree5/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -2.35921, 0, 0)
+flip_h = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree6" parent="Trees2" index="5" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.642788, -0.766045, 0, 0.766045, 0.642788, -35.6288, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree6/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree7" parent="Trees2" index="6" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866026, 0, 0.866026, 0.5, -33.0017, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree7/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree8" parent="Trees2" index="7" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, -35.1833, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree8/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree9" parent="Trees2" index="8" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, -36.3244, 0, 0)
+
+[node name="Sprite3D" parent="Trees2/Tree9/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+
+[node name="Trees4" type="Node3D" parent="." index="4"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="Tree1" parent="Trees4" index="0" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree1/EntityContainer" index="1"]
+flip_h = true
+
+[node name="Tree2" parent="Trees4" index="1" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -37.3614, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree2/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.932457, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree3" parent="Trees4" index="2" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -33.2844, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree3/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree4" parent="Trees4" index="3" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -37.1236, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree4/EntityContainer" index="1"]
+sorting_use_aabb_center = true
+
+[node name="Tree5" parent="Trees4" index="4" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -34.5601, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree5/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -2.35921, 0, 0)
+flip_h = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree6" parent="Trees4" index="5" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.642788, -0.766045, 0, 0.766045, 0.642788, -35.6288, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree6/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+flip_h = true
+texture = ExtResource("3_e5if2")
+
+[node name="Tree7" parent="Trees4" index="6" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866026, 0, 0.866026, 0.5, -33.0017, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree7/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("4_6uaar")
+
+[node name="Tree8" parent="Trees4" index="7" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, -35.1833, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree8/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+texture = ExtResource("5_axinm")
+
+[node name="Tree9" parent="Trees4" index="8" instance=ExtResource("2_74yxu")]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, -36.3244, 0, 0)
+
+[node name="Sprite3D" parent="Trees4/Tree9/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
+sorting_use_aabb_center = true
+
+[editable path="Trees1/Tree2"]
+[editable path="Trees1/Tree3"]
+[editable path="Trees1/Tree4"]
+[editable path="Trees1/Tree5"]
+[editable path="Trees1/Tree6"]
+[editable path="Trees1/Tree7"]
+[editable path="Trees1/Tree8"]
+[editable path="Trees1/Tree9"]
+[editable path="Trees3/Tree2"]
+[editable path="Trees3/Tree3"]
+[editable path="Trees3/Tree4"]
+[editable path="Trees3/Tree5"]
+[editable path="Trees3/Tree6"]
+[editable path="Trees3/Tree7"]
+[editable path="Trees3/Tree8"]
+[editable path="Trees3/Tree9"]
+[editable path="Trees2/Tree1"]
+[editable path="Trees2/Tree2"]
+[editable path="Trees2/Tree3"]
+[editable path="Trees2/Tree4"]
+[editable path="Trees2/Tree5"]
+[editable path="Trees2/Tree6"]
+[editable path="Trees2/Tree7"]
+[editable path="Trees2/Tree8"]
+[editable path="Trees2/Tree9"]
+[editable path="Trees4/Tree1"]
+[editable path="Trees4/Tree2"]
+[editable path="Trees4/Tree3"]
+[editable path="Trees4/Tree4"]
+[editable path="Trees4/Tree5"]
+[editable path="Trees4/Tree6"]
+[editable path="Trees4/Tree7"]
+[editable path="Trees4/Tree8"]
+[editable path="Trees4/Tree9"]

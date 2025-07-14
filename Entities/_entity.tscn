@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bos6rfssdin4y"]
+[gd_scene load_steps=5 format=3 uid="uid://bos6rfssdin4y"]
 
 [ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="1_qgafo"]
+[ext_resource type="AudioStream" uid="uid://bahw1y0vma66d" path="res://Global/SFX/Small Item Hit 2.wav" id="2_aqyan"]
 [ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="2_qmwl5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
@@ -9,6 +10,7 @@ height = 4.0
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_qgafo")
+hit_sound_impact = ExtResource("2_aqyan")
 
 [node name="EntityContainer" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)

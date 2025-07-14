@@ -7,8 +7,11 @@ class_name Entity
 @export var solid : bool = true
 @export var stompable : bool = false
 @export var damage : float = 0.0
+@export var car_jump_mult : float = 1.0
 @export var collision_shape : CollisionShape3D
 @export var pixel_size : float = 0.06
+@export var hit_sound_impact : AudioStream
+@export var hit_sound_effect : AudioStream
 
 func _ready() -> void:
 	$EntityContainer/Sprite3D.pixel_size = pixel_size
@@ -22,7 +25,8 @@ func _process(delta: float) -> void:
 		#$EntityContainer/Sprite3D.no_depth_test = false
 
 func hit(player) -> void:
-	if solid:
-		return
+	pass
+	#$HitSoundImpact.play()
+	#$HitSoundEffect.play()
 	#player
 	#rotation_degrees.x -= 20

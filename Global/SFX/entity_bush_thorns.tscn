@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn8w7uupns846"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_6ipe1"]
+[ext_resource type="AudioStream" uid="uid://cfwg8525vo6lm" path="res://Global/SFX/Small Item Hit 1.wav" id="2_tymhi"]
+[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="3_jgfxf"]
+[ext_resource type="Texture2D" uid="uid://tyf1jytfl8nd" path="res://Entities/Assets/Visuals/bush_thorns.png" id="4_xr5a3"]
+
+[node name="ThornBush" instance=ExtResource("1_6ipe1")]
+hp = 1
+solid = false
+stompable = true
+damage = 1.0
+pixel_size = 0.1
+hit_sound_impact = ExtResource("2_tymhi")
+hit_sound_effect = ExtResource("3_jgfxf")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = ExtResource("4_xr5a3")

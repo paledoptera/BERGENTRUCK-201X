@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=29 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="4_ln1lg"]
 [ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="5_d1kdx"]
 [ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="5_wpukm"]
+[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Assets/Visuals/speedometer dial.png" id="6_3ckti"]
 [ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="6_yiue1"]
 [ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="7_yiue1"]
 [ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="8_7v3gk"]
@@ -14,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="9_wpukm"]
 [ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="10_i638c"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="14_hunlg"]
+[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="15_hunlg"]
+[ext_resource type="AudioStream" uid="uid://hwdnkrvj4wpm" path="res://Global/SFX/Screech.wav" id="16_c6bv5"]
+[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="19_q103l"]
+[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="20_y8g1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
 size = Vector2(500, 50)
@@ -30,7 +35,7 @@ texture_filter = 0
 texture_repeat = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34hgd"]
-size = Vector3(10, 7.96777, 1)
+size = Vector3(7.5, 7.968, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpukm"]
 size = Vector2(460, 20)
@@ -80,10 +85,12 @@ script = ExtResource("1_vyvq2")
 hand = NodePath("Visuals/Hand")
 widget_gear = NodePath("Visuals/WidgetGear")
 widget_wheel = NodePath("Visuals/WidgetWheel")
-visual_gear = NodePath("Visuals/WidgetGear/GearShift")
+visual_gear = NodePath("Visuals/GearShift")
 visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
 visual_asgore = NodePath("Visuals/Asgore")
 entity_hitbox = NodePath("Camera3D/Area3D")
+screenshake_speed = 400.0
+screenshake_decay = 3.0
 
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -90.105, -200)
@@ -96,17 +103,37 @@ position = Vector2(160, 130)
 texture = ExtResource("2_xeq3v")
 offset = Vector2(3.075, -1.565)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
-visible = false
-position = Vector2(106.575, 50.5)
-scale = Vector2(1.305, 1.305)
+[node name="SpeedBar" type="Sprite2D" parent="Visuals"]
+position = Vector2(70, 60)
 texture = ExtResource("10_i638c")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
-visible = false
-position = Vector2(35.575, 56)
-scale = Vector2(1.305, 1.305)
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals/SpeedBar"]
+offset_left = -29.0
+offset_top = -40.0
+offset_right = 47.09
+mouse_filter = 2
+text = "SPD: 0"
+scroll_active = false
+
+[node name="HealthBar" type="Sprite2D" parent="Visuals"]
+position = Vector2(16, 49)
 texture = ExtResource("5_d1kdx")
+
+[node name="Dial" type="Sprite2D" parent="Visuals/HealthBar"]
+position = Vector2(-18, 0)
+rotation = -0.785398
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_3ckti")
+offset = Vector2(36, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals/HealthBar"]
+offset_left = -29.0
+offset_top = -44.0
+offset_right = 47.09
+offset_bottom = -4.0
+mouse_filter = 2
+text = "HP: 100"
+scroll_active = false
 
 [node name="WidgetWheel" parent="Visuals" instance=ExtResource("6_yiue1")]
 self_modulate = Color(1, 1, 1, 0)
@@ -143,7 +170,7 @@ snap_speed = 0.9
 
 [node name="DraggableItem" parent="Visuals/WidgetGear" index="1"]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(3.165, 0.5)
+scale = Vector2(4, 0.5)
 
 [node name="Marker2D" type="Marker2D" parent="Visuals/WidgetGear"]
 position = Vector2(32, 32)
@@ -154,18 +181,18 @@ position = Vector2(213.5, 32)
 [node name="Marker2D2" type="Marker2D" parent="Visuals/WidgetGear"]
 position = Vector2(427, 32)
 
-[node name="GearShift" type="Sprite2D" parent="Visuals/WidgetGear"]
-top_level = true
-position = Vector2(255, 247)
+[node name="GearShift" type="Sprite2D" parent="Visuals"]
+position = Vector2(95, 120)
 texture = ExtResource("4_ln1lg")
 offset = Vector2(0, -30)
 
 [node name="Horn" type="ColorRect" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -80.0
-offset_top = 66.0
-offset_right = -40.0
-offset_bottom = 106.0
+offset_left = -57.0
+offset_top = 54.0
+offset_right = -7.0
+offset_bottom = 104.0
+rotation = 0.84546
 
 [node name="Hand" type="Sprite2D" parent="Visuals"]
 z_index = 50
@@ -260,6 +287,29 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -20, 0)
 mesh = SubResource("ArrayMesh_hunlg")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("14_hunlg")
+
+[node name="CarHonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_hunlg")
+bus = &"SFX"
+
+[node name="CarScreech" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_c6bv5")
+bus = &"SFX"
+
+[node name="CarHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_q103l")
+bus = &"SFX"
+
+[node name="HitSoundImpact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_y8g1j")
+bus = &"SFX"
+
+[node name="HitSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_y8g1j")
+bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="gui_input" from="Visuals/Horn" to="." method="_horn"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnn5y7tkfk8rg"]
+[gd_scene load_steps=7 format=3 uid="uid://bnn5y7tkfk8rg"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
 [ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/bush_flower.png" id="2_j58kf"]
 [ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="2_x4tte"]
+[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="4_6b46r"]
 
 [sub_resource type="Resource" id="Resource_nbtnd"]
 script = ExtResource("2_d4hl2")
@@ -19,7 +20,8 @@ hp = 1
 items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd")])
 solid = false
 stompable = true
-pixel_size = 0.08
+pixel_size = 0.1
+hit_sound_effect = ExtResource("4_6b46r")
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 offset = Vector2(0, 30)

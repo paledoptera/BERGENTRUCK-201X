@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpdln7187bcgy"]
+
+[ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_eoi3m"]
+[ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/entity_bush_flower.tscn" id="2_8ww8h"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_m4r2w"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="4_y381w"]
+[ext_resource type="PackedScene" uid="uid://cn8w7uupns846" path="res://Global/SFX/entity_bush_thorns.tscn" id="5_8ww8h"]
+
+[sub_resource type="Resource" id="Resource_nbtnd"]
+script = ExtResource("3_m4r2w")
+item = ExtResource("4_y381w")
+drop_chance = 100
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_8d0ga"]
+script = ExtResource("3_m4r2w")
+item = ExtResource("4_y381w")
+drop_chance = 30
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[node name="Chunk" instance=ExtResource("1_eoi3m")]
+
+[node name="FlowerBush2" parent="." index="1" instance=ExtResource("2_8ww8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8321, 0, 0)
+items = Array[ExtResource("3_m4r2w")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])
+
+[node name="FlowerBush3" parent="." index="2" instance=ExtResource("2_8ww8h")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, -27.4726, 0, 0)
+items = Array[ExtResource("3_m4r2w")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])
+
+[node name="ThornBush" parent="." index="3" instance=ExtResource("5_8ww8h")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.5281, 0, 0)

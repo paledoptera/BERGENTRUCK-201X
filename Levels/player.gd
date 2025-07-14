@@ -13,6 +13,11 @@ const DRIFT_ACCELERATION = 0.01
 @export var visual_asgore : Node
 @export var entities : Node
 @export var entity_hitbox : Area3D
+@export var screenshake_speed : float = 30.0
+@export var screenshake_decay : float = 5.0
+
+
+
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
 var last_turn_speed = 0.0
@@ -31,14 +36,23 @@ var car_velocity = Vector3.ZERO
 var last_velocity = Vector3.ZERO
 var car_angle = Vector2.ZERO
 var car_shake = Vector2.ZERO
+var screeching = false
 
 var visuals_angle : float = 0.0
 var steer_wiggle : float = 0.0
 
 var last_direction = Vector2.ZERO
-var hp = 100
+var hp = 100.0:
+	set(value):
+		_health_changed(hp, value)
+		hp = value
+		
 var current_items_in_face_region : Array[Item]
 
+var noise_i: float = 0.0
+var screenshake_strength : float = 4.0
+
+@onready var noise = FastNoiseLite.new()
 
 
 func _ready() -> void:
@@ -53,6 +67,11 @@ func _physics_process(delta: float) -> void:
 	$Ground.rotation.x += car_velocity.z
 	entities.rotation.x += car_velocity.z
 	
+	#if friction < 0.3:
+		#$CarScreech.play()
+	#else:
+		#screeching = false
+		#$CarScreech.stop()
 	var last_angle = car_angle.x
 	
 	
@@ -62,9 +81,11 @@ func _physics_process(delta: float) -> void:
 	
 	_steering_mechanics()
 	_hand_visuals()
-	_horn_mechanics(delta)
-	_shake(delta)
+	#_horn_mechanics(delta)
+	_gravity_mechanics(delta)
 	_entity_mechanics()
+	$Camera2D.offset=_get_shake(delta)
+	
 	
 	car_position.x += car_velocity.x
 	
@@ -75,6 +96,12 @@ func _physics_process(delta: float) -> void:
 		visuals_angle = clamp(visuals_angle,-0.1,0.1)
 	else:
 		visuals_angle *= 0.95
+	
+	visuals_angle += (noise.get_noise_2d(1,noise_i) * screenshake_strength)/100
+	
+	$Visuals/HealthBar/Dial.rotation_degrees = ((50.0-hp)/100)*90
+	$Visuals/SpeedBar/RichTextLabel.text = str("SPD: ", int(speed))
+	$Visuals/HealthBar/RichTextLabel.text = str("HP: ", int(hp))
 	
 	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
 	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
@@ -114,14 +141,19 @@ func _hand_visuals() -> void:
 
 
 func _gear_mechanics() -> void:
+	var last_gear = gear
+	
 	var gear_value = widget_gear.value
 	gear = round(gear_value*2)+1
 	
+	if last_gear != gear:
+		screenshake_strength += 2
+	
 	if widget_gear.get_node("DraggableItem").drag:
-		visual_gear.position.x = 255 + (gear_value-0.5)*30
+		visual_gear.position.x = 95 + (gear_value-0.5)*30
 		visual_gear.rotation_degrees = (gear_value-0.5)*50
 	else:
-		visual_gear.position.x = 255 + (gear-2)*15
+		visual_gear.position.x = 95 + (gear-2)*15
 		visual_gear.rotation_degrees = (gear-2)*25
 
 
@@ -136,7 +168,7 @@ func _steering_mechanics() -> void:
 	
 	visual_wheel.rotation_degrees = (turn_speed*90)
 	
-	turn_speed *= (speed/5)
+	turn_speed *= (speed/5)*(2-friction)
 
 	car_angle.x = lerp(car_angle.x,turn_speed,0.2)
 	
@@ -289,7 +321,7 @@ func _entity_mechanics() -> void:
 					camera_pos.y = entity.global_position.y
 					camera_pos.z = entity.global_position.z
 					var camera_normal = camera_pos.direction_to(entity.global_position)
-					
+			
 					print("collision with ", entity.name)
 					car_velocity.x = -car_velocity.x*(speed/10)
 					
@@ -304,6 +336,18 @@ func _entity_mechanics() -> void:
 					car_velocity.y = 0.3
 					car_velocity.z *= 1.1
 					entity.queue_free()
+				if entity.damage != 0:
+					hp -= entity.damage*(1+(speed/5))
+				screenshake_strength += 5
+				
+				if entity.hit_sound_impact:
+					$HitSoundImpact.stream = entity.hit_sound_impact
+					$HitSoundImpact.play()
+				if entity.hit_sound_effect:
+					$HitSoundEffect.stream = entity.hit_sound_effect
+					$HitSoundEffect.play()
+				
+				
 				#velocity.y = 20
 		#
 				if entity.items:
@@ -319,22 +363,10 @@ func _entity_mechanics() -> void:
 							_spawn_item(itemdata.item)
 							entity.items.erase(itemdata)
 
-func _shake(delta: float) -> void:
-	pass
-	#siner += 1
-	#if friction < 0.5:
-		#car_shake.x = lerp(car_shake.x,randf_range(-100,100),0.1)
-		#car_shake.y = lerp(car_shake.y,randf_range(-100,100),0.1)
-#
-		#
-	#print("car_shake: ", car_shake)
-	#car_shake *= 0.9
-
-func _horn_mechanics(delta: float) -> void:
+func _gravity_mechanics(delta: float) -> void:
 	car_velocity.y -= 1*delta
 	if car_velocity.y > 0:
 		car_velocity.y *= 0.9
-	
 	
 	$Camera3D.position.y += car_velocity.y
 	$Camera3D.position.z = 10+($Camera3D.position.y-8)
@@ -358,12 +390,16 @@ func _horn(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				horn = true
-				if $Camera3D.position.y == 8.0:
-					car_velocity.y = 1
+				$CarHonk.play()
+				if Global.level == 3:
+					if $Camera3D.position.y == 8.0:
+						car_velocity.y = 1
 			elif not event.pressed:
 				horn = false
-				if car_velocity.y > 0:
-					car_velocity.y *= 0.4
+				$CarHonk.stop()
+				if Global.level == 3:
+					if car_velocity.y > 0:
+						car_velocity.y *= 0.4
 
 func _correct_sprite_size(object: Node) -> void:
 	var children = object.get_children()
@@ -376,3 +412,19 @@ func _correct_sprite_size(object: Node) -> void:
 			child.offset.y = 64.0
 			child.sorting_offset = -999999
 			child.position.y += 2
+
+func _get_shake(delta: float) -> Vector2:
+	noise_i += delta * screenshake_speed
+	screenshake_strength = lerp(screenshake_strength,0.0,screenshake_decay*delta)
+	return Vector2(
+		noise.get_noise_2d(1,noise_i) * screenshake_strength,
+		noise.get_noise_2d(100, noise_i) * screenshake_strength
+	)
+	pass
+
+func _health_changed(previous_hp, new_hp) -> void:
+	var difference = previous_hp-new_hp
+	var value = difference*10
+	value = clamp(value,1,30)
+	screenshake_strength += value
+	$CarHurt.play()

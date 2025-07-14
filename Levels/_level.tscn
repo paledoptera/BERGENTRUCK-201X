@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmfdo622wwei3"]
+[gd_scene load_steps=9 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
 [ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
 [ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
 [ext_resource type="Script" uid="uid://b8t3yojq4aa10" path="res://Levels/entityspawner.gd" id="2_eybv3"]
 [ext_resource type="PackedScene" uid="uid://b66rrowbfljuf" path="res://Levels/Chunks/chunk_trees.tscn" id="4_wnisn"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="7_ccp6f"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
 
 [sub_resource type="Environment" id="Environment_s57tf"]
@@ -21,11 +22,12 @@ environment = SubResource("Environment_s57tf")
 [node name="Player" parent="." node_paths=PackedStringArray("entities") instance=ExtResource("1_nv0ke")]
 entities = NodePath("../Entities")
 
-[node name="Entities" type="Node3D" parent="." node_paths=PackedStringArray("timer")]
+[node name="Entities" type="Node3D" parent="." node_paths=PackedStringArray("timer", "player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 script = ExtResource("2_eybv3")
-chunk_queue = Array[String](["uid://cyqdss3tvo5rr"])
+chunk_queue = Array[String](["uid://cyqdss3tvo5rr", "uid://cpdln7187bcgy", "uid://qbqnekjyby8f", "uid://cp2ggjqequatb", "uid://cit4aq1aqem3a", "uid://dw5qyvtxy61jt", "uid://bxuqcsl84crcn", "uid://ctwwxw1xn3umy"])
 timer = NodePath("Timer")
+player = NodePath("../Player")
 
 [node name="TreeBkg" type="Node3D" parent="Entities"]
 
@@ -44,12 +46,17 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="WallL" parent="." instance=ExtResource("7_remni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, -15, 0)
+damage = 2.0
+hit_sound_impact = ExtResource("7_ccp6f")
 
 [node name="WallR" parent="." instance=ExtResource("7_remni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -15, 0)
+damage = 2.0
+hit_sound_impact = ExtResource("7_ccp6f")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [editable path="WallL"]
 [editable path="WallR"]

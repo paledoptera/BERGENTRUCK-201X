@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmfdo622wwei3"]
+[gd_scene load_steps=8 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
+[ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
+[ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
 [ext_resource type="Script" uid="uid://b8t3yojq4aa10" path="res://Levels/entityspawner.gd" id="2_eybv3"]
-[ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/flower_bush.tscn" id="3_s57tf"]
 [ext_resource type="PackedScene" uid="uid://b66rrowbfljuf" path="res://Levels/Chunks/chunk_trees.tscn" id="4_wnisn"]
-[ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="5_43noc"]
-[ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="6_43noc"]
+[ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
+
+[sub_resource type="Environment" id="Environment_s57tf"]
+background_mode = 1
+background_color = Color(0.256287, 0.583615, 0.999978, 1)
 
 [node name="Level" type="Node3D"]
+script = ExtResource("1_wnisn")
+music = ExtResource("2_43noc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s57tf")
 
 [node name="Player" parent="." node_paths=PackedStringArray("entities") instance=ExtResource("1_nv0ke")]
 entities = NodePath("../Entities")
@@ -15,18 +24,13 @@ entities = NodePath("../Entities")
 [node name="Entities" type="Node3D" parent="." node_paths=PackedStringArray("timer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 script = ExtResource("2_eybv3")
-chunk_queue = Array[PackedScene]([ExtResource("3_s57tf")])
+chunk_queue = Array[String](["uid://cyqdss3tvo5rr"])
 timer = NodePath("Timer")
 
 [node name="TreeBkg" type="Node3D" parent="Entities"]
 
-[node name="Knight" parent="Entities" node_paths=PackedStringArray("player") instance=ExtResource("6_43noc")]
-player = NodePath("../../Player")
-
 [node name="Timer" type="Timer" parent="Entities"]
 one_shot = true
-
-[node name="Chunk" parent="Entities" instance=ExtResource("5_43noc")]
 
 [node name="ChunkTrees1" parent="Entities" instance=ExtResource("4_wnisn")]
 
@@ -38,3 +42,14 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 
 
 [node name="ChunkTrees4" parent="Entities" instance=ExtResource("4_wnisn")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="WallL" parent="." instance=ExtResource("7_remni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -15, 0)
+
+[node name="WallR" parent="." instance=ExtResource("7_remni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, -15, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[editable path="WallL"]
+[editable path="WallR"]

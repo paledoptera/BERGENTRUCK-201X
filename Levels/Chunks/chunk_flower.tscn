@@ -1,11 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyqdss3tvo5rr"]
+[gd_scene load_steps=7 format=3 uid="uid://cyqdss3tvo5rr"]
 
 [ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_y6khm"]
-[ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/flower_bush.tscn" id="2_n2rsl"]
+[ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/entity_bush_flower.tscn" id="2_n2rsl"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_xj1sv"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="4_okd1r"]
+
+[sub_resource type="Resource" id="Resource_nbtnd"]
+script = ExtResource("3_xj1sv")
+item = ExtResource("4_okd1r")
+drop_chance = 100
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_8d0ga"]
+script = ExtResource("3_xj1sv")
+item = ExtResource("4_okd1r")
+drop_chance = 30
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [node name="Chunk" instance=ExtResource("1_y6khm")]
 
-[node name="GroundRef" parent="." index="0"]
-visible = true
+[node name="FlowerBush2" parent="." index="1" instance=ExtResource("2_n2rsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7902, 0, 0)
+items = Array[ExtResource("3_xj1sv")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])
 
-[node name="FlowerBush" parent="." index="1" instance=ExtResource("2_n2rsl")]
+[node name="FlowerBush3" parent="." index="2" instance=ExtResource("2_n2rsl")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.78426, 0, 0)
+items = Array[ExtResource("3_xj1sv")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])
+
+[node name="FlowerBush4" parent="." index="3" instance=ExtResource("2_n2rsl")]
+transform = Transform3D(1, 0, 0, 0, -0.766045, 0.642788, 0, -0.642788, -0.766045, 2.78426, 0, 0)
+items = Array[ExtResource("3_xj1sv")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])
+
+[node name="FlowerBush5" parent="." index="4" instance=ExtResource("2_n2rsl")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -5.76345, 0, 0)
+items = Array[ExtResource("3_xj1sv")]([SubResource("Resource_nbtnd"), SubResource("Resource_8d0ga")])

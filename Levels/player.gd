@@ -12,12 +12,14 @@ const DRIFT_ACCELERATION = 0.01
 @export var visual_wheel : Node
 @export var visual_asgore : Node
 @export var entities : Node
+@export var entity_hitbox : Area3D
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
 var last_turn_speed = 0.0
 var turn_start_y = 0.0
 var gear: int = 1
 var speed: float = 0.0
+var in_air: bool = false
 var horn: bool = false
 var angle = 0.0
 var drift = 0.0
@@ -45,27 +47,39 @@ func _ready() -> void:
 	
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	last_velocity = car_velocity
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
 	entities.rotation.x += car_velocity.z
-	#$Ground.rotation.x += (0.003*speed)*friction
 	
-	var last_velocity = car_velocity
+	var last_angle = car_angle.x
+	
 	
 	_gear_mechanics()
+	
 	speed = lerp(speed,float(gear*3.34),friction*delta)
+	
 	_steering_mechanics()
 	_hand_visuals()
 	_horn_mechanics(delta)
 	_shake(delta)
+	_entity_mechanics()
 	
+	car_position.x += car_velocity.x
 	
-	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,(friction*5)*delta)
+	if last_angle != car_angle.x:
+		var difference = abs(car_angle.x - last_angle)
+		friction -= (difference*0.7)
+		visuals_angle = (car_angle.x - last_angle)
+		visuals_angle = clamp(visuals_angle,-0.1,0.1)
+	else:
+		visuals_angle *= 0.95
+	
+	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
 	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
 	$Visuals.rotation = lerp($Visuals.rotation,visuals_angle*0.6,0.45)
-	$Visuals.global_position.x = (160+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)))+(car_shake.x)
+	$Visuals.global_position.x = lerp($Visuals.global_position.x,(160+(visuals_angle*100)+((-visuals_angle*200)))+(car_shake.x),0.8)
 	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*30),0.4)
 	$Visuals.skew = ((-visuals_angle)*(1-friction))/2
 	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)),0.3)
@@ -84,6 +98,7 @@ func _hand_visuals() -> void:
 	var gearbox_dragpoint = widget_gear.get_node("DraggableItem")
 
 	if wheel_dragpoint.drag:
+		wheel_dragpoint.drag_speed = friction*0.1
 		wheel_dragpoint.global_position = visual_wheel.global_position+visual_wheel.global_position.direction_to(wheel_dragpoint.global_position)*67
 		hand.global_position = lerp(hand.global_position,wheel_dragpoint.global_position,0.7)
 		hand.rotation = lerp_angle(hand.rotation,(visual_wheel.rotation*0.3) - 0.4,0.7)
@@ -112,8 +127,6 @@ func _gear_mechanics() -> void:
 
 func _steering_mechanics() -> void:
 	
-	var last_angle = car_angle.x
-	
 	steer_wiggle = randf_range(-speed*2,speed*2)
 	
 	turn_angle.x = widget_wheel.value.x
@@ -126,20 +139,12 @@ func _steering_mechanics() -> void:
 	turn_speed *= (speed/5)
 
 	car_angle.x = lerp(car_angle.x,turn_speed,0.2)
-		
-	if last_angle != car_angle.x:
-		var difference = abs(car_angle.x - last_angle)
-		friction -= (difference*0.7)
-		visuals_angle = (car_angle.x - last_angle)
-		visuals_angle = clamp(visuals_angle,-0.2,0.2)
-	else:
-		visuals_angle *= 0.95
 	
-	friction = clamp(friction, 0.0, 1.0)
-	friction = lerp(friction,1.0,0.1)
+	friction = clamp(float(friction), 0.0, 1.0)
+	#print("SPEED = ", speed, " FRICTION = ", friction)
+	friction = lerp(float(friction),1.0,0.1*(0.5+(0.5-(speed/20))))
 	
-	car_velocity.x = (car_angle.x)*friction
-	car_position.x += car_velocity.x
+	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
 	
 	
 	
@@ -230,18 +235,7 @@ func _steering_mechanics() -> void:
 			##velocity = -velocity.normalized()*collision_speed#/get_physics_process_delta_time()
 			#friction = 0
 		#else:
-			#if entity.stompable:
-				#velocity.y = 20
-		#
-		#if entity.items:
-			#var items = entity.items.duplicate()
-			#for itemdata in items:
-				#var chance = randf_range(1,100)
-				#var target_mult = 1.0-((itemdata.speed_effect/100)-(speed/27))
-				#var target = itemdata.drop_chance * target_mult
-				#if chance <= target:
-					#_spawn_item(itemdata.item)
-					#entity.items.erase(itemdata)
+
 				#
 		#
 		#if entity.hp > 0:
@@ -253,36 +247,77 @@ func _steering_mechanics() -> void:
 		#print("ENTITY COLLISION ", entity)
 #
 #
-#func _spawn_item(item: PackedScene) -> void:
-	#var spawn_position = Vector2(randi_range($SpawnZone.global_position.x,$SpawnZone.global_position.x+$SpawnZone.size.x),randi_range($SpawnZone.global_position.y,$SpawnZone.global_position.y+$SpawnZone.size.y))
-	#var item_scene = item.instantiate()
-	#item_scene.global_position = spawn_position
-	#add_child(item_scene)
-#
-#
-#
-#func _on_item_despawn_zone_body_entered(body: Node2D) -> void:
-	#if body is Item:
-		#body.queue_free()
-#
-#
-#func _item_entered_face(body: Node2D) -> void:
-	#if body is Item and body not in current_items_in_face_region:
-		#var item: Item = body
-		#current_items_in_face_region.append(item)
-		#if item.use_sound:
-			#item.audio.play()
-		#item.lifetimer.start(item.lifetime_in_seconds)
-#
-#
-#func _item_exited_face(body: Node2D) -> void:
-	#if body is Item and body in current_items_in_face_region:
-		#var item: Item = body
-		#current_items_in_face_region.erase(item)
-		#if item.use_sound:
-			#item.audio.stop()
-		#item.lifetimer.stop()
+func _spawn_item(item: PackedScene) -> void:
+	var spawn_position = Vector2(randi_range($SpawnZone.global_position.x,$SpawnZone.global_position.x+$SpawnZone.size.x),randi_range($SpawnZone.global_position.y,$SpawnZone.global_position.y+$SpawnZone.size.y))
+	var item_scene = item.instantiate()
+	item_scene.global_position = spawn_position
+	add_child(item_scene)
 
+
+
+func _on_item_despawn_zone_body_entered(body: Node2D) -> void:
+	if body is Item:
+		body.queue_free()
+
+
+func _item_entered_face(body: Node2D) -> void:
+	if body is Item and body not in current_items_in_face_region:
+		var item: Item = body
+		current_items_in_face_region.append(item)
+		if item.use_sound:
+			item.audio.play()
+		item.lifetimer.start(item.lifetime_in_seconds)
+
+
+func _item_exited_face(body: Node2D) -> void:
+	if body is Item and body in current_items_in_face_region:
+		var item: Item = body
+		current_items_in_face_region.erase(item)
+		if item.use_sound:
+			item.audio.stop()
+		item.lifetimer.stop()
+
+
+func _entity_mechanics() -> void:
+	if entity_hitbox.has_overlapping_areas():
+		for area in entity_hitbox.get_overlapping_areas():
+			if area.get_parent() is Entity:
+				var entity: Entity = area.get_parent()
+				entity.hit(self)
+				if entity.solid:
+					var camera_pos = $Camera3D.global_position
+					camera_pos.y = entity.global_position.y
+					camera_pos.z = entity.global_position.z
+					var camera_normal = camera_pos.direction_to(entity.global_position)
+					
+					print("collision with ", entity.name)
+					car_velocity.x = -car_velocity.x*(speed/10)
+					
+					car_position.x += (camera_pos.x-entity.global_position.x)*(speed/5)
+					friction = 0
+					print(car_velocity.x)
+					car_angle.x = (camera_pos.x-entity.global_position.x)/50
+					var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
+					wheel_dragpoint.global_position.x += (camera_pos.x-entity.global_position.x)*3
+					wheel_dragpoint.global_position.y -= abs((camera_pos.x-entity.global_position.x))*3
+				if entity.stompable:
+					car_velocity.y = 0.3
+					car_velocity.z *= 1.1
+					entity.queue_free()
+				#velocity.y = 20
+		#
+				if entity.items:
+					var items = entity.items.duplicate()
+					for itemdata in items:
+						var chance = randf_range(1,100)
+						var chance_mult = int(speed/5)
+						chance_mult = clampi(chance_mult,1,10)
+						chance /= chance_mult
+						var target = itemdata.drop_chance
+						print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
+						if chance <= target:
+							_spawn_item(itemdata.item)
+							entity.items.erase(itemdata)
 
 func _shake(delta: float) -> void:
 	pass
@@ -299,14 +334,25 @@ func _horn_mechanics(delta: float) -> void:
 	car_velocity.y -= 1*delta
 	if car_velocity.y > 0:
 		car_velocity.y *= 0.9
-	print(car_velocity.y)
+	
 	
 	$Camera3D.position.y += car_velocity.y
+	$Camera3D.position.z = 10+($Camera3D.position.y-8)
 	
 	if $Camera3D.position.y <= 8.0:
 		$Camera3D.position.y = 8.0
 		car_velocity.y = 0
-		
+		if in_air:
+			car_velocity.x += randf_range(-speed,speed)/20
+			in_air = false
+			car_velocity.z *= 0.8
+	elif $Camera3D.position.y > 8.0:
+		if not in_air:
+			car_velocity.x += randf_range(-speed,speed)/20
+			car_velocity.y *= speed/10
+			in_air = true
+			car_velocity.z *= 1.1
+		friction = 0
 func _horn(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:

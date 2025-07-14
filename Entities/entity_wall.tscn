@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06ifvv7wbeni"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_1j5vb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j5vb"]
+size = Vector3(20, 50, 50)
+
+[node name="Entity" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_1j5vb")]
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.769348)
+shape = SubResource("BoxShape3D_1j5vb")
+debug_color = Color(0.906774, 0.300631, 0.313104, 1)
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+visible = false

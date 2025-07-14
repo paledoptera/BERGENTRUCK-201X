@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=24 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -15,26 +15,22 @@
 [ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="10_i638c"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="14_hunlg"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ln1lg"]
-top_radius = 100.0
-bottom_radius = 64.912
-height = 39.923
+[sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
+size = Vector2(500, 50)
+orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpukm"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-cull_mode = 1
 shading_mode = 0
 albedo_texture = ExtResource("8_ln1lg")
-uv1_offset = Vector3(0, -0.635, 0)
 uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
+texture_repeat = false
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wpukm"]
-radius = 1.52588
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wpukm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_34hgd"]
+size = Vector3(10, 7.96777, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpukm"]
 size = Vector2(460, 20)
@@ -79,7 +75,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entity_hitbox")]
 script = ExtResource("1_vyvq2")
 hand = NodePath("Visuals/Hand")
 widget_gear = NodePath("Visuals/WidgetGear")
@@ -87,11 +83,12 @@ widget_wheel = NodePath("Visuals/WidgetWheel")
 visual_gear = NodePath("Visuals/WidgetGear/GearShift")
 visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
 visual_asgore = NodePath("Visuals/Asgore")
+entity_hitbox = NodePath("Camera3D/Area3D")
 
 [node name="Background" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.325, 0, 0, 0, 2.02844, 0.273134, 0, -0.412692, 1.3425, 0, -2.53, 0)
+transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -90.105, -200)
 top_level = true
-mesh = SubResource("CylinderMesh_ln1lg")
+mesh = SubResource("PlaneMesh_34hgd")
 surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 
 [node name="Visuals" type="Sprite2D" parent="."]
@@ -209,13 +206,9 @@ near = 0.001
 [node name="Area3D" type="Area3D" parent="Camera3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
-shape = SubResource("SphereShape3D_wpukm")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177612, -4.48462, 2.38419e-06)
+shape = SubResource("BoxShape3D_34hgd")
 debug_color = Color(0, 1, 0.486275, 0.972549)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-shape = SubResource("BoxShape3D_wpukm")
-debug_color = Color(0.941176, 0, 0.619608, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 284)

@@ -4,19 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="2_qmwl5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
-radius = 10.3834
-height = 20.7668
+radius = 1.5
+height = 4.0
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_qgafo")
 
-[node name="EntityContainer" type="Node3D" parent="."]
+[node name="EntityContainer" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EntityContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.84367, 0)
 shape = SubResource("CapsuleShape3D_aqyan")
-debug_color = Color(0, 1, 0.286275, 1)
+debug_color = Color(0.956863, 0.239216, 0, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="EntityContainer"]
 sorting_use_aabb_center = false

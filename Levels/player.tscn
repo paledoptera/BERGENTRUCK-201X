@@ -21,13 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="20_y8g1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
-size = Vector2(500, 50)
+size = Vector2(500, 30.805)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpukm"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
+transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("8_ln1lg")
 uv1_triplanar_sharpness = 0.353554
@@ -41,7 +39,7 @@ size = Vector3(7.5, 7.968, 1)
 size = Vector2(460, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
-size = Vector2(52.25, 122)
+size = Vector2(104.125, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
 size = Vector2(290, 2000)
@@ -220,6 +218,15 @@ position = Vector2(-210, -127)
 texture = ExtResource("9_wpukm")
 centered = false
 
+[node name="Score" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 210.0
+offset_bottom = 48.0
+mouse_filter = 2
+text = "Score: 0p"
+scroll_active = false
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 10, 8, 10)
 keep_aspect = 0
@@ -245,11 +252,11 @@ position = Vector2(163, 0)
 shape = SubResource("RectangleShape2D_wpukm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-93, -51)
+position = Vector2(-66.9375, -51)
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(418.875, -51)
+position = Vector2(393, -51)
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="ItemDespawnZone" type="Area2D" parent="."]

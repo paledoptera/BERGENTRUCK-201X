@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b66rrowbfljuf"]
 
 [ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_3763n"]
-[ext_resource type="PackedScene" uid="uid://b1827bq762t8p" path="res://Entities/entity_tree.tscn" id="2_74yxu"]
+[ext_resource type="PackedScene" uid="uid://b1827bq762t8p" path="res://Entities/entity_tree_bkg.tscn" id="2_74yxu"]
 [ext_resource type="Texture2D" uid="uid://d1mdkawxifsd7" path="res://Entities/Assets/Visuals/tree_big.png" id="3_e5if2"]
 [ext_resource type="Texture2D" uid="uid://cysf0f7go2467" path="res://Entities/Assets/Visuals/tree_pine.png" id="4_6uaar"]
 [ext_resource type="Texture2D" uid="uid://cetvub4tbbdy2" path="res://Entities/Assets/Visuals/tree_sparse.png" id="5_axinm"]
@@ -634,6 +634,8 @@ debug_color = Color(0, 1, 0.286275, 1)
 [node name="Sprite3D" parent="Trees6/Tree9/EntityContainer" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40604, 0, 0)
 sorting_use_aabb_center = true
+
+[node name="Grasslane1" type="Node3D" parent="." index="7"]
 
 [editable path="Trees1/Tree2"]
 [editable path="Trees1/Tree3"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmfdo622wwei3"]
+[gd_scene load_steps=8 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
 [ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
 [ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
-[ext_resource type="Script" uid="uid://b8t3yojq4aa10" path="res://Levels/entityspawner.gd" id="2_eybv3"]
 [ext_resource type="PackedScene" uid="uid://b66rrowbfljuf" path="res://Levels/Chunks/chunk_trees.tscn" id="4_wnisn"]
 [ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="7_ccp6f"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
@@ -12,9 +11,12 @@
 background_mode = 1
 background_color = Color(0.256287, 0.583615, 0.999978, 1)
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("timer", "player", "entities")]
 script = ExtResource("1_wnisn")
 music = ExtResource("2_43noc")
+timer = NodePath("Entities/Timer")
+player = NodePath("Player")
+entities = NodePath("Entities")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_s57tf")
@@ -22,12 +24,8 @@ environment = SubResource("Environment_s57tf")
 [node name="Player" parent="." node_paths=PackedStringArray("entities") instance=ExtResource("1_nv0ke")]
 entities = NodePath("../Entities")
 
-[node name="Entities" type="Node3D" parent="." node_paths=PackedStringArray("timer", "player")]
+[node name="Entities" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
-script = ExtResource("2_eybv3")
-chunk_queue = Array[String](["uid://cyqdss3tvo5rr", "uid://cpdln7187bcgy", "uid://qbqnekjyby8f", "uid://cp2ggjqequatb", "uid://cit4aq1aqem3a", "uid://dw5qyvtxy61jt", "uid://bxuqcsl84crcn", "uid://ctwwxw1xn3umy"])
-timer = NodePath("Timer")
-player = NodePath("../Player")
 
 [node name="TreeBkg" type="Node3D" parent="Entities"]
 

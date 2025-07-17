@@ -12,12 +12,18 @@ class_name Entity
 @export var pixel_size : float = 0.06
 @export var hit_sound_impact : AudioStream
 @export var hit_sound_effect : AudioStream
+@export var delete_on_loop_around : bool = true
+@export var disable_collision_on_hit : bool = false
 
 func _ready() -> void:
 	$EntityContainer/Sprite3D.pixel_size = pixel_size
 
 func _process(delta: float) -> void:
-	pass
+	if not delete_on_loop_around:
+		return
+	
+	if $EntityContainer/Sprite3D.global_position.y < -30.0:
+		queue_free()
 	#$EntityContainer/Sprite3D.sorting_offset = -global_position.z*5
 	#if $EntityContainer/Sprite3D.global_position.z > 0.0:
 		#$EntityContainer/Sprite3D.no_depth_test = true
@@ -25,7 +31,8 @@ func _process(delta: float) -> void:
 		#$EntityContainer/Sprite3D.no_depth_test = false
 
 func hit(player) -> void:
-	pass
+	if disable_collision_on_hit and collision_shape:
+		collision_shape.queue_free()
 	#$HitSoundImpact.play()
 	#$HitSoundEffect.play()
 	#player

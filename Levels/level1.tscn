@@ -1,0 +1,231 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7p8pcqopqawn"]
+
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_t21ke"]
+
+[node name="Level1" instance=ExtResource("1_t21ke")]
+item_queue_intro = Array[String](["uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_mid = Array[String](["uid://bnn5y7tkfk8rg", "uid://bympmn5b7p10t", "uid://cn8w7uupns846"])
+item_queue_end = Array[String](["uid://bnn5y7tkfk8rg", "uid://bympmn5b7p10t", "uid://cn8w7uupns846"])
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees1" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees1" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees1" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees1" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees1" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees1" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees1" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees1" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees1" index="8"]
+disable_collision_on_hit = false
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees3" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees3" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees3" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees3" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees3" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees3" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees3" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees3" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees3" index="8"]
+disable_collision_on_hit = false
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees5" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees5" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees5" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees5" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees5" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees5" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees5" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees5" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees5" index="8"]
+disable_collision_on_hit = false
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees2" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees2" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees2" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees2" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees2" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees2" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees2" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees2" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees2" index="8"]
+disable_collision_on_hit = false
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees4" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees4" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees4" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees4" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees4" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees4" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees4" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees4" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees4" index="8"]
+disable_collision_on_hit = false
+
+[node name="Tree1" parent="Entities/ChunkTrees1/Trees6" index="0"]
+disable_collision_on_hit = false
+
+[node name="Tree2" parent="Entities/ChunkTrees1/Trees6" index="1"]
+disable_collision_on_hit = false
+
+[node name="Tree3" parent="Entities/ChunkTrees1/Trees6" index="2"]
+disable_collision_on_hit = false
+
+[node name="Tree4" parent="Entities/ChunkTrees1/Trees6" index="3"]
+disable_collision_on_hit = false
+
+[node name="Tree5" parent="Entities/ChunkTrees1/Trees6" index="4"]
+disable_collision_on_hit = false
+
+[node name="Tree6" parent="Entities/ChunkTrees1/Trees6" index="5"]
+disable_collision_on_hit = false
+
+[node name="Tree7" parent="Entities/ChunkTrees1/Trees6" index="6"]
+disable_collision_on_hit = false
+
+[node name="Tree8" parent="Entities/ChunkTrees1/Trees6" index="7"]
+disable_collision_on_hit = false
+
+[node name="Tree9" parent="Entities/ChunkTrees1/Trees6" index="8"]
+disable_collision_on_hit = false
+
+[node name="WallL" parent="." index="3"]
+disable_collision_on_hit = false
+
+[node name="WallR" parent="." index="4"]
+disable_collision_on_hit = false
+
+[editable path="Entities/ChunkTrees1"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees1/Tree9"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees3/Tree9"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees5/Tree9"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree1"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees2/Tree9"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree1"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees4/Tree9"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree1"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree2"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree3"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree4"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree5"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree6"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree7"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree8"]
+[editable path="Entities/ChunkTrees1/Trees6/Tree9"]
+[editable path="WallL"]
+[editable path="WallR"]

@@ -100,6 +100,9 @@ func _physics_process(delta: float) -> void:
 	visuals_angle += (noise.get_noise_2d(1,noise_i) * screenshake_strength)/100
 	
 	$Visuals/HealthBar/Dial.rotation_degrees = ((50.0-hp)/100)*90
+	
+	# DEBUG
+	$Score.text = str("Score: ", Global.score, "/", Global.goal)
 	$Visuals/SpeedBar/RichTextLabel.text = str("SPD: ", int(speed))
 	$Visuals/HealthBar/RichTextLabel.text = str("HP: ", int(hp))
 	
@@ -136,8 +139,10 @@ func _hand_visuals() -> void:
 		hand.global_position.x += (widget_gear.value-0.5)*50
 		
 	else:
-		hand.global_position = lerp(hand.global_position,hand.get_global_mouse_position(),0.9)
-		hand.rotation = (-200+hand.get_global_mouse_position().x)/320
+		var mouse_pos = hand.get_global_mouse_position()
+		mouse_pos = mouse_pos.clamp(Vector2(0,0),hand.get_viewport_rect().size)
+		hand.global_position = lerp(hand.global_position,mouse_pos,0.9)
+		hand.rotation = (-200+mouse_pos.x)/320
 
 
 func _gear_mechanics() -> void:
@@ -325,6 +330,16 @@ func _entity_mechanics() -> void:
 					print("collision with ", entity.name)
 					car_velocity.x = -car_velocity.x*(speed/10)
 					
+					var shape = entity.collision_shape.shape
+					var bump_amount = 0
+					
+					if shape is BoxShape3D:
+						bump_amount = shape.size.x
+					elif shape is CapsuleShape3D or shape is SphereShape3D:
+						bump_amount = shape.radius
+					
+					$Camera3D.position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
+					car_position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
 					car_position.x += (camera_pos.x-entity.global_position.x)*(speed/5)
 					friction = 0
 					print(car_velocity.x)

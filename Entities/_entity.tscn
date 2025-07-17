@@ -6,11 +6,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
 radius = 1.5
-height = 4.0
+height = 39.1538
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_qgafo")
 hit_sound_impact = ExtResource("2_aqyan")
+disable_collision_on_hit = true
 
 [node name="EntityContainer" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)

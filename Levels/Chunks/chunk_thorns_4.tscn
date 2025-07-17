@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctwwxw1xn3umy"]
 
 [ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_dtopk"]
-[ext_resource type="PackedScene" uid="uid://cn8w7uupns846" path="res://Global/SFX/entity_bush_thorns.tscn" id="2_p7bdi"]
+[ext_resource type="PackedScene" uid="uid://cn8w7uupns846" path="res://Entities/entity_bush_thorns.tscn" id="2_p7bdi"]
 [ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/entity_bush_flower.tscn" id="3_p7bdi"]
 
 [node name="Chunk" instance=ExtResource("1_dtopk")]

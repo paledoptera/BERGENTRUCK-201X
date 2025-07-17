@@ -33,6 +33,7 @@ func _on_item_drag_ended():
 func _process(delta: float) -> void:
 	if drag:
 		global_position = lerp(global_position,get_global_mouse_position() - offset,drag_speed)
+		global_position = global_position.clamp(Vector2(0,0),get_viewport_rect().size)
 		dragging.emit(delta)
 	elif closest_notch:
 		global_position = lerp(global_position,closest_notch.global_position,notch_snap_speed)

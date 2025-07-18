@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_1j5vb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1j5vb"]
-size = Vector3(20, 50, 50)
+size = Vector3(10, 50, 50)
 
 [node name="Entity" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_1j5vb")]
 collision_shape = NodePath("EntityContainer/CollisionShape3D")

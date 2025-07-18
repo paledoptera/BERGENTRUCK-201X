@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://fu6rkj8mk5r5"
+path="res://.godot/imported/Black Knife.ogg-53109a986e8d833f664cf4d7d88f4636.oggvorbisstr"
+
+[deps]
+
+source_file="res://Global/Music/Black Knife.ogg"
+dest_files=["res://.godot/imported/Black Knife.ogg-53109a986e8d833f664cf4d7d88f4636.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

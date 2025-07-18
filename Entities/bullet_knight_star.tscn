@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf2p6vdud7gtc"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_4xi6e"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_8ee6g"]
+[ext_resource type="Texture2D" uid="uid://b41oqr1hrgnya" path="res://Entities/Assets/Visuals/Knight/knight_star.png" id="3_4xi6e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svovm"]
+radius = 1.5
+height = 5.539
+
+[node name="KnightStar" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_4xi6e")]
+script = ExtResource("2_8ee6g")
+solid = false
+damage = 5.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.08
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = SubResource("CapsuleShape3D_svovm")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = ExtResource("3_4xi6e")

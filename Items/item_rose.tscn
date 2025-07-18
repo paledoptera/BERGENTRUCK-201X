@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://vt80rb2lllnp"]
+
+[ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_l5wqo"]
+[ext_resource type="AudioStream" uid="uid://bwrewdkj3pqlf" path="res://Global/SFX/Sniff.wav" id="2_ybovn"]
+[ext_resource type="Texture2D" uid="uid://bg8jek07755jq" path="res://Items/Assets/Visuals/rose.png" id="3_wqele"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
+radius = 37.0135
+
+[node name="Flower" instance=ExtResource("1_l5wqo")]
+use_sound = ExtResource("2_ybovn")
+score_amount = 10
+
+[node name="TextureRect" parent="DraggableItem" index="1"]
+texture = ExtResource("3_wqele")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_gfcs1")
+
+[editable path="DraggableItem"]

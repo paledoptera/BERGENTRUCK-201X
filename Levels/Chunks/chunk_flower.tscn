@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_y6khm"]
 [ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/entity_bush_flower.tscn" id="2_n2rsl"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_xj1sv"]
-[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="4_okd1r"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="4_okd1r"]
 
 [sub_resource type="Resource" id="Resource_nbtnd"]
 script = ExtResource("3_xj1sv")

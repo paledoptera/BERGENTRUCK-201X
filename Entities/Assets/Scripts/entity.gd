@@ -12,28 +12,23 @@ class_name Entity
 @export var pixel_size : float = 0.06
 @export var hit_sound_impact : AudioStream
 @export var hit_sound_effect : AudioStream
-@export var delete_on_loop_around : bool = true
 @export var disable_collision_on_hit : bool = false
 
 func _ready() -> void:
-	$EntityContainer/Sprite3D.pixel_size = pixel_size
-
-func _process(delta: float) -> void:
-	if not delete_on_loop_around:
-		return
+	var rand_scale = randf_range(0.8,1.2)
+	$EntityContainer/Sprite3D.pixel_size = pixel_size*rand_scale
+	$EntityContainer/Sprite3D.flip_h = [true,false].pick_random()
+	damage *= rand_scale
+	car_jump_mult *= rand_scale
+	if collision_shape:
+		collision_shape.scale *= Vector3(rand_scale,rand_scale,rand_scale)
 	
+func _process(delta: float) -> void:
 	if $EntityContainer/Sprite3D.global_position.y < -30.0:
 		queue_free()
-	#$EntityContainer/Sprite3D.sorting_offset = -global_position.z*5
-	#if $EntityContainer/Sprite3D.global_position.z > 0.0:
-		#$EntityContainer/Sprite3D.no_depth_test = true
-	#else:
-		#$EntityContainer/Sprite3D.no_depth_test = false
 
 func hit(player) -> void:
 	if disable_collision_on_hit and collision_shape:
 		collision_shape.queue_free()
-	#$HitSoundImpact.play()
-	#$HitSoundEffect.play()
-	#player
-	#rotation_degrees.x -= 20
+	if stompable:
+		queue_free()

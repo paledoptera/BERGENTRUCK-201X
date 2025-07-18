@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5fggvyq6ifcq"]
+
+[ext_resource type="Script" uid="uid://bo00mhjnw5qk" path="res://Entities/bkg_grass.gd" id="1_iup2y"]
+[ext_resource type="Texture2D" uid="uid://cknf7v441tka6" path="res://Levels/Assets/Visuals/grass.png" id="2_iup2y"]
+
+[node name="BkgGrass" type="Node3D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_iup2y")
+sprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+offset = Vector2(0, 16)
+pixel_size = 0.1
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_iup2y")

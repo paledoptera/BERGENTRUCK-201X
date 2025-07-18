@@ -103,6 +103,7 @@ func _physics_process(delta: float) -> void:
 	
 	# DEBUG
 	$Score.text = str("Score: ", Global.score, "/", Global.goal)
+	$FPS.text = str("FPS: ", Engine.get_frames_per_second())
 	$Visuals/SpeedBar/RichTextLabel.text = str("SPD: ", int(speed))
 	$Visuals/HealthBar/RichTextLabel.text = str("HP: ", int(hp))
 	
@@ -316,67 +317,63 @@ func _item_exited_face(body: Node2D) -> void:
 
 
 func _entity_mechanics() -> void:
-	if entity_hitbox.has_overlapping_areas():
-		for area in entity_hitbox.get_overlapping_areas():
-			if area.get_parent() is Entity:
-				var entity: Entity = area.get_parent()
-				entity.hit(self)
-				if entity.solid:
-					var camera_pos = $Camera3D.global_position
-					camera_pos.y = entity.global_position.y
-					camera_pos.z = entity.global_position.z
-					var camera_normal = camera_pos.direction_to(entity.global_position)
-			
-					print("collision with ", entity.name)
-					car_velocity.x = -car_velocity.x*(speed/10)
-					
-					var shape = entity.collision_shape.shape
-					var bump_amount = 0
-					
-					if shape is BoxShape3D:
-						bump_amount = shape.size.x
-					elif shape is CapsuleShape3D or shape is SphereShape3D:
-						bump_amount = shape.radius
-					
-					$Camera3D.position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
-					car_position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
-					car_position.x += (camera_pos.x-entity.global_position.x)*(speed/5)
-					friction = 0
-					print(car_velocity.x)
-					car_angle.x = (camera_pos.x-entity.global_position.x)/50
-					var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
-					wheel_dragpoint.global_position.x += (camera_pos.x-entity.global_position.x)*3
-					wheel_dragpoint.global_position.y -= abs((camera_pos.x-entity.global_position.x))*3
-				if entity.stompable:
-					car_velocity.y = 0.3
-					car_velocity.z *= 1.1
-					entity.queue_free()
-				if entity.damage != 0:
-					hp -= entity.damage*(1+(speed/5))
-				screenshake_strength += 5
+	if not entity_hitbox.has_overlapping_areas():
+		return
+	
+	for area in entity_hitbox.get_overlapping_areas():
+		if area.get_parent() is Entity:
+			var entity: Entity = area.get_parent()
+			if entity.solid and entity.collision_shape:
+				var camera_pos = $Camera3D.global_position
+				camera_pos.y = entity.global_position.y
+				camera_pos.z = entity.global_position.z
+				var camera_normal = camera_pos.direction_to(entity.global_position)
 				
-				if entity.hit_sound_impact:
-					$HitSoundImpact.stream = entity.hit_sound_impact
-					$HitSoundImpact.play()
-				if entity.hit_sound_effect:
-					$HitSoundEffect.stream = entity.hit_sound_effect
-					$HitSoundEffect.play()
+				car_velocity.x = -car_velocity.x*(speed/10)
+				var shape = entity.collision_shape.shape
+				var bump_amount = 0
 				
+				if shape is BoxShape3D:
+					bump_amount = shape.size.x
+				elif shape is CapsuleShape3D or shape is SphereShape3D:
+					bump_amount = shape.radius*2
 				
-				#velocity.y = 20
-		#
-				if entity.items:
-					var items = entity.items.duplicate()
-					for itemdata in items:
-						var chance = randf_range(1,100)
-						var chance_mult = int(speed/5)
-						chance_mult = clampi(chance_mult,1,10)
-						chance /= chance_mult
-						var target = itemdata.drop_chance
-						print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
-						if chance <= target:
-							_spawn_item(itemdata.item)
-							entity.items.erase(itemdata)
+				$Camera3D.position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
+				car_position.x += sign(camera_pos.x-entity.global_position.x)*(bump_amount/2)
+				car_position.x += sign(camera_pos.x-entity.global_position.x)*(speed/5)
+				
+				friction = 0
+				
+				car_angle.x = (camera_pos.x-entity.global_position.x)/50
+				var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
+				wheel_dragpoint.global_position.x += (camera_pos.x-entity.global_position.x)*3
+				wheel_dragpoint.global_position.y -= abs((camera_pos.x-entity.global_position.x))*3
+			if entity.stompable:
+				car_velocity.y = 0.3*entity.car_jump_mult
+				car_velocity.z *= 1.1
+			if entity.damage != 0:
+				hp -= entity.damage*(1+(speed/5))
+			screenshake_strength += 5
+				
+			if entity.hit_sound_impact:
+				$HitSoundImpact.stream = entity.hit_sound_impact
+				$HitSoundImpact.play()
+			if entity.hit_sound_effect:
+				$HitSoundEffect.stream = entity.hit_sound_effect
+				$HitSoundEffect.play()
+			if entity.items:
+				var items = entity.items.duplicate()
+				for itemdata in items:
+					var chance = randf_range(1,100)
+					var chance_mult = int(speed/5)
+					chance_mult = clampi(chance_mult,1,10)
+					chance /= chance_mult
+					var target = itemdata.drop_chance
+					print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
+					if chance <= target:
+						_spawn_item(itemdata.item)
+						entity.items.erase(itemdata)
+			entity.hit(self)
 
 func _gravity_mechanics(delta: float) -> void:
 	car_velocity.y -= 1*delta
@@ -400,6 +397,9 @@ func _gravity_mechanics(delta: float) -> void:
 			in_air = true
 			car_velocity.z *= 1.1
 		friction = 0
+
+
+
 func _horn(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -416,6 +416,7 @@ func _horn(event: InputEvent) -> void:
 					if car_velocity.y > 0:
 						car_velocity.y *= 0.4
 
+
 func _correct_sprite_size(object: Node) -> void:
 	var children = object.get_children()
 	
@@ -428,6 +429,7 @@ func _correct_sprite_size(object: Node) -> void:
 			child.sorting_offset = -999999
 			child.position.y += 2
 
+
 func _get_shake(delta: float) -> Vector2:
 	noise_i += delta * screenshake_speed
 	screenshake_strength = lerp(screenshake_strength,0.0,screenshake_decay*delta)
@@ -436,6 +438,7 @@ func _get_shake(delta: float) -> Vector2:
 		noise.get_noise_2d(100, noise_i) * screenshake_strength
 	)
 	pass
+
 
 func _health_changed(previous_hp, new_hp) -> void:
 	var difference = previous_hp-new_hp

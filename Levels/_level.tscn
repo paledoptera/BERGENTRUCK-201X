@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmfdo622wwei3"]
+[gd_scene load_steps=7 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
 [ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
 [ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
-[ext_resource type="PackedScene" uid="uid://b66rrowbfljuf" path="res://Levels/Chunks/chunk_trees.tscn" id="4_wnisn"]
 [ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="7_ccp6f"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
 
@@ -27,21 +26,8 @@ entities = NodePath("../Entities")
 [node name="Entities" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 
-[node name="TreeBkg" type="Node3D" parent="Entities"]
-
 [node name="Timer" type="Timer" parent="Entities"]
 one_shot = true
-
-[node name="ChunkTrees1" parent="Entities" instance=ExtResource("4_wnisn")]
-
-[node name="ChunkTrees2" parent="Entities" instance=ExtResource("4_wnisn")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-
-[node name="ChunkTrees3" parent="Entities" instance=ExtResource("4_wnisn")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
-
-[node name="ChunkTrees4" parent="Entities" instance=ExtResource("4_wnisn")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="WallL" parent="." instance=ExtResource("7_remni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, -15, 0)

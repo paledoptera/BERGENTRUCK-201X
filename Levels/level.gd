@@ -8,7 +8,7 @@ extends Node3D
 @export var timer : Timer
 @export var player : Node3D
 @export var entities : Node3D
-
+@export var level_val : int = 1
 var bkg_item_spawn_timer : float = 0.0
 var item_spawn_timer : float = 0.0
 var item_spawn_threshold : float = 100.0
@@ -17,6 +17,7 @@ var current_stage : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.level = level_val
 	$AudioStreamPlayer.stream = music
 	$AudioStreamPlayer.play()
 
@@ -24,11 +25,12 @@ func _process(delta: float) -> void:
 	item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	
-	if item_spawn_timer >= 50.0:
-		item_spawn_timer -= 50.0
+	if item_spawn_timer >= 75.0:
+		item_spawn_timer -= 75.0
 		_spawn_item()
 	
-	if bkg_item_spawn_timer >= 10.0:
+	if bkg_item_spawn_timer >= 40.0:
+		bkg_item_spawn_timer -= 40.0
 		_spawn_bkg_item()
 
 func _spawn_item() -> void:
@@ -49,20 +51,27 @@ func _spawn_item() -> void:
 		#print("ITEM ", item, " CREATED")
 		entities.add_child(item)
 		item.global_position.x = _get_random_item_position()
-		item.global_rotation_degrees.x = -70
+		item.global_rotation_degrees.x = -90
 
 
 func _spawn_bkg_item() -> void:
-	var tree_inst = preload("res://Entities/entity_tree.tscn").instantiate()
-	tree_inst.global_position.x = -45.0
-	tree_inst.global_rotation_degrees.x = -90
+	var tree_inst = preload("uid://d1mwhsl0wm0tg").instantiate() # bkg_tree.tscn
 	entities.add_child(tree_inst)
+	tree_inst.sprite.global_position.x += randi_range(-3,0)
+	tree_inst.global_rotation_degrees.x = -90
+	if level_val == 3:
+		tree_inst.sprite.modulate = Color("307dff")
+		tree_inst.sprite_2.modulate = Color("307dff")
+	
+	var grass_inst = preload("uid://5fggvyq6ifcq").instantiate()
+	grass_inst.global_rotation_degrees.x = -90.0 + randf_range(-5,5)
+	grass_inst.global_position.x = 40
 
 
 func _check_stage_progress() -> void:
 	var progress: float = float(Global.score) / float(Global.goal)
 	
-	if progress < 0.25:
+	if progress <= 0.20:
 		current_stage = 1
 	elif progress < 0.60:
 		current_stage = 2

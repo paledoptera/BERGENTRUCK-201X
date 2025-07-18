@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://3i583fexgnrs" path="res://Levels/_chunk.tscn" id="1_4685s"]
 [ext_resource type="PackedScene" uid="uid://bnn5y7tkfk8rg" path="res://Entities/entity_bush_flower.tscn" id="2_2bchd"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_ldsw4"]
-[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/flower.tscn" id="4_8eh2k"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="4_8eh2k"]
 [ext_resource type="PackedScene" uid="uid://cn8w7uupns846" path="res://Entities/entity_bush_thorns.tscn" id="5_eowgj"]
 
 [sub_resource type="Resource" id="Resource_nbtnd"]

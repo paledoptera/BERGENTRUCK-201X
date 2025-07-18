@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc8vcjm8kaofg"]
+
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_06yxo"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_2385j"]
+[ext_resource type="AudioStream" uid="uid://fu6rkj8mk5r5" path="res://Global/Music/Black Knife.ogg" id="2_eh6o7"]
+[ext_resource type="Texture2D" uid="uid://c28msqb2p7xm2" path="res://Levels/Assets/Visuals/ground.png" id="3_c5oim"]
+[ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="5_vr4rd"]
+
+[sub_resource type="Environment" id="Environment_06yxo"]
+background_mode = 1
+background_color = Color(0, 0.0248728, 0.0920472, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
+size = Vector2(500, 100)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5oim"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_2385j")
+uv1_scale = Vector3(0.315, 0.9, 0)
+uv1_offset = Vector3(0.635, 0, 0)
+uv1_triplanar_sharpness = 0.353554
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh6o7"]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.500862, 0.657401, 1, 1)
+albedo_texture = ExtResource("3_c5oim")
+texture_filter = 0
+
+[node name="Level3" instance=ExtResource("1_06yxo")]
+music = ExtResource("2_eh6o7")
+level_val = 3
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_06yxo")
+
+[node name="Background" parent="Player" index="0"]
+transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -75.5802, -200)
+mesh = SubResource("PlaneMesh_2385j")
+surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
+
+[node name="Visuals" parent="Player" index="1"]
+modulate = Color(0.348619, 0.487624, 0.669518, 1)
+
+[node name="Ground" parent="Player" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eh6o7")
+
+[node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_vr4rd")]
+player = NodePath("../../Player")
+keeping_up_with_player = true
+entities = NodePath("..")
+
+[node name="WallL" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
+disable_collision_on_hit = false
+
+[node name="WallR" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
+disable_collision_on_hit = false
+
+[editable path="Player"]
+[editable path="Player/Visuals/WidgetWheel"]
+[editable path="Player/Visuals/WidgetWheel/DraggableItem"]
+[editable path="Player/Visuals/WidgetGear"]
+[editable path="WallL"]
+[editable path="WallR"]

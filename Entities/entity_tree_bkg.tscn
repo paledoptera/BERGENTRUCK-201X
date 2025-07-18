@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_24ooq"]
 
 [node name="TreeBkg" instance=ExtResource("1_24ooq")]
-delete_on_loop_around = false
 
 [node name="EntityContainer" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.8, 0)

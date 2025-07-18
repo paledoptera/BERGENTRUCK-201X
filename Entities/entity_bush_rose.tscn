@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b80jwgxo8owdo"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_ca8tf"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_ogbkj"]
+[ext_resource type="PackedScene" uid="uid://vt80rb2lllnp" path="res://Items/item_rose.tscn" id="3_ca8tf"]
+[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="4_pmyec"]
+[ext_resource type="Texture2D" uid="uid://di1o2kou2mbvb" path="res://Entities/Assets/Visuals/bush_rose.png" id="5_ca8tf"]
+
+[sub_resource type="Resource" id="Resource_ogbkj"]
+script = ExtResource("2_ogbkj")
+item = ExtResource("3_ca8tf")
+drop_chance = 100
+speed_effect = 0
+drop_amount_min = 1
+drop_amount_max = 1
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[node name="RoseBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_ca8tf")]
+hp = 1
+items = Array[ExtResource("2_ogbkj")]([SubResource("Resource_ogbkj")])
+solid = false
+stompable = true
+damage = 5.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.1
+hit_sound_effect = ExtResource("4_pmyec")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = ExtResource("5_ca8tf")

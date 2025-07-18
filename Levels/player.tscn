@@ -186,11 +186,11 @@ offset = Vector2(0, -30)
 
 [node name="Horn" type="ColorRect" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -57.0
-offset_top = 54.0
-offset_right = -7.0
-offset_bottom = 104.0
-rotation = 0.84546
+offset_left = -29.0
+offset_top = 64.0
+offset_right = 31.0
+offset_bottom = 124.0
+rotation = 1.67015
 
 [node name="Hand" type="Sprite2D" parent="Visuals"]
 z_index = 50
@@ -225,6 +225,15 @@ offset_right = 210.0
 offset_bottom = 48.0
 mouse_filter = 2
 text = "Score: 0p"
+scroll_active = false
+
+[node name="FPS" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 38.0
+offset_right = 210.0
+offset_bottom = 78.0
+mouse_filter = 2
+text = "FPS: "
 scroll_active = false
 
 [node name="Camera3D" type="Camera3D" parent="."]

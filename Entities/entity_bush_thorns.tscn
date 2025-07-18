@@ -5,11 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="3_jgfxf"]
 [ext_resource type="Texture2D" uid="uid://tyf1jytfl8nd" path="res://Entities/Assets/Visuals/bush_thorns.png" id="4_xr5a3"]
 
-[node name="ThornBush" instance=ExtResource("1_6ipe1")]
+[node name="ThornBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_6ipe1")]
 hp = 1
 solid = false
 stompable = true
 damage = 1.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
 pixel_size = 0.1
 hit_sound_impact = ExtResource("2_tymhi")
 hit_sound_effect = ExtResource("3_jgfxf")

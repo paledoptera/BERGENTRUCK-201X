@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bympmn5b7p10t"]
+[gd_scene load_steps=4 format=3 uid="uid://bympmn5b7p10t"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_okohi"]
+[ext_resource type="Script" uid="uid://drtgywgenhb8p" path="res://Entities/entity_tree.gd" id="2_qdqso"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="3_qgdxx"]
 
 [node name="Tree" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_okohi")]
+script = ExtResource("2_qdqso")
+damage = 2.0
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
+hit_sound_impact = ExtResource("3_qgdxx")
 
 [node name="EntityContainer" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.8, 0)

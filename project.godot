@@ -13,6 +13,7 @@ config_version=5
 config/name="ULTRATRUCKUNG 201X"
 run/main_scene="uid://pfn2cpkppd67"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -28,6 +29,10 @@ window/size/viewport_height=240
 window/size/window_width_override=640
 window/size/window_height_override=480
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
 [input]
 

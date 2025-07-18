@@ -10,9 +10,15 @@ var strength = 50
 @onready var audio := $AudioStreamPlayer
 
 func _ready() -> void:
+	var rand_scale = randf_range(0.5,1.5)
+	scale = Vector2(rand_scale,rand_scale)
+	score_amount *= rand_scale
 	$DraggableItem.top_level = true
 	$DraggableItem.global_position = global_position
 	$DraggableItem.global_rotation = global_rotation
+	$DraggableItem.scale *= scale
+	$GrabBox.scale *= scale
+	$GrabBox.position = Vector2(0,0)-(($GrabBox.size*$GrabBox.scale)/2)
 	$AudioStreamPlayer.stream = use_sound
 
 func _integrate_forces(state) -> void:

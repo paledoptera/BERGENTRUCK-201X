@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc8vcjm8kaofg"]
+[gd_scene load_steps=8 format=3 uid="uid://bc8vcjm8kaofg"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_06yxo"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_2385j"]
 [ext_resource type="AudioStream" uid="uid://fu6rkj8mk5r5" path="res://Global/Music/Black Knife.ogg" id="2_eh6o7"]
-[ext_resource type="Texture2D" uid="uid://c28msqb2p7xm2" path="res://Levels/Assets/Visuals/ground.png" id="3_c5oim"]
 [ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="5_vr4rd"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
@@ -24,14 +23,6 @@ uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr4rd"]
-resource_name = "Ground"
-cull_mode = 2
-shading_mode = 0
-albedo_color = Color(0.224914, 0.411537, 1, 1)
-albedo_texture = ExtResource("3_c5oim")
-texture_filter = 0
-
 [node name="Level3" instance=ExtResource("1_06yxo")]
 music = ExtResource("2_eh6o7")
 level_val = 3
@@ -48,7 +39,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
 [node name="Ground" parent="Player" index="10"]
-surface_material_override/0 = SubResource("StandardMaterial3D_vr4rd")
+surface_material_override/0 = null
 
 [node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_vr4rd")]
 player = NodePath("../../Player")

@@ -6,10 +6,13 @@ extends RigidBody2D
 @export var score_amount : int = 100
 var lifetime : float = 0
 var strength = 50
+@export var weight: float = 1.0
 @onready var lifetimer := $Timer
 @onready var audio := $AudioStreamPlayer
+@export var player : Node3D
 
 func _ready() -> void:
+	rotation_degrees = randi_range(0,360)
 	var rand_scale = randf_range(0.5,1.5)
 	scale = Vector2(rand_scale,rand_scale)
 	score_amount *= rand_scale
@@ -24,6 +27,8 @@ func _ready() -> void:
 func _integrate_forces(state) -> void:
 	if $DraggableItem.drag:
 		linear_velocity = global_position.direction_to($DraggableItem.global_position) * (global_position.distance_to($DraggableItem.global_position) * strength)
+	else:
+		apply_force(global_position.direction_to(global_position+Vector2(player.car_velocity.x,player.car_velocity.y)) * (global_position.distance_to(global_position+Vector2(player.car_velocity.x,player.car_velocity.y) * strength * 50)/weight))
 
 func _physics_process(delta: float) -> void:
 	if $DraggableItem.drag:

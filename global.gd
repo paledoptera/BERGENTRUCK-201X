@@ -1,5 +1,5 @@
 extends Node
 
-var score: int = 0
-var goal: int = 100
+var score: float = 0.0
+var goal: float = 100.0
 var level: int = 1

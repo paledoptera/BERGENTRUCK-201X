@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 
 func hit(player) -> void:
-	Global.score += 8
+	Global.score += 7
 	player.screenshake_strength += 40
 	$AIState.send_event("Hit")
 	disable_collision()
@@ -203,7 +203,7 @@ func play_sound(audio: AudioStream, pitch_scale: float = 1.0, volume_db: float =
 
 func _get_current_attack_pool() -> void:
 	
-	var current_attack_num = Global.score / 20
+	var current_attack_num = Global.score / 18
 	current_attack_num = clamp(int(current_attack_num),0,ATTACK.size()-1)
 	attack_pool.clear()
 	for i in range(current_attack_num+1):

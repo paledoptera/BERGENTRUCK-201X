@@ -20,8 +20,8 @@ func _ready() -> void:
 	$EntityContainer/Sprite3D.flip_h = [true,false].pick_random()
 	damage *= rand_scale
 	car_jump_mult *= rand_scale
-	if collision_shape:
-		collision_shape.scale *= Vector3(rand_scale,rand_scale,rand_scale)
+	#if collision_shape:
+		#collision_shape.scale *= Vector3(rand_scale,rand_scale,rand_scale)
 	
 func _process(delta: float) -> void:
 	if $EntityContainer/Sprite3D.global_position.y < -30.0:

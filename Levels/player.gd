@@ -18,6 +18,7 @@ const DRIFT_ACCELERATION = 0.01
 
 
 
+
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
 var last_turn_speed = 0.0
@@ -62,6 +63,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(car_velocity)
 	last_velocity = car_velocity
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
@@ -99,7 +101,9 @@ func _physics_process(delta: float) -> void:
 	
 	visuals_angle += (noise.get_noise_2d(1,noise_i) * screenshake_strength)/100
 	
-	$Visuals/HealthBar/Dial.rotation_degrees = ((50.0-hp)/100)*90
+	print(Global.score/Global.goal)
+	$Visuals/HealthBar/Dial.rotation_degrees = lerp($Visuals/HealthBar/Dial.rotation_degrees,((50.0-hp)/100.0)*90.0,0.2)
+	$Visuals/ProgressBar/Dial.rotation_degrees = lerp($Visuals/ProgressBar/Dial.rotation_degrees,-225.0+(Global.score/Global.goal)*90.0,0.2)
 	
 	# DEBUG
 	$Score.text = str("Score: ", Global.score, "/", Global.goal)
@@ -123,6 +127,8 @@ func _hand_visuals() -> void:
 		hand.frame = 1
 	else:
 		hand.frame = 0
+	
+	$Visuals/Hand/RigidBody2D.linear_velocity = $Visuals/Hand/RigidBody2D.global_position.direction_to($Visuals/Hand.global_position) * ($Visuals/Hand/RigidBody2D.global_position.distance_to($Visuals/Hand.global_position) * 50)
 	
 	
 	var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
@@ -289,6 +295,7 @@ func _spawn_item(item: PackedScene) -> void:
 	var spawn_position = Vector2(randi_range($SpawnZone.global_position.x,$SpawnZone.global_position.x+$SpawnZone.size.x),randi_range($SpawnZone.global_position.y,$SpawnZone.global_position.y+$SpawnZone.size.y))
 	var item_scene = item.instantiate()
 	item_scene.global_position = spawn_position
+	item_scene.player = self
 	add_child(item_scene)
 
 
@@ -301,6 +308,8 @@ func _on_item_despawn_zone_body_entered(body: Node2D) -> void:
 func _item_entered_face(body: Node2D) -> void:
 	if body is Item and body not in current_items_in_face_region:
 		var item: Item = body
+		if item.lifetime_in_seconds == -1:
+			return
 		current_items_in_face_region.append(item)
 		if item.use_sound:
 			item.audio.play()
@@ -365,9 +374,6 @@ func _entity_mechanics() -> void:
 				var items = entity.items.duplicate()
 				for itemdata in items:
 					var chance = randf_range(1,100)
-					var chance_mult = int(speed/5)
-					chance_mult = clampi(chance_mult,1,10)
-					chance /= chance_mult
 					var target = itemdata.drop_chance
 					print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
 					if chance <= target:
@@ -406,15 +412,13 @@ func _horn(event: InputEvent) -> void:
 			if event.pressed:
 				horn = true
 				$CarHonk.play()
-				if Global.level == 3:
-					if $Camera3D.position.y == 8.0:
-						car_velocity.y = 1
+				if $Camera3D.position.y == 8.0:
+					car_velocity.y = 1
 			elif not event.pressed:
 				horn = false
 				$CarHonk.stop()
-				if Global.level == 3:
-					if car_velocity.y > 0:
-						car_velocity.y *= 0.4
+				if car_velocity.y > 0:
+					car_velocity.y *= 0.4
 
 
 func _correct_sprite_size(object: Node) -> void:

@@ -32,7 +32,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
 
 [input]
 
@@ -74,6 +74,7 @@ click_right={
 
 [physics]
 
+2d/physics_engine="Box2D"
 3d/default_gravity=1.0
 
 [rendering]

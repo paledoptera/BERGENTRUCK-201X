@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=32 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="5_wpukm"]
 [ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Assets/Visuals/speedometer dial.png" id="6_3ckti"]
 [ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="6_yiue1"]
+[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Assets/Visuals/satisfaction gage.png" id="7_y8g1j"]
 [ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="7_yiue1"]
 [ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="8_7v3gk"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="8_ln1lg"]
@@ -32,6 +33,9 @@ uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8g1j"]
+radius = 21.0238
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_34hgd"]
 size = Vector3(7.5, 7.968, 1)
 
@@ -40,6 +44,9 @@ size = Vector2(460, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
 size = Vector2(104.125, 122)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q103l"]
+radius = 41.0122
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
 size = Vector2(290, 2000)
@@ -102,7 +109,7 @@ texture = ExtResource("2_xeq3v")
 offset = Vector2(3.075, -1.565)
 
 [node name="SpeedBar" type="Sprite2D" parent="Visuals"]
-position = Vector2(70, 60)
+position = Vector2(76, 55)
 texture = ExtResource("10_i638c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Visuals/SpeedBar"]
@@ -112,9 +119,17 @@ offset_right = 47.09
 mouse_filter = 2
 text = "SPD: 0"
 scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Dial" type="Sprite2D" parent="Visuals/SpeedBar"]
+position = Vector2(-7.07805e-08, 12)
+rotation = -3.40339
+scale = Vector2(0.95, 1)
+texture = ExtResource("6_3ckti")
+offset = Vector2(17, 0)
 
 [node name="HealthBar" type="Sprite2D" parent="Visuals"]
-position = Vector2(16, 49)
+position = Vector2(24.5, 44)
 texture = ExtResource("5_d1kdx")
 
 [node name="Dial" type="Sprite2D" parent="Visuals/HealthBar"]
@@ -125,6 +140,27 @@ texture = ExtResource("6_3ckti")
 offset = Vector2(36, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Visuals/HealthBar"]
+offset_left = -29.0
+offset_top = -44.0
+offset_right = 47.09
+offset_bottom = -4.0
+mouse_filter = 2
+text = "HP: 100"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="Sprite2D" parent="Visuals"]
+position = Vector2(127.5, 44)
+texture = ExtResource("7_y8g1j")
+
+[node name="Dial" type="Sprite2D" parent="Visuals/ProgressBar"]
+position = Vector2(18, 0)
+rotation = -3.92699
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_3ckti")
+offset = Vector2(36, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visuals/ProgressBar"]
 offset_left = -29.0
 offset_top = -44.0
 offset_right = 47.09
@@ -212,6 +248,17 @@ rotation = 0.125094
 texture = ExtResource("9_i638c")
 offset = Vector2(-3.78546, 60.0349)
 
+[node name="RigidBody2D" type="RigidBody2D" parent="Visuals/Hand"]
+position = Vector2(-1, 21)
+collision_layer = 2
+collision_mask = 0
+mass = 0.001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Hand/RigidBody2D"]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_y8g1j")
+debug_color = Color(0.993915, 0, 0.230347, 0.42)
+
 [node name="Asgore" type="Sprite2D" parent="Visuals"]
 z_index = 999
 position = Vector2(-210, -127)
@@ -257,16 +304,28 @@ debug_color = Color(0, 1, 0.486275, 0.972549)
 position = Vector2(0, 284)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(163, 0)
+position = Vector2(163, -26)
 shape = SubResource("RectangleShape2D_wpukm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-66.9375, -51)
 shape = SubResource("RectangleShape2D_yiue1")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-66.9375, -345)
+shape = SubResource("RectangleShape2D_yiue1")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(393, -51)
 shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(393, -351)
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(17, -28)
+shape = SubResource("CircleShape2D_q103l")
 
 [node name="ItemDespawnZone" type="Area2D" parent="."]
 
@@ -293,10 +352,10 @@ wait_time = 0.33
 one_shot = true
 
 [node name="SpawnZone" type="ColorRect" parent="."]
-offset_left = 79.0
-offset_top = -259.0
-offset_right = 320.0
-offset_bottom = -159.0
+offset_left = 52.0
+offset_top = -160.0
+offset_right = 293.0
+offset_bottom = -110.0
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -20, 0)

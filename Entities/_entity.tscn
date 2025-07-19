@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="2_qmwl5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
-radius = 1.5
-height = 39.1538
+radius = 0.867574
+height = 5.3929
 
 [node name="Entity" type="Node3D"]
 script = ExtResource("1_qgafo")

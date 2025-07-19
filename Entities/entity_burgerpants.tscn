@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpbo5ryuwaua5"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_facq2"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_dmt30"]
+[ext_resource type="PackedScene" uid="uid://ce5f0tgc8bh8c" path="res://Items/item_pizza.tscn" id="3_facq2"]
+[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="4_dmt30"]
+[ext_resource type="Texture2D" uid="uid://bv2ym70espqb0" path="res://Entities/Assets/Visuals/burgerpants.png" id="5_facq2"]
+
+[sub_resource type="Resource" id="Resource_dmt30"]
+script = ExtResource("2_dmt30")
+item = ExtResource("3_facq2")
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_lg3nb"]
+script = ExtResource("2_dmt30")
+item = ExtResource("3_facq2")
+drop_chance = 30
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[node name="Burgerpants" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_facq2")]
+hp = 1
+items = Array[ExtResource("2_dmt30")]([SubResource("Resource_dmt30"), SubResource("Resource_lg3nb")])
+solid = false
+stompable = true
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.1
+hit_sound_effect = ExtResource("4_dmt30")
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432386, 0)
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = ExtResource("5_facq2")

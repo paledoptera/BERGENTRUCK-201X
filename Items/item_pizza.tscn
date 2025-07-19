@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce5f0tgc8bh8c"]
+
+[ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_0f2rj"]
+[ext_resource type="AudioStream" uid="uid://bwrewdkj3pqlf" path="res://Global/SFX/Sniff.wav" id="2_sop00"]
+[ext_resource type="Texture2D" uid="uid://cj6fgf5ulpgyr" path="res://Items/Assets/Visuals/pizza.png" id="3_0f2rj"]
+[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="4_erafw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
+radius = 37.0135
+
+[node name="Pizza" instance=ExtResource("1_0f2rj")]
+mass = 7.0
+use_sound = ExtResource("2_sop00")
+score_amount = 10
+
+[node name="TextureRect" parent="DraggableItem" index="1"]
+texture = ExtResource("3_0f2rj")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_gfcs1")
+
+[node name="GrabBox" parent="." index="2"]
+self_modulate = Color(1, 0, 1, 0)
+texture = ExtResource("4_erafw")
+
+[editable path="DraggableItem"]

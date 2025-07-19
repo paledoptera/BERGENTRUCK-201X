@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 
 func hit(player) -> void:
-	Global.score += 7
+	Global.score += 5
 	player.screenshake_strength += 40
 	$AIState.send_event("Hit")
 	disable_collision()

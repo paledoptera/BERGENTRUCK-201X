@@ -1,7 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://pfn2cpkppd67"]
+[gd_scene load_steps=6 format=3 uid="uid://pfn2cpkppd67"]
 
-[ext_resource type="PackedScene" uid="uid://c7p8pcqopqawn" path="res://Levels/level1.tscn" id="1_oj8hd"]
+[ext_resource type="Script" uid="uid://c047atpq0lmk3" path="res://Levels/main.gd" id="1_nj2yk"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_7pswh"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_34bfm"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_ovrsl"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_7pswh"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("game_state")]
+script = ExtResource("1_nj2yk")
+game_state = NodePath("GameState")
 
-[node name="Level1" parent="." instance=ExtResource("1_oj8hd")]
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("2_7pswh")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="GameState"]
+script = ExtResource("3_34bfm")
+initial_state = NodePath("LevelSelect")
+
+[node name="Title" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="LevelSelect" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="Transition" type="Node" parent="GameState/Root/LevelSelect"]
+script = ExtResource("5_7pswh")
+to = NodePath("../../Level")
+event = &"Start"
+delay_in_seconds = "0.0"
+
+[node name="Level" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="GameOver" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="Cutscene" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="Credits" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[connection signal="state_entered" from="GameState/Root/LevelSelect" to="." method="_level_select_enter"]
+[connection signal="state_entered" from="GameState/Root/Level" to="." method="_level_enter"]

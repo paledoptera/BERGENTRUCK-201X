@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsyjain0shc50"]
+
+[ext_resource type="PackedScene" uid="uid://beo0wp80g721" path="res://UI/level_icon.tscn" id="1_r4dbv"]
+
+[node name="LevelSelect" type="Node"]
+
+[node name="LevelIcon" parent="." instance=ExtResource("1_r4dbv")]
+offset_left = 29.0
+offset_top = 79.0
+offset_right = 109.0
+offset_bottom = 159.0
+
+[node name="LevelIcon2" parent="." instance=ExtResource("1_r4dbv")]
+offset_left = 124.0
+offset_top = 79.0
+offset_right = 204.0
+offset_bottom = 159.0
+value = 2
+
+[node name="LevelIcon3" parent="." instance=ExtResource("1_r4dbv")]
+offset_left = 218.0
+offset_top = 79.0
+offset_right = 298.0
+offset_bottom = 159.0
+value = 3

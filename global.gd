@@ -3,3 +3,18 @@ extends Node
 var score: float = 0.0
 var goal: float = 100.0
 var level: int = 1
+var game: Node
+
+func goto_level(value : int = 1):
+	var lv : String
+	
+	match value:
+		1:
+			lv = "uid://c7p8pcqopqawn" # level1.tscn
+		2:
+			lv = "uid://dfltl3btm1pp6" # level2.tscn
+		3:
+			lv = "uid://bc8vcjm8kaofg" # level3.tscn
+	
+	game.level_path = lv
+	return game.game_state.send_event("Start")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfltl3btm1pp6"]
+
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_24phs"]
+[ext_resource type="AudioStream" uid="uid://dxn0k1wd4q32p" path="res://Global/Music/Midnight Motorist.ogg" id="2_ty1rc"]
+
+[sub_resource type="Environment" id="Environment_24phs"]
+background_mode = 1
+background_color = Color(0.293763, 0.280784, 1, 1)
+
+[node name="Level2" instance=ExtResource("1_24phs")]
+music = ExtResource("2_ty1rc")
+item_queue_intro = Array[String](["uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://bympmn5b7p10t", "", "", "", ""])
+item_queue_mid = Array[String](["uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://cn8w7uupns846", "", ""])
+item_queue_end = Array[String](["uid://bnn5y7tkfk8rg", "uid://bnn5y7tkfk8rg", "uid://b80jwgxo8owdo", "uid://cn8w7uupns846", "uid://cn8w7uupns846", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t"])
+level_val = 2
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_24phs")
+
+[node name="Visuals" parent="Player" index="1"]
+modulate = Color(0.951701, 0.76891, 0.801011, 1)
+
+[node name="DamageSplash" parent="Player" index="15"]
+self_modulate = Color(1, 1, 1, 0.305882)
+
+[node name="WallL" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
+disable_collision_on_hit = false
+
+[node name="WallR" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
+disable_collision_on_hit = false
+
+[editable path="Player"]
+[editable path="Player/Visuals/WidgetWheel"]
+[editable path="Player/Visuals/WidgetWheel/DraggableItem"]
+[editable path="Player/Visuals/WidgetGear"]
+[editable path="WallL"]
+[editable path="WallR"]

@@ -1,30 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnn5y7tkfk8rg"]
+[gd_scene load_steps=9 format=3 uid="uid://cuu8u82sv6b75"]
 
-[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_jvw54"]
+[ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_2w5dm"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
 [ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/bush_flower.png" id="2_j58kf"]
 [ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="2_x4tte"]
-[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="4_6b46r"]
+[ext_resource type="PackedScene" uid="uid://bnb2xiobf6qwh" path="res://Items/item_leaf.tscn" id="3_7sk2g"]
 
-[sub_resource type="Resource" id="Resource_nbtnd"]
+[sub_resource type="Resource" id="Resource_wcjbc"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("3_7sk2g")
+drop_chance = 15
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_6b46r"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("2_x4tte")
+drop_chance = 5
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_x1hwt"]
 script = ExtResource("2_d4hl2")
 item = ExtResource("2_x4tte")
 drop_chance = 100
-speed_effect = 0
-drop_amount_min = 1
-drop_amount_max = 1
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
-[node name="FlowerBush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_jvw54")]
-hp = 1
-items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_nbtnd")])
-solid = false
-stompable = true
-collision_shape = NodePath("EntityContainer/CollisionShape3D")
-pixel_size = 0.1
-hit_sound_effect = ExtResource("4_6b46r")
+[node name="Bush" instance=ExtResource("1_2w5dm")]
+items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_6b46r"), SubResource("Resource_x1hwt")])
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
-offset = Vector2(0, 30)
-pixel_size = 0.08
 texture = ExtResource("2_j58kf")

@@ -9,6 +9,11 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
 
+[node name="DamageTimer" type="Timer" parent="." index="5"]
+wait_time = 0.35
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 
 [editable path="DraggableItem"]

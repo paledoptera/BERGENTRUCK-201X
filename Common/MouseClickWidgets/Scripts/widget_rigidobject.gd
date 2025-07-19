@@ -10,10 +10,11 @@ var strength = 50
 @onready var lifetimer := $Timer
 @onready var audio := $AudioStreamPlayer
 @export var player : Node3D
+@export var damage : float = 0.0
 
 func _ready() -> void:
 	rotation_degrees = randi_range(0,360)
-	var rand_scale = randf_range(0.5,1.5)
+	var rand_scale = randf_range(0.75,1.25)
 	scale = Vector2(rand_scale,rand_scale)
 	score_amount *= rand_scale
 	$DraggableItem.top_level = true
@@ -32,6 +33,13 @@ func _integrate_forces(state) -> void:
 
 func _physics_process(delta: float) -> void:
 	if $DraggableItem.drag:
+		if damage:
+			if $AsgoreScreamTimer.is_stopped():
+				Audio.play_sfx(preload("uid://cjkg2bw1yl0j8"),randf_range(0.9,1.1),3)
+				$AsgoreScreamTimer.start()
+			if $DamageTimer.is_stopped():
+				player.hp -= damage
+				$DamageTimer.start()
 		global_position = $DraggableItem.global_position
 		global_rotation = $DraggableItem.global_rotation
 	else:

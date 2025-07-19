@@ -63,7 +63,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print(car_velocity)
+
 	last_velocity = car_velocity
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
@@ -101,9 +101,11 @@ func _physics_process(delta: float) -> void:
 	
 	visuals_angle += (noise.get_noise_2d(1,noise_i) * screenshake_strength)/100
 	
-	print(Global.score/Global.goal)
 	$Visuals/HealthBar/Dial.rotation_degrees = lerp($Visuals/HealthBar/Dial.rotation_degrees,((50.0-hp)/100.0)*90.0,0.2)
 	$Visuals/ProgressBar/Dial.rotation_degrees = lerp($Visuals/ProgressBar/Dial.rotation_degrees,-225.0+(Global.score/Global.goal)*90.0,0.2)
+	var dial_rand_jitter = randf_range(-5,5)
+	$Visuals/SpeedBar/Dial.rotation_degrees = lerp($Visuals/SpeedBar/Dial.rotation_degrees,-195+dial_rand_jitter+(speed/10)*200,0.2)
+	$DamageSplash.self_modulate.a = lerp($DamageSplash.self_modulate.a,0.0,0.05)
 	
 	# DEBUG
 	$Score.text = str("Score: ", Global.score, "/", Global.goal)
@@ -125,11 +127,13 @@ func _physics_process(delta: float) -> void:
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):
 		hand.frame = 1
+		$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = false
 	else:
 		hand.frame = 0
+		$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = true
 	
-	$Visuals/Hand/RigidBody2D.linear_velocity = $Visuals/Hand/RigidBody2D.global_position.direction_to($Visuals/Hand.global_position) * ($Visuals/Hand/RigidBody2D.global_position.distance_to($Visuals/Hand.global_position) * 50)
 	
+	$Visuals/Hand/RigidBody2D.global_position = $Visuals/Hand.global_position
 	
 	var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
 	var gearbox_dragpoint = widget_gear.get_node("DraggableItem")
@@ -365,11 +369,10 @@ func _entity_mechanics() -> void:
 			screenshake_strength += 5
 				
 			if entity.hit_sound_impact:
-				$HitSoundImpact.stream = entity.hit_sound_impact
-				$HitSoundImpact.play()
+				Audio.play_sfx(entity.hit_sound_impact)
 			if entity.hit_sound_effect:
-				$HitSoundEffect.stream = entity.hit_sound_effect
-				$HitSoundEffect.play()
+				Audio.play_sfx(entity.hit_sound_effect)
+			
 			if entity.items:
 				var items = entity.items.duplicate()
 				for itemdata in items:
@@ -441,7 +444,6 @@ func _get_shake(delta: float) -> Vector2:
 		noise.get_noise_2d(1,noise_i) * screenshake_strength,
 		noise.get_noise_2d(100, noise_i) * screenshake_strength
 	)
-	pass
 
 
 func _health_changed(previous_hp, new_hp) -> void:
@@ -449,4 +451,5 @@ func _health_changed(previous_hp, new_hp) -> void:
 	var value = difference*10
 	value = clamp(value,1,30)
 	screenshake_strength += value
+	$DamageSplash.self_modulate.a += value/30
 	$CarHurt.play()

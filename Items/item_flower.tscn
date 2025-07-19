@@ -10,7 +10,7 @@ radius = 37.0135
 
 [node name="Flower" instance=ExtResource("1_xydft")]
 use_sound = ExtResource("2_w240m")
-score_amount = 5
+score_amount = 6
 
 [node name="TextureRect" parent="DraggableItem" index="1"]
 texture = ExtResource("3_kb7da")

@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="15_hunlg"]
 [ext_resource type="AudioStream" uid="uid://hwdnkrvj4wpm" path="res://Global/SFX/Screech.wav" id="16_c6bv5"]
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="19_q103l"]
-[ext_resource type="AudioStream" uid="uid://chyeoqgutemq5" path="res://Global/SFX/Petals.wav" id="20_y8g1j"]
+[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="20_y8g1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
 size = Vector2(500, 30.805)
@@ -33,6 +33,8 @@ uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y8g1j"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_y8g1j"]
 radius = 21.0238
 
@@ -43,16 +45,13 @@ size = Vector3(7.5, 7.968, 1)
 size = Vector2(460, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
-size = Vector2(104.125, 122)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q103l"]
-radius = 41.0122
+size = Vector2(104.125, 215.502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
 size = Vector2(290, 2000)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1kdx"]
-radius = 23.91
+radius = 31.0161
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q103l"]
 _surfaces = [{
@@ -109,10 +108,11 @@ texture = ExtResource("2_xeq3v")
 offset = Vector2(3.075, -1.565)
 
 [node name="SpeedBar" type="Sprite2D" parent="Visuals"]
-position = Vector2(76, 55)
+position = Vector2(68, 55)
 texture = ExtResource("10_i638c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Visuals/SpeedBar"]
+visible = false
 offset_left = -29.0
 offset_top = -40.0
 offset_right = 47.09
@@ -129,7 +129,7 @@ texture = ExtResource("6_3ckti")
 offset = Vector2(17, 0)
 
 [node name="HealthBar" type="Sprite2D" parent="Visuals"]
-position = Vector2(24.5, 44)
+position = Vector2(16.5, 44)
 texture = ExtResource("5_d1kdx")
 
 [node name="Dial" type="Sprite2D" parent="Visuals/HealthBar"]
@@ -140,6 +140,7 @@ texture = ExtResource("6_3ckti")
 offset = Vector2(36, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Visuals/HealthBar"]
+visible = false
 offset_left = -29.0
 offset_top = -44.0
 offset_right = 47.09
@@ -150,7 +151,7 @@ scroll_active = false
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="Sprite2D" parent="Visuals"]
-position = Vector2(127.5, 44)
+position = Vector2(119.5, 44)
 texture = ExtResource("7_y8g1j")
 
 [node name="Dial" type="Sprite2D" parent="Visuals/ProgressBar"]
@@ -161,6 +162,7 @@ texture = ExtResource("6_3ckti")
 offset = Vector2(36, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Visuals/ProgressBar"]
+visible = false
 offset_left = -29.0
 offset_top = -44.0
 offset_right = 47.09
@@ -171,7 +173,7 @@ scroll_active = false
 
 [node name="WidgetWheel" parent="Visuals" instance=ExtResource("6_yiue1")]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-60, 90)
+position = Vector2(-71, 90)
 scale = Vector2(0.5, 0.5)
 snap_to_cursor = false
 drag_speed = 0.1
@@ -179,6 +181,7 @@ snap_speed = 0.05
 
 [node name="ColorRect" parent="Visuals/WidgetWheel" index="0"]
 self_modulate = Color(1, 1, 1, 0)
+offset_right = 137.94
 
 [node name="Marker2D" parent="Visuals/WidgetWheel/Notches" index="0"]
 position = Vector2(0, -150)
@@ -199,12 +202,11 @@ offset_top = 20.0
 offset_right = 489.0
 offset_bottom = 84.0
 scale = Vector2(0.16, 1.5)
-snap_to_cursor = true
 snap_speed = 0.9
 
 [node name="DraggableItem" parent="Visuals/WidgetGear" index="1"]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(4, 0.5)
+scale = Vector2(3, 0.5)
 
 [node name="Marker2D" type="Marker2D" parent="Visuals/WidgetGear"]
 position = Vector2(32, 32)
@@ -222,11 +224,12 @@ offset = Vector2(0, -30)
 
 [node name="Horn" type="ColorRect" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -29.0
-offset_top = 64.0
-offset_right = 31.0
-offset_bottom = 124.0
-rotation = 1.67015
+offset_left = -18.0
+offset_top = 62.0
+offset_right = 42.0
+offset_bottom = 122.0
+rotation = 1.83064
+scale = Vector2(1.2, 1.2)
 
 [node name="Hand" type="Sprite2D" parent="Visuals"]
 z_index = 50
@@ -248,11 +251,11 @@ rotation = 0.125094
 texture = ExtResource("9_i638c")
 offset = Vector2(-3.78546, 60.0349)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Visuals/Hand"]
+[node name="RigidBody2D" type="StaticBody2D" parent="Visuals/Hand"]
 position = Vector2(-1, 21)
 collision_layer = 2
-collision_mask = 0
-mass = 0.001
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_y8g1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/Hand/RigidBody2D"]
 position = Vector2(-5, 2)
@@ -266,6 +269,7 @@ texture = ExtResource("9_wpukm")
 centered = false
 
 [node name="Score" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 210.0
@@ -275,6 +279,7 @@ text = "Score: 0p"
 scroll_active = false
 
 [node name="FPS" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 10.0
 offset_top = 38.0
 offset_right = 210.0
@@ -308,24 +313,24 @@ position = Vector2(163, -26)
 shape = SubResource("RectangleShape2D_wpukm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-66.9375, -51)
-shape = SubResource("RectangleShape2D_yiue1")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-66.9375, -345)
+position = Vector2(-96, -36)
+rotation = -0.835659
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(393, -51)
+position = Vector2(416, -36)
+rotation = 0.836013
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-58, -463)
+rotation = 0.331718
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(393, -351)
+position = Vector2(378, -475)
+rotation = -0.331613
 shape = SubResource("RectangleShape2D_yiue1")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(17, -28)
-shape = SubResource("CircleShape2D_q103l")
 
 [node name="ItemDespawnZone" type="Area2D" parent="."]
 
@@ -375,16 +380,14 @@ bus = &"SFX"
 stream = ExtResource("19_q103l")
 bus = &"SFX"
 
-[node name="HitSoundImpact" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_y8g1j")
-bus = &"SFX"
-
-[node name="HitSoundEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_y8g1j")
-bus = &"SFX"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="DamageSplash" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 120)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("20_y8g1j")
 
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="gui_input" from="Visuals/Horn" to="." method="_horn"]

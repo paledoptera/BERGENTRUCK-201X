@@ -7,9 +7,9 @@
 radius = 13.0384
 
 [node name="Leaf" instance=ExtResource("1_dknip")]
-collision_mask = 3
+collision_layer = 3
+mass = 1.0
 lifetime_in_seconds = -1.0
-weight = 0.5
 
 [node name="TextureRect" parent="DraggableItem" index="1"]
 texture = ExtResource("3_dknip")

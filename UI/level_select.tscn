@@ -1,8 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsyjain0shc50"]
+[gd_scene load_steps=6 format=3 uid="uid://bsyjain0shc50"]
 
+[ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="1_q0b5w"]
 [ext_resource type="PackedScene" uid="uid://beo0wp80g721" path="res://UI/level_icon.tscn" id="1_r4dbv"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_qgm14"]
+[ext_resource type="Texture2D" uid="uid://e12plhp7qvec" path="res://UI/Assets/Visuals/level_select_road.png" id="2_uafa6"]
+[ext_resource type="Texture2D" uid="uid://bichsa23x3dis" path="res://UI/Assets/Visuals/level_select_trees.png" id="3_mtlrr"]
 
 [node name="LevelSelect" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_q0b5w")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.541176)
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("2_uafa6")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 0)
+autoscroll = Vector2(60, 0)
+repeat_times = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Parallax2D2"]
+modulate = Color(1, 0.494118, 1, 1)
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3_mtlrr")
 
 [node name="LevelIcon" parent="." instance=ExtResource("1_r4dbv")]
 offset_left = 29.0
@@ -23,3 +54,42 @@ offset_top = 79.0
 offset_right = 298.0
 offset_bottom = 159.0
 value = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 86.0
+offset_top = 7.0
+offset_right = 586.0
+offset_bottom = 47.0
+scale = Vector2(1.705, 1.705)
+theme_override_fonts/normal_font = ExtResource("2_qgm14")
+text = "- Level 1 -"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 185.0
+offset_top = 196.0
+offset_right = 685.0
+offset_bottom = 236.0
+scale = Vector2(1.995, 2.06)
+theme_override_fonts/normal_font = ExtResource("2_qgm14")
+text = "00:00"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 187.0
+offset_top = 183.0
+offset_right = 687.0
+offset_bottom = 223.0
+scale = Vector2(1.01, 1.01)
+theme_override_fonts/normal_font = ExtResource("2_qgm14")
+text = "Best Time "
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 18.0
+offset_top = 187.0
+offset_right = 518.0
+offset_bottom = 238.105
+scale = Vector2(0.585, 0.79)
+theme_override_fonts/normal_font = ExtResource("2_qgm14")
+text = "[ ] Made of Cardboard  
+[ ] Slippery Steering 
+[ ] Harmful Jumping  "

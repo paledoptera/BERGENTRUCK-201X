@@ -22,6 +22,9 @@ func _ready() -> void:
 	$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
+	if player.hp <= 0:
+		Global.die()
+		return
 	item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	

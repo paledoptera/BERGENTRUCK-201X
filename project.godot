@@ -29,6 +29,7 @@ window/size/viewport_height=240
 window/size/window_width_override=640
 window/size/window_height_override=480
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 
 [editor_plugins]
 

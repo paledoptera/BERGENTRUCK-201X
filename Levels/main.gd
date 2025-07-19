@@ -7,6 +7,7 @@ extends Node
 var level_path : String
 
 func _enter_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Global.game = self
 
 #region Game States
@@ -15,8 +16,14 @@ func _level_select_enter() -> void:
 
 
 func _level_enter() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	_change_program(level_path)
 
+func _level_exit() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _gameover_enter() -> void:
+	_change_program("uid://dhue5xb8addio") # game_over.tscn
 #endregion
 
 

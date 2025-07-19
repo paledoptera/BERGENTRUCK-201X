@@ -5,7 +5,7 @@ var goal: float = 100.0
 var level: int = 1
 var game: Node
 
-func goto_level(value : int = 1):
+func goto_level(value : int = level) -> void:
 	var lv : String
 	
 	match value:
@@ -18,3 +18,11 @@ func goto_level(value : int = 1):
 	
 	game.level_path = lv
 	return game.game_state.send_event("Start")
+
+func goto_title() -> void:
+	score = 0.0
+	game.game_state.send_event("Title")
+
+func die() -> void:
+	score = 0.0
+	game.game_state.send_event("Die")

@@ -1,0 +1,160 @@
+[gd_scene load_steps=22 format=3 uid="uid://prb751bd056k"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_pb0jp"]
+[ext_resource type="Script" uid="uid://i7dmctmhelxe" path="res://Entities/bullet_knight_sword_stabbelow.gd" id="2_pb0jp"]
+[ext_resource type="Texture2D" uid="uid://bjrgt1eee4qgu" path="res://Entities/Assets/Visuals/Knight/knight_sword_below.png" id="3_r6x1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfug4"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(0, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp4p5"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(86, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym8ak"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(172, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ch8"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(258, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77nlt"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(344, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdhlm"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(430, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5uug"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(516, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg8j5"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(602, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd0lx"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(688, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42irv"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(774, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8p8c"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(860, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tscue"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(946, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7lve"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(1032, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj01l"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(1118, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj25f"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(1204, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kft3p"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(1290, 0, 86, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqhi0"]
+atlas = ExtResource("3_r6x1a")
+region = Rect2(1376, 0, 86, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okmyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfug4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp4p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym8ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ch8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77nlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdhlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5uug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg8j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd0lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42irv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8p8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tscue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7lve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj01l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj25f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kft3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqhi0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="KnightStab" instance=ExtResource("1_pb0jp")]
+script = ExtResource("2_pb0jp")
+solid = false
+stompable = true
+damage = 1.0
+car_jump_mult = 3.0
+pixel_size = 0.14
+hit_sound_impact = null
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.95855e-08, 5.95855e-08)
+offset = Vector2(0, 10)
+pixel_size = 0.2
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_okmyc")
+autoplay = "default"
+frame = 16
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="EntityContainer/AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

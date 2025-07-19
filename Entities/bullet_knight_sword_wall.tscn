@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://jln43btq2gy"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_4wfsx"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_4wfsx"]
+[ext_resource type="Texture2D" uid="uid://bgppqrvao3fvf" path="res://Entities/Assets/Visuals/Knight/knight_sword_wall.png" id="3_4wfsx"]
+[ext_resource type="AudioStream" uid="uid://ckmfbwkgjypnr" path="res://Global/SFX/Knight Large Slash.wav" id="3_ak32a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ak32a"]
+size = Vector3(74.1627, 13.0161, 1.09012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyyr3"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(0, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnhcj"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(400, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr2kb"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(800, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og3es"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(1200, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40aqa"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(1600, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36gjd"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(2000, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojuqx"]
+atlas = ExtResource("3_4wfsx")
+region = Rect2(2400, 0, 400, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a34l4"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_iyyr3")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cnhcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr2kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og3es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40aqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36gjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojuqx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="KnightStab" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_4wfsx")]
+script = ExtResource("2_4wfsx")
+solid = false
+stompable = true
+damage = 5.0
+car_jump_mult = 7.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+hit_sound_impact = ExtResource("3_ak32a")
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576324, -3.86343, 1.14815)
+shape = SubResource("BoxShape3D_ak32a")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.95855e-08, 5.95855e-08)
+offset = Vector2(0, 40)
+pixel_size = 0.2
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_a34l4")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0

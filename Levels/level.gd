@@ -62,10 +62,6 @@ func _spawn_bkg_item() -> void:
 	if level_val == 3:
 		tree_inst.sprite.modulate = Color("307dff")
 		tree_inst.sprite_2.modulate = Color("307dff")
-	
-	var grass_inst = preload("uid://5fggvyq6ifcq").instantiate()
-	grass_inst.global_rotation_degrees.x = -90.0 + randf_range(-5,5)
-	grass_inst.global_position.x = 40
 
 
 func _check_stage_progress() -> void:

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tohihq3wavmv"
-path="res://.godot/imported/snd_knight_boxbreak.wav-ec7527b40f0d045dc654ca1d07f4c8d2.sample"
+path="res://.godot/imported/Knight Thunder.wav-3978723ebaaf823b87384ff579ed7a26.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_knight_boxbreak.wav"
-dest_files=["res://.godot/imported/snd_knight_boxbreak.wav-ec7527b40f0d045dc654ca1d07f4c8d2.sample"]
+source_file="res://Global/SFX/Knight Thunder.wav"
+dest_files=["res://.godot/imported/Knight Thunder.wav-3978723ebaaf823b87384ff579ed7a26.sample"]
 
 [params]
 

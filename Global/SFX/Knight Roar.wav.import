@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cmc4scmp6udct"
-path="res://.godot/imported/snd_knightroar.wav-fb66ad2fe4693b37368bf9e5cbb02846.sample"
+path="res://.godot/imported/Knight Roar.wav-f8e34d23c69e0a57d205394bfc1cf85d.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_knightroar.wav"
-dest_files=["res://.godot/imported/snd_knightroar.wav-fb66ad2fe4693b37368bf9e5cbb02846.sample"]
+source_file="res://Global/SFX/Knight Roar.wav"
+dest_files=["res://.godot/imported/Knight Roar.wav-f8e34d23c69e0a57d205394bfc1cf85d.sample"]
 
 [params]
 

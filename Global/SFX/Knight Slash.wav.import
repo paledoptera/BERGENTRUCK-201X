@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://r7gf0adp5ot2"
-path="res://.godot/imported/snd_knight_cut2.wav-4d224a777571ac728e11c4400829e483.sample"
+path="res://.godot/imported/Knight Slash.wav-b144d997db05e0d3e43593126cf72612.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_knight_cut2.wav"
-dest_files=["res://.godot/imported/snd_knight_cut2.wav-4d224a777571ac728e11c4400829e483.sample"]
+source_file="res://Global/SFX/Knight Slash.wav"
+dest_files=["res://.godot/imported/Knight Slash.wav-b144d997db05e0d3e43593126cf72612.sample"]
 
 [params]
 

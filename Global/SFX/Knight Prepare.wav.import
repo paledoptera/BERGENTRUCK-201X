@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://curl5iifcxa6i"
-path="res://.godot/imported/snd_knight_jump_quick.wav-46b42cf1eef8e08fb62e21ceffec7498.sample"
+path="res://.godot/imported/Knight Prepare.wav-77ca74191c13239524cb335c4dc26f8a.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_knight_jump_quick.wav"
-dest_files=["res://.godot/imported/snd_knight_jump_quick.wav-46b42cf1eef8e08fb62e21ceffec7498.sample"]
+source_file="res://Global/SFX/Knight Prepare.wav"
+dest_files=["res://.godot/imported/Knight Prepare.wav-77ca74191c13239524cb335c4dc26f8a.sample"]
 
 [params]
 

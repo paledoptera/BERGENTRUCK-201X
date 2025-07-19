@@ -11,7 +11,7 @@ height = 5.539
 [node name="KnightSlash" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_svovm")]
 script = ExtResource("2_6201f")
 solid = false
-damage = 5.0
+damage = 1.0
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
 pixel_size = 0.1
 

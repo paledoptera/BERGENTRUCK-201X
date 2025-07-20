@@ -24,6 +24,9 @@ func _level_exit() -> void:
 
 func _gameover_enter() -> void:
 	_change_program("uid://dhue5xb8addio") # game_over.tscn
+
+func _victory_enter() -> void:
+	_change_program("uid://cs40bcv6qrnuo") # victory.tscn
 #endregion
 
 

@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cbafwrkh1qtym" path="res://Items/Assets/Visuals/thorn.png" id="2_ejphk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvtsx"]
-radius = 28.1603
+radius = 48.0104
 
 [node name="Thorns" instance=ExtResource("1_ejphk")]
 lifetime_in_seconds = -1.0
-damage = 1.5
+score_amount = 0
+damage = 1.0
 
 [node name="TextureRect" parent="DraggableItem" index="1"]
 texture = ExtResource("2_ejphk")
@@ -18,15 +19,15 @@ shape = SubResource("CircleShape2D_wvtsx")
 
 [node name="GrabBox" parent="." index="2"]
 self_modulate = Color(1, 0, 1, 0.639216)
-offset_left = -30.0
-offset_top = -33.0
-offset_right = 33.0
-offset_bottom = 34.0
+offset_left = -47.0
+offset_top = -50.0
+offset_right = 47.0
+offset_bottom = 51.0
 
-[node name="DamageTimer" parent="." index="5"]
+[node name="DamageTimer" parent="." index="4"]
 wait_time = 0.28
 
-[node name="AsgoreScreamTimer" type="Timer" parent="." index="6"]
+[node name="AsgoreScreamTimer" type="Timer" parent="." index="5"]
 wait_time = 0.1
 one_shot = true
 

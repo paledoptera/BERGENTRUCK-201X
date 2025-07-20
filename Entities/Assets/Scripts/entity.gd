@@ -14,6 +14,7 @@ class_name Entity
 @export var hit_sound_effect : AudioStream
 @export var disable_collision_on_hit : bool = false
 
+
 func _ready() -> void:
 	var rand_scale = randf_range(0.8,1.2)
 	$EntityContainer/Sprite3D.pixel_size = pixel_size*rand_scale

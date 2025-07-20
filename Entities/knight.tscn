@@ -54,503 +54,6 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_0bl55"]
-resource_name = "big_slash_bullets"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"slash_whirl", 1.0, false],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-3.72529e-09, 0.7, 0.966667),
-"transitions": PackedFloat32Array(0.267943, 0.125, 0.267943),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"swap_sword_dir"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 0.666667, 0.7, 0.733333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [0.0],
-"method": &"change_speed"
-}, {
-"args": [2.0],
-"method": &"change_speed"
-}, {
-"args": [ExtResource("11_75yv5")],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("12_j04hn"), 0.5, -12.0],
-"method": &"play_sound"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.666667, 0.7, 0.708544, 0.72102),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"values": [{
-"args": [ExtResource("11_g83g5")],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("14_j04hn"), 0.8, 0.0],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.0],
-"method": &"spawn_bullet"
-}, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
-"method": &"spawn_bullet"
-}, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
-"method": &"spawn_bullet"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_g83g5"]
-resource_name = "hit"
-length = 2.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.890475, 1.78677),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [&"hurt", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"ball", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"ball_trans"],
-"method": &"play_backwards"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.215343, 0.829629),
-"transitions": PackedFloat32Array(0.223812, 2, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.0460316),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"change_horizontal_speed"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:keeping_up_with_player")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(1.34444),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_54ebm"]
-resource_name = "idle"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"idle", 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_8pbej"]
-resource_name = "small_slash_rude"
-length = 0.3
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"slash_left", 1.0, false],
-"method": &"play"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"swap_sword_dir"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [ExtResource("12_o0fim")],
-"method": &"play_sound"
-}, {
-"args": [2.0],
-"method": &"change_speed"
-}, {
-"args": [ExtResource("13_0bl55")],
-"method": &"play_sound"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3),
-"transitions": PackedFloat32Array(3.13834, 0.07966, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.133333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [ExtResource("11_6ltg0")],
-"method": &"spawn_bullet"
-}]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.133333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"change_horizontal_speed"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_qg5j2"]
-resource_name = "small_sword_stab"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [ExtResource("19_j4sll"), 2.0, 0.0],
-"method": &"spawn_bullet"
-}, {
-"args": [0.0],
-"method": &"change_horizontal_speed"
-}]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0339252, 0.466667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [ExtResource("12_o0fim"), 0.5],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("20_kcgd6"), 1.0],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("11_g83g5"), 1.0],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("13_0bl55")],
-"method": &"play_sound"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [&"throw", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"throw"],
-"method": &"play_backwards"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_6ltg0"]
-resource_name = "vulnerable"
-length = 2.5
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1.53068, 1.83915, 2.35714),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [&"vulnerable", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"ball_trans", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"ball", 1.0, false],
-"method": &"play"
-}, {
-"args": [&"ball_trans"],
-"method": &"play_backwards"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:keeping_up_with_player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.00582009, 1.58889),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0291005, 1.56667),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [0.0],
-"method": &"change_horizontal_speed"
-}, {
-"args": [],
-"method": &"disable_collision"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_j4sll"]
-resource_name = "big_sword_wall"
-length = 3.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"raise_arms", 1.0, false],
-"method": &"play"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(-3.72529e-09, 1.83333, 2.1),
-"transitions": PackedFloat32Array(0.267943, 0.125, 0.267943),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"swap_sword_dir"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 1.83333, 1.86667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [0.0],
-"method": &"change_speed"
-}, {
-"args": [ExtResource("11_75yv5")],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("12_j04hn"), 0.5, -12.0],
-"method": &"play_sound"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [ExtResource("11_g83g5")],
-"method": &"play_sound"
-}, {
-"args": [ExtResource("20_qg5j2"), 4.0, 0.0],
-"method": &"spawn_bullet"
-}, {
-"args": [ExtResource("14_j04hn"), 0.8, 0.0],
-"method": &"play_sound"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_21gxv"]
 resource_name = "big_bullet_hell"
 length = 4.0
@@ -927,6 +430,503 @@ tracks/9/keys = {
 }, {
 "args": [ExtResource("12_j04hn"), 0.8, -6.0],
 "method": &"play_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0bl55"]
+resource_name = "big_slash_bullets"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"slash_whirl", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-3.72529e-09, 0.7, 0.966667),
+"transitions": PackedFloat32Array(0.267943, 0.125, 0.267943),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"swap_sword_dir"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.666667, 0.7, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"change_speed"
+}, {
+"args": [2.0],
+"method": &"change_speed"
+}, {
+"args": [ExtResource("11_75yv5")],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("12_j04hn"), 0.5, -12.0],
+"method": &"play_sound"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.7, 0.708544, 0.72102),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [ExtResource("11_g83g5")],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("14_j04hn"), 0.8, 0.0],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("11_b2fls"), 1.0, 0.0],
+"method": &"spawn_bullet"
+}, {
+"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"method": &"spawn_bullet"
+}, {
+"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"method": &"spawn_bullet"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_j4sll"]
+resource_name = "big_sword_wall"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"raise_arms", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-3.72529e-09, 1.83333, 2.1),
+"transitions": PackedFloat32Array(0.267943, 0.125, 0.267943),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"swap_sword_dir"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1.83333, 1.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"change_speed"
+}, {
+"args": [ExtResource("11_75yv5")],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("12_j04hn"), 0.5, -12.0],
+"method": &"play_sound"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [ExtResource("11_g83g5")],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("20_qg5j2"), 4.0, 0.0],
+"method": &"spawn_bullet"
+}, {
+"args": [ExtResource("14_j04hn"), 0.8, 0.0],
+"method": &"play_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g83g5"]
+resource_name = "hit"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.890475, 1.78677),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [&"hurt", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"ball", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"ball_trans"],
+"method": &"play_backwards"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.215343, 0.829629),
+"transitions": PackedFloat32Array(0.223812, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0460316),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"change_horizontal_speed"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:keeping_up_with_player")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.34444),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_54ebm"]
+resource_name = "idle"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"idle", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8pbej"]
+resource_name = "small_slash_rude"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"slash_left", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"swap_sword_dir"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [ExtResource("12_o0fim")],
+"method": &"play_sound"
+}, {
+"args": [2.0],
+"method": &"change_speed"
+}, {
+"args": [ExtResource("13_0bl55")],
+"method": &"play_sound"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(3.13834, 0.07966, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3, 3), Vector3(0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("11_6ltg0")],
+"method": &"spawn_bullet"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"change_horizontal_speed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qg5j2"]
+resource_name = "small_sword_stab"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [ExtResource("19_j4sll"), 2.0, 0.0],
+"method": &"spawn_bullet"
+}, {
+"args": [0.0],
+"method": &"change_horizontal_speed"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0339252, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [ExtResource("12_o0fim"), 0.5],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("20_kcgd6"), 1.0],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("11_g83g5"), 1.0],
+"method": &"play_sound"
+}, {
+"args": [ExtResource("13_0bl55")],
+"method": &"play_sound"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"throw", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"throw"],
+"method": &"play_backwards"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6ltg0"]
+resource_name = "vulnerable"
+length = 2.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.53068, 1.83915, 2.35714),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [&"vulnerable", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"ball_trans", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"ball", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"ball_trans"],
+"method": &"play_backwards"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:keeping_up_with_player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00582009, 1.58889),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0291005, 1.56667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"change_horizontal_speed"
+}, {
+"args": [],
+"method": &"disable_collision"
 }]
 }
 

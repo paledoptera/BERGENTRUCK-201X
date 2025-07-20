@@ -42,6 +42,8 @@ func _process(delta: float) -> void:
 
 
 func hit(player) -> void:
+	if player.gear < 3:
+		Global.score -= 2.5
 	Global.score += 5
 	player.screenshake_strength += 40
 	$AIState.send_event("Hit")

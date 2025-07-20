@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0ecjulakvjyr"]
+
+[ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="1_rpbby"]
+[ext_resource type="Texture2D" uid="uid://iw0ce3kn6f1d" path="res://Entities/Assets/Visuals/tree_gaster.png" id="2_2ppqc"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_3m8h3"]
+[ext_resource type="PackedScene" uid="uid://dtidq3duskfdb" path="res://Items/item_egg.tscn" id="3_4m5y2"]
+
+[sub_resource type="Resource" id="Resource_3oc62"]
+script = ExtResource("2_3m8h3")
+item = ExtResource("3_4m5y2")
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03mj"]
+atlas = ExtResource("2_2ppqc")
+region = Rect2(0, 0, 156, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m8h3"]
+atlas = ExtResource("2_2ppqc")
+region = Rect2(156, 0, 156, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m5y2"]
+atlas = ExtResource("2_2ppqc")
+region = Rect2(312, 0, 156, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oc62"]
+atlas = ExtResource("2_2ppqc")
+region = Rect2(468, 0, 156, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xfm8"]
+atlas = ExtResource("2_2ppqc")
+region = Rect2(624, 0, 156, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lafc"]
+animations = [{
+"frames": [{
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_x03mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m8h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m5y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oc62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xfm8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Tree" instance=ExtResource("1_rpbby")]
+items = Array[ExtResource("2_3m8h3")]([SubResource("Resource_3oc62")])
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+visible = false
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+offset = Vector2(0, 128)
+pixel_size = 0.09
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_2lafc")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0

@@ -25,6 +25,9 @@ func _process(delta: float) -> void:
 	if player.hp <= 0:
 		Global.die()
 		return
+	elif Global.score >= Global.goal:
+		Global.win()
+		return
 	item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	
@@ -53,6 +56,8 @@ func _spawn_item() -> void:
 		var item = load(item_path).instantiate()
 		#print("ITEM ", item, " CREATED")
 		entities.add_child(item)
+		if level_val == 3:
+			item.get_node("EntityContainer/Sprite3D").modulate = Color("307dff")
 		item.global_position.x = _get_random_item_position()
 		item.global_rotation_degrees.x = -90
 

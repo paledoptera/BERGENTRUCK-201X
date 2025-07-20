@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs40bcv6qrnuo"]
+
+[ext_resource type="Script" uid="uid://dnse1mnaox1qe" path="res://UI/victory.gd" id="1_x0fca"]
+[ext_resource type="Texture2D" uid="uid://b68yc6yrhyn4k" path="res://UI/Assets/Visuals/victory.png" id="2_x0fca"]
+
+[node name="Victory" type="Node"]
+script = ExtResource("1_x0fca")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_x0fca")
+
+[node name="DriveAgain" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 199.0
+offset_right = 159.605
+offset_bottom = 239.0
+
+[node name="Quit" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 199.0
+offset_right = 264.0
+offset_bottom = 239.0
+
+[connection signal="gui_input" from="TextureRect/DriveAgain" to="." method="_on_drive_again_gui_input"]
+[connection signal="gui_input" from="TextureRect/Quit" to="." method="_on_quit_gui_input"]

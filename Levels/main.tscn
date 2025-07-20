@@ -63,6 +63,18 @@ delay_in_seconds = "0.0"
 [node name="Victory" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
+[node name="To Title" type="Node" parent="GameState/Root/Victory"]
+script = ExtResource("5_7pswh")
+to = NodePath("../../LevelSelect")
+event = &"Title"
+delay_in_seconds = "0.0"
+
+[node name="To Level" type="Node" parent="GameState/Root/Victory"]
+script = ExtResource("5_7pswh")
+to = NodePath("../../Level")
+event = &"Start"
+delay_in_seconds = "0.0"
+
 [node name="Cutscene" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
@@ -73,3 +85,4 @@ script = ExtResource("4_ovrsl")
 [connection signal="state_entered" from="GameState/Root/Level" to="." method="_level_enter"]
 [connection signal="state_exited" from="GameState/Root/Level" to="." method="_level_exit"]
 [connection signal="state_entered" from="GameState/Root/GameOver" to="." method="_gameover_enter"]
+[connection signal="state_entered" from="GameState/Root/Victory" to="." method="_victory_enter"]

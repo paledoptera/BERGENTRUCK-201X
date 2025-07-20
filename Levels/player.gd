@@ -86,9 +86,10 @@ func _physics_process(delta: float) -> void:
 	#_horn_mechanics(delta)
 	_gravity_mechanics(delta)
 	_entity_mechanics()
+	_items_in_face()
 	$Camera2D.offset=_get_shake(delta)
 	
-	
+	$Visuals/Parallax2D.scroll_offset.x = car_position.x
 	car_position.x += car_velocity.x
 	
 	if last_angle != car_angle.x:
@@ -120,7 +121,7 @@ func _physics_process(delta: float) -> void:
 	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*30),0.4)
 	$Visuals.skew = ((-visuals_angle)*(1-friction))/2
 	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)),0.3)
-	visual_asgore.position.y = -127+((hand.position.y)/50)
+	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50),0.2)
 	
 	
 	
@@ -137,6 +138,9 @@ func _hand_visuals() -> void:
 	
 	var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
 	var gearbox_dragpoint = widget_gear.get_node("DraggableItem")
+	var upperarm: Sprite2D = hand.get_node("Forearm/UpperArm")
+	upperarm.look_at($Visuals/Asgore.global_position+Vector2(150,400))
+	
 
 	if wheel_dragpoint.drag:
 		wheel_dragpoint.drag_speed = friction*0.1
@@ -315,18 +319,35 @@ func _item_entered_face(body: Node2D) -> void:
 		if item.lifetime_in_seconds == -1:
 			return
 		current_items_in_face_region.append(item)
-		if item.use_sound:
-			item.audio.play()
-		item.lifetimer.start(item.lifetime_in_seconds)
+		#if item.use_sound:
+			#item.audio.play()
 
 
 func _item_exited_face(body: Node2D) -> void:
 	if body is Item and body in current_items_in_face_region:
 		var item: Item = body
 		current_items_in_face_region.erase(item)
-		if item.use_sound:
-			item.audio.stop()
-		item.lifetimer.stop()
+		#if item.use_sound:
+			#item.audio.stop()
+		#item.lifetimer.stop()
+
+
+func _items_in_face() -> void:
+	if current_items_in_face_region.size() == 0:
+		return
+	
+	print(current_items_in_face_region)
+	if $FaceTimer.is_stopped():
+		$Visuals/Asgore/Nose.play("sniff")
+		$Visuals/Asgore.position.y += 10
+		$FaceTimer.wait_time = randf_range(0.05,0.2)
+		$FaceTimer.start()
+		Audio.play_sfx(preload("uid://bwrewdkj3pqlf"),randf_range(0.3,0.6),-6) # Sniff.wav
+		for item in current_items_in_face_region:
+			item.lifetime -= $FaceTimer.wait_time
+			item.lifetime = max(item.lifetime,0.0)
+	
+
 
 
 func _entity_mechanics() -> void:

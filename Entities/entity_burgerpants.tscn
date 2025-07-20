@@ -23,8 +23,9 @@ hp = 1
 items = Array[ExtResource("2_dmt30")]([SubResource("Resource_dmt30"), SubResource("Resource_lg3nb")])
 solid = false
 stompable = true
+car_jump_mult = 2.0
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
-pixel_size = 0.1
+pixel_size = 0.12
 hit_sound_effect = ExtResource("4_dmt30")
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]

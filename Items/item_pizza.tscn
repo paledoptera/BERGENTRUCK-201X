@@ -10,6 +10,7 @@ radius = 37.0135
 
 [node name="Pizza" instance=ExtResource("1_0f2rj")]
 mass = 7.0
+lifetime_in_seconds = 2.0
 use_sound = ExtResource("2_sop00")
 score_amount = 10
 

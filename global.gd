@@ -26,3 +26,7 @@ func goto_title() -> void:
 func die() -> void:
 	score = 0.0
 	game.game_state.send_event("Die")
+
+func win() -> void:
+	score = 0.0
+	game.game_state.send_event("Win")

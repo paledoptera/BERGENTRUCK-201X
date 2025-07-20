@@ -4,10 +4,9 @@ extends RigidBody2D
 @export var lifetime_in_seconds: float = 1.0
 @export var use_sound : AudioStreamWAV
 @export var score_amount : int = 100
-var lifetime : float = 0
+@onready var lifetime : float = lifetime_in_seconds
 var strength = 50
 @export var weight: float = 1.0
-@onready var lifetimer := $Timer
 @onready var audio := $AudioStreamPlayer
 @export var player : Node3D
 @export var damage : float = 0.0
@@ -32,6 +31,9 @@ func _integrate_forces(state) -> void:
 		apply_force(global_position.direction_to(global_position+Vector2(player.car_velocity.x,player.car_velocity.y)) * (global_position.distance_to(global_position+Vector2(player.car_velocity.x,player.car_velocity.y) * strength * 50)/weight))
 
 func _physics_process(delta: float) -> void:
+	if lifetime <= 0 and lifetime != -1.0:
+		use()
+	
 	if $DraggableItem.drag:
 		if damage:
 			if $AsgoreScreamTimer.is_stopped():
@@ -46,6 +48,7 @@ func _physics_process(delta: float) -> void:
 		$DraggableItem.global_position = global_position
 		$DraggableItem.global_rotation = global_rotation
 
+
 func _on_input_event(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var new_event = event
@@ -53,7 +56,6 @@ func _on_input_event(event: InputEvent) -> void:
 		new_event.position = global_position + new_event.position + $GrabBox.position
 		$DraggableItem/MouseDragComponent.object_held_down(event)
 
-
-func _on_timer_timeout() -> void:
-	Global.score += score_amount
-	queue_free()
+func use() -> void:
+		Global.score += score_amount
+		queue_free()

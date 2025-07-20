@@ -57,6 +57,12 @@ func _on_input_event(event: InputEvent) -> void:
 		$DraggableItem/MouseDragComponent.object_held_down(event)
 
 func use() -> void:
+	var destroyanim = preload("uid://b58co3jtahjlj").instantiate() # destroy_animation.tscn
+	get_parent().add_child(destroyanim)
+	destroyanim.global_position = $DraggableItem/TextureRect.global_position
+	destroyanim.sprite.global_rotation = $DraggableItem/TextureRect.global_rotation
+	destroyanim.sprite.global_scale = $DraggableItem/TextureRect.global_scale
+	destroyanim.sprite.modulate = modulate
 	player.particle_trigger()
 	Global.score += score_amount
 	queue_free()

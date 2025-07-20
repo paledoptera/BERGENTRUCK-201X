@@ -42,5 +42,14 @@ hit_sound_impact = ExtResource("7_ccp6f")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
 
+[node name="FadeEffect" type="ColorRect" parent="."]
+z_index = 4096
+offset_left = -103.0
+offset_top = -48.0
+offset_right = 450.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [editable path="WallL"]
 [editable path="WallR"]

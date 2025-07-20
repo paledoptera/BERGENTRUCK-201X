@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5jy7ap8f7iq" path="res://Global/Particles/Assets/Visuals/smoke.png" id="1_r5h2o"]
 
 [sub_resource type="Curve" id="Curve_c0npm"]
-_data = [Vector2(0, 0.352347), 0.0, 0.0, 0, 0, Vector2(0.0660661, 0.361733), 0.0, 0.0, 0, 0, Vector2(0.474474, 0.0769689), -0.692983, -0.692983, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.352347), 0.0, 0.0, 0, 0, Vector2(0.0660661, 0.361733), 0.0, 0.0, 0, 0, Vector2(0.754499, 0.249097), -0.692983, -0.692983, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="Smokepuff" type="CPUParticles2D"]

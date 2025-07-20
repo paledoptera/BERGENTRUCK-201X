@@ -148,7 +148,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 
 [node name="Shimmer" type="Marker2D" parent="Particles"]
 z_index = 60
-position = Vector2(62, 188)
+position = Vector2(77, 188)
+
+[node name="Leaves" type="Marker2D" parent="Particles"]
+z_index = 60
+position = Vector2(153, 188)
 
 [node name="Visuals" type="Sprite2D" parent="."]
 position = Vector2(160, 130)

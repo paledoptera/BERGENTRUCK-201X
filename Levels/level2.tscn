@@ -17,13 +17,10 @@ level_val = 2
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_24phs")
 
-[node name="Visuals" parent="Player" index="1"]
+[node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.951701, 0.76891, 0.801011, 1)
 
-[node name="Ground" parent="Player" index="10"]
-surface_material_override/0 = null
-
-[node name="DamageSplash" parent="Player" index="15"]
+[node name="DamageSplash" parent="Player" index="16"]
 self_modulate = Color(1, 1, 1, 0.305882)
 
 [node name="WallL" parent="." index="3"]

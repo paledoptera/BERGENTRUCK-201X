@@ -13,7 +13,7 @@ class_name Entity
 @export var hit_sound_impact : AudioStream
 @export var hit_sound_effect : AudioStream
 @export var disable_collision_on_hit : bool = false
-
+@export var particle_effect : int = 1
 
 func _ready() -> void:
 	var rand_scale = randf_range(0.8,1.2)
@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func hit(player) -> void:
+	player.particle_trigger(particle_effect)
 	if disable_collision_on_hit and collision_shape:
 		collision_shape.queue_free()
 	if stompable:

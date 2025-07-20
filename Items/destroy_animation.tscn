@@ -40,8 +40,9 @@ _data = {
 &"destroy": SubResource("Animation_gat2n")
 }
 
-[node name="ItemDestroyAnimation" type="Node2D"]
+[node name="ItemDestroyAnimation" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_rermn")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ksfe4")
@@ -51,7 +52,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_fbrug")
 }
 autoplay = "destroy"
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -14,12 +14,24 @@ var item_spawn_timer : float = 0.0
 var item_spawn_threshold : float = 100.0
 var chunks_to_be_deleted : Array[Node]
 var current_stage : int = 1
+var faded_in = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Audio.play_sfx(preload("uid://cphvgk1cwgtnj"),0.99) # Car Start.wav
+	var tween = create_tween()
+	tween.tween_property($FadeEffect,'global_position',Vector2(-104,-48),1.5)
+	tween.tween_callback(start_music)
+	tween.tween_property($FadeEffect,'modulate',Color("ffffff00"),3.0)
+	tween.tween_callback(fade_in_done)
+	
 	Global.level = level_val
-	$AudioStreamPlayer.stream = music
-	$AudioStreamPlayer.play()
+
+func start_music() -> void:
+	Audio.play_music(music,false,false)
+
+func fade_in_done() -> void:
+	faded_in = true
 
 func _process(delta: float) -> void:
 	if player.hp <= 0:
@@ -28,7 +40,9 @@ func _process(delta: float) -> void:
 	elif Global.score >= Global.goal:
 		Global.win()
 		return
-	item_spawn_timer += player.speed
+	
+	if faded_in:
+		item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	
 	if item_spawn_timer >= 75.0:

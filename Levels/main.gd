@@ -13,12 +13,12 @@ func _enter_tree() -> void:
 #region Game States
 func _title_screen_enter() -> void:
 	_change_program("uid://bbyqb78v0mmni") # title_screen.tscn
-	Audio.play_music(preload("uid://cc7we7oj6hn6t")) # Bereavement.ogg
+	Audio.play_music(preload("uid://cc7we7oj6hn6t"),false,false) # Bereavement.ogg
 
 
 func _level_select_enter() -> void:
 	_change_program("uid://bsyjain0shc50") # level_select.tscn
-	Audio.play_music(preload("uid://cc7we7oj6hn6t"))
+	Audio.play_music(preload("uid://cc7we7oj6hn6t"),false,false)
 
 
 func _level_enter() -> void:

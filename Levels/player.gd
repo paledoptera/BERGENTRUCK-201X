@@ -57,13 +57,13 @@ var screenshake_strength : float = 4.0
 
 
 func _ready() -> void:
-	Audio.play_sfx(preload("uid://cphvgk1cwgtnj")) # Car Start.wav
+
 	$Background.visible = true
 	_correct_sprite_size($Ground)
 	$CarEngine.volume_db = -40
 	$CarEngine.play(0.0)
 	var tween = create_tween()
-	tween.tween_property($CarEngine,'volume_db',-2,3.0)
+	tween.tween_property($CarEngine,'volume_db',-1,3.0)
 
 
 func _physics_process(delta: float) -> void:
@@ -494,7 +494,12 @@ func particle_trigger(part_type = 0):
 	match part_type:
 		0:
 			Audio.play_sfx(preload("uid://d288lwxjk6ljm"),1.0,-6)
-			print("CREATED PARTICLE")
 			var particlefx = preload("uid://dsdofauesj7ga").instantiate() # Shimmer.tscn
 			$Particles/Shimmer.add_child(particlefx)
 			particlefx.emitting = true
+		
+		1:
+			var particlefx = preload("uid://du0uq38sl2de1").instantiate() # Shimmer.tscn
+			$Particles/Leaves.add_child(particlefx)
+			particlefx.emitting = true
+			

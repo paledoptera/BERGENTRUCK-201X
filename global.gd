@@ -25,7 +25,6 @@ func goto_title() -> void:
 	game.game_state.send_event("Title")
 
 func goto_levelselect() -> void:
-	print("ATTEMPTING TO GO TO LEVELSELECT")
 	game.game_state.send_event("LevelSelect")
 
 func die() -> void:

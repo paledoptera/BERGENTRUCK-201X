@@ -30,6 +30,9 @@ func goto_levelselect() -> void:
 func goto_storyscreen() -> void:
 	game.game_state.send_event("StoryScreen")
 
+func goto_credits() -> void:
+	game.game_state.send_event("Credits")
+
 func die() -> void:
 	score = 0.0
 	game.game_state.send_event("Die")

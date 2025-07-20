@@ -40,12 +40,24 @@ func _process(delta: float) -> void:
 		return
 	elif Global.score >= Global.goal and not win:
 		win = true
-		Audio.stop_music(true)
-		var tween = create_tween()
-		tween.tween_property($FadeEffect,'modulate',Color("ffffff"),3.0)
-		tween.tween_callback(win_level)
+		if Global.level < 2:
+			Audio.stop_music(true)
+			var tween = create_tween()
+			tween.tween_property($FadeEffect,'modulate',Color("ffffff"),3.0)
+			tween.tween_callback(win_level)
+		else:
+			Audio.stop_music(true)
+			Audio.play_sfx(preload("uid://bei3ovddpe0mp"),1.01)
+			player.screenshake_strength = 40
+			var tween = create_tween()
+			tween.tween_property($FlashEffect,'modulate',Color.WHITE,0.5)
+			tween.tween_property($FadeEffect,'modulate',Color("ffffff"),1.0)
+			tween.tween_property($FlashEffect,'modulate',Color("fffff00"),0.5)
+			tween.tween_callback(goto_credits)
+			win = true
+			
 	
-	if faded_in:
+	if faded_in and not win:
 		item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	
@@ -131,3 +143,6 @@ func flash() -> void:
 
 func win_level() -> void:
 	Global.win()
+
+func goto_credits() -> void:
+	Global.goto_credits()

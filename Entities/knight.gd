@@ -45,6 +45,8 @@ func hit(player) -> void:
 	if player.gear < 3:
 		Global.score -= 2.5
 	Global.score += 5
+	if Global.score >= Global.goal:
+		$Timer.stop()
 	player.screenshake_strength += 40
 	player.particle_trigger(particle_effect)
 	$AIState.send_event("Hit")

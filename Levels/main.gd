@@ -60,3 +60,8 @@ func _close_overlay():
 		overlay.queue_free()
 		overlay = null
 #endregion
+
+
+func _credits_entered() -> void:
+	_change_program("uid://cjh1hi4cjh33m")
+	pass # Replace with function body.

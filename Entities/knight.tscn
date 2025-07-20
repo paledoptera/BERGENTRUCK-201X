@@ -954,6 +954,7 @@ solid = false
 pixel_size = 0.16
 hit_sound_impact = ExtResource("3_b2fls")
 hit_sound_effect = ExtResource("4_52eib")
+particle_effect = 2
 
 [node name="AIState" type="Node" parent="." index="0"]
 script = ExtResource("5_hi0hy")

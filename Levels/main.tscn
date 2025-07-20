@@ -30,6 +30,12 @@ to = NodePath("../LevelSelect")
 event = &"LevelSelect"
 delay_in_seconds = "0.0"
 
+[node name="To StoryScreen" type="Node" parent="GameState/Root"]
+script = ExtResource("5_7pswh")
+to = NodePath("../StoryScreen")
+event = &"StoryScreen"
+delay_in_seconds = "0.0"
+
 [node name="To Level" type="Node" parent="GameState/Root"]
 script = ExtResource("5_7pswh")
 to = NodePath("../Level")
@@ -40,6 +46,9 @@ delay_in_seconds = "0.0"
 script = ExtResource("4_ovrsl")
 
 [node name="LevelSelect" type="Node" parent="GameState/Root"]
+script = ExtResource("4_ovrsl")
+
+[node name="StoryScreen" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
 [node name="Level" type="Node" parent="GameState/Root"]
@@ -72,6 +81,7 @@ script = ExtResource("4_ovrsl")
 [connection signal="state_entered" from="GameState/Root/Title" to="." method="_title_screen_enter"]
 [connection signal="state_entered" from="GameState/Root/LevelSelect" to="." method="_level_select_enter"]
 [connection signal="state_exited" from="GameState/Root/LevelSelect" to="." method="_level_select_exit"]
+[connection signal="state_entered" from="GameState/Root/StoryScreen" to="." method="_story_screen_enter"]
 [connection signal="state_entered" from="GameState/Root/Level" to="." method="_level_enter"]
 [connection signal="state_exited" from="GameState/Root/Level" to="." method="_level_exit"]
 [connection signal="state_entered" from="GameState/Root/GameOver" to="." method="_gameover_enter"]

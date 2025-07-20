@@ -46,6 +46,7 @@ func hit(player) -> void:
 		Global.score -= 2.5
 	Global.score += 5
 	player.screenshake_strength += 40
+	player.particle_trigger(particle_effect)
 	$AIState.send_event("Hit")
 	disable_collision()
 

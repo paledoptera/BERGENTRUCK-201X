@@ -34,6 +34,11 @@ func _gameover_enter() -> void:
 
 func _victory_enter() -> void:
 	_change_program("uid://cs40bcv6qrnuo") # victory.tscn
+
+func _story_screen_enter() -> void:
+	Audio.stop_music(true)
+	_change_program("uid://cguaj6qonrj1x") # story_screen.tscn
+	pass # Replace with function body.
 #endregion
 
 

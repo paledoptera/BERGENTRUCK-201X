@@ -7,6 +7,7 @@ size = Vector3(10, 50, 50)
 
 [node name="Entity" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_1j5vb")]
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
+particle_effect = -1
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.769348)

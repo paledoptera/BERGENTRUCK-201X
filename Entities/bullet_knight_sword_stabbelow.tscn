@@ -139,6 +139,7 @@ damage = 1.0
 car_jump_mult = 3.0
 pixel_size = 0.14
 hit_sound_impact = null
+particle_effect = 2
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 offset = Vector2(0, 30)

@@ -487,11 +487,15 @@ func _get_shake(delta: float) -> Vector2:
 
 func _health_changed(previous_hp, new_hp) -> void:
 	var difference = previous_hp-new_hp
+	if difference <= 0.0:
+		Audio.play_sfx(preload("uid://dt6ay2ruaak7r"),1.01) # Heal.wav
+		return
 	var value = difference*10
 	value = clamp(value,1,30)
 	screenshake_strength += value
 	$DamageSplash.self_modulate.a += value/30
-	$CarHurt.play()
+	Audio.play_sfx(preload("uid://c4ta6hdrl6ci5"),1.01,2)
+	#$CarHurt.play()
 
 func particle_trigger(part_type = 0):
 	match part_type:
@@ -505,4 +509,8 @@ func particle_trigger(part_type = 0):
 			var particlefx = preload("uid://du0uq38sl2de1").instantiate() # Shimmer.tscn
 			$Particles/Leaves.add_child(particlefx)
 			particlefx.emitting = true
-			
+		
+		2:
+			var particlefx = preload("uid://ci1pueoaiu5vg").instantiate()
+			$Particles/Explosion.add_child(particlefx)
+			particlefx.emitting = true

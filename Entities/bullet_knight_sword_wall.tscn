@@ -73,6 +73,7 @@ damage = 5.0
 car_jump_mult = 7.0
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
 hit_sound_impact = ExtResource("3_ak32a")
+particle_effect = 2
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576324, -3.86343, 1.14815)

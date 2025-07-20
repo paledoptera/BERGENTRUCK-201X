@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc8vcjm8kaofg"]
+[gd_scene load_steps=8 format=3 uid="uid://bc8vcjm8kaofg"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_06yxo"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_2385j"]
-[ext_resource type="AudioStream" uid="uid://fu6rkj8mk5r5" path="res://Global/Music/Black Knife.ogg" id="2_eh6o7"]
+[ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="4_eh6o7"]
 [ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Assets/Visuals/Dark Ground Texture.tres" id="4_vr4rd"]
-[ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="5_vr4rd"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1
@@ -25,7 +24,7 @@ texture_filter = 0
 texture_repeat = false
 
 [node name="Level3" instance=ExtResource("1_06yxo")]
-music = ExtResource("2_eh6o7")
+music = null
 item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", "", ""])
@@ -39,15 +38,19 @@ transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -75.5802, -200)
 mesh = SubResource("PlaneMesh_2385j")
 surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
 
-[node name="Visuals" parent="Player" index="1"]
+[node name="Particles" parent="Player" index="1"]
+modulate = Color(0.34902, 0.486275, 0.670588, 1)
+
+[node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
-[node name="Ground" parent="Player" index="10"]
+[node name="Ground" parent="Player" index="11"]
 surface_material_override/0 = ExtResource("4_vr4rd")
 
-[node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_vr4rd")]
+[node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("4_eh6o7")]
+transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)
 player = NodePath("../../Player")
-entities = NodePath("..")
+level = NodePath("../..")
 
 [node name="WallL" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)

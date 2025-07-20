@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cguaj6qonrj1x"]
+
+[ext_resource type="Script" uid="uid://cf1c1j3eagbhg" path="res://UI/story_screen.gd" id="1_n245v"]
+[ext_resource type="Texture2D" uid="uid://biaxud1qqjxmy" path="res://UI/storyframe.png" id="2_n245v"]
+
+[node name="StoryScreen" type="Node"]
+script = ExtResource("1_n245v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_n245v")
+centered = false
+hframes = 3
+
+[node name="Play" type="TextureRect" parent="."]
+offset_left = -21.0
+offset_top = -9.0
+offset_right = 352.0
+offset_bottom = 267.0
+
+[node name="LoadTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="DisplayTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="gui_input" from="Play" to="." method="_on_play_gui_input"]
+[connection signal="timeout" from="LoadTimer" to="." method="_on_load_timer_timeout"]
+[connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]

@@ -51,5 +51,14 @@ offset_bottom = 450.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="FlashEffect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+offset_left = -103.0
+offset_top = -48.0
+offset_right = 450.0
+offset_bottom = 450.0
+mouse_filter = 2
+
 [editable path="WallL"]
 [editable path="WallR"]

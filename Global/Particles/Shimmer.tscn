@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsdofauesj7ga"]
+[gd_scene load_steps=3 format=3 uid="uid://dsdofauesj7ga"]
 
 [ext_resource type="PackedScene" uid="uid://ci1pueoaiu5vg" path="res://Global/Particles/Smokepuff.tscn" id="1_elqpe"]
 [ext_resource type="Texture2D" uid="uid://c01ssyt5qf54y" path="res://Global/Particles/Assets/Visuals/sparkle.png" id="2_c3lwt"]
-[ext_resource type="Script" uid="uid://di4xp3f6ysf4j" path="res://Global/Particles/one_shot_particle.gd" id="3_te2uh"]
 
 [node name="Shimmer" instance=ExtResource("1_elqpe")]
+z_index = 500
 scale = Vector2(50, 50)
 amount = 4
 texture = ExtResource("2_c3lwt")
 speed_scale = 1.0
-local_coords = true
 emission_sphere_radius = 0.3
 direction = Vector2(0, -5)
 spread = 20.0
@@ -18,7 +17,8 @@ initial_velocity_min = 2.0
 initial_velocity_max = 5.0
 damping_min = 2.0
 damping_max = 2.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
 color = Color(1, 1, 0.713726, 0.478431)
 hue_variation_min = -0.65
 hue_variation_max = 0.5
-script = ExtResource("3_te2uh")

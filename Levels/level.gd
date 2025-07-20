@@ -15,6 +15,7 @@ var item_spawn_threshold : float = 100.0
 var chunks_to_be_deleted : Array[Node]
 var current_stage : int = 1
 var faded_in = false
+var win = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,9 +38,12 @@ func _process(delta: float) -> void:
 	if player.hp <= 0:
 		Global.die()
 		return
-	elif Global.score >= Global.goal:
-		Global.win()
-		return
+	elif Global.score >= Global.goal and not win:
+		win = true
+		Audio.stop_music(true)
+		var tween = create_tween()
+		tween.tween_property($FadeEffect,'modulate',Color("ffffff"),3.0)
+		tween.tween_callback(win_level)
 	
 	if faded_in:
 		item_spawn_timer += player.speed
@@ -118,3 +122,12 @@ func _get_random_item_position() -> float:
 	core_pos -= (rand_subtract1+rand_subtract2) 
 	
 	return core_pos
+
+func flash() -> void:
+	$FlashEffect.modulate = Color.WHITE
+	var tween = create_tween()
+	tween.tween_property($FlashEffect,'modulate',Color("ffffff00"),0.3)
+	tween.tween_callback(fade_in_done)
+
+func win_level() -> void:
+	Global.win()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://x8hcmkbyjaih"
+path="res://.godot/imported/Dess Scream.wav-6a512a965a8fb78649d19d94602b12a3.sample"
+
+[deps]
+
+source_file="res://Global/SFX/Dess Scream.wav"
+dest_files=["res://.godot/imported/Dess Scream.wav-6a512a965a8fb78649d19d94602b12a3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

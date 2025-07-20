@@ -154,6 +154,10 @@ position = Vector2(77, 188)
 z_index = 60
 position = Vector2(153, 188)
 
+[node name="Explosion" type="Marker2D" parent="Particles"]
+z_index = 60
+position = Vector2(163, 150)
+
 [node name="Visuals" type="Sprite2D" parent="."]
 position = Vector2(160, 130)
 texture = ExtResource("2_xeq3v")

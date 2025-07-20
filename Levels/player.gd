@@ -63,7 +63,7 @@ func _ready() -> void:
 	$CarEngine.volume_db = -40
 	$CarEngine.play(0.0)
 	var tween = create_tween()
-	tween.tween_property($CarEngine,'volume_db',-1,3.0)
+	tween.tween_property($CarEngine,'volume_db',0,3.0)
 
 
 func _physics_process(delta: float) -> void:
@@ -176,7 +176,7 @@ func _gear_mechanics() -> void:
 		
 		#var gear_change_sound = preload("uid://cf8yyq2r0tegw") if last_gear < gear else preload("uid://f4pdbbpsxjgt")
 		#var gear_sound_val = float(gear)/10
-		Audio.play_sfx(preload("uid://qbs4qdc8hem8"),1.01,-6)
+		Audio.play_sfx(preload("uid://qbs4qdc8hem8"),1.01)
 		#Audio.play_sfx(gear_change_sound,0.62+gear_sound_val,-13)
 		screenshake_strength += 2
 	
@@ -355,7 +355,10 @@ func _items_in_face() -> void:
 		$Visuals/Asgore.position.y += 10
 		$FaceTimer.wait_time = randf_range(0.05,0.2)
 		$FaceTimer.start()
-		Audio.play_sfx(preload("uid://bwrewdkj3pqlf"),randf_range(0.3,0.6),-6) # Sniff.wav
+		if Global.level == 1:
+			Audio.play_sfx(preload("uid://c7k4yupbu4vu2"),randf_range(0.9,1.0),-3)
+		else:
+			Audio.play_sfx(preload("uid://bwrewdkj3pqlf"),randf_range(0.3,0.6),-6) # Sniff.wav
 		for item in current_items_in_face_region:
 			item.lifetime -= $FaceTimer.wait_time
 			item.lifetime = max(item.lifetime,0.0)

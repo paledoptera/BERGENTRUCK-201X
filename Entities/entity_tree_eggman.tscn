@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0ecjulakvjyr"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ecjulakvjyr"]
 
 [ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="1_rpbby"]
 [ext_resource type="Texture2D" uid="uid://iw0ce3kn6f1d" path="res://Entities/Assets/Visuals/tree_gaster.png" id="2_2ppqc"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_3m8h3"]
 [ext_resource type="Script" uid="uid://d3t583c64xt2h" path="res://Entities/entity_tree_eggman.gd" id="2_4m5y2"]
 [ext_resource type="PackedScene" uid="uid://dtidq3duskfdb" path="res://Items/item_egg.tscn" id="3_4m5y2"]
+[ext_resource type="AudioStream" uid="uid://l3v3xsop6rn2" path="res://Global/SFX/Gaster.wav" id="5_3oc62"]
 
 [sub_resource type="Resource" id="Resource_3oc62"]
 script = ExtResource("2_3m8h3")
@@ -58,7 +59,7 @@ animations = [{
 [node name="Tree" instance=ExtResource("1_rpbby")]
 script = ExtResource("2_4m5y2")
 items = Array[ExtResource("2_3m8h3")]([SubResource("Resource_3oc62")])
-hit_sound_impact = null
+hit_sound_effect = ExtResource("5_3oc62")
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 visible = false

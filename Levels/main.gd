@@ -11,11 +11,18 @@ func _enter_tree() -> void:
 	Global.game = self
 
 #region Game States
+func _title_screen_enter() -> void:
+	_change_program("uid://bbyqb78v0mmni") # title_screen.tscn
+	Audio.play_music(preload("uid://cc7we7oj6hn6t")) # Bereavement.ogg
+
+
 func _level_select_enter() -> void:
 	_change_program("uid://bsyjain0shc50") # level_select.tscn
+	Audio.play_music(preload("uid://cc7we7oj6hn6t"))
 
 
 func _level_enter() -> void:
+	Audio.stop_music(true)
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	_change_program(level_path)
 

@@ -16,19 +16,31 @@ metadata/_custom_type_script = "uid://couw105c3bde4"
 
 [node name="Root" type="Node" parent="GameState"]
 script = ExtResource("3_34bfm")
-initial_state = NodePath("LevelSelect")
+initial_state = NodePath("Title")
+
+[node name="To Title" type="Node" parent="GameState/Root"]
+script = ExtResource("5_7pswh")
+to = NodePath("../Title")
+event = &"Title"
+delay_in_seconds = "0.0"
+
+[node name="To LevelSelect" type="Node" parent="GameState/Root"]
+script = ExtResource("5_7pswh")
+to = NodePath("../LevelSelect")
+event = &"LevelSelect"
+delay_in_seconds = "0.0"
+
+[node name="To Level" type="Node" parent="GameState/Root"]
+script = ExtResource("5_7pswh")
+to = NodePath("../Level")
+event = &"Start"
+delay_in_seconds = "0.0"
 
 [node name="Title" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
 [node name="LevelSelect" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
-
-[node name="To Level" type="Node" parent="GameState/Root/LevelSelect"]
-script = ExtResource("5_7pswh")
-to = NodePath("../../Level")
-event = &"Start"
-delay_in_seconds = "0.0"
 
 [node name="Level" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
@@ -48,32 +60,8 @@ delay_in_seconds = "0.0"
 [node name="GameOver" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
-[node name="To Title" type="Node" parent="GameState/Root/GameOver"]
-script = ExtResource("5_7pswh")
-to = NodePath("../../LevelSelect")
-event = &"Title"
-delay_in_seconds = "0.0"
-
-[node name="To Level" type="Node" parent="GameState/Root/GameOver"]
-script = ExtResource("5_7pswh")
-to = NodePath("../../Level")
-event = &"Start"
-delay_in_seconds = "0.0"
-
 [node name="Victory" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
-
-[node name="To Title" type="Node" parent="GameState/Root/Victory"]
-script = ExtResource("5_7pswh")
-to = NodePath("../../LevelSelect")
-event = &"Title"
-delay_in_seconds = "0.0"
-
-[node name="To Level" type="Node" parent="GameState/Root/Victory"]
-script = ExtResource("5_7pswh")
-to = NodePath("../../Level")
-event = &"Start"
-delay_in_seconds = "0.0"
 
 [node name="Cutscene" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
@@ -81,7 +69,9 @@ script = ExtResource("4_ovrsl")
 [node name="Credits" type="Node" parent="GameState/Root"]
 script = ExtResource("4_ovrsl")
 
+[connection signal="state_entered" from="GameState/Root/Title" to="." method="_title_screen_enter"]
 [connection signal="state_entered" from="GameState/Root/LevelSelect" to="." method="_level_select_enter"]
+[connection signal="state_exited" from="GameState/Root/LevelSelect" to="." method="_level_select_exit"]
 [connection signal="state_entered" from="GameState/Root/Level" to="." method="_level_enter"]
 [connection signal="state_exited" from="GameState/Root/Level" to="." method="_level_exit"]
 [connection signal="state_entered" from="GameState/Root/GameOver" to="." method="_gameover_enter"]

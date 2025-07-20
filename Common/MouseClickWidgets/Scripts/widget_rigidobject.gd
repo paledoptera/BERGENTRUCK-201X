@@ -57,5 +57,6 @@ func _on_input_event(event: InputEvent) -> void:
 		$DraggableItem/MouseDragComponent.object_held_down(event)
 
 func use() -> void:
-		Global.score += score_amount
-		queue_free()
+	player.particle_trigger()
+	Global.score += score_amount
+	queue_free()

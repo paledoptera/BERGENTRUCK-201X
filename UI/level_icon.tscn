@@ -13,7 +13,7 @@ script = ExtResource("1_mbt8g")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(40, 40)
 texture = ExtResource("1_61kut")
-hframes = 3
+hframes = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
 offset_left = 18.0

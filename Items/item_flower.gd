@@ -13,5 +13,4 @@ func use() -> void:
 		player.hp = min(player.hp,100)
 		queue_free()
 	else:
-		Global.score += score_amount
-		queue_free()
+		super()

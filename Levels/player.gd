@@ -57,9 +57,13 @@ var screenshake_strength : float = 4.0
 
 
 func _ready() -> void:
+	Audio.play_sfx(preload("uid://cphvgk1cwgtnj")) # Car Start.wav
 	$Background.visible = true
 	_correct_sprite_size($Ground)
-	
+	$CarEngine.volume_db = -40
+	$CarEngine.play(0.0)
+	var tween = create_tween()
+	tween.tween_property($CarEngine,'volume_db',-2,3.0)
 
 
 func _physics_process(delta: float) -> void:
@@ -167,6 +171,13 @@ func _gear_mechanics() -> void:
 	gear = round(gear_value*2)+1
 	
 	if last_gear != gear:
+		var tween = create_tween()
+		tween.tween_property($CarEngine,'pitch_scale',gear,2.0)
+		
+		#var gear_change_sound = preload("uid://cf8yyq2r0tegw") if last_gear < gear else preload("uid://f4pdbbpsxjgt")
+		#var gear_sound_val = float(gear)/10
+		Audio.play_sfx(preload("uid://qbs4qdc8hem8"),1.01,-6)
+		#Audio.play_sfx(gear_change_sound,0.62+gear_sound_val,-13)
 		screenshake_strength += 2
 	
 	if widget_gear.get_node("DraggableItem").drag:
@@ -300,6 +311,8 @@ func _steering_mechanics() -> void:
 #
 #
 func _spawn_item(item: PackedScene) -> void:
+	if not item:
+		return
 	var spawn_position = Vector2(randi_range($SpawnZone.global_position.x,$SpawnZone.global_position.x+$SpawnZone.size.x),randi_range($SpawnZone.global_position.y,$SpawnZone.global_position.y+$SpawnZone.size.y))
 	var item_scene = item.instantiate()
 	item_scene.global_position = spawn_position
@@ -397,6 +410,8 @@ func _entity_mechanics() -> void:
 			if entity.items:
 				var items = entity.items.duplicate()
 				for itemdata in items:
+					if not itemdata:
+						continue
 					var chance = randf_range(1,100)
 					var target = itemdata.drop_chance
 					print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
@@ -474,3 +489,12 @@ func _health_changed(previous_hp, new_hp) -> void:
 	screenshake_strength += value
 	$DamageSplash.self_modulate.a += value/30
 	$CarHurt.play()
+
+func particle_trigger(part_type = 0):
+	match part_type:
+		0:
+			Audio.play_sfx(preload("uid://d288lwxjk6ljm"),1.0,-6)
+			print("CREATED PARTICLE")
+			var particlefx = preload("uid://dsdofauesj7ga").instantiate() # Shimmer.tscn
+			$Particles/Shimmer.add_child(particlefx)
+			particlefx.emitting = true

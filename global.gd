@@ -4,6 +4,7 @@ var score: float = 0.0
 var goal: float = 100.0
 var level: int = 1
 var game: Node
+@onready var player_save := PlayerSave.new()
 
 func goto_level(value : int = level) -> void:
 	var lv : String
@@ -22,6 +23,10 @@ func goto_level(value : int = level) -> void:
 func goto_title() -> void:
 	score = 0.0
 	game.game_state.send_event("Title")
+
+func goto_levelselect() -> void:
+	print("ATTEMPTING TO GO TO LEVELSELECT")
+	game.game_state.send_event("LevelSelect")
 
 func die() -> void:
 	score = 0.0

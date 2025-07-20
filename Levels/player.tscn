@@ -18,9 +18,9 @@
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="14_hunlg"]
 [ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="15_hunlg"]
 [ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Assets/Visuals/asgore_nose.png" id="16_0plgk"]
-[ext_resource type="AudioStream" uid="uid://hwdnkrvj4wpm" path="res://Global/SFX/Screech.wav" id="16_c6bv5"]
 [ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Assets/Visuals/windscreen_sheen.png" id="16_oxtxo"]
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="19_q103l"]
+[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="20_0plgk"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="20_y8g1j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
@@ -143,6 +143,12 @@ transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -90.105, -200)
 top_level = true
 mesh = SubResource("PlaneMesh_34hgd")
 surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="Shimmer" type="Marker2D" parent="Particles"]
+z_index = 60
+position = Vector2(62, 188)
 
 [node name="Visuals" type="Sprite2D" parent="."]
 position = Vector2(160, 130)
@@ -315,7 +321,7 @@ sprite_frames = SubResource("SpriteFrames_lor68")
 animation = &"sniff"
 
 [node name="Parallax2D" type="Parallax2D" parent="Visuals"]
-modulate = Color(1, 1, 0.878431, 0.0509804)
+modulate = Color(1, 1, 0.878431, 0.0784314)
 z_index = -4096
 scroll_offset = Vector2(0, 0.239)
 repeat_size = Vector2(637.5, 0)
@@ -430,8 +436,8 @@ surface_material_override/0 = ExtResource("14_hunlg")
 stream = ExtResource("15_hunlg")
 bus = &"SFX"
 
-[node name="CarScreech" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_c6bv5")
+[node name="CarEngine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_0plgk")
 bus = &"SFX"
 
 [node name="CarHurt" type="AudioStreamPlayer" parent="."]

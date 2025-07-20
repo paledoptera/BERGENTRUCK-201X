@@ -51,9 +51,12 @@ func _spawn_item() -> void:
 	
 	if queue.size() > 0:
 		var item_path = queue.pick_random()
-		if not item_path:
+		if not item_path or item_path == "":
 			return
-		var item = load(item_path).instantiate()
+		var item = load(item_path)
+		if not item:
+			return
+		item = item.instantiate()
 		#print("ITEM ", item, " CREATED")
 		entities.add_child(item)
 		if level_val == 3:

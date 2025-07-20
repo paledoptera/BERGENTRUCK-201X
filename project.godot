@@ -10,17 +10,20 @@ config_version=5
 
 [application]
 
-config/name="ULTRATRUCKUNG 201X"
+config/name="BERGENTRUCK 201X"
+config/description="Hey, that bump... is shaped like a deer!"
+config/version="Beta Test"
 run/main_scene="uid://pfn2cpkppd67"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="uid://dl05mcmdann36"
 
 [autoload]
 
 Utility="*res://Utility.gd"
 Audio="*res://Common/Audio.gd"
 Global="*res://global.gd"
+SaveLoad="*res://Common/SaveLoad/SaveLoad.gd"
 
 [display]
 

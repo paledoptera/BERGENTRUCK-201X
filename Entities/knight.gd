@@ -108,10 +108,9 @@ func _attack_enter() -> void:
 				max_attacks_used = 1
 			
 			"bullet_hell":
-				attacks_used += 5
 				current_attack_small = "big_bullet_hell"
-				current_attack_mega = "big_bullet_hell"
-				max_attacks_used = 0
+				current_attack_mega = "big_slash_bullets"
+				max_attacks_used = 1
 	
 	
 	if sword_dir:

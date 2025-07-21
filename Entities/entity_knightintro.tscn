@@ -185,5 +185,10 @@ wait_time = 0.7
 one_shot = true
 autostart = true
 
+[node name="AfterimageTimer" type="Timer" parent="." index="2"]
+wait_time = 0.1
+autostart = true
+
 [connection signal="animation_finished" from="EntityContainer/AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="AfterimageTimer" to="." method="_on_afterimage_timer_timeout"]

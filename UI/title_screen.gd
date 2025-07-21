@@ -1,15 +1,38 @@
 extends Node
 
+var siner: float = 0
+var siner2: float = 0
+var logo_bobbing = false
 
-func _on_play_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				Global.goto_levelselect()
+func _ready() -> void:
+	if not Global.title_shown:
+		Global.title_shown = true
+		$AnimationPlayer.play("intro")
+	else:
+		$ColorRect.modulate = Color("ffffff00")
+		logo_bobbing = true
+
+func _process(delta: float) -> void:
+	siner2 += delta
+	$Sprite2D.offset.y = Utility.get_sine(siner2,1,20)
+	$Background.offset = Vector2(Utility.get_sine(siner2,1,5),Utility.get_sine(siner2,1,10))
+	
+	if logo_bobbing:
+		siner += delta
+		$Logo.position.y = 29 + Utility.get_sine(siner,2,2)
+		
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	logo_bobbing = true
 
 
-func _on_quit_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				get_tree().quit()
+func _on_menu_option_clicked(option: RichTextLabel) -> void:
+	match option.name:
+		"Play":
+			Global.goto_levelselect()
+		
+		"Options":
+			Global.goto_options()
+			
+		"Quit":
+			get_tree().quit()

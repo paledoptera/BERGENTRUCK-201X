@@ -1077,6 +1077,10 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
 
+[node name="AfterimageTimer" type="Timer" parent="." index="5"]
+wait_time = 0.1
+autostart = true
+
 [connection signal="state_entered" from="AIState/Root/Start" to="." method="_start_enter"]
 [connection signal="state_processing" from="AIState/Root/Start" to="." method="_start_process"]
 [connection signal="state_entered" from="AIState/Root/Attack" to="." method="_attack_enter"]
@@ -1089,3 +1093,4 @@ libraries = {
 [connection signal="state_processing" from="AIState/Root/End" to="." method="_end_process"]
 [connection signal="state_entered" from="AIState/Root/Hit" to="." method="_hit_enter"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AfterimageTimer" to="." method="_on_afterimage_timer_timeout"]

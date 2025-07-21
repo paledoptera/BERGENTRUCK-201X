@@ -30,12 +30,14 @@ func _level_exit() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _gameover_enter() -> void:
+	Audio.stop_music(false)
 	_change_program("uid://dhue5xb8addio") # game_over.tscn
 
 func _victory_enter() -> void:
 	_change_program("uid://cs40bcv6qrnuo") # victory.tscn
 
 func _story_screen_enter() -> void:
+	
 	Audio.stop_music(true)
 	_change_program("uid://cguaj6qonrj1x") # story_screen.tscn
 	pass # Replace with function body.
@@ -64,4 +66,12 @@ func _close_overlay():
 
 func _credits_entered() -> void:
 	_change_program("uid://cjh1hi4cjh33m")
+
+func _controlsplash_entered() -> void:
+	Audio.stop_music()
+	_change_program("uid://b2xygcidcdw4m")
+
+
+func _options_entered() -> void:
+	_change_program("uid://byiyp5l2tjvif")
 	pass # Replace with function body.

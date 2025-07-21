@@ -1,0 +1,135 @@
+[gd_scene load_steps=5 format=3 uid="uid://byiyp5l2tjvif"]
+
+[ext_resource type="Script" uid="uid://bs4y4n5swxu60" path="res://UI/options.gd" id="1_ua1a0"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_b7fs8"]
+[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="3_m8fpw"]
+[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="4_ixc72"]
+
+[node name="Options" type="Node"]
+script = ExtResource("1_ua1a0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_top = 10.0
+offset_right = 320.0
+offset_bottom = 210.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+theme_override_font_sizes/normal_font_size = 48
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 53.0
+offset_top = 78.0
+offset_right = 153.0
+offset_bottom = 98.0
+scale = Vector2(1, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolumeSlider" parent="." instance=ExtResource("3_m8fpw")]
+visible = false
+offset_left = 161.0
+offset_top = 80.0
+offset_right = 588.0
+offset_bottom = 144.0
+scale = Vector2(0.25, 0.25)
+color = Color(0.0987284, 0.0987284, 0.0987284, 1)
+snap_to_cursor = true
+
+[node name="SFXVolume" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 53.0
+offset_top = 102.0
+offset_right = 153.0
+offset_bottom = 122.0
+scale = Vector2(1, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" parent="." instance=ExtResource("3_m8fpw")]
+visible = false
+offset_left = 161.0
+offset_top = 104.0
+offset_right = 588.0
+offset_bottom = 168.0
+scale = Vector2(0.25, 0.25)
+snap_to_cursor = true
+
+[node name="Fullscreen" type="RichTextLabel" parent="."]
+modulate = Color(0.458405, 0.458405, 0.458405, 1)
+offset_left = 107.0
+offset_top = 83.0
+offset_right = 207.0
+offset_bottom = 103.0
+scale = Vector2(1, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Fullscreen"
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 2)
+
+[node name="SpeedrunTimer" type="RichTextLabel" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+offset_left = 107.0
+offset_top = 110.0
+offset_right = 225.12
+offset_bottom = 130.0
+scale = Vector2(0.875, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Speedrun Timer"
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 2)
+
+[node name="SkipTutorials" type="RichTextLabel" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+offset_left = 110.0
+offset_top = 138.0
+offset_right = 228.12
+offset_bottom = 158.0
+scale = Vector2(0.785, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Skip Tutorials"
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 2)
+
+[node name="Return" type="RichTextLabel" parent="."]
+offset_top = 206.0
+offset_right = 320.0
+offset_bottom = 226.0
+scale = Vector2(1, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Return"
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 3)
+
+[connection signal="gui_input" from="Fullscreen" to="Fullscreen" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="Fullscreen" to="." method="menuoption"]
+[connection signal="mouse_entered" from="Fullscreen" to="Fullscreen" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Fullscreen" to="Fullscreen" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SpeedrunTimer" to="SpeedrunTimer" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="SpeedrunTimer" to="." method="menuoption"]
+[connection signal="mouse_entered" from="SpeedrunTimer" to="SpeedrunTimer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SpeedrunTimer" to="SpeedrunTimer" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SkipTutorials" to="SkipTutorials" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="SkipTutorials" to="." method="menuoption"]
+[connection signal="mouse_entered" from="SkipTutorials" to="SkipTutorials" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SkipTutorials" to="SkipTutorials" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Return" to="Return" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="Return" to="." method="menuoption"]
+[connection signal="mouse_entered" from="Return" to="Return" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Return" to="Return" method="_on_mouse_exited"]

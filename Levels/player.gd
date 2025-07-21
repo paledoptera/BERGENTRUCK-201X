@@ -38,6 +38,7 @@ var last_velocity = Vector3.ZERO
 var car_angle = Vector2.ZERO
 var car_shake = Vector2.ZERO
 var screeching = false
+var hand_on_wheel: bool = false
 
 var visuals_angle : float = 0.0
 var steer_wiggle : float = 0.0
@@ -57,7 +58,10 @@ var screenshake_strength : float = 4.0
 
 
 func _ready() -> void:
-
+	if Global.player_save.flags["option_show_time"]:
+		$Visuals/Time.visible = true
+	
+	Global.player_save.time = 0
 	$Background.visible = true
 	_correct_sprite_size($Ground)
 	$CarEngine.volume_db = -40
@@ -67,7 +71,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
+	Global.player_save.update_level_time(delta,Global.level)
+	$Visuals/Time.text = "Time: " + Global.get_time(Global.player_save.flags["level_time"][Global.level-1])
 	last_velocity = car_velocity
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
@@ -147,17 +152,21 @@ func _hand_visuals() -> void:
 	
 
 	if wheel_dragpoint.drag:
+		if not hand_on_wheel:
+			hand_on_wheel = true
+			Audio.play_sfx(preload("uid://bigavjv4ovlma"),1.0,-3)
 		wheel_dragpoint.drag_speed = friction*0.1
 		wheel_dragpoint.global_position = visual_wheel.global_position+visual_wheel.global_position.direction_to(wheel_dragpoint.global_position)*67
 		hand.global_position = lerp(hand.global_position,wheel_dragpoint.global_position,0.7)
 		hand.rotation = lerp_angle(hand.rotation,(visual_wheel.rotation*0.3) - 0.4,0.7)
 	elif gearbox_dragpoint.drag:
+		hand_on_wheel = false
 		hand.global_position = visual_gear.global_position
 		hand.rotation = visual_gear.rotation*1.5
 		hand.global_position.y -= 65
 		hand.global_position.x += (widget_gear.value-0.5)*50
-		
 	else:
+		hand_on_wheel = false
 		var mouse_pos = hand.get_global_mouse_position()
 		mouse_pos = mouse_pos.clamp(Vector2(0,0),hand.get_viewport_rect().size)
 		hand.global_position = lerp(hand.global_position,mouse_pos,0.9)
@@ -486,7 +495,7 @@ func _get_shake(delta: float) -> Vector2:
 func _health_changed(previous_hp, new_hp) -> void:
 	var difference = previous_hp-new_hp
 	if difference <= 0.0:
-		Audio.play_sfx(preload("uid://dt6ay2ruaak7r"),1.01) # Heal.wav
+		Audio.play_sfx(preload("uid://dt6ay2ruaak7r"),1.01,3) # Heal.wav
 		return
 	var value = difference*10
 	value = clamp(value,1,30)

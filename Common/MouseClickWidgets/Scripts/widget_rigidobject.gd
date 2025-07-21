@@ -12,8 +12,6 @@ var strength = 50
 @export var damage : float = 0.0
 
 func _ready() -> void:
-	if Global.level == 3:
-		modulate = Color("597cab")
 	rotation_degrees = randi_range(0,360)
 	var rand_scale = randf_range(0.75,1.25)
 	scale = Vector2(rand_scale,rand_scale)
@@ -25,6 +23,9 @@ func _ready() -> void:
 	$GrabBox.scale *= scale
 	$GrabBox.position = Vector2(0,0)-(($GrabBox.size*$GrabBox.scale)/2)
 	$AudioStreamPlayer.stream = use_sound
+	
+	if Global.level > 2:
+		$DraggableItem/TextureRect.modulate = Color("6f8aff")
 
 func _integrate_forces(state) -> void:
 	if $DraggableItem.drag:

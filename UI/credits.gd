@@ -1,8 +1,14 @@
 extends Node2D
 @export var done = false
 #
-#func _ready() -> void:
-	#Audio.play_music(preload("uid://clvnws7xol5k4"),false,false)
+func _ready() -> void:
+	if Global.player_save.flags["level_time"][Global.level-1] < Global.player_save.flags["best_time"][Global.level-1] or Global.player_save.flags["best_time"][Global.level-1] == -1:
+		Global.player_save.flags["best_time"][Global.level-1] = Global.player_save.flags["level_time"][Global.level-1]
+	
+	Global.title_shown = false
+	Global.player_save.flags["levels_beaten"][2] = true
+	SaveLoad.file_save()
+
 
 
 func _on_fade_gui_input(event: InputEvent) -> void:

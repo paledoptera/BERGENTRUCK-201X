@@ -29,7 +29,11 @@ func _on_gui_input(event: InputEvent) -> void:
 					return
 				Audio.play_sfx(preload("uid://cf8yyq2r0tegw"),1.01) # vroom
 				Global.level = value
-				Global.goto_storyscreen()
+				
+				if Global.player_save.flags["option_skip_tutorials"]:
+					Global.goto_level()
+				else:
+					Global.goto_storyscreen()
 
 
 func _on_mouse_entered() -> void:

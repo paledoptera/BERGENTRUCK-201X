@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgwpbuermixlc"]
+
+[ext_resource type="SpriteFrames" uid="uid://btnkxv1beh53u" path="res://Entities/Assets/Visuals/Knight/knight_frames.tres" id="1_f5vyv"]
+[ext_resource type="Script" uid="uid://ckhelr0jmnmuq" path="res://Entities/Assets/Visuals/Knight/afterimage.gd" id="2_m3iyu"]
+
+[node name="Afterimage" type="AnimatedSprite3D"]
+top_level = true
+sorting_offset = -99999.0
+offset = Vector2(0, 23.61)
+modulate = Color(1, 1, 1, 0.843137)
+pixel_size = 0.2205
+billboard = 1
+texture_filter = 0
+sprite_frames = ExtResource("1_f5vyv")
+animation = &"ball"
+speed_scale = 0.0
+script = ExtResource("2_m3iyu")

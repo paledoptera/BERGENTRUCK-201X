@@ -27,7 +27,7 @@ texture_repeat = false
 music = null
 item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", ""])
-item_queue_end = Array[String](["", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_end = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "uid://bympmn5b7p10t", "", "", "", "", "", "", "", "", "", "", ""])
 level_val = 3
 
 [node name="WorldEnvironment" parent="." index="0"]

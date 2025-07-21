@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_t21ke"]
 
 [node name="Level1" instance=ExtResource("1_t21ke")]
-item_queue_intro = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "", "", "", "", ""])
-item_queue_mid = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "", "", ""])
-item_queue_end = Array[String](["uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "uid://ceudumccrqglg", "uid://cuu8u82sv6b75"])
+item_queue_intro = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "", "", "", "", "", "", "", ""])
+item_queue_mid = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "", "", "", "", "", ""])
+item_queue_end = Array[String](["uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "uid://ceudumccrqglg", "uid://cuu8u82sv6b75", "", "", ""])
 
 [node name="WallL" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)

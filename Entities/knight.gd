@@ -206,9 +206,19 @@ func play_sound(audio: AudioStream, pitch_scale: float = 1.0, volume_db: float =
 
 
 func _get_current_attack_pool() -> void:
-	
 	var current_attack_num = Global.score / 18
 	current_attack_num = clamp(int(current_attack_num),0,ATTACK.size()-1)
 	attack_pool.clear()
 	for i in range(current_attack_num+1):
 		attack_pool.append(ATTACK[i])
+
+
+func _on_afterimage_timer_timeout() -> void:
+	var afterimage = preload("uid://cgwpbuermixlc").instantiate() # afterimage.tscn
+	get_parent().add_child(afterimage)
+	afterimage.global_position = $EntityContainer/AnimatedSprite3D.global_position
+	afterimage.global_rotation = $EntityContainer/AnimatedSprite3D.global_rotation
+	afterimage.sprite_frames =  $EntityContainer/AnimatedSprite3D.sprite_frames
+	afterimage.animation =  $EntityContainer/AnimatedSprite3D.animation
+	afterimage.frame =  $EntityContainer/AnimatedSprite3D.frame
+	afterimage.flip_h =  $EntityContainer/AnimatedSprite3D.flip_h

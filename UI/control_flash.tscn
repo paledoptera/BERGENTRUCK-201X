@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2xygcidcdw4m"]
+
+[ext_resource type="Texture2D" uid="uid://bpsa2sev8yh1g" path="res://UI/controls.png" id="1_1f6o4"]
+[ext_resource type="Script" uid="uid://cqvh6h1qo10kc" path="res://UI/control_flash.gd" id="1_b5p8i"]
+
+[node name="ControlSplash" type="Node"]
+script = ExtResource("1_b5p8i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1f6o4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]

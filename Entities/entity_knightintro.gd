@@ -30,3 +30,14 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 	knight.entities = get_parent()
 	Audio.play_music(preload("uid://fu6rkj8mk5r5"),false,false) # Black Knife.ogg
 	queue_free()
+
+
+func _on_afterimage_timer_timeout() -> void:
+	var afterimage = preload("uid://cgwpbuermixlc").instantiate() # afterimage.tscn
+	get_parent().add_child(afterimage)
+	afterimage.global_position = $EntityContainer/AnimatedSprite3D.global_position
+	afterimage.global_rotation = $EntityContainer/AnimatedSprite3D.global_rotation
+	afterimage.sprite_frames =  $EntityContainer/AnimatedSprite3D.sprite_frames
+	afterimage.animation =  $EntityContainer/AnimatedSprite3D.animation
+	afterimage.frame =  $EntityContainer/AnimatedSprite3D.frame
+	afterimage.flip_h =  $EntityContainer/AnimatedSprite3D.flip_h

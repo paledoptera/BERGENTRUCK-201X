@@ -9,8 +9,7 @@ func _ready() -> void:
 
 func use() -> void:
 	if Global.level == 3:
-		player.hp += 10
-		player.hp = min(player.hp,100)
+		player.hp = min(player.hp+10,100)
 		queue_free()
 	else:
 		super()

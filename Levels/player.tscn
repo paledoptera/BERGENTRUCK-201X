@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=40 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1_vyvq2"]
 [ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="2_xeq3v"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="19_q103l"]
 [ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="20_0plgk"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="20_y8g1j"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="23_0p2yg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
 size = Vector2(500, 30.805)
@@ -88,6 +89,9 @@ size = Vector2(460, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
 size = Vector2(104.125, 215.502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0plgk"]
+size = Vector2(104.125, 800)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
 size = Vector2(290, 2000)
@@ -340,6 +344,21 @@ position = Vector2(7, -36)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("16_oxtxo")
 
+[node name="Time" type="RichTextLabel" parent="Visuals"]
+visible = false
+offset_left = 40.0
+offset_top = -118.0
+offset_right = 140.0
+offset_bottom = -78.0
+rotation = 0.0687174
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("23_0p2yg")
+text = "Time: 0:00"
+scroll_active = false
+horizontal_alignment = 2
+
 [node name="Score" type="RichTextLabel" parent="."]
 visible = false
 offset_left = 10.0
@@ -385,19 +404,19 @@ position = Vector2(163, -26)
 shape = SubResource("RectangleShape2D_wpukm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-96, -36)
-rotation = -0.835659
+position = Vector2(-69, -36)
+rotation = -0.384921
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(416, -36)
+position = Vector2(416, 12)
 rotation = 0.836013
 shape = SubResource("RectangleShape2D_yiue1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-58, -463)
-rotation = 0.331718
-shape = SubResource("RectangleShape2D_yiue1")
+position = Vector2(-92, -269)
+rotation = 0.192772
+shape = SubResource("RectangleShape2D_0plgk")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(378, -475)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs40bcv6qrnuo"]
+[gd_scene load_steps=4 format=3 uid="uid://cs40bcv6qrnuo"]
 
 [ext_resource type="Script" uid="uid://dnse1mnaox1qe" path="res://UI/victory.gd" id="1_x0fca"]
 [ext_resource type="Texture2D" uid="uid://b68yc6yrhyn4k" path="res://UI/Assets/Visuals/victory.png" id="2_x0fca"]
+[ext_resource type="Texture2D" uid="uid://e12plhp7qvec" path="res://UI/Assets/Visuals/level_select_road.png" id="3_a5iy6"]
 
 [node name="Victory" type="Node"]
 script = ExtResource("1_x0fca")
@@ -10,6 +11,19 @@ script = ExtResource("1_x0fca")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_x0fca")
+
+[node name="Parallax2D" type="Parallax2D" parent="TextureRect"]
+modulate = Color(1, 1, 1, 0.545098)
+repeat_size = Vector2(320, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/Parallax2D"]
+modulate = Color(0.484119, 0.70334, 0.855889, 1)
+self_modulate = Color(1, 1, 1, 0.541176)
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3_a5iy6")
 
 [node name="DriveAgain" type="TextureRect" parent="TextureRect"]
 layout_mode = 0

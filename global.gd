@@ -6,6 +6,11 @@ var level: int = 1
 var game: Node
 @onready var player_save := PlayerSave.new()
 
+func _ready() -> void:
+	var save = SaveLoad.file_load()
+	if save:
+		player_save = save
+
 func goto_level(value : int = level) -> void:
 	var lv : String
 	

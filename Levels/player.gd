@@ -204,7 +204,6 @@ func _steering_mechanics() -> void:
 	car_angle.x = lerp(car_angle.x,turn_speed,0.2)
 	
 	friction = clamp(float(friction), 0.0, 1.0)
-	#print("SPEED = ", speed, " FRICTION = ", friction)
 	friction = lerp(float(friction),1.0,0.1*(0.5+(0.5-(speed/20))))
 	
 	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
@@ -349,7 +348,6 @@ func _items_in_face() -> void:
 	if current_items_in_face_region.size() == 0:
 		return
 	
-	print(current_items_in_face_region)
 	if $FaceTimer.is_stopped():
 		$Visuals/Asgore/Nose.play("sniff")
 		$Visuals/Asgore.position.y += 10
@@ -417,7 +415,7 @@ func _entity_mechanics() -> void:
 						continue
 					var chance = randf_range(1,100)
 					var target = itemdata.drop_chance
-					print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
+					#print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
 					if chance <= target:
 						_spawn_item(itemdata.item)
 						entity.items.erase(itemdata)

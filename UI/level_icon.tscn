@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://beo0wp80g721"]
+[gd_scene load_steps=5 format=3 uid="uid://beo0wp80g721"]
 
 [ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Assets/Visuals/level_icons.png" id="1_61kut"]
 [ext_resource type="Script" uid="uid://b63c1cengem0u" path="res://UI/level_icon.gd" id="1_mbt8g"]
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
+[ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Assets/Visuals/tickmark.png" id="4_wkijm"]
 
 [node name="LevelIcon" type="ColorRect"]
 self_modulate = Color(1, 1, 1, 0)
@@ -23,5 +24,10 @@ offset_bottom = 51.0
 scale = Vector2(2, 2)
 theme_override_fonts/normal_font = ExtResource("2_mbt8g")
 text = "1"
+
+[node name="TickMark" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-27, 28)
+texture = ExtResource("4_wkijm")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

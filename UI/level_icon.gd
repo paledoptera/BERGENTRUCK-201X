@@ -12,6 +12,9 @@ func _ready() -> void:
 		$Sprite2D.frame = value-1
 	else:
 		$Sprite2D.frame = 3
+	
+	if Global.player_save.levels_beaten[value-1]:
+		$Sprite2D/TickMark.visible = true
 
 
 func _on_gui_input(event: InputEvent) -> void:

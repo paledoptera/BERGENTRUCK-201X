@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		return
 	elif Global.score >= Global.goal and not win:
 		win = true
-		if Global.level < 2:
+		if Global.level < 3:
 			Audio.stop_music(true)
 			var tween = create_tween()
 			tween.tween_property($FadeEffect,'modulate',Color("ffffff"),3.0)
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 			var tween = create_tween()
 			tween.tween_property($FlashEffect,'modulate',Color.WHITE,0.5)
 			tween.tween_property($FadeEffect,'modulate',Color("ffffff"),1.0)
-			tween.tween_property($FlashEffect,'modulate',Color("fffff00"),0.5)
+			tween.tween_property($FlashEffect,'modulate',Color("ffffff00"),0.5)
 			tween.tween_callback(goto_credits)
 			win = true
 			

@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	Global.player_save.levels_beaten[Global.level-1] = true
+	Global.player_save.levels_unlocked[max(Global.level,2)] = true
 
 func _on_drive_again_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

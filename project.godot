@@ -22,8 +22,8 @@ config/icon="uid://dl05mcmdann36"
 
 Utility="*res://Utility.gd"
 Audio="*res://Common/Audio.gd"
-Global="*res://global.gd"
 SaveLoad="*res://Common/SaveLoad/SaveLoad.gd"
+Global="*res://global.gd"
 
 [display]
 

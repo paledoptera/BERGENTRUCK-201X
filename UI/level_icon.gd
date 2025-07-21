@@ -7,13 +7,13 @@ var unlocked = false
 func _ready() -> void:
 	$Sprite2D/RichTextLabel.text = str(value)
 	
-	if Global.player_save.levels_unlocked[value-1]:
+	if Global.player_save.flags.get("levels_unlocked")[value-1]:
 		unlocked = true
 		$Sprite2D.frame = value-1
 	else:
 		$Sprite2D.frame = 3
 	
-	if Global.player_save.levels_beaten[value-1]:
+	if Global.player_save.flags.get("levels_beaten")[value-1]:
 		$Sprite2D/TickMark.visible = true
 
 

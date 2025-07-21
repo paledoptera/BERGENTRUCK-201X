@@ -10,13 +10,14 @@ func file_save():
 	print("SAVE: Saved player file in", OS.get_user_data_dir())
 
 func file_load():
-	if has_save_data:
+	
+	if has_save_data():
 		print("SAVE: Loaded player file from", OS.get_user_data_dir())
 		save_file_data = ResourceLoader.load(SAVELOCATION)#.duplicate(true)
 		return save_file_data
 	else:
-		#print("SAVE: No player file found in", OS.get_user_data_dir()) 
-		return false
+		print("SAVE: No player file found in", OS.get_user_data_dir()) 
+		return PlayerSave.new()
 
 func file_erase():
 	if FileAccess.file_exists(SAVELOCATION):

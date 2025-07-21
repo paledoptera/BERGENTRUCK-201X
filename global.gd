@@ -4,12 +4,10 @@ var score: float = 0.0
 var goal: float = 100.0
 var level: int = 1
 var game: Node
-@onready var player_save := PlayerSave.new()
+@onready var player_save : PlayerSave
 
 func _ready() -> void:
-	var save = SaveLoad.file_load()
-	if save:
-		player_save = save
+	player_save = SaveLoad.file_load()
 
 func goto_level(value : int = level) -> void:
 	var lv : String

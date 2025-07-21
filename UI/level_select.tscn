@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsyjain0shc50"]
+[gd_scene load_steps=8 format=3 uid="uid://bsyjain0shc50"]
 
+[ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_mtlrr"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="1_q0b5w"]
 [ext_resource type="PackedScene" uid="uid://beo0wp80g721" path="res://UI/level_icon.tscn" id="1_r4dbv"]
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_qgm14"]
 [ext_resource type="Texture2D" uid="uid://e12plhp7qvec" path="res://UI/Assets/Visuals/level_select_road.png" id="2_uafa6"]
 [ext_resource type="Texture2D" uid="uid://bichsa23x3dis" path="res://UI/Assets/Visuals/level_select_trees.png" id="3_mtlrr"]
+[ext_resource type="Texture2D" uid="uid://cajwodgk1syf3" path="res://UI/Assets/Visuals/selected_level.png" id="7_r21oy"]
 
 [node name="LevelSelect" type="Node"]
+script = ExtResource("1_mtlrr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 320.0
@@ -22,6 +25,7 @@ repeat_times = 2
 self_modulate = Color(1, 1, 1, 0.541176)
 offset_right = 320.0
 offset_bottom = 240.0
+mouse_filter = 2
 texture = ExtResource("2_uafa6")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
@@ -33,6 +37,7 @@ repeat_times = 2
 modulate = Color(1, 0.494118, 1, 1)
 offset_right = 320.0
 offset_bottom = 240.0
+mouse_filter = 2
 texture = ExtResource("3_mtlrr")
 
 [node name="LevelIcon" parent="." instance=ExtResource("1_r4dbv")]
@@ -47,6 +52,7 @@ offset_top = 128.0
 offset_right = 204.0
 offset_bottom = 208.0
 value = 2
+title = "Fast Food"
 
 [node name="LevelIcon3" parent="." instance=ExtResource("1_r4dbv")]
 offset_left = 218.0
@@ -54,34 +60,40 @@ offset_top = 128.0
 offset_right = 298.0
 offset_bottom = 208.0
 value = 3
+title = "Knight Fight"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="LVNumber" type="RichTextLabel" parent="."]
 offset_top = 12.0
 offset_right = 187.0
 offset_bottom = 52.0
 scale = Vector2(1.705, 1.7)
+mouse_filter = 2
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("2_qgm14")
-text = "-Level 1-"
+text = "Choose a"
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="LVTitle" type="RichTextLabel" parent="."]
 offset_left = -38.0
 offset_top = 34.0
 offset_right = 122.0
 offset_bottom = 74.0
 scale = Vector2(2.49, 3.04)
+mouse_filter = 2
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("2_qgm14")
-text = "Flowers"
+text = "Level"
 horizontal_alignment = 1
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 18.0
-offset_top = 187.0
-offset_right = 518.0
-offset_bottom = 238.105
-scale = Vector2(0.585, 0.79)
-theme_override_fonts/normal_font = ExtResource("2_qgm14")
-text = "[ ] Made of Cardboard  
-[ ] Slippery Steering 
-[ ] Harmful Jumping  "
+[node name="Selected" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.235294)
+position = Vector2(-173, 128)
+texture = ExtResource("7_r21oy")
+centered = false
+
+[connection signal="mouse_exited" from="LevelIcon" to="." method="_on_level_icon_mouse_exited"]
+[connection signal="mouse_in" from="LevelIcon" to="." method="_mouse_enters"]
+[connection signal="mouse_exited" from="LevelIcon2" to="." method="_on_level_icon_mouse_exited"]
+[connection signal="mouse_in" from="LevelIcon2" to="." method="_mouse_enters"]
+[connection signal="mouse_exited" from="LevelIcon3" to="." method="_on_level_icon_mouse_exited"]
+[connection signal="mouse_in" from="LevelIcon3" to="." method="_mouse_enters"]

@@ -22,6 +22,7 @@ offset_top = 11.0
 offset_right = 58.0
 offset_bottom = 51.0
 scale = Vector2(2, 2)
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_mbt8g")
 text = "1"
 
@@ -31,3 +32,4 @@ position = Vector2(-27, 28)
 texture = ExtResource("4_wkijm")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

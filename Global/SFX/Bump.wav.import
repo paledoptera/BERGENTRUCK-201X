@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bigavjv4ovlma"
-path="res://.godot/imported/snd_bump.wav-decf8c5936b021e8650dbe9eeb8774e5.sample"
+path="res://.godot/imported/Bump.wav-6a64b2f6e2b063d64a68f367a9ab9cba.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_bump.wav"
-dest_files=["res://.godot/imported/snd_bump.wav-decf8c5936b021e8650dbe9eeb8774e5.sample"]
+source_file="res://Global/SFX/Bump.wav"
+dest_files=["res://.godot/imported/Bump.wav-6a64b2f6e2b063d64a68f367a9ab9cba.sample"]
 
 [params]
 

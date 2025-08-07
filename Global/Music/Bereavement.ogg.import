@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Bereavement.ogg-ba7d6713c01bd19f9b5432e560ff6
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

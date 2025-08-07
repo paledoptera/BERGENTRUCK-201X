@@ -12,7 +12,7 @@ config_version=5
 
 config/name="BERGENTRUCK_201X"
 config/description="Hey, that bump... is shaped like a deer!"
-config/version="V1.0"
+config/version="V1.1B"
 run/main_scene="uid://pfn2cpkppd67"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
@@ -65,3 +65,4 @@ click_right={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

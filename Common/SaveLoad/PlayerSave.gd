@@ -12,8 +12,12 @@ var time = 0
 	"best_time": [-1,-1,-1],
 	"option_show_time": false,
 	"option_skip_tutorials": false,
-	"option_mus_vol": 0,
-	"option_sfx_vol": 0,
+	"option_skip_credits": false,
+	"option_master_vol": 1.0,
+	"option_music_vol": 1.0,
+	"option_sound_vol": 1.0,
+	"border" : 1,
+	
 }
 
 func update_level_time(delta: float, level: int = 1):

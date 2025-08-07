@@ -183,49 +183,49 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2.06667, 2.26667, 2.46667, 2.66667, 2.9, 3.1, 3.36667, 3.56667, 3.76667),
+"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2, 2.2, 2.46667, 2.66667, 2.86667, 3.06667, 3.3, 3.5, 3.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.6],
+"args": [ExtResource("11_b2fls"), 1.0, -0.7],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, -0.35],
@@ -239,49 +239,49 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2.06667, 2.26667, 2.46667, 2.66667, 2.9, 3.1, 3.36667, 3.56667, 3.76667),
+"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2, 2.2, 2.46667, 2.66667, 2.86667, 3.06667, 3.3, 3.5, 3.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
@@ -295,49 +295,49 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2.06667, 2.26667, 2.46667, 2.66667, 2.9, 3.1, 3.36667, 3.56667, 3.76667),
+"times": PackedFloat32Array(0.766667, 0.966667, 1.16667, 1.36667, 1.6, 1.8, 2, 2.2, 2.46667, 2.66667, 2.86667, 3.06667, 3.3, 3.5, 3.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.45],
 "method": &"spawn_bullet"
 }, {
 "args": [ExtResource("11_b2fls"), 1.0, 0.35],
@@ -351,28 +351,28 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.966667, 1.36667, 1.8, 2.26667, 2.66667, 3.1, 3.56667),
+"times": PackedFloat32Array(0.966667, 1.36667, 1.8, 2.2, 2.66667, 3.06667, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.6],
+"args": [ExtResource("11_b2fls"), 1.0, 0.7],
 "method": &"spawn_bullet"
 }]
 }
@@ -517,10 +517,10 @@ tracks/4/keys = {
 "args": [ExtResource("11_b2fls"), 1.0, 0.0],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, -0.3],
+"args": [ExtResource("11_b2fls"), 1.0, -0.35],
 "method": &"spawn_bullet"
 }, {
-"args": [ExtResource("11_b2fls"), 1.0, 0.3],
+"args": [ExtResource("11_b2fls"), 1.0, 0.35],
 "method": &"spawn_bullet"
 }]
 }

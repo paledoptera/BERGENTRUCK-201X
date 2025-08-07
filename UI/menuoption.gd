@@ -1,9 +1,14 @@
-extends RichTextLabel
+extends Control
 
 signal menu_option_clicked(option: RichTextLabel)
 
 @export var offset_on_cursor :=  Vector2(3,0)
 @onready var start_pos = global_position
+
+func _enter_tree() -> void:
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+	gui_input.connect(_on_gui_input)
 
 func _on_mouse_entered() -> void:
 	Audio.play_sfx(preload("uid://bwrewdkj3pqlf"))

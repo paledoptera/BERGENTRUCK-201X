@@ -133,6 +133,7 @@ animations = [{
 
 [node name="KnightStab" instance=ExtResource("1_pb0jp")]
 script = ExtResource("2_pb0jp")
+chases = false
 solid = false
 stompable = true
 damage = 1.0
@@ -155,7 +156,5 @@ no_depth_test = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_okmyc")
 autoplay = "default"
-frame = 16
-frame_progress = 1.0
 
 [connection signal="animation_finished" from="EntityContainer/AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

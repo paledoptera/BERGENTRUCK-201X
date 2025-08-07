@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://v61c3korcj8d"]
+
+[ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Assets/Visuals/level_icons.png" id="1_61kut"]
+[ext_resource type="Script" uid="uid://cgjqtfvhjivqy" path="res://UI/level_icon_bonus.gd" id="1_wkijm"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
+[ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Assets/Visuals/tickmark.png" id="4_wkijm"]
+
+[node name="LevelIcon" type="ColorRect"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_wkijm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 40)
+texture = ExtResource("1_61kut")
+hframes = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 58.0
+offset_bottom = 51.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_mbt8g")
+text = "1"
+
+[node name="TickMark" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-27, 28)
+texture = ExtResource("4_wkijm")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

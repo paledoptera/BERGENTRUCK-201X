@@ -1,8 +1,10 @@
 extends Entity
 
+@export var chases: bool = false
 var speed = 5.0
 var h_speed = 0.0
 var bullet_owner: Node3D
+var player: CharacterBody3D
 
 
 func _ready() -> void:
@@ -15,3 +17,10 @@ func _process(delta: float) -> void:
 	speed = lerp(speed,0.0,5*delta)
 	global_position.x += h_speed
 	global_rotation.x -= deg_to_rad(speed)
+	
+	if not chases:
+		return
+
+	var prevpos = $EntityContainer/Sprite3D.position.y
+	$EntityContainer/Sprite3D.position.y = lerp($EntityContainer/Sprite3D.position.y,player.get_node("Camera3D").position.y-8,0.15)
+	$EntityContainer/Sprite3D.scale.y = 1+abs((player.get_node("Camera3D").position.y-8)-$EntityContainer/Sprite3D.position.y)*0.5

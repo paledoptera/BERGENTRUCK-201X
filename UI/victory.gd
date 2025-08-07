@@ -12,6 +12,10 @@ func _ready() -> void:
 	Global.title_shown = false
 	Global.player_save.flags["levels_beaten"][Global.level-1] = true
 	Global.player_save.flags["levels_unlocked"][min(Global.level,2)] = true
+	if Global.level == 3 and Global.get_flag("option_skip_credits"):
+		$DriveAgain.queue_free()
+		$Quit.position.x = 108
+		$Quit.start_pos.x = 108
 	SaveLoad.file_save()
 
 func _process(delta: float) -> void:

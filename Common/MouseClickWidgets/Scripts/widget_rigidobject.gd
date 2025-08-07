@@ -66,6 +66,6 @@ func use() -> void:
 	destroyanim.sprite.global_rotation = $DraggableItem/TextureRect.global_rotation
 	destroyanim.sprite.global_scale = $DraggableItem/TextureRect.global_scale
 	destroyanim.sprite.modulate = modulate
-	player.particle_trigger()
+	player.particle_trigger(0,score_amount)
 	Global.score += score_amount
 	queue_free()

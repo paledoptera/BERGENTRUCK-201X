@@ -1,4 +1,5 @@
 extends Node3D
+class_name Level
 
 
 @export var music : AudioStream
@@ -35,6 +36,13 @@ func fade_in_done() -> void:
 	faded_in = true
 
 func _process(delta: float) -> void:
+	
+	if Global.border == 1: #dynamic border
+		Global.game.border.self_modulate = Color("ffffff",1.0-$FadeEffect.modulate.a)
+		Global.game.border.self_modulate += Color("ffffff")*($FlashEffect.modulate.a*3)
+	else:
+		Global.game.border.self_modulate = Color("ffffff",1.0)
+	
 	if player.hp <= 0:
 		Global.die()
 		return
@@ -53,7 +61,11 @@ func _process(delta: float) -> void:
 			tween.tween_property($FlashEffect,'modulate',Color.WHITE,0.5)
 			tween.tween_property($FadeEffect,'modulate',Color("ffffff"),1.0)
 			tween.tween_property($FlashEffect,'modulate',Color("ffffff00"),0.5)
-			tween.tween_callback(goto_credits)
+			
+			if Global.get_flag("option_skip_credits"):
+				tween.tween_callback(win_level)
+			else:
+				tween.tween_callback(goto_credits)
 			win = true
 			
 	
@@ -142,7 +154,18 @@ func flash() -> void:
 	tween.tween_callback(fade_in_done)
 
 func win_level() -> void:
+	reset_border()
 	Global.win()
 
 func goto_credits() -> void:
+	reset_border()
 	Global.goto_credits()
+
+func reset_border() -> void:
+	if Global.border == 1:
+		Global.game.border.texture = preload("uid://bu325xsdlvy3f")
+		Global.game.over_border.texture = preload("uid://bu325xsdlvy3f")
+		Global.game.border.self_modulate = Color("ffffff",1.0)
+
+func _exit_tree() -> void:
+	Global.game.border.self_modulate = Color("ffffff",1.0)

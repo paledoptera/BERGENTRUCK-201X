@@ -1,76 +1,120 @@
-[gd_scene load_steps=5 format=3 uid="uid://byiyp5l2tjvif"]
+[gd_scene load_steps=9 format=3 uid="uid://byiyp5l2tjvif"]
 
 [ext_resource type="Script" uid="uid://bs4y4n5swxu60" path="res://UI/options.gd" id="1_ua1a0"]
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_b7fs8"]
-[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="3_m8fpw"]
 [ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="4_ixc72"]
+[ext_resource type="Texture2D" uid="uid://c6o8ppdbrwcsr" path="res://UI/Assets/Visuals/heart icon.png" id="5_cubmi"]
+[ext_resource type="Script" uid="uid://cwi6nvsxcdwby" path="res://UI/volume_slider.gd" id="5_q8egh"]
 
-[node name="Options" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6k2x"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cubmi"]
+bg_color = Color(0.356565, 0.356565, 0.356565, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xr1y"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Options" type="Node2D"]
+z_index = 4096
 script = ExtResource("1_ua1a0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 320.0
-offset_bottom = 240.0
+offset_left = -216.0
+offset_top = -127.0
+offset_right = 573.0
+offset_bottom = 336.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.764706)
 
 [node name="Title" type="RichTextLabel" parent="."]
-offset_top = 10.0
+offset_top = 2.0
 offset_right = 320.0
-offset_bottom = 210.0
+offset_bottom = 202.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
 theme_override_font_sizes/normal_font_size = 48
 text = "Options"
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 53.0
-offset_top = 78.0
-offset_right = 153.0
-offset_bottom = 98.0
-scale = Vector2(1, 1.225)
-theme_override_fonts/normal_font = ExtResource("2_b7fs8")
-text = "Music Volume"
-horizontal_alignment = 1
-
-[node name="MusicVolumeSlider" parent="." instance=ExtResource("3_m8fpw")]
-visible = false
-offset_left = 161.0
-offset_top = 80.0
-offset_right = 588.0
-offset_bottom = 144.0
-scale = Vector2(0.25, 0.25)
-color = Color(0.0987284, 0.0987284, 0.0987284, 1)
-snap_to_cursor = true
-
 [node name="SFXVolume" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 53.0
-offset_top = 102.0
-offset_right = 153.0
-offset_bottom = 122.0
-scale = Vector2(1, 1.225)
+offset_left = -40.0
+offset_top = 111.0
+offset_right = 60.0
+offset_bottom = 131.0
+scale = Vector2(2.17, 1.225)
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
-text = "SFX Volume"
+text = "SFX"
 horizontal_alignment = 1
 
-[node name="SFXVolumeSlider" parent="." instance=ExtResource("3_m8fpw")]
-visible = false
-offset_left = 161.0
-offset_top = 104.0
-offset_right = 588.0
-offset_bottom = 168.0
-scale = Vector2(0.25, 0.25)
-snap_to_cursor = true
+[node name="SFXVolume4" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = 90.0
+offset_right = 102.0
+offset_bottom = 110.0
+scale = Vector2(1.365, 1.225)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Music"
+horizontal_alignment = 1
+
+[node name="SFXVolume3" type="RichTextLabel" parent="."]
+offset_left = 12.0
+offset_top = 70.0
+offset_right = 112.0
+offset_bottom = 90.0
+scale = Vector2(1.205, 1.225)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Master"
+horizontal_alignment = 1
+
+[node name="SFXVolume2" type="RichTextLabel" parent="."]
+offset_left = 52.0
+offset_top = 53.0
+offset_right = 152.0
+offset_bottom = 73.0
+scale = Vector2(2.195, 1.12)
+theme_override_colors/default_color = Color(0.287295, 0.287295, 0.287295, 1)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="SFXVolume5" type="RichTextLabel" parent="."]
+offset_left = 76.0
+offset_top = 132.0
+offset_right = 176.0
+offset_bottom = 152.0
+scale = Vector2(1.765, 1.12)
+theme_override_colors/default_color = Color(0.287295, 0.287295, 0.287295, 1)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Visuals"
+horizontal_alignment = 1
 
 [node name="Fullscreen" type="RichTextLabel" parent="."]
 modulate = Color(0.458405, 0.458405, 0.458405, 1)
-offset_left = 107.0
-offset_top = 83.0
-offset_right = 207.0
-offset_bottom = 103.0
+offset_left = 38.0
+offset_top = 148.0
+offset_right = 138.0
+offset_bottom = 168.0
 scale = Vector2(1, 1.225)
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
 text = "Fullscreen"
@@ -78,12 +122,25 @@ horizontal_alignment = 1
 script = ExtResource("4_ixc72")
 offset_on_cursor = Vector2(0, 2)
 
+[node name="Border" type="RichTextLabel" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 212.0
+scale = Vector2(1, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Border: None"
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 2)
+
 [node name="SpeedrunTimer" type="RichTextLabel" parent="."]
 modulate = Color(0.458824, 0.458824, 0.458824, 1)
-offset_left = 107.0
-offset_top = 110.0
-offset_right = 225.12
-offset_bottom = 130.0
+offset_left = 45.0
+offset_top = 170.0
+offset_right = 163.12
+offset_bottom = 190.0
 scale = Vector2(0.875, 1.225)
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
 text = "Speedrun Timer"
@@ -94,10 +151,10 @@ offset_on_cursor = Vector2(0, 2)
 
 [node name="SkipTutorials" type="RichTextLabel" parent="."]
 modulate = Color(0.458824, 0.458824, 0.458824, 1)
-offset_left = 110.0
-offset_top = 138.0
-offset_right = 228.12
-offset_bottom = 158.0
+offset_left = 180.0
+offset_top = 149.0
+offset_right = 298.12
+offset_bottom = 169.0
 scale = Vector2(0.785, 1.225)
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
 text = "Skip Tutorials"
@@ -106,10 +163,24 @@ horizontal_alignment = 1
 script = ExtResource("4_ixc72")
 offset_on_cursor = Vector2(0, 2)
 
+[node name="SkipCredits" type="RichTextLabel" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+offset_left = 172.0
+offset_top = 170.0
+offset_right = 290.12
+offset_bottom = 190.0
+scale = Vector2(0.92, 1.225)
+theme_override_fonts/normal_font = ExtResource("2_b7fs8")
+text = "Skip Credits"
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("4_ixc72")
+offset_on_cursor = Vector2(0, 2)
+
 [node name="Return" type="RichTextLabel" parent="."]
-offset_top = 206.0
+offset_top = 213.0
 offset_right = 320.0
-offset_bottom = 226.0
+offset_bottom = 233.0
 scale = Vector2(1, 1.225)
 theme_override_fonts/normal_font = ExtResource("2_b7fs8")
 text = "Return"
@@ -117,10 +188,68 @@ horizontal_alignment = 1
 script = ExtResource("4_ixc72")
 offset_on_cursor = Vector2(0, 3)
 
+[node name="VolumeMaster" type="HSlider" parent="."]
+offset_left = 118.0
+offset_top = 74.0
+offset_right = 268.0
+offset_bottom = 90.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("5_cubmi")
+theme_override_icons/grabber_highlight = ExtResource("5_cubmi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_k6k2x")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_cubmi")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_0xr1y")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_q8egh")
+bus_name = "Master"
+flag_name = "option_master_vol"
+
+[node name="VolumeMusic" type="HSlider" parent="."]
+offset_left = 118.0
+offset_top = 93.0
+offset_right = 268.0
+offset_bottom = 109.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("5_cubmi")
+theme_override_icons/grabber_highlight = ExtResource("5_cubmi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_k6k2x")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_cubmi")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_0xr1y")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_q8egh")
+bus_name = "Music"
+flag_name = "option_music_vol"
+
+[node name="VolumeSFX" type="HSlider" parent="."]
+offset_left = 118.0
+offset_top = 113.0
+offset_right = 268.0
+offset_bottom = 129.0
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("5_cubmi")
+theme_override_icons/grabber_highlight = ExtResource("5_cubmi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_k6k2x")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_cubmi")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_0xr1y")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("5_q8egh")
+bus_name = "SFX"
+flag_name = "option_sound_vol"
+
 [connection signal="gui_input" from="Fullscreen" to="Fullscreen" method="_on_gui_input"]
 [connection signal="menu_option_clicked" from="Fullscreen" to="." method="menuoption"]
 [connection signal="mouse_entered" from="Fullscreen" to="Fullscreen" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Fullscreen" to="Fullscreen" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Border" to="Border" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="Border" to="." method="menuoption"]
+[connection signal="mouse_entered" from="Border" to="Border" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Border" to="Border" method="_on_mouse_exited"]
 [connection signal="gui_input" from="SpeedrunTimer" to="SpeedrunTimer" method="_on_gui_input"]
 [connection signal="menu_option_clicked" from="SpeedrunTimer" to="." method="menuoption"]
 [connection signal="mouse_entered" from="SpeedrunTimer" to="SpeedrunTimer" method="_on_mouse_entered"]
@@ -129,7 +258,12 @@ offset_on_cursor = Vector2(0, 3)
 [connection signal="menu_option_clicked" from="SkipTutorials" to="." method="menuoption"]
 [connection signal="mouse_entered" from="SkipTutorials" to="SkipTutorials" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SkipTutorials" to="SkipTutorials" method="_on_mouse_exited"]
+[connection signal="gui_input" from="SkipCredits" to="SkipCredits" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="SkipCredits" to="." method="menuoption"]
+[connection signal="mouse_entered" from="SkipCredits" to="SkipCredits" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SkipCredits" to="SkipCredits" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Return" to="Return" method="_on_gui_input"]
 [connection signal="menu_option_clicked" from="Return" to="." method="menuoption"]
 [connection signal="mouse_entered" from="Return" to="Return" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Return" to="Return" method="_on_mouse_exited"]
+[connection signal="drag_ended" from="VolumeSFX" to="." method="_on_volume_sfx_drag_ended"]

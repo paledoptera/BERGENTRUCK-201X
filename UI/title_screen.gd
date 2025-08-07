@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	logo_bobbing = true
+	Global.game.update_dynamic_border()
 
 
 func _on_menu_option_clicked(option: RichTextLabel) -> void:

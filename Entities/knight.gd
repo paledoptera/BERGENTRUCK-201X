@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 
 func hit(player) -> void:
 	if player.gear < 3:
-		Global.score -= 2.5
+		Global.score += randf_range(-1.0,-5.0)
+	Global.score += randf_range(0.0,4.0)
 	Global.score += 5
 	if Global.score >= Global.goal:
 		$Timer.stop()
@@ -195,6 +196,7 @@ func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 
 	bullet_inst.bullet_owner = self
 	bullet_inst.global_position.x = global_position.x
 	bullet_inst.global_rotation.x = global_rotation.x
+	bullet_inst.player = player
 
 
 func disable_collision() -> void:

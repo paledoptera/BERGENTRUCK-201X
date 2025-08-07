@@ -15,6 +15,12 @@ func _mouse_enters(icon: ColorRect) -> void:
 	$Selected.global_position = icon.global_position
 	Audio.play_sfx(preload("uid://bwrewdkj3pqlf"))
 	$LVNumber.text = str("-Level ", icon.value, "-")
+	
+	if icon is Bonus:
+		$LVNumber.text = str("-Level ", icon.special_val, "-")
+		$LVTitle.text = icon.title
+		return
+	
 	if icon.unlocked:
 		$LVTitle.text = icon.title
 		if Global.player_save.flags["best_time"][icon.value-1] != -1:

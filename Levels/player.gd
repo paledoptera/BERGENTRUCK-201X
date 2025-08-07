@@ -57,10 +57,7 @@ var screenshake_strength : float = 4.0
 @onready var noise = FastNoiseLite.new()
 
 
-func _ready() -> void:
-	if Global.player_save.flags["option_show_time"]:
-		$Visuals/Time.visible = true
-	
+func _ready() -> void:	
 	Global.player_save.time = 0
 	$Background.visible = true
 	_correct_sprite_size($Ground)
@@ -71,6 +68,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Global.player_save.flags["option_show_time"]:
+		$Visuals/Time.visible = true
+	else:
+		$Visuals/Time.visible = false
 	Global.player_save.update_level_time(delta,Global.level)
 	$Visuals/Time.text = "Time: " + Global.get_time(Global.player_save.flags["level_time"][Global.level-1])
 	last_velocity = car_velocity
@@ -418,16 +419,20 @@ func _entity_mechanics() -> void:
 				Audio.play_sfx(entity.hit_sound_effect)
 			
 			if entity.items:
+				
 				var items = entity.items.duplicate()
-				for itemdata in items:
-					if not itemdata:
-						continue
-					var chance = randf_range(1,100)
-					var target = itemdata.drop_chance
-					#print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
-					if chance <= target:
-						_spawn_item(itemdata.item)
-						entity.items.erase(itemdata)
+				var extra_chance = [0,1].pick_random()
+				if Global.level == 3:
+					extra_chance = 3
+				for i in range(max(gear-1-extra_chance,1)):
+					for itemdata in items:
+						if not itemdata:
+							continue
+						var chance = randf_range(1,100)
+						var target = itemdata.drop_chance
+						#print("Rolled for item: ", chance, " chance in ", itemdata.drop_chance)
+						if chance <= target:
+							_spawn_item(itemdata.item)
 			entity.hit(self)
 
 func _gravity_mechanics(delta: float) -> void:
@@ -504,11 +509,15 @@ func _health_changed(previous_hp, new_hp) -> void:
 	Audio.play_sfx(preload("uid://c4ta6hdrl6ci5"),1.01,2)
 	#$CarHurt.play()
 
-func particle_trigger(part_type = 0):
+func particle_trigger(part_type = 0, value = 5):
 	match part_type:
 		0:
+			value = max(value,1)
 			Audio.play_sfx(preload("uid://d288lwxjk6ljm"),1.0,-6)
 			var particlefx = preload("uid://dsdofauesj7ga").instantiate() # Shimmer.tscn
+			particlefx.amount = value
+			particlefx.scale_amount_min = min(0.05+float(value)/50,0.15)
+			particlefx.scale_amount_max = min(0.1+float(value)/40,0.2)
 			$Particles/Shimmer.add_child(particlefx)
 			particlefx.emitting = true
 		

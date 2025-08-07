@@ -11,6 +11,7 @@ background_mode = 1
 background_color = Color(0.256287, 0.583615, 0.999978, 1)
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("timer", "player", "entities")]
+process_mode = 1
 script = ExtResource("1_wnisn")
 music = ExtResource("2_43noc")
 timer = NodePath("Entities/Timer")

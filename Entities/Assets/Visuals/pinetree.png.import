@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b70stsktcni20"
 path.s3tc="res://.godot/imported/pinetree.png-dc709215b69c830c062d173795850ad5.s3tc.ctex"
+path.etc2="res://.godot/imported/pinetree.png-dc709215b69c830c062d173795850ad5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Assets/Visuals/pinetree.png"
-dest_files=["res://.godot/imported/pinetree.png-dc709215b69c830c062d173795850ad5.s3tc.ctex"]
+dest_files=["res://.godot/imported/pinetree.png-dc709215b69c830c062d173795850ad5.s3tc.ctex", "res://.godot/imported/pinetree.png-dc709215b69c830c062d173795850ad5.etc2.ctex"]
 
 [params]
 

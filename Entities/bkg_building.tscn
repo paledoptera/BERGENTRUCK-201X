@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccpu6yt87u87w"]
+
+[ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="1_llbne"]
+[ext_resource type="Script" uid="uid://dn38ul4mgt7vb" path="res://Entities/bkg_building.gd" id="2_llbne"]
+[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="3_llbne"]
+
+[node name="BkgTree" node_paths=PackedStringArray("sprite", "sprite_2") instance=ExtResource("1_llbne")]
+script = ExtResource("2_llbne")
+sprite = NodePath("EntityContainer/Sprite3D")
+sprite_2 = NodePath("EntityContainer/Sprite3D2")
+damage = 0.0
+hit_sound_impact = null
+disable_collision_on_hit = false
+particle_effect = 1
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = null
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 0)
+texture = ExtResource("3_llbne")
+
+[node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 0)
+sorting_use_aabb_center = false
+offset = Vector2(0, 128)
+pixel_size = 0.06
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_llbne")

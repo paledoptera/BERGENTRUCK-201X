@@ -1,15 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuu8u82sv6b75"]
+[gd_scene load_steps=11 format=3 uid="uid://cuu8u82sv6b75"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_2w5dm"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
 [ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/bush_flower.png" id="2_j58kf"]
 [ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="2_x4tte"]
 [ext_resource type="PackedScene" uid="uid://bnb2xiobf6qwh" path="res://Items/item_leaf.tscn" id="3_7sk2g"]
+[ext_resource type="PackedScene" uid="uid://cn4siko4qnuog" path="res://Items/item_beer.tscn" id="4_x1hwt"]
 
 [sub_resource type="Resource" id="Resource_wcjbc"]
 script = ExtResource("2_d4hl2")
 item = ExtResource("3_7sk2g")
-drop_chance = 15
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_ln8mh"]
+script = ExtResource("2_d4hl2")
+item = ExtResource("4_x1hwt")
+drop_chance = 3
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [sub_resource type="Resource" id="Resource_6b46r"]
@@ -25,7 +32,7 @@ drop_chance = 100
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [node name="Bush" instance=ExtResource("1_2w5dm")]
-items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_6b46r"), SubResource("Resource_x1hwt")])
+items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_ln8mh"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_6b46r"), SubResource("Resource_x1hwt")])
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 texture = ExtResource("2_j58kf")

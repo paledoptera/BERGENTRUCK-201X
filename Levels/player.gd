@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const MAX_SPEED = 9
 const ACCELERATION = 0.1
-const TURN_ACCELERATION = 0.05
+var TURN_ACCELERATION = 0.05
 const DRIFT_ACCELERATION = 0.01
 @export_category("Visuals")
 @export var hand : Node2D
@@ -68,6 +68,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if Global.player_save.flags["option_show_time"]:
 		$Visuals/Time.visible = true
 	else:
@@ -530,3 +531,12 @@ func particle_trigger(part_type = 0, value = 5):
 			var particlefx = preload("uid://ci1pueoaiu5vg").instantiate()
 			$Particles/Explosion.add_child(particlefx)
 			particlefx.emitting = true
+		3:
+			var particlefx = preload("res://Global/Particles/Glasspuff.tscn").instantiate()
+			$Particles/Explosion.add_child(particlefx)
+			particlefx.emitting = true
+
+func shoot():
+	var bullet = preload("res://Entities/Bullet.tscn").instantiate()
+	add_sibling(bullet)
+	bullet.global_position = $Camera3D.global_position

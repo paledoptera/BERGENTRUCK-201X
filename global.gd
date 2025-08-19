@@ -20,7 +20,19 @@ var res_scale: int = 2:
 
 func _ready() -> void:
 	player_save = SaveLoad.file_load()
-		
+	if player_save.flags.levels_beaten.size() == 3:
+		player_save.flags.levels_beaten.append(false)
+		player_save.flags.levels_beaten.append(false)
+		player_save.flags.levels_beaten.append(false)
+	if player_save.flags.best_time.size() == 3:
+		player_save.flags.best_time.append(-1)
+		player_save.flags.best_time.append(-1)
+		player_save.flags.best_time.append(-1)
+	if player_save.flags.level_time.size() == 3:
+		player_save.flags.level_time.append(0)
+		player_save.flags.level_time.append(0)
+		player_save.flags.level_time.append(0)
+	
 	border = get_flag("border")
 	
 	if get_flag("option_skip_tutorials"):
@@ -144,6 +156,8 @@ func goto_level(value : int = level) -> void:
 			lv = "uid://dfltl3btm1pp6" # level2.tscn
 		3:
 			lv = "uid://bc8vcjm8kaofg" # level3.tscn
+		6:
+			lv = "res://Levels/levelSPAM.tscn"
 	
 	game.level_path = lv
 	return game.game_state.send_event("Start")

@@ -109,6 +109,8 @@ func _spawn_item() -> void:
 
 func _spawn_bkg_item() -> void:
 	var tree_inst = preload("uid://d1mwhsl0wm0tg").instantiate() # bkg_tree.tscn
+	if Global.level == 6:
+		tree_inst = preload("res://Entities/bkg_building.tscn").instantiate()
 	entities.add_child(tree_inst)
 	tree_inst.sprite.global_position.x += randi_range(-3,0)
 	tree_inst.global_rotation_degrees.x = -90

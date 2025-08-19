@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2xiab3w6t8uf"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p8fhw"]
+[ext_resource type="Script" uid="uid://u4ndqmv4bohu" path="res://Entities/Assets/Scripts/spamton_heart.gd" id="2_8pilv"]
+[ext_resource type="Texture2D" uid="uid://dpr4dm8ungltp" path="res://Entities/Assets/Visuals/Spamton/heart.png" id="3_p8fhw"]
+[ext_resource type="Texture2D" uid="uid://cdroslw0y1fx2" path="res://Entities/Assets/Visuals/Spamton/heartblink.png" id="4_tcn2o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8fhw"]
+size = Vector3(3.12207, 4.64426, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suu52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p8fhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tcn2o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heart" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_p8fhw")]
+script = ExtResource("2_8pilv")
+chases = false
+solid = false
+stompable = true
+damage = 7.5
+car_jump_mult = 7.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+hit_sound_impact = null
+particle_effect = 3
+
+[node name="EntityContainer" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0410919, 20, 0)
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0489888, 6.51138, 1.14815)
+shape = SubResource("BoxShape3D_p8fhw")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.95855e-08, 5.95855e-08)
+offset = Vector2(0, 40)
+pixel_size = 0.2
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_suu52")
+autoplay = "default"
+frame_progress = 0.435045
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

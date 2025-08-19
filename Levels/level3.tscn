@@ -45,7 +45,8 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
 [node name="Ground" parent="Player" index="11"]
-surface_material_override/0 = ExtResource("4_vr4rd")
+material_override = ExtResource("4_vr4rd")
+surface_material_override/0 = null
 
 [node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("4_eh6o7")]
 transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)

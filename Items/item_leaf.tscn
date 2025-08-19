@@ -11,6 +11,9 @@ collision_layer = 3
 mass = 1.0
 lifetime_in_seconds = -1.0
 
+[node name="DraggableItem" parent="." index="0"]
+input_pickable = false
+
 [node name="TextureRect" parent="DraggableItem" index="1"]
 texture = ExtResource("3_dknip")
 
@@ -23,5 +26,6 @@ offset_left = -15.0
 offset_top = -15.0
 offset_right = 16.0
 offset_bottom = 15.0
+mouse_filter = 2
 
 [editable path="DraggableItem"]

@@ -23,7 +23,7 @@ func _ready() -> void:
 	car_jump_mult *= rand_scale
 	#if collision_shape:
 		#collision_shape.scale *= Vector3(rand_scale,rand_scale,rand_scale)
-	
+
 func _process(delta: float) -> void:
 	if $EntityContainer/Sprite3D.global_position.y < -30.0:
 		queue_free()

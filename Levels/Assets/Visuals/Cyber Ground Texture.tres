@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ddsqja20t5b1y"]
+
+[ext_resource type="Texture2D" uid="uid://dajsvlondi0aa" path="res://Levels/Assets/Visuals/cyberground.png" id="1_m4x3m"]
+
+[resource]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.946242, 0.970149, 0.976572, 1)
+albedo_texture = ExtResource("1_m4x3m")
+texture_filter = 0

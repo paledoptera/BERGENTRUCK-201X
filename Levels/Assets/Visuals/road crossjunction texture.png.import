@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmmwo35sp1ufv"
 path.s3tc="res://.godot/imported/road crossjunction texture.png-545031ed78c7746de549a690508a7cbe.s3tc.ctex"
+path.etc2="res://.godot/imported/road crossjunction texture.png-545031ed78c7746de549a690508a7cbe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Assets/Visuals/road crossjunction texture.png"
-dest_files=["res://.godot/imported/road crossjunction texture.png-545031ed78c7746de549a690508a7cbe.s3tc.ctex"]
+dest_files=["res://.godot/imported/road crossjunction texture.png-545031ed78c7746de549a690508a7cbe.s3tc.ctex", "res://.godot/imported/road crossjunction texture.png-545031ed78c7746de549a690508a7cbe.etc2.ctex"]
 
 [params]
 

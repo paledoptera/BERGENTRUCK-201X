@@ -44,23 +44,23 @@ mouse_filter = 2
 texture = ExtResource("3_mtlrr")
 
 [node name="LevelIcon" parent="." instance=ExtResource("1_r4dbv")]
-offset_left = 29.0
+offset_left = 13.0
 offset_top = 128.0
-offset_right = 109.0
+offset_right = 93.0
 offset_bottom = 208.0
 
 [node name="LevelIcon2" parent="." instance=ExtResource("1_r4dbv")]
-offset_left = 124.0
+offset_left = 118.0
 offset_top = 128.0
-offset_right = 204.0
+offset_right = 198.0
 offset_bottom = 208.0
 value = 2
 title = "Fast Food"
 
 [node name="LevelIcon3" parent="." instance=ExtResource("1_r4dbv")]
-offset_left = 218.0
+offset_left = 226.0
 offset_top = 128.0
-offset_right = 298.0
+offset_right = 306.0
 offset_bottom = 208.0
 value = 3
 title = "Knight Fight"

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvayhq68f83oe"
 path.s3tc="res://.godot/imported/sparsetree.png-c7df428c120aafefabb3c3eed5076edb.s3tc.ctex"
+path.etc2="res://.godot/imported/sparsetree.png-c7df428c120aafefabb3c3eed5076edb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Assets/Visuals/sparsetree.png"
-dest_files=["res://.godot/imported/sparsetree.png-c7df428c120aafefabb3c3eed5076edb.s3tc.ctex"]
+dest_files=["res://.godot/imported/sparsetree.png-c7df428c120aafefabb3c3eed5076edb.s3tc.ctex", "res://.godot/imported/sparsetree.png-c7df428c120aafefabb3c3eed5076edb.etc2.ctex"]
 
 [params]
 

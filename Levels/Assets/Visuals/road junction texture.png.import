@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cla0tuxr5663k"
 path.s3tc="res://.godot/imported/road junction texture.png-6ac59d5540ec0a241c77ddf784222ec5.s3tc.ctex"
+path.etc2="res://.godot/imported/road junction texture.png-6ac59d5540ec0a241c77ddf784222ec5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Assets/Visuals/road junction texture.png"
-dest_files=["res://.godot/imported/road junction texture.png-6ac59d5540ec0a241c77ddf784222ec5.s3tc.ctex"]
+dest_files=["res://.godot/imported/road junction texture.png-6ac59d5540ec0a241c77ddf784222ec5.s3tc.ctex", "res://.godot/imported/road junction texture.png-6ac59d5540ec0a241c77ddf784222ec5.etc2.ctex"]
 
 [params]
 

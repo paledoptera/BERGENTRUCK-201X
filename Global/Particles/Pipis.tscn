@@ -23,7 +23,7 @@ point_count = 4
 
 [node name="pipis" type="CPUParticles2D"]
 top_level = true
-z_index = -4096
+z_index = 2000
 scale = Vector2(30, 30)
 emitting = false
 amount = 50

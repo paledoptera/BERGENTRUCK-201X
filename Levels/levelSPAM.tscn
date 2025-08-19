@@ -62,9 +62,9 @@ shadow_mesh = SubResource("ArrayMesh_q103l")
 
 [node name="Level6" instance=ExtResource("1_mnx3k")]
 music = null
-item_queue_intro = Array[String](["uid://c0eo28s0bkvk", "", "", "uid://dbrtj7fju1s61", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-item_queue_mid = Array[String](["uid://c0eo28s0bkvk", "uid://dbrtj7fju1s61", "uid://caeceiec8fh3j", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-item_queue_end = Array[String](["uid://c0eo28s0bkvk", "uid://dbrtj7fju1s61", "uid://caeceiec8fh3j", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_intro = Array[String](["uid://c0eo28s0bkvk", "uid://c0eo28s0bkvk", "", "uid://dbrtj7fju1s61", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_mid = Array[String](["uid://c0eo28s0bkvk", "uid://dbrtj7fju1s61", "uid://caeceiec8fh3j", "uid://caeceiec8fh3j", "uid://c0eo28s0bkvk", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_end = Array[String](["uid://c0eo28s0bkvk", "uid://dbrtj7fju1s61", "uid://caeceiec8fh3j", "", "uid://c0eo28s0bkvk", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 level_val = 6
 
 [node name="WorldEnvironment" parent="." index="0"]

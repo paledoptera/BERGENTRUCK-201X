@@ -226,7 +226,7 @@ func _on_hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	idleanimation(false)
 	$AnimationPlayer.play("hit")
-	Global.score += 3
+	Global.score += 6
 	player.screenshake_strength += 10
 	player.particle_trigger(particle_effect)
 	Audio.play_sfx(preload("res://Global/SFX/Small Item Hit 3.wav"),1,10)

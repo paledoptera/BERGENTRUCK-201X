@@ -14,6 +14,7 @@ func _ready() -> void:
 		$AnimationPlayer.play("startflip")
 
 func hit(player):
+	super(player)
 	if get_node_or_null("EntityContainer/CollisionShape3D2"):
 		$EntityContainer/CollisionShape3D2.queue_free()
 

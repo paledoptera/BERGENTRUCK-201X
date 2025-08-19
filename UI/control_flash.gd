@@ -9,7 +9,8 @@ func _ready() -> void:
 	tween.tween_property($ColorRect,'size',$ColorRect.size+Vector2(1,1),1.0)
 	tween.tween_property($ColorRect,'modulate',Color("ffffff00"),1.0)
 	tween.tween_callback(enable_click)
-
+	if OS.get_name() == "iOS":
+		$TextureRect/RichTextLabel.show()
 
 func enable_click() -> void:
 	clickable = true

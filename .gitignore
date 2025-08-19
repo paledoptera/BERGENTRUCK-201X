@@ -1,3 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+Levels/.DS_Store
+godot_state_charts_examples/platformer/.DS_Store
+godot_state_charts_examples/cooldown/.DS_Store
+godot_state_charts_examples/ant_hill/.DS_Store
+godot_state_charts_examples/.DS_Store
+Global/.DS_Store
+Entities/Assets/.DS_Store
+Entities/.DS_Store
+Common/MouseClickWidgets/.DS_Store
+Common/.DS_Store
+addons/godot_state_charts/.DS_Store
+addons/.DS_Store
+.DS_Store

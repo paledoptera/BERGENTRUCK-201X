@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0eo28s0bkvk"]
+
+[ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_jl6cv"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_6fn5a"]
+[ext_resource type="AudioStream" uid="uid://dehfocd64thhc" path="res://Global/SFX/snd_bomb.wav" id="4_v2iim"]
+[ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="5_2iig8"]
+[ext_resource type="Texture2D" uid="uid://7hxti8ttgf6a" path="res://Entities/Assets/Visuals/shieldbush.png" id="6_jl6cv"]
+
+[sub_resource type="Resource" id="Resource_6b46r"]
+script = ExtResource("2_6fn5a")
+item = ExtResource("5_2iig8")
+drop_chance = 5
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_x1hwt"]
+script = ExtResource("2_6fn5a")
+item = ExtResource("5_2iig8")
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jl6cv"]
+radius = 2.3733
+height = 6.92655
+
+[node name="Bush" instance=ExtResource("1_jl6cv")]
+items = Array[ExtResource("2_6fn5a")]([SubResource("Resource_6b46r"), SubResource("Resource_x1hwt")])
+car_jump_mult = 0.0
+hit_sound_effect = ExtResource("4_v2iim")
+particle_effect = 3
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1.48847, 0, 0, 0, 1.48847, 0, 0, 0, 1.48847, 0, 0.432386, 0)
+shape = SubResource("CapsuleShape3D_jl6cv")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+texture = ExtResource("6_jl6cv")

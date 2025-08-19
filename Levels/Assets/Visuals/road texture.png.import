@@ -4,15 +4,17 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgbls7vqt4a5m"
 path.bptc="res://.godot/imported/road texture.png-7654c8dcd0ddc825c75f6283e596a042.bptc.ctex"
+path.astc="res://.godot/imported/road texture.png-7654c8dcd0ddc825c75f6283e596a042.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
 source_file="res://Levels/Assets/Visuals/road texture.png"
-dest_files=["res://.godot/imported/road texture.png-7654c8dcd0ddc825c75f6283e596a042.bptc.ctex"]
+dest_files=["res://.godot/imported/road texture.png-7654c8dcd0ddc825c75f6283e596a042.bptc.ctex", "res://.godot/imported/road texture.png-7654c8dcd0ddc825c75f6283e596a042.astc.ctex"]
 
 [params]
 

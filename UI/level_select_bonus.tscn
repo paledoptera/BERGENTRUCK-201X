@@ -66,6 +66,17 @@ offset_bottom = 151.0
 value = 3
 title = "Knight Fight"
 
+[node name="LevelIcon6" parent="." instance=ExtResource("5_im7r1")]
+offset_left = 25.0
+offset_top = 156.0
+offset_right = 105.0
+offset_bottom = 236.0
+value = 6
+title = "BIG SHOT"
+
+[node name="Sprite2D" parent="LevelIcon6" index="0"]
+frame = 6
+
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 repeat_size = Vector2(197, 0)
@@ -113,9 +124,9 @@ scroll_active = false
 
 [node name="LevelIcon4" parent="." instance=ExtResource("6_0derx")]
 modulate = Color(0.196078, 0.321569, 0.403922, 0.266667)
-offset_left = 71.0
+offset_left = 119.0
 offset_top = 156.0
-offset_right = 151.0
+offset_right = 199.0
 offset_bottom = 236.0
 special_val = "Q"
 title = "Coming Soon"
@@ -125,9 +136,9 @@ frame = 4
 
 [node name="LevelIcon5" parent="." instance=ExtResource("6_0derx")]
 modulate = Color(0.196078, 0.321569, 0.403922, 0.266667)
-offset_left = 167.0
+offset_left = 215.0
 offset_top = 156.0
-offset_right = 247.0
+offset_right = 295.0
 offset_bottom = 236.0
 special_val = "D"
 title = "Coming Soon"
@@ -198,6 +209,8 @@ offset_on_cursor = Vector2(-3, 0)
 [connection signal="mouse_in" from="LevelIcon2" to="." method="_mouse_enters"]
 [connection signal="mouse_exited" from="LevelIcon3" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon3" to="." method="_mouse_enters"]
+[connection signal="mouse_exited" from="LevelIcon6" to="." method="_on_level_icon_mouse_exited"]
+[connection signal="mouse_in" from="LevelIcon6" to="." method="_mouse_enters"]
 [connection signal="mouse_in" from="LevelIcon4" to="." method="_mouse_enters"]
 [connection signal="mouse_in" from="LevelIcon5" to="." method="_mouse_enters"]
 [connection signal="gui_input" from="Back" to="Back" method="_on_gui_input"]
@@ -205,5 +218,6 @@ offset_on_cursor = Vector2(-3, 0)
 [connection signal="mouse_entered" from="Back" to="Back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Back" to="Back" method="_on_mouse_exited"]
 
+[editable path="LevelIcon6"]
 [editable path="LevelIcon4"]
 [editable path="LevelIcon5"]

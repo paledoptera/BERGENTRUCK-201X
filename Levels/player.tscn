@@ -130,7 +130,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entity_hitbox")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entity_hitbox") groups=["player"]]
 script = ExtResource("1_vyvq2")
 hand = NodePath("Visuals/Hand")
 widget_gear = NodePath("Visuals/WidgetGear")
@@ -343,6 +343,7 @@ repeat_times = 2
 position = Vector2(7, -36)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("16_oxtxo")
+metadata/_edit_lock_ = true
 
 [node name="Time" type="RichTextLabel" parent="Visuals"]
 visible = false
@@ -479,6 +480,7 @@ self_modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 120)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("20_y8g1j")
+metadata/_edit_lock_ = true
 
 [node name="FaceTimer" type="Timer" parent="."]
 one_shot = true

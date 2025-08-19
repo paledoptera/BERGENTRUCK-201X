@@ -67,6 +67,7 @@ animations = [{
 
 [node name="KnightStab" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_4wfsx")]
 script = ExtResource("2_4wfsx")
+chases = false
 solid = false
 stompable = true
 damage = 5.0

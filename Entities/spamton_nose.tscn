@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmk1aphpb3k4"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_e8d3l"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_qlsbs"]
+[ext_resource type="Texture2D" uid="uid://bfl2trss1i4uf" path="res://Entities/Assets/Visuals/Spamton/noseprojectile.png" id="3_e8d3l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlsbs"]
+size = Vector3(1, 24.3966, 15.6304)
+
+[sub_resource type="Animation" id="Animation_qlsbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Sprite3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/Sprite3D3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EntityContainer/Sprite3D4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e8d3l"]
+resource_name = "start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Sprite3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.198774),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0987741),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/Sprite3D3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.298774),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EntityContainer/Sprite3D4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4gmn"]
+_data = {
+&"RESET": SubResource("Animation_qlsbs"),
+&"start": SubResource("Animation_e8d3l")
+}
+
+[node name="KnightStar" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_e8d3l")]
+script = ExtResource("2_qlsbs")
+chases = false
+solid = false
+damage = 1.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.08
+particle_effect = 2
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.69135, -7.31519)
+shape = SubResource("BoxShape3D_qlsbs")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, 0)
+offset = Vector2(0, 30)
+pixel_size = 0.16
+texture = ExtResource("3_e8d3l")
+
+[node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -5.28387)
+sorting_use_aabb_center = false
+offset = Vector2(0, 30)
+pixel_size = 0.16
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_e8d3l")
+
+[node name="Sprite3D3" type="Sprite3D" parent="EntityContainer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -11.089)
+sorting_use_aabb_center = false
+offset = Vector2(0, 30)
+pixel_size = 0.16
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_e8d3l")
+
+[node name="Sprite3D4" type="Sprite3D" parent="EntityContainer" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -15.6472)
+sorting_use_aabb_center = false
+offset = Vector2(0, 30)
+pixel_size = 0.16
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_e8d3l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_x4gmn")
+}
+autoplay = "start"
+speed_scale = 3.0

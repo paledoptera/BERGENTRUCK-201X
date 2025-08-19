@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj8w2sysqnts6"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_l6wpi"]
+[ext_resource type="Script" uid="uid://b1ugffng5rfqo" path="res://Entities/spamton_pipis.gd" id="2_l6wpi"]
+[ext_resource type="Texture2D" uid="uid://cqypndglnqwpe" path="res://Entities/Assets/Visuals/Spamton/Pipis.png" id="3_l6wpi"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_qxoor"]
+[ext_resource type="PackedScene" uid="uid://b8wnwarafoj7y" path="res://Items/item_pipis.tscn" id="4_qxoor"]
+
+[sub_resource type="Resource" id="Resource_qxoor"]
+script = ExtResource("3_qxoor")
+item = ExtResource("4_qxoor")
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svovm"]
+radius = 1.5
+height = 5.539
+
+[node name="KnightSlash" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_l6wpi")]
+script = ExtResource("2_l6wpi")
+chases = false
+items = Array[ExtResource("3_qxoor")]([SubResource("Resource_qxoor")])
+solid = false
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.1
+particle_effect = 3
+
+[node name="EntityContainer" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3324, 25.8986, 0.581841)
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = SubResource("CapsuleShape3D_svovm")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1.46599, 0, 0, 0, 1.46599, 0, 0, 0, 1.46599, 0, 3.73849, 0)
+pixel_size = 0.08
+billboard = 0
+texture = ExtResource("3_l6wpi")

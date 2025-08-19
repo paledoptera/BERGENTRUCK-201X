@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcqkfrrrjrodp"]
+
+[ext_resource type="Texture2D" uid="uid://dyoogiel56nx5" path="res://Global/Particles/Assets/Visuals/spamtonlilguys1.png" id="1_jx2gc"]
+[ext_resource type="Script" uid="uid://di4xp3f6ysf4j" path="res://Global/Particles/one_shot_particle.gd" id="2_7i6xh"]
+[ext_resource type="Texture2D" uid="uid://bk6lhibyg4o58" path="res://Global/Particles/Assets/Visuals/spamtonlilguys2.png" id="2_dc2ug"]
+[ext_resource type="Texture2D" uid="uid://csah82lm1ko4c" path="res://Global/Particles/Assets/Visuals/spamtonlilguys3.png" id="3_bvm7k"]
+[ext_resource type="Texture2D" uid="uid://hv4i4q0eg4o0" path="res://Global/Particles/Assets/Visuals/spamtonlilguys4.png" id="4_ua7ct"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vyc7v"]
+frames = 4
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_jx2gc")
+frame_1/texture = ExtResource("2_dc2ug")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_bvm7k")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_ua7ct")
+frame_3/duration = 1.0
+
+[sub_resource type="Curve" id="Curve_c0npm"]
+_data = [Vector2(0, 0.352347), 0.0, 0.0, 0, 0, Vector2(0.0660661, 0.361733), 0.0, 0.0, 0, 0, Vector2(0.887434, 0.326904), -0.692983, -0.692983, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="pipis" type="CPUParticles2D"]
+top_level = true
+z_index = 2000
+scale = Vector2(30, 30)
+emitting = false
+amount = 50
+texture = SubResource("AnimatedTexture_vyc7v")
+lifetime = 4.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 0.27
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 10.0
+angle_max = 360.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_c0npm")
+script = ExtResource("2_7i6xh")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

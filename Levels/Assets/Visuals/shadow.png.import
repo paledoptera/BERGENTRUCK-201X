@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xdxd7xkm753k"
 path.s3tc="res://.godot/imported/shadow.png-e37ae1fd2d840991acc6dd9d3f5da779.s3tc.ctex"
+path.etc2="res://.godot/imported/shadow.png-e37ae1fd2d840991acc6dd9d3f5da779.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Assets/Visuals/shadow.png"
-dest_files=["res://.godot/imported/shadow.png-e37ae1fd2d840991acc6dd9d3f5da779.s3tc.ctex"]
+dest_files=["res://.godot/imported/shadow.png-e37ae1fd2d840991acc6dd9d3f5da779.s3tc.ctex", "res://.godot/imported/shadow.png-e37ae1fd2d840991acc6dd9d3f5da779.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bied1lw6u544q"
 path.s3tc="res://.godot/imported/dess scream.png-ac455c9fe685f0300a05595bdc01bd03.s3tc.ctex"
+path.etc2="res://.godot/imported/dess scream.png-ac455c9fe685f0300a05595bdc01bd03.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Assets/Visuals/dess scream.png"
-dest_files=["res://.godot/imported/dess scream.png-ac455c9fe685f0300a05595bdc01bd03.s3tc.ctex"]
+dest_files=["res://.godot/imported/dess scream.png-ac455c9fe685f0300a05595bdc01bd03.s3tc.ctex", "res://.godot/imported/dess scream.png-ac455c9fe685f0300a05595bdc01bd03.etc2.ctex"]
 
 [params]
 

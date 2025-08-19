@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6b887byujpfv"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_rfsbs"]
+[ext_resource type="Script" uid="uid://d1lstmt8cvl3s" path="res://Entities/spamton_mailwall.gd" id="2_pjsh5"]
+[ext_resource type="AudioStream" uid="uid://bp6a3x3ou8nt0" path="res://Global/yougotmail.mp3" id="3_jsf10"]
+[ext_resource type="Texture2D" uid="uid://ki1eiorha28p" path="res://Entities/Assets/Visuals/Spamton/box.png" id="4_jsf10"]
+[ext_resource type="Texture2D" uid="uid://cw37vqcbvhy1b" path="res://Entities/Assets/Visuals/Spamton/mail.png" id="5_oge76"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsf10"]
+size = Vector3(72.0558, 18.8259, 1.09012)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oge76"]
+size = Vector3(20.8847, 18.8259, 1.09012)
+
+[sub_resource type="Animation" id="Animation_jsf10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rfsbs"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oge76"]
+resource_name = "startflip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(0.659754, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oge76"]
+_data = {
+&"RESET": SubResource("Animation_jsf10"),
+&"start": SubResource("Animation_rfsbs"),
+&"startflip": SubResource("Animation_oge76")
+}
+
+[node name="Mail" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_rfsbs")]
+script = ExtResource("2_pjsh5")
+chases = false
+solid = false
+stompable = true
+damage = 6.0
+car_jump_mult = 0.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.16
+hit_sound_impact = ExtResource("3_jsf10")
+particle_effect = 2
+
+[node name="EntityContainer" parent="." index="0"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35.4836, 0)
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5539, -0.958519, 1.14815)
+shape = SubResource("BoxShape3D_jsf10")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.531, -0.958519, 1.14815)
+shape = SubResource("BoxShape3D_oge76")
+debug_color = Color(0.956863, 0.239216, 0, 1)
+
+[node name="Sprite3D" parent="EntityContainer" index="2"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2331, -1.52185, 0)
+pixel_size = 1.0
+billboard = 1
+texture = ExtResource("4_jsf10")
+
+[node name="Sprite3D3" type="Sprite3D" parent="EntityContainer" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.9241, -1.52185, 0)
+pixel_size = 1.0
+billboard = 1
+texture = ExtResource("4_jsf10")
+
+[node name="Sprite3D4" type="Sprite3D" parent="EntityContainer" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4635, -1.52185, 0)
+pixel_size = 1.0
+billboard = 1
+texture = ExtResource("5_oge76")
+
+[node name="Sprite3D5" type="Sprite3D" parent="EntityContainer" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3957, -1.52185, 0)
+pixel_size = 1.0
+billboard = 1
+texture = ExtResource("5_oge76")
+
+[node name="Sprite3D6" type="Sprite3D" parent="EntityContainer" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07977, -1.52185, 0)
+pixel_size = 1.0
+billboard = 1
+texture = ExtResource("5_oge76")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_oge76")
+}

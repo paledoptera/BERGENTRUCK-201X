@@ -177,7 +177,7 @@ position = Vector2(198, 121)
 texture = ExtResource("3_816ia")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(49, 208)
+position = Vector2(101, 208)
 texture = ExtResource("4_udsnl")
 
 [node name="Play" type="RichTextLabel" parent="."]

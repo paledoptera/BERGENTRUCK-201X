@@ -17,6 +17,9 @@ func _process(delta: float) -> void:
 	$Sprite2D.offset.y = Utility.get_sine(siner2,1,20)
 	$Background.offset = Vector2(Utility.get_sine(siner2,1,5),Utility.get_sine(siner2,1,10))
 	
+	if Input.is_action_just_pressed("click"):
+		$AnimationPlayer.speed_scale = 100
+	
 	if logo_bobbing:
 		siner += delta
 		$Logo.position.y = 29 + Utility.get_sine(siner,2,2)

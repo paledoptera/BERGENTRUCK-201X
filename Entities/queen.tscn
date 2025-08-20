@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5out100kqebr"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
+[ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_6n5x4"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_umk3c"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="7_jhqtb"]
+[ext_resource type="SpriteFrames" uid="uid://drnc3dk5kp260" path="res://Entities/Assets/Visuals/Queen/queen_frames.tres" id="7_uf544"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_sun1j"]
+[ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2fls"]
+radius = 5.1615
+height = 49.7676
+
+[sub_resource type="Animation" id="Animation_uf544"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksqgp"]
+_data = {
+&"idle": SubResource("Animation_uf544")
+}
+
+[node name="Queen" node_paths=PackedStringArray("sprite", "ai_timer", "ai_anim") instance=ExtResource("1_a77xe")]
+script = ExtResource("2_4sese")
+keeping_up_with_player = true
+sprite = NodePath("EntityContainer/AnimatedSprite3D")
+ai_timer = NodePath("Timer")
+ai_anim = NodePath("AnimationPlayer")
+hit_sound_impact = null
+disable_collision_on_hit = false
+
+[node name="AIState" type="Node" parent="." index="0"]
+script = ExtResource("5_6n5x4")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="AIState" index="0"]
+script = ExtResource("6_umk3c")
+initial_state = NodePath("Start")
+
+[node name="Start" type="Node" parent="AIState/Root" index="0"]
+script = ExtResource("7_jhqtb")
+
+[node name="To Attack" type="Node" parent="AIState/Root/Start" index="0"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Attack")
+event = &"Progress"
+delay_in_seconds = "0.0"
+
+[node name="To Hit" type="Node" parent="AIState/Root/Start" index="1"]
+script = ExtResource("8_sun1j")
+to = NodePath("..")
+event = &"Hit"
+delay_in_seconds = "0.0"
+
+[node name="Attack" type="Node" parent="AIState/Root" index="1"]
+script = ExtResource("7_jhqtb")
+
+[node name="To Break" type="Node" parent="AIState/Root/Attack" index="0"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Break")
+event = &"Progress"
+delay_in_seconds = "0.0"
+
+[node name="To Hit" type="Node" parent="AIState/Root/Attack" index="1"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Hit")
+event = &"Hit"
+delay_in_seconds = "0.0"
+
+[node name="To End" type="Node" parent="AIState/Root/Attack" index="2"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../End")
+event = &"End"
+delay_in_seconds = "0.0"
+
+[node name="Break" type="Node" parent="AIState/Root" index="2"]
+script = ExtResource("7_jhqtb")
+
+[node name="To End" type="Node" parent="AIState/Root/Break" index="0"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../End")
+event = &"End"
+delay_in_seconds = "0.0"
+
+[node name="To Attack" type="Node" parent="AIState/Root/Break" index="1"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Attack")
+event = &"Progress"
+delay_in_seconds = "0.0"
+
+[node name="End" type="Node" parent="AIState/Root" index="3"]
+script = ExtResource("7_jhqtb")
+
+[node name="To Start" type="Node" parent="AIState/Root/End" index="0"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Start")
+event = &"Progress"
+delay_in_seconds = "0.0"
+
+[node name="To Hit" type="Node" parent="AIState/Root/End" index="1"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Hit")
+event = &"Hit"
+delay_in_seconds = "0.0"
+
+[node name="Hit" type="Node" parent="AIState/Root" index="4"]
+script = ExtResource("7_jhqtb")
+
+[node name="To Attack" type="Node" parent="AIState/Root/Hit" index="0"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Start")
+event = &"Progress"
+delay_in_seconds = "0.0"
+
+[node name="To Attack2" type="Node" parent="AIState/Root/Hit" index="1"]
+script = ExtResource("8_sun1j")
+to = NodePath("../../Start")
+event = &"End"
+delay_in_seconds = "0.0"
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.627202, -0.778857, 0, 0.778857, 0.627202, 0, 0, -8.46812)
+shape = SubResource("CapsuleShape3D_b2fls")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 2.02)
+pixel_size = 0.3425
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = ExtResource("7_uf544")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
+
+[node name="Sprite3D" parent="EntityContainer" index="2"]
+visible = false
+offset = Vector2(0, 30)
+pixel_size = 0.14
+texture = ExtResource("10_q2ppl")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_ksqgp")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+
+[connection signal="state_entered" from="AIState/Root/Start" to="." method="_start_enter"]
+[connection signal="state_processing" from="AIState/Root/Start" to="." method="_start_process"]
+[connection signal="state_entered" from="AIState/Root/Attack" to="." method="_attack_enter"]
+[connection signal="state_exited" from="AIState/Root/Attack" to="." method="_attack_exit"]
+[connection signal="state_processing" from="AIState/Root/Attack" to="." method="_attack_process"]
+[connection signal="state_entered" from="AIState/Root/Break" to="." method="_break_enter"]
+[connection signal="state_exited" from="AIState/Root/Break" to="." method="_break_exit"]
+[connection signal="state_processing" from="AIState/Root/Break" to="." method="_break_process"]
+[connection signal="state_entered" from="AIState/Root/End" to="." method="_end_enter"]
+[connection signal="state_processing" from="AIState/Root/End" to="." method="_end_process"]
+[connection signal="state_entered" from="AIState/Root/Hit" to="." method="_hit_enter"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -12,6 +12,7 @@ class_name Level
 @export var entities : Node3D
 @export var level_val : int = 1
 var bkg_item_spawn_timer : float = 0.0
+@export var bkg_item_spawn_threshold: float = 40.0
 var item_spawn_timer : float = 0.0
 var item_spawn_threshold : float = 100.0
 var chunks_to_be_deleted : Array[Node]
@@ -37,6 +38,7 @@ func fade_in_done() -> void:
 	faded_in = true
 
 func _process(delta: float) -> void:
+	
 	if Global.game:
 		if Global.border == 1: #dynamic border
 			Global.game.border.self_modulate = Color("ffffff",1.0-$FadeEffect.modulate.a)
@@ -78,8 +80,8 @@ func _process(delta: float) -> void:
 		item_spawn_timer -= 75.0
 		_spawn_item()
 	
-	if bkg_item_spawn_timer >= 40.0:
-		bkg_item_spawn_timer -= 40.0
+	if bkg_item_spawn_timer >= bkg_item_spawn_threshold:
+		bkg_item_spawn_timer -= bkg_item_spawn_threshold
 		_spawn_bkg_item()
 
 func _spawn_item() -> void:

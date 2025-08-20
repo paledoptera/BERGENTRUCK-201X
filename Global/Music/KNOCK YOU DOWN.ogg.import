@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bi7n1we3ctc68"
+path="res://.godot/imported/KNOCK YOU DOWN.ogg-82eca61bdee79b60ec2a8b4dfc13292a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Global/Music/KNOCK YOU DOWN.ogg"
+dest_files=["res://.godot/imported/KNOCK YOU DOWN.ogg-82eca61bdee79b60ec2a8b4dfc13292a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

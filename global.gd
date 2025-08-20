@@ -163,7 +163,8 @@ func goto_level(value : int = level) -> void:
 			lv = "uid://dfltl3btm1pp6" # level2.tscn
 		3: # Knight Fight
 			lv = "uid://bc8vcjm8kaofg" # level3.tscn
-		#4: # Punchout City
+		4: # Punchout City
+			lv = "uid://b0obvicgtatpa" # levelQ.tscn
 		#5: # Dog Race
 		
 		# DARK MODE

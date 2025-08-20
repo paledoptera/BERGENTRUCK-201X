@@ -17,14 +17,14 @@ particle_effect = 1
 shape = null
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 0)
+transform = Transform3D(0.101612, -0.646264, 0.882948, -0.191105, 1.21545, 0.469472, -0.976296, -0.30518, -3.85949e-08, -45, 0, 0)
+billboard = 0
 texture = ExtResource("3_llbne")
 
 [node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 0)
+transform = Transform3D(0.101612, 0.646264, -0.882948, 0.191105, 1.21545, 0.469472, 0.976296, -0.30518, -3.85949e-08, 45, 0, 0)
 sorting_use_aabb_center = false
 offset = Vector2(0, 128)
 pixel_size = 0.06
-billboard = 1
 texture_filter = 0
 texture = ExtResource("3_llbne")

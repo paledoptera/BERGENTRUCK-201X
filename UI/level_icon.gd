@@ -38,6 +38,4 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if modulate.a == 1:
-		$Sprite2D.modulate = Color(2,2,2,1)
-		mouse_in.emit(self)
+	mouse_in.emit(self)

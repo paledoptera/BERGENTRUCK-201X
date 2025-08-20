@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 
 func _mouse_enters(icon: ColorRect) -> void:
-	if current_icon != null and icon != current_icon:
+	if current_icon != null and icon != current_icon and big == true:
 		return
 	if $Selected.visible:
 		$Selected.global_position = icon.global_position
@@ -65,18 +65,19 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 				node.mouse_filter = 0
 				var alpha = create_tween()
 				alpha.tween_property(node,"modulate:a",1,.5)
-		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween()]
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween(),create_tween().set_trans(Tween.TRANS_CUBIC)]
 		$LVTitle.text = "Choose a Level"
 		$LVNumber.text = ""
 		$Selected.position = Vector2(99999,99999)
-		$Selected.hide()
+		current_icon.mouse_filter = 2
 		$BestTime.hide()
 		tweens[0].tween_property(current_icon,"position",current_icon.original_position,.5)
 		tweens[2].tween_property($BestTime,"position",Vector2(0,64),.3)
+		tweens[3].tween_property($Modifiers,"position:y",240,.3)
 		big = false
 		await tweens[1].tween_property(current_icon,"scale",Vector2(1,1),.5).finished
+		current_icon.mouse_filter = 0
 		current_icon = null
-		$Selected.show()
 
 
 
@@ -92,15 +93,16 @@ func _on_level_icon_clicked(icon):
 				node.mouse_filter = 2
 				var alpha = create_tween()
 				alpha.tween_property(node,"modulate:a",0,.2)
-		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK)]
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
 		$BestTime.visible == true
 		$Selected.position = Vector2(99999,99999)
-		$Selected.hide()
+		current_icon.mouse_filter = 2
 		tweens[0].tween_property(icon,"position",Vector2(100,44),.5)
 		tweens[2].tween_property($BestTime,"position",Vector2(0,144),.3)
+		tweens[3].tween_property($Modifiers,"position:y",170,.3)
 		big = true
 		await tweens[1].tween_property(icon,"scale",Vector2(2,2),.5).finished
-		$Selected.show()
+		current_icon.mouse_filter = 0
 	else:
 		Audio.play_sfx(preload("uid://cf8yyq2r0tegw"),1.01) # vroom
 		if dark:

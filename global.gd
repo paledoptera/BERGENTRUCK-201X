@@ -15,6 +15,12 @@ var res_scale: int = 2:
 	set(value):
 		update_res()
 
+var modifiers = {
+	"FragileCar": false,
+	"NoSlow": false,
+	"DrunkMode": false
+}
+
 @onready var player_save : PlayerSave
 @onready var _default_save := PlayerSave.new()
 

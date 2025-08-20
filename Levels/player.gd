@@ -60,6 +60,8 @@ var screenshake_strength : float = 4.0
 func _ready() -> void:	
 	Global.player_save.time = 0
 	$Background.visible = true
+	if Global.modifiers.NoSlow == true:
+		$Visuals/WidgetGear/DraggableItem/CollisionShape2D.disabled = true
 	_correct_sprite_size($Ground)
 	$CarEngine.volume_db = -40
 	$CarEngine.play(0.0)
@@ -179,6 +181,8 @@ func _gear_mechanics() -> void:
 	var last_gear = gear
 	
 	var gear_value = widget_gear.value
+	if Global.modifiers.NoSlow == true:
+		gear_value = 1
 	gear = round(gear_value*2)+1
 	
 	if last_gear != gear:

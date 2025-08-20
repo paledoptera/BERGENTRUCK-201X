@@ -10,10 +10,6 @@ var border: int = -1:
 	set(value):
 		border = value
 		update_border()
-		update_res()
-var res_scale: int = 2:
-	set(value):
-		update_res()
 
 var modifiers = {
 	"FragileCar": false,
@@ -26,19 +22,7 @@ var modifiers = {
 
 func _ready() -> void:
 	player_save = SaveLoad.file_load()
-	if player_save.flags.levels_beaten.size() == 3:
-		player_save.flags.levels_beaten.append(false)
-		player_save.flags.levels_beaten.append(false)
-		player_save.flags.levels_beaten.append(false)
-	if player_save.flags.best_time.size() == 3:
-		player_save.flags.best_time.append(-1)
-		player_save.flags.best_time.append(-1)
-		player_save.flags.best_time.append(-1)
-	if player_save.flags.level_time.size() == 3:
-		player_save.flags.level_time.append(0)
-		player_save.flags.level_time.append(0)
-		player_save.flags.level_time.append(0)
-	
+	_refresh_flags()
 	border = get_flag("border")
 	
 	if get_flag("option_skip_tutorials"):
@@ -51,38 +35,23 @@ func _ready() -> void:
 
 func toggle_fullscreen() -> void:
 	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
-		get_window().size = Vector2i(960,540)
-		get_window().content_scale_size = Vector2i(480,270)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		update_res()
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) 
-		update_res()
 
 
-func update_res() -> void:
-	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		if border == 0:
-			game.border.visible = false
-			game.over_border.visible = false
-		else:
-			game.border.visible = true
-		return
-		
-	if border == 0:
-		get_window().content_scale_size = Vector2i(320,240)
-		get_window().size = Vector2i(640,480) 
-	else:
-		game.border.visible = true
-		get_window().size = Vector2i(960,540)
-		get_window().content_scale_size = Vector2i(480,270)
-	
-	get_window().move_to_center()
 
 func update_border() -> void:
+	if not game:
+		return
 	var border_tex : Texture2D = preload("uid://b41hk6q2ky6f8") # Simple.png
 	game.over_border.visible = false
+	game.border.visible = true
 	match border:
+		0: # NONE
+			game.border.visible = false
+			game.border.texture = preload("uid://bu325xsdlvy3f") # Blank.png
+			
 		1: # DYNAMIC
 			game.over_border.visible = true
 			game.border.texture = preload("uid://bu325xsdlvy3f") # Blank.png
@@ -95,10 +64,6 @@ func update_border() -> void:
 			game.border.texture = preload("uid://bxwx3be5d5vaa") # TownDark.png
 		5:
 			game.border.texture = preload("uid://jfrrgron4tmh") # Arcade.png
-	
-	
-	
-	#game.update_border(border_tex)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click_right"):
@@ -121,6 +86,9 @@ func set_flag(flag:String, value):
 	flag = flag.to_lower()
 	
 	if flag in player_save.flags.keys():
+		if player_save.flags[flag] is Array:
+			push_error("Array flags must be set with set_flag_array!")
+			return false
 		player_save.flags[flag] = value
 	else:
 		if not flag_exists(flag):
@@ -131,6 +99,26 @@ func set_flag(flag:String, value):
 			player_save.flags[flag] = bool(value)
 		else:
 			player_save.flags[flag] = value
+
+
+func set_flag_array(flag:String, value, index: int):
+	flag = flag.to_lower()
+	
+	var flag_array: Array = get_flag(flag)
+	var default_flag_array: Array = _default_save.flags[flag]
+	
+	if not flag_array:
+		if not flag_exists(flag):
+			return false
+		_refresh_flags()
+		flag_array = get_flag(flag)
+	
+	if flag_array.size() != default_flag_array.size():
+		_refresh_flags()
+	
+	index = clamp(index,0,flag_array.size()-1)
+	flag_array[index] = value
+	set_flag(flag,flag_array)
 
 
 func flag_exists(flag: String) -> bool:
@@ -146,30 +134,47 @@ func _refresh_flags() -> void:
 	
 	for key in _default_save.flags.keys():
 		if key in player_save.flags:
+			# check if it's an array
+			if player_save.flags[key] is Array:
+				for val in range(_default_save.flags[key].size()):
+					if val >= player_save.flags[key].size():
+						continue
+					_default_save.flags[key][val] = player_save.flags[key][val]
+					
+				continue
+				# so there was an issue with array flags in that if using _refresh_flags,
+				# since arrays are a value in of themselves it wouldn't actually
+				# expand old arrays to the size of new arrays, it'd just replace the 
+				# entire new array with the old one which causes crashes.
+				# this method fixes that
+			
 			_default_save.flags[key] = player_save.flags[key] # overwriting all flags that the player file has
 	
 	player_save.flags = _default_save.flags
-
 
 
 func goto_level(value : int = level) -> void:
 	var lv : String
 	
 	match value:
-		1:
+		1: # Flowers
 			lv = "uid://c7p8pcqopqawn" # level1.tscn
-		2:
+		2: # Fast Food
 			lv = "uid://dfltl3btm1pp6" # level2.tscn
-		3:
+		3: # Knight Fight
 			lv = "uid://bc8vcjm8kaofg" # level3.tscn
-		#4: Queen
-		#5: Dog Chase
-		#6: Flower Gather Hard
-		#7: Fast Food Hard
-		#8: Dog Chase (Hard)
-		9:
-			lv = "res://Levels/levelSPAM.tscn"
-		#10: Light Fight (Titan)
+		#4: # Punchout City
+		#5: # Dog Race
+		
+		# DARK MODE
+		
+		#6: # Thorns
+		7: # Buyout City
+			lv = "uid://cnseiocfp02jr" # levelS.tscn
+		#8: # Frozen Food
+		#9: # Dog Chase
+		#10: # Light Fight
+	
 	game.level_path = lv
 	return game.game_state.send_event("Start")
 

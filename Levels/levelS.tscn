@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=4 uid="uid://cnseiocfp02jr"]
 
-[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_mnx3k"]
-[ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_jsbgs"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_nft2l"]
-[ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="3_ffvl2"]
-[ext_resource type="Material" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="3_jkhre"]
-[ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="4_5jglm"]
-[ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="4_g804b"]
-[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="6_5jglm"]
-[ext_resource type="Script" uid="uid://decrvqtcuykfp" path="res://Entities/entity_SPAMMY.gd" id="7_ffvl2"]
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_b2mgy"]
+[ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_upnl3"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="3_e7qbr"]
+[ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="4_dfrsb"]
+[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
+[ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="6_0rcmt"]
+[ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="7_h0uai"]
+[ext_resource type="Script" uid="uid://decrvqtcuykfp" path="res://Entities/entity_SPAMMY.gd" id="8_4n5bj"]
+[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="9_egi8r"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1
@@ -22,7 +22,7 @@ orientation = 2
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.717647, 1, 1, 0.262745)
-albedo_texture = ExtResource("2_nft2l")
+albedo_texture = ExtResource("3_e7qbr")
 uv1_scale = Vector3(0.315, 0.9, 0)
 uv1_offset = Vector3(0.635, 0, 0)
 uv1_triplanar_sharpness = 0.353554
@@ -51,7 +51,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 384,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUACAAEAAYABwAJAAUACAAGAAoABwALAAkADAAIAAoACwANAAkADAAKAA4ACwAPAA0AEAAMAA4ADwARAA0AEAAOABIADwATABEAFAAQABIAEwAVABEAFAASABYAEwAXABUAGAAUABYAFwAZABUAGAAWABoAFwAbABkAGwAcABkAGwAdABwAHgAYABoAHgAaAB8AIAAeAB8AIAAfACEAIgAjACQAIgAlACMAJQAmACMAJQAnACYAJwAoACYAJwApACgAKQAqACgAKQArACoAKwAsACoAKwAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAAMQAyADAAMQAzADIAMwA0ADIAMwA1ADQANQA2ADQANQA3ADYANwA4ADYANwA5ADgAOQA6ADgAOQA7ADoAOwA8ADoAOwA9ADwAPQA+ADwAPQA/AD4APwBAAD4APwBBAEAAQQBCAEAAQQBDAEIARABFAEYARABHAEUARwBIAEUARwBJAEgASQBKAEgASQBLAEoASwBMAEoASwBNAEwATQBOAEwATQBPAE4ATwBQAE4ATwBRAFAAUQBSAFAAUQBTAFIAUwBUAFIAUwBVAFQAVQBWAFQAVQBXAFYAVwBYAFYAVwBZAFgAWQBaAFgAWQBbAFoAWwBcAFoAWwBdAFwAXQBeAFwAXQBfAF4AXwBgAF4AXwBhAGAAYQBiAGAAYQBjAGIAYwBkAGIAYwBlAGQAZgBnAGgAZgBpAGcAaQBqAGcAaQBrAGoAawBsAGoAawBtAGwAbQBuAGwAbQBvAG4AbwBwAG4AbwBxAHAAcQByAHAAcQBzAHIAcwB0AHIAcwB1AHQAdQB2AHQAdQB3AHYAdwB4AHYAdwB5AHgAeQB6AHgAeQB7AHoAewB8AHoAewB9AHwAfQB+AHwAfQB/AH4AfwCAAH4AfwCBAIAAgQCCAIAAgQCDAIIAgwCEAIIAgwCFAIQAhQCGAIQAhQCHAIYA"),
-"material": ExtResource("4_5jglm"),
+"material": ExtResource("6_0rcmt"),
 "name": "Ground",
 "primitive": 3,
 "uv_scale": Vector4(2.86408, 1.9918, 0, 0),
@@ -61,13 +61,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
 
-[node name="Level6" instance=ExtResource("1_mnx3k")]
+[node name="LevelS" instance=ExtResource("1_b2mgy")]
 music = null
 item_queue_intro = Array[String](["uid://bxdf0t3rf0pnj", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-trees = ExtResource("2_jsbgs")
-level_val = 9
+trees = ExtResource("2_upnl3")
+level_val = 7
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_06yxo")
@@ -82,17 +82,17 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
-texture = ExtResource("3_ffvl2")
+texture = ExtResource("4_dfrsb")
 
 [node name="Ground" parent="Player" index="11"]
-material_override = ExtResource("3_jkhre")
+material_override = ExtResource("5_0dyyc")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null
 
-[node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("4_g804b")]
+[node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("7_h0uai")]
 transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)
 visible = false
-script = ExtResource("7_ffvl2")
+script = ExtResource("8_4n5bj")
 player = NodePath("../../Player")
 level = NodePath("../..")
 disable_collision_on_hit = false
@@ -102,18 +102,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
-texture = ExtResource("6_5jglm")
+texture = ExtResource("9_egi8r")
 
 [node name="WallR" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
-texture = ExtResource("6_5jglm")
+texture = ExtResource("9_egi8r")
 
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]
+[editable path="Player/Visuals/WidgetGear/DraggableItem"]
 [editable path="WallL"]
 [editable path="WallR"]

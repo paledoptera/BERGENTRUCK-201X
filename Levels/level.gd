@@ -37,12 +37,12 @@ func fade_in_done() -> void:
 	faded_in = true
 
 func _process(delta: float) -> void:
-	
-	if Global.border == 1: #dynamic border
-		Global.game.border.self_modulate = Color("ffffff",1.0-$FadeEffect.modulate.a)
-		Global.game.border.self_modulate += Color("ffffff")*($FlashEffect.modulate.a*3)
-	else:
-		Global.game.border.self_modulate = Color("ffffff",1.0)
+	if Global.game:
+		if Global.border == 1: #dynamic border
+			Global.game.border.self_modulate = Color("ffffff",1.0-$FadeEffect.modulate.a)
+			Global.game.border.self_modulate += Color("ffffff")*($FlashEffect.modulate.a*3)
+		else:
+			Global.game.border.self_modulate = Color("ffffff",1.0)
 	
 	if player.hp <= 0:
 		Global.die()

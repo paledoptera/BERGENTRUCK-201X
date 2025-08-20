@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://djvs06q7hibqx"]
+[gd_scene load_steps=6 format=4 uid="uid://djvs06q7hibqx"]
 
-[ext_resource type="Script" uid="uid://deenga26pwrhg" path="res://Common/MouseClickWidgets/Scripts/widget_joystick.gd" id="1_btklk"]
-[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2_tkl3a"]
+[ext_resource type="Script" uid="uid://deenga26pwrhg" path="res://Common/MouseClickWidgets/Scripts/widget_joystick.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2"]
 
 [sub_resource type="Gradient" id="Gradient_fqrrl"]
 interpolation_mode = 1
@@ -20,7 +20,7 @@ radius = 150.0
 
 [node name="WidgetJoystick" type="Sprite2D"]
 texture = SubResource("GradientTexture2D_vuaqh")
-script = ExtResource("1_btklk")
+script = ExtResource("1")
 snap_to_cursor = true
 
 [node name="Notches" type="Node2D" parent="."]
@@ -32,7 +32,7 @@ snap_to_cursor = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_fqrrl")
 
-[node name="DraggableItem" parent="." instance=ExtResource("2_tkl3a")]
+[node name="DraggableItem" parent="." instance=ExtResource("2")]
 scale = Vector2(0.7, 0.7)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DraggableItem"]

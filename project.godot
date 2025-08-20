@@ -12,7 +12,7 @@ config_version=5
 
 config/name="BERGENTRUCK_201X"
 config/description="Hey, that bump... is shaped like a deer!"
-config/version="V1.1B"
+config/version="V.2.0"
 run/main_scene="uid://pfn2cpkppd67"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
@@ -20,7 +20,6 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-boot_splash/image="uid://cjglu7rq4sg11"
 config/icon="uid://dl05mcmdann36"
 
 [autoload]
@@ -32,12 +31,11 @@ Global="*res://global.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=240
-window/size/window_width_override=1280
-window/size/window_height_override=960
-window/stretch/mode="canvas_items"
-window/handheld/orientation=4
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 
 [editor_plugins]

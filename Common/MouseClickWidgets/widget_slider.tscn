@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://chgr6wfa8ldsh"]
+[gd_scene load_steps=3 format=4 uid="uid://chgr6wfa8ldsh"]
 
-[ext_resource type="Script" uid="uid://bqgbp1hgvdesl" path="res://Common/MouseClickWidgets/Scripts/widget_slider.gd" id="1_arg5j"]
-[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2_3286u"]
+[ext_resource type="Script" uid="uid://bqgbp1hgvdesl" path="res://Common/MouseClickWidgets/Scripts/widget_slider.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="2"]
 
 [node name="WidgetSlider" type="ColorRect"]
 offset_right = 427.0
 offset_bottom = 64.0
 mouse_filter = 2
-script = ExtResource("1_arg5j")
+script = ExtResource("1")
 
 [node name="Notches" type="Node2D" parent="."]
 
-[node name="DraggableItem" parent="." instance=ExtResource("2_3286u")]
+[node name="DraggableItem" parent="." instance=ExtResource("2")]
 position = Vector2(32, 32)
 scale = Vector2(0.5, 0.5)
 

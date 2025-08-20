@@ -64,8 +64,8 @@ offset_bottom = 147.0
 dark_number_overide = "B"
 value = 2
 title = "Fast Food"
-darkvalue = 9
-darktitle = "BIG SHOT"
+darkvalue = 7
+darktitle = "Buyout City"
 
 [node name="LevelIcon3" parent="." instance=ExtResource("5_im7r1")]
 offset_left = 131.0
@@ -75,7 +75,7 @@ offset_bottom = 147.0
 dark_number_overide = "C"
 value = 3
 title = "Knight Fight"
-darkvalue = 7
+darkvalue = 8
 darktitle = "Frozen Food"
 
 [node name="LevelIcon4" parent="." instance=ExtResource("5_im7r1")]
@@ -87,7 +87,7 @@ number_overide = "Q"
 dark_number_overide = "D"
 value = 4
 title = "Punchout City"
-darkvalue = 8
+darkvalue = 9
 darktitle = "Dog Chase"
 
 [node name="LevelIcon5" parent="." instance=ExtResource("5_im7r1")]
@@ -98,7 +98,7 @@ offset_bottom = 147.0
 number_overide = "D"
 dark_number_overide = "E"
 value = 5
-title = "Dog Chase"
+title = "Dog Race"
 darkvalue = 10
 darktitle = "Light Fight"
 
@@ -272,6 +272,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Select" type="RichTextLabel" parent="SkinSelector"]
+layout_mode = 0
 offset_right = 187.0
 offset_bottom = 18.0
 scale = Vector2(1.705, 1.72)
@@ -282,6 +283,7 @@ text = "SELECT YOUR GUY"
 horizontal_alignment = 1
 
 [node name="Bio" type="RichTextLabel" parent="SkinSelector"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 81.0
 offset_right = 149.0

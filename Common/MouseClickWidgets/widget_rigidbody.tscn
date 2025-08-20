@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy33r8ecafweo"]
+[gd_scene load_steps=2 format=4 uid="uid://cy33r8ecafweo"]
 
-[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="1_tgldo"]
+[ext_resource type="PackedScene" uid="uid://wj8h4mocnpja" path="res://Common/MouseClickWidgets/_draggable.tscn" id="1"]
 
-[node name="WidgetRigidBody" instance=ExtResource("1_tgldo")]
+[node name="WidgetRigidBody" instance=ExtResource("1")]

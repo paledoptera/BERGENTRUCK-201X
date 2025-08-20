@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd6m1khuiql2f"]
+[gd_scene load_steps=3 format=4 uid="uid://bd6m1khuiql2f"]
 
-[ext_resource type="PackedScene" uid="uid://ct3dpsy4rsd6j" path="res://Common/MouseClickWidgets/_clickable.tscn" id="1_ltgrh"]
-[ext_resource type="Script" uid="uid://6mymsw8vf82s" path="res://Common/MouseClickWidgets/Scripts/widget_button.gd" id="2_8g08m"]
+[ext_resource type="PackedScene" uid="uid://ct3dpsy4rsd6j" path="res://Common/MouseClickWidgets/_clickable.tscn" id="1"]
+[ext_resource type="Script" uid="uid://6mymsw8vf82s" path="res://Common/MouseClickWidgets/Scripts/widget_button.gd" id="2"]
 
-[node name="WidgetButton" instance=ExtResource("1_ltgrh")]
-script = ExtResource("2_8g08m")
+[node name="WidgetButton" instance=ExtResource("1")]
+script = ExtResource("2")

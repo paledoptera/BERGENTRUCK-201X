@@ -8,7 +8,7 @@
 
 [sub_resource type="Environment" id="Environment_s57tf"]
 background_mode = 1
-background_color = Color(0.256287, 0.583615, 0.999978, 1)
+background_color = Color(0.228992, 0.570844, 0.999975, 1)
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("timer", "player", "entities")]
 process_mode = 1

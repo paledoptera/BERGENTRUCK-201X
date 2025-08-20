@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5farrf2dyyup"]
+[gd_scene load_steps=5 format=4 uid="uid://b5farrf2dyyup"]
 
-[ext_resource type="Script" uid="uid://dmx6esgflk4cc" path="res://Common/MouseClickWidgets/Scripts/_rotatable.gd" id="1_60i83"]
-[ext_resource type="Script" uid="uid://re6hm7uvl73n" path="res://Common/MouseClickWidgets/Components/mouse_drag_component.gd" id="2_jmo5e"]
-[ext_resource type="Texture2D" uid="uid://m3nlr4mo5igk" path="res://icon.svg" id="3_lpajs"]
+[ext_resource type="Script" uid="uid://dmx6esgflk4cc" path="res://Common/MouseClickWidgets/Scripts/_rotatable.gd" id="1"]
+[ext_resource type="Script" uid="uid://re6hm7uvl73n" path="res://Common/MouseClickWidgets/Components/mouse_drag_component.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ce8hjyeqgxo7j" path="res://icon.svg" id="3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60i83"]
 size = Vector2(128, 128)
 
 [node name="RotatableItem" type="Area2D"]
-script = ExtResource("1_60i83")
+script = ExtResource("1")
 
 [node name="MouseDragComponent" type="Node" parent="."]
-script = ExtResource("2_jmo5e")
+script = ExtResource("2")
 metadata/_custom_type_script = "uid://re6hm7uvl73n"
 
 [node name="Parent" type="Sprite2D" parent="."]
@@ -21,7 +21,7 @@ self_modulate = Color(0.171637, 0.171637, 0.171637, 1)
 shape = SubResource("RectangleShape2D_60i83")
 
 [node name="TextureRect" type="Sprite2D" parent="RotationAnchor"]
-texture = ExtResource("3_lpajs")
+texture = ExtResource("3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -60.0

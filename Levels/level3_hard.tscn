@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc8vcjm8kaofg"]
+[gd_scene load_steps=9 format=3 uid="uid://cro28ctqlf873"]
 
-[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_06yxo"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_2385j"]
-[ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="4_eh6o7"]
-[ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Assets/Visuals/Dark Ground Texture.tres" id="4_vr4rd"]
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_crqnh"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_qckv3"]
+[ext_resource type="AudioStream" uid="uid://qnhh0v6jmp2o" path="res://Global/Music/Knight Finalphase Concept.ogg" id="2_vfss5"]
+[ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Assets/Visuals/Dark Ground Texture.tres" id="3_vfss5"]
+[ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="5_qckv3"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1
@@ -16,15 +17,15 @@ orientation = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5oim"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_2385j")
+albedo_texture = ExtResource("2_qckv3")
 uv1_scale = Vector3(0.315, 0.9, 0)
 uv1_offset = Vector3(0.635, 0, 0)
 uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
-[node name="Level3" instance=ExtResource("1_06yxo")]
-music = null
+[node name="Level3" instance=ExtResource("1_crqnh")]
+music = ExtResource("2_vfss5")
 item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "", "", "", "", "", "", "", "", "", "", ""])
@@ -45,13 +46,12 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
 [node name="Ground" parent="Player" index="11"]
-material_override = ExtResource("4_vr4rd")
+material_override = ExtResource("3_vfss5")
 surface_material_override/0 = null
 
-[node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("4_eh6o7")]
-transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)
+[node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_qckv3")]
 player = NodePath("../../Player")
-level = NodePath("../..")
+entities = NodePath("..")
 
 [node name="WallL" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)

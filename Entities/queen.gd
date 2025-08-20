@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	
 	var dist = global_rotation.x+deg_to_rad(35)
 	
-	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed)
+	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
 	global_rotation.x += deg_to_rad(speed)
 	global_rotation.x = clamp(global_rotation.x,deg_to_rad(-35),deg_to_rad(12))
 
@@ -64,7 +64,6 @@ func _start_enter() -> void:
 
 
 func _start_process(delta: float) -> void:
-	horizontal_speed = lerp(horizontal_speed,0.2,0.2)
 	speed = -player.speed
 	
 	

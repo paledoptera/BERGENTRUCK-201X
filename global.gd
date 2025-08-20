@@ -174,7 +174,8 @@ func goto_level(value : int = level) -> void:
 			lv = "uid://cnseiocfp02jr" # levelS.tscn
 		#8: # Frozen Food
 		#9: # Dog Chase
-		#10: # Light Fight
+		10: # Light Fight
+			lv = "uid://cro28ctqlf873" # level3_hard.tscn
 	
 	game.level_path = lv
 	return game.game_state.send_event("Start")

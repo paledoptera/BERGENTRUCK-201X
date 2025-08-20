@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b0obvicgtatpa"]
+[gd_scene load_steps=19 format=4 uid="uid://b0obvicgtatpa"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_s615m"]
 [ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_4i652"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="6_djtrw"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="7_degev"]
 [ext_resource type="PackedScene" uid="uid://c5out100kqebr" path="res://Entities/queen.tscn" id="8_o3nq2"]
+[ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="8_s615m"]
 [ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="10_odswv"]
 
 [sub_resource type="GDScript" id="GDScript_s615m"]
@@ -25,6 +26,30 @@ func _process(delta: float) -> void:
 background_mode = 1
 background_energy_multiplier = 1.35
 
+[sub_resource type="GDScript" id="GDScript_o3nq2"]
+resource_name = "springyplayer"
+script/source = "extends \"res://Levels/player.gd\"
+
+var current_hand = true
+
+func _horn(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				#if current_hand:
+					
+				horn = true
+				$CarHonk.play()
+				
+				if $Camera3D.position.y == 8.0:
+					car_velocity.y = 1
+			elif not event.pressed:
+				horn = false
+				$CarHonk.stop()
+				if car_velocity.y > 0:
+					car_velocity.y *= 0.4
+"
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
 size = Vector2(500, 100)
 orientation = 2
@@ -39,6 +64,9 @@ uv1_offset = Vector3(0.635, 0, 0)
 uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s615m"]
+albedo_color = Color(1, 0, 0.560784, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q103l"]
 _surfaces = [{
@@ -85,6 +113,9 @@ bkg_item_spawn_threshold = 150.0
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_s615m")
 
+[node name="Player" parent="." index="1"]
+script = SubResource("GDScript_o3nq2")
+
 [node name="Background" parent="Player" index="0"]
 transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -6.31681, -200)
 mesh = SubResource("PlaneMesh_2385j")
@@ -96,6 +127,28 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
 texture = ExtResource("5_kbos6")
+
+[node name="ArmR" type="SpringArm3D" parent="Player/Camera3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 3.189, -4.293, -1.347)
+spring_length = 0.09
+
+[node name="GloveR" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("8_s615m")]
+transform = Transform3D(0.0207721, -0.0295976, -0.850135, -0.452173, -0.216234, 0.0480224, -0.508792, 0.190963, -0.0773864, 0.000172615, 7.9155e-05, 0.000374794)
+
+[node name="Cube" parent="Player/Camera3D/ArmR/GloveR" index="0"]
+transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
+
+[node name="ArmL" type="SpringArm3D" parent="Player/Camera3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.386, -4.293, -1.347)
+spring_length = 0.09
+
+[node name="GloveL" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("8_s615m")]
+transform = Transform3D(-0.0207205, 0.0295435, 0.850154, -0.451733, -0.216401, 0.0480122, -0.509185, 0.190782, -0.0771906, 0.000272751, -0.000102043, 0.000315666)
+
+[node name="Cube" parent="Player/Camera3D/ArmL/GloveL" index="0"]
+transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
 
 [node name="Ground" parent="Player" index="11"]
 material_override = ExtResource("6_djtrw")
@@ -120,10 +173,15 @@ disable_collision_on_hit = false
 [node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
 texture = ExtResource("10_odswv")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504, -6.3095, 54.1476, 20.326)
+
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]
 [editable path="Player/Visuals/WidgetGear/DraggableItem"]
+[editable path="Player/Camera3D/ArmR/GloveR"]
+[editable path="Player/Camera3D/ArmL/GloveL"]
 [editable path="WallL"]
 [editable path="WallR"]

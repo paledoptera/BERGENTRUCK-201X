@@ -981,6 +981,7 @@ color = Color(0, 0, 0, 1)
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 320.0
 offset_bottom = 240.0
+current_tab = 0
 tabs_visible = false
 deselect_enabled = true
 

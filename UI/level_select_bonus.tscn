@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=13 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
 [ext_resource type="Texture2D" uid="uid://e12plhp7qvec" path="res://UI/Assets/Visuals/level_select_road.png" id="3_m401l"]
 [ext_resource type="Texture2D" uid="uid://bichsa23x3dis" path="res://UI/Assets/Visuals/level_select_trees.png" id="4_u6vxe"]
 [ext_resource type="PackedScene" uid="uid://beo0wp80g721" path="res://UI/level_icon.tscn" id="5_im7r1"]
-[ext_resource type="PackedScene" uid="uid://v61c3korcj8d" path="res://UI/level_icon_bonus.tscn" id="6_0derx"]
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="6_ew8hv"]
 [ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="7_l8ko8"]
 [ext_resource type="Texture2D" uid="uid://cajwodgk1syf3" path="res://UI/Assets/Visuals/selected_level.png" id="8_b8hd2"]
 [ext_resource type="FontFile" uid="uid://sqawmdirs2pg" path="res://Global/Fonts/HUD.ttf" id="9_li2u5"]
 [ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="10_hewdn"]
+[ext_resource type="Texture2D" uid="uid://lqjqgdnqxcj7" path="res://UI/Assets/Visuals/Closet.png" id="12_m401l"]
+[ext_resource type="Script" uid="uid://bcqytjtjqlgjo" path="res://UI/skins.gd" id="13_u6vxe"]
 
 [node name="LevelSelect" type="Node"]
 script = ExtResource("1_hr6m7")
@@ -45,37 +46,48 @@ mouse_filter = 2
 texture = ExtResource("4_u6vxe")
 
 [node name="LevelIcon" parent="." instance=ExtResource("5_im7r1")]
-offset_left = 25.0
-offset_top = 71.0
-offset_right = 105.0
-offset_bottom = 151.0
+offset_left = 11.0
+offset_top = 91.0
+offset_right = 67.0
+offset_bottom = 147.0
+darkvalue = 6
 
 [node name="LevelIcon2" parent="." instance=ExtResource("5_im7r1")]
-offset_left = 120.0
-offset_top = 71.0
-offset_right = 200.0
-offset_bottom = 151.0
+offset_left = 71.0
+offset_top = 91.0
+offset_right = 127.0
+offset_bottom = 147.0
 value = 2
 title = "Fast Food"
+darkvalue = 7
 
 [node name="LevelIcon3" parent="." instance=ExtResource("5_im7r1")]
-offset_left = 214.0
-offset_top = 71.0
-offset_right = 294.0
-offset_bottom = 151.0
+offset_left = 131.0
+offset_top = 91.0
+offset_right = 187.0
+offset_bottom = 147.0
 value = 3
 title = "Knight Fight"
+darkvalue = 8
 
-[node name="LevelIcon6" parent="." instance=ExtResource("5_im7r1")]
-offset_left = 25.0
-offset_top = 156.0
-offset_right = 105.0
-offset_bottom = 236.0
-value = 6
-title = "BIG SHOT"
+[node name="LevelIcon4" parent="." instance=ExtResource("5_im7r1")]
+offset_left = 191.0
+offset_top = 91.0
+offset_right = 247.0
+offset_bottom = 147.0
+value = 4
+title = "Q5U4EX7YY2E9N"
+darkvalue = 9
+darktitle = "BIG SHOT"
 
-[node name="Sprite2D" parent="LevelIcon6" index="0"]
-frame = 6
+[node name="LevelIcon5" parent="." instance=ExtResource("5_im7r1")]
+offset_left = 251.0
+offset_top = 91.0
+offset_right = 307.0
+offset_bottom = 147.0
+value = 5
+title = "D O G"
+darkvalue = 10
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -122,59 +134,35 @@ theme_override_fonts/normal_font = ExtResource("6_ew8hv")
 text = "COMINGSOON"
 scroll_active = false
 
-[node name="LevelIcon4" parent="." instance=ExtResource("6_0derx")]
-modulate = Color(0.196078, 0.321569, 0.403922, 0.266667)
-offset_left = 119.0
-offset_top = 156.0
-offset_right = 199.0
-offset_bottom = 236.0
-special_val = "Q"
-title = "Coming Soon"
-
-[node name="Sprite2D" parent="LevelIcon4" index="0"]
-frame = 4
-
-[node name="LevelIcon5" parent="." instance=ExtResource("6_0derx")]
-modulate = Color(0.196078, 0.321569, 0.403922, 0.266667)
-offset_left = 215.0
-offset_top = 156.0
-offset_right = 295.0
-offset_bottom = 236.0
-special_val = "D"
-title = "Coming Soon"
-
-[node name="Sprite2D" parent="LevelIcon5" index="0"]
-frame = 5
-
-[node name="LVNumber" type="RichTextLabel" parent="."]
-offset_top = 5.0
-offset_right = 187.0
-offset_bottom = 45.0
+[node name="LVNumber" type="RichTextLabel" parent="." groups=["transparent"]]
+offset_left = 3.0
+offset_top = 41.0
+offset_right = 190.0
+offset_bottom = 67.0
 scale = Vector2(1.705, 1.7)
 mouse_filter = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_ew8hv")
-text = "Choose a"
 horizontal_alignment = 1
 
 [node name="LVTitle" type="RichTextLabel" parent="."]
-offset_left = -38.0
-offset_top = 21.0
-offset_right = 122.0
-offset_bottom = 61.0
+offset_left = -35.0
+offset_top = -6.0
+offset_right = 125.0
+offset_bottom = 12.0
 scale = Vector2(2.49, 3.04)
 mouse_filter = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_ew8hv")
-text = "Level"
+text = "Choose a Level"
 horizontal_alignment = 1
 
 [node name="BestTime" type="RichTextLabel" parent="."]
 visible = false
 modulate = Color(1, 1, 0.243137, 1)
-offset_top = 210.0
+offset_top = 64.0
 offset_right = 187.0
-offset_bottom = 250.0
+offset_bottom = 82.0
 scale = Vector2(1.705, 1.72)
 mouse_filter = 2
 theme_override_constants/outline_size = 4
@@ -185,14 +173,14 @@ horizontal_alignment = 1
 [node name="Selected" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.235294)
 position = Vector2(-173, 128)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_b8hd2")
 centered = false
 
 [node name="Back" type="RichTextLabel" parent="."]
-offset_left = 12.0
-offset_top = 19.0
-offset_right = 77.975
-offset_bottom = 43.12
+offset_top = 214.0
+offset_right = 73.0
+offset_bottom = 240.0
 theme_override_colors/default_color = Color(0.381703, 0.381703, 0.381703, 1)
 theme_override_constants/outline_size = 11
 theme_override_fonts/normal_font = ExtResource("9_li2u5")
@@ -200,24 +188,60 @@ theme_override_font_sizes/mono_font_size = 1
 theme_override_font_sizes/normal_font_size = 10
 text = "<-Back"
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("10_hewdn")
 offset_on_cursor = Vector2(-3, 0)
 
+[node name="Dark" type="RichTextLabel" parent="."]
+offset_left = 261.0
+offset_top = 214.0
+offset_right = 321.0
+offset_bottom = 240.0
+theme_override_colors/default_color = Color(0.381703, 0.381703, 0.381703, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/normal_font = ExtResource("9_li2u5")
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 10
+text = "Dark"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_hewdn")
+
+[node name="Skins" type="Button" parent="." groups=["transparent"]]
+offset_left = 116.0
+offset_top = 155.0
+offset_right = 194.0
+offset_bottom = 244.0
+focus_mode = 0
+icon = ExtResource("12_m401l")
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, -3)
+
+[connection signal="clicked" from="LevelIcon" to="." method="_on_level_icon_clicked"]
 [connection signal="mouse_exited" from="LevelIcon" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon" to="." method="_mouse_enters"]
+[connection signal="clicked" from="LevelIcon2" to="." method="_on_level_icon_clicked"]
 [connection signal="mouse_exited" from="LevelIcon2" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon2" to="." method="_mouse_enters"]
+[connection signal="clicked" from="LevelIcon3" to="." method="_on_level_icon_clicked"]
 [connection signal="mouse_exited" from="LevelIcon3" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon3" to="." method="_mouse_enters"]
-[connection signal="mouse_exited" from="LevelIcon6" to="." method="_on_level_icon_mouse_exited"]
-[connection signal="mouse_in" from="LevelIcon6" to="." method="_mouse_enters"]
+[connection signal="clicked" from="LevelIcon4" to="." method="_on_level_icon_clicked"]
+[connection signal="mouse_exited" from="LevelIcon4" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon4" to="." method="_mouse_enters"]
+[connection signal="clicked" from="LevelIcon5" to="." method="_on_level_icon_clicked"]
+[connection signal="mouse_exited" from="LevelIcon5" to="." method="_on_level_icon_mouse_exited"]
 [connection signal="mouse_in" from="LevelIcon5" to="." method="_mouse_enters"]
 [connection signal="gui_input" from="Back" to="Back" method="_on_gui_input"]
 [connection signal="menu_option_clicked" from="Back" to="." method="_on_back_menu_option_clicked"]
 [connection signal="mouse_entered" from="Back" to="Back" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Back" to="Back" method="_on_mouse_exited"]
-
-[editable path="LevelIcon6"]
-[editable path="LevelIcon4"]
-[editable path="LevelIcon5"]
+[connection signal="gui_input" from="Dark" to="Dark" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="Dark" to="." method="_on_dark_menu_option_clicked"]
+[connection signal="mouse_entered" from="Dark" to="Dark" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Dark" to="Dark" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Skins" to="Skins" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Skins" to="Skins" method="_on_mouse_exited"]

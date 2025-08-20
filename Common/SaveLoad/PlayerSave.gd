@@ -6,10 +6,10 @@ var time = 0
 
 @export var flags = {
 	"first_play": true,
-	"levels_unlocked" : [true,false,false,false,false,false],
-	"levels_beaten" : [false,false,false,false,false,false],
-	"level_time": [0,0,0,0,0,0],
-	"best_time": [-1,-1,-1,-1,-1,-1],
+	"levels_unlocked" : [true,false,false,false,false,false,false,false,false,false],
+	"levels_beaten" : [false,false,false,false,false,false,false,false,false,false],
+	"level_time": [0,0,0,0,0,0,0,0,0,0],
+	"best_time": [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
 	"option_show_time": false,
 	"option_skip_tutorials": false,
 	"option_skip_credits": false,

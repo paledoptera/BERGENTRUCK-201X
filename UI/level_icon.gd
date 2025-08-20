@@ -1,18 +1,23 @@
 extends ColorRect
 
 signal mouse_in(icon: ColorRect)
+signal clicked(icon: ColorRect)
 
 @export var value: int = 1
 @export var title: String = "Flowers"
+@export var darkvalue: int = 1
+@export var darktitle: String = "Flowers"
 var unlocked = false
+
+@onready var original_position = position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	modulate = Color(2,2,2,1)
 	$Sprite2D/RichTextLabel.text = str(value)
-	
-	unlocked = true
+	unlocked = true #unlocks EVERY LEVEL ALWAYS ---------------------------------//////////
 	if $Sprite2D.frame == 0:
-		$Sprite2D.frame = value-1
+		$Sprite2D.frame = value
 	
 	if Global.player_save.flags.get("levels_beaten")[value-1]:
 		$Sprite2D/TickMark.visible = true
@@ -25,14 +30,10 @@ func _on_gui_input(event: InputEvent) -> void:
 				if not unlocked:
 					Audio.play_sfx(preload("uid://bigavjv4ovlma")) # bump
 					return
-				Audio.play_sfx(preload("uid://cf8yyq2r0tegw"),1.01) # vroom
-				Global.level = value
-				
-				if Global.player_save.flags["option_skip_tutorials"]:
-					Global.goto_level()
-				else:
-					Global.goto_storyscreen()
+				clicked.emit(self)
 
 
 func _on_mouse_entered() -> void:
-	mouse_in.emit(self)
+	if modulate.a == 1:
+		$Sprite2D.modulate = Color(2,2,2,1)
+		mouse_in.emit(self)

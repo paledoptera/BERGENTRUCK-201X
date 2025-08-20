@@ -5,16 +5,17 @@
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
 [ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Assets/Visuals/tickmark.png" id="4_wkijm"]
 
-[node name="LevelIcon" type="ColorRect"]
+[node name="LevelIcon" type="ColorRect" groups=["level_icon", "transparent"]]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 80.0
-offset_bottom = 80.0
+offset_right = 56.0
+offset_bottom = 56.0
 script = ExtResource("1_mbt8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(40, 40)
+position = Vector2(28, 28)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_61kut")
-hframes = 7
+hframes = 12
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
 offset_left = 18.0

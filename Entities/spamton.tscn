@@ -1,7 +1,7 @@
-[gd_scene load_steps=76 format=3 uid="uid://cqi8chmikm5ok"]
+[gd_scene load_steps=76 format=3 uid="uid://d16klqsm1uqj1"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_7dxir"]
-[ext_resource type="Script" uid="uid://cjkfxh0crkwu0" path="res://Entities/spamton.gd" id="2_c3ebg"]
+[ext_resource type="Script" path="res://Entities/spamton.gd" id="2_c3ebg"]
 [ext_resource type="AudioStream" uid="uid://buleoqyvkkb7x" path="res://Global/SFX/snd_knight_hurtb.wav" id="3_3qhpe"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_c3ebg"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_3qhpe"]
@@ -26,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://bg7ham6vgii6k" path="res://Global/SFX/snd_knight_teleport.wav" id="22_okpmr"]
 [ext_resource type="PackedScene" uid="uid://dmk1aphpb3k4" path="res://Entities/spamton_nose.tscn" id="23_avd3n"]
 [ext_resource type="AudioStream" uid="uid://b5yoqw0u24sa6" path="res://Global/SFX/snd_parry_fast_nodelay.wav" id="23_y7kwa"]
-[ext_resource type="PackedScene" uid="uid://b6b887byujpfv" path="res://Entities/spamton_mailwall.tscn" id="24_6a2wm"]
+[ext_resource type="PackedScene" uid="uid://dkesdx6nluqm6" path="res://Entities/spamton_mailwall.tscn" id="24_6a2wm"]
 [ext_resource type="AudioStream" uid="uid://i3ut37tqqcg5" path="res://Global/SFX/snd_scytheburst.wav" id="25_2wa6i"]
 [ext_resource type="PackedScene" uid="uid://d2xiab3w6t8uf" path="res://Entities/spamton_heart.tscn" id="25_y7kwa"]
 [ext_resource type="AudioStream" uid="uid://bfuq6gcn1x478" path="res://Global/SFX/snd_knight_stretch.wav" id="26_2wa6i"]

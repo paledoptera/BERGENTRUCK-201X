@@ -8,7 +8,7 @@ func _ready() -> void:
 		score_amount = 0
 
 func use() -> void:
-	if Global.level == 3 or Global.level == 6:
+	if Global.level == 3 or Global.level == 9:
 		player.hp = min(player.hp+10,100)
 		queue_free()
 	else:

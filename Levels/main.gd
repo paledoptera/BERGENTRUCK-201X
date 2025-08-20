@@ -25,10 +25,10 @@ func _title_screen_enter() -> void:
 
 
 func _level_select_enter() -> void:
-	if Global.get_flag("levels_beaten")[2]:
-		_change_program("uid://chf1v1go0vts5") # level_select_bonus.tscn
-	else:
-		_change_program("uid://bsyjain0shc50") # level_select.tscn
+	#if Global.get_flag("levels_beaten")[2]:
+	_change_program("uid://chf1v1go0vts5") # level_select_bonus.tscn
+	#else:
+	#	_change_program("uid://bsyjain0shc50") # level_select.tscn
 	Audio.play_music(preload("uid://cc7we7oj6hn6t"),false,false)
 
 

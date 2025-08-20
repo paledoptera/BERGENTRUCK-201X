@@ -2,6 +2,7 @@ extends Node
 
 var dark = false
 var big = false
+var closet = false
 var current_icon = null
 
 # Called when the node enters the scene tree for the first time.
@@ -57,9 +58,9 @@ func _on_level_icon_mouse_exited() -> void:
 
 
 func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
-	if big == false:
+	if big == false and closet == false:
 		Global.goto_title()
-	else:
+	if big == true:
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != current_icon:
 				node.mouse_filter = 0
@@ -78,7 +79,20 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		await tweens[1].tween_property(current_icon,"scale",Vector2(1,1),.5).finished
 		current_icon.mouse_filter = 0
 		current_icon = null
-
+	elif closet == true:
+		$SkinSelector.hide()
+		for node in get_tree().get_nodes_in_group("transparent"):
+			if node != $Skins:
+				node.mouse_filter = 0
+				var alpha = create_tween()
+				alpha.tween_property(node,"modulate:a",1,.5)
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
+		$Dark.show()
+		tweens[1].tween_property($Skins,"scale",Vector2(1,1),.5)
+		tweens[2].tween_property($Skins,"modulate",Color(1,1,1,1),.3)
+		closet = false
+		await tweens[0].tween_property($Skins,"position:y",155,.5).finished
+		$Skins.mouse_filter = 0
 
 
 func _on_level_icon_clicked(icon):
@@ -141,3 +155,24 @@ func _on_dark_menu_option_clicked(option):
 		$black.show()
 		await get_tree().create_timer(.1).timeout
 		$black.hide()
+
+
+func _on_skins_menu_option_clicked(option):
+	if closet == false:
+		$Skins.mouse_filter = 2
+		for node in get_tree().get_nodes_in_group("transparent"):
+			if node != $Skins:
+				node.mouse_filter = 2
+				var alpha = create_tween()
+				alpha.tween_property(node,"modulate:a",0,.2)
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
+		$BestTime.hide()
+		$Dark.hide()
+		$Selected.position = Vector2(99999,99999)
+		tweens[1].tween_property($Skins,"scale",Vector2(6,6),.5)
+		tweens[0].tween_property($Skins,"position:y",75,.5)
+		closet = true
+		$SkinSelector.modulate.a = 0
+		await tweens[2].tween_property($Skins,"modulate",Color(0,0,0,1),.3).finished
+		$SkinSelector.show()
+		create_tween().tween_property($SkinSelector,"modulate:a",1,.5).set_trans(Tween.TRANS_SINE)

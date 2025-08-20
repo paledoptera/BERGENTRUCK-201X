@@ -21,11 +21,14 @@ func _mouse_enters(icon: ColorRect) -> void:
 		$Selected.global_position = icon.global_position
 		$Selected.scale = icon.scale - (icon.scale/10)*3
 		Audio.play_sfx(preload("uid://bwrewdkj3pqlf"))
+	var levelnum = str(icon.value)
 	if dark:
-		$LVNumber.text = str("-Level ", icon.value, " DARK-")
+		if icon.dark_number_overide != "":
+			levelnum = icon.dark_number_overide
 	else:
-		$LVNumber.text = str("-Level ", icon.value, "-")
-	
+		if icon.number_overide != "":
+			levelnum = icon.number_overide
+	$LVNumber.text = str("-Level ", levelnum, "-")
 	if icon is Bonus:
 		$LVNumber.text = str("-Level ", icon.special_val, "-")
 		$LVTitle.text = icon.title
@@ -118,7 +121,21 @@ func _on_dark_menu_option_clicked(option):
 	dark = not dark
 	for icon in get_tree().get_nodes_in_group("level_icon"):
 		var sprite = icon.get_node("Sprite2D")
+		var number_text = icon.get_node("Sprite2D/RichTextLabel")
 		if dark:
+			$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_dark_bkg.png")
 			sprite.frame = icon.darkvalue
+			number_text.text = icon.dark_number_overide
+			if big:
+				$LVTitle.text = current_icon.darktitle
 		else:
+			$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_bkg.png")
 			sprite.frame = icon.value
+			number_text.text = str(icon.value)
+			if icon.number_overide != "":
+				number_text.text = icon.number_overide
+			if big:
+				$LVTitle.text = current_icon.title
+		$black.show()
+		await get_tree().create_timer(.1).timeout
+		$black.hide()

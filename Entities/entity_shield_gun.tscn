@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbrtj7fju1s61"]
+[gd_scene load_steps=9 format=3 uid="uid://bxdf0t3rf0pnj"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_x71b0"]
-[ext_resource type="Script" uid="uid://511fd8abkl7s" path="res://Entities/entity_bush_gun.gd" id="2_khrvq"]
+[ext_resource type="Script" path="res://Entities/entity_bush_gun.gd" id="2_khrvq"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_43lgf"]
-[ext_resource type="PackedScene" uid="uid://bw4fyx84t4tgx" path="res://Items/item_gun.tscn" id="4_gbimh"]
+[ext_resource type="PackedScene" path="res://Items/item_gun.tscn" id="4_gbimh"]
 [ext_resource type="Texture2D" uid="uid://du13ryhly8sl6" path="res://Entities/Assets/Visuals/gunbush.png" id="5_kagxs"]
 [ext_resource type="AudioStream" uid="uid://dehfocd64thhc" path="res://Global/SFX/snd_bomb.wav" id="5_khrvq"]
 

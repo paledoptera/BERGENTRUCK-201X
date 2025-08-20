@@ -3,6 +3,8 @@ extends ColorRect
 signal mouse_in(icon: ColorRect)
 signal clicked(icon: ColorRect)
 
+@export var number_overide: String = ""
+@export var dark_number_overide: String = ""
 @export var value: int = 1
 @export var title: String = "Flowers"
 @export var darkvalue: int = 1
@@ -15,6 +17,8 @@ var unlocked = false
 func _ready() -> void:
 	modulate = Color(2,2,2,1)
 	$Sprite2D/RichTextLabel.text = str(value)
+	if number_overide != "":
+		$Sprite2D/RichTextLabel.text = number_overide
 	unlocked = true #unlocks EVERY LEVEL ALWAYS ---------------------------------//////////
 	if $Sprite2D.frame == 0:
 		$Sprite2D.frame = value

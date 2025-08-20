@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0eo28s0bkvk"]
+[gd_scene load_steps=9 format=3 uid="uid://butoedeih22pw"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_jl6cv"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_6fn5a"]

@@ -50,44 +50,55 @@ offset_left = 11.0
 offset_top = 91.0
 offset_right = 67.0
 offset_bottom = 147.0
+dark_number_overide = "A"
 darkvalue = 6
+darktitle = "Thorns"
 
 [node name="LevelIcon2" parent="." instance=ExtResource("5_im7r1")]
 offset_left = 71.0
 offset_top = 91.0
 offset_right = 127.0
 offset_bottom = 147.0
+dark_number_overide = "B"
 value = 2
 title = "Fast Food"
-darkvalue = 7
+darkvalue = 9
+darktitle = "BIG SHOT"
 
 [node name="LevelIcon3" parent="." instance=ExtResource("5_im7r1")]
 offset_left = 131.0
 offset_top = 91.0
 offset_right = 187.0
 offset_bottom = 147.0
+dark_number_overide = "C"
 value = 3
 title = "Knight Fight"
-darkvalue = 8
+darkvalue = 7
+darktitle = "Frozen Food"
 
 [node name="LevelIcon4" parent="." instance=ExtResource("5_im7r1")]
 offset_left = 191.0
 offset_top = 91.0
 offset_right = 247.0
 offset_bottom = 147.0
+number_overide = "Q"
+dark_number_overide = "D"
 value = 4
-title = "Q5U4EX7YY2E9N"
-darkvalue = 9
-darktitle = "BIG SHOT"
+title = "Punchout City"
+darkvalue = 8
+darktitle = "Dog Chase"
 
 [node name="LevelIcon5" parent="." instance=ExtResource("5_im7r1")]
 offset_left = 251.0
 offset_top = 91.0
 offset_right = 307.0
 offset_bottom = 147.0
+number_overide = "D"
+dark_number_overide = "E"
 value = 5
-title = "D O G"
+title = "Dog Chase"
 darkvalue = 10
+darktitle = "Light Fight"
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -219,6 +230,12 @@ icon = ExtResource("12_m401l")
 flat = true
 script = ExtResource("13_u6vxe")
 offset_on_cursor = Vector2(0, -3)
+
+[node name="black" type="ColorRect" parent="."]
+visible = false
+offset_right = 319.0
+offset_bottom = 241.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="clicked" from="LevelIcon" to="." method="_on_level_icon_clicked"]
 [connection signal="mouse_exited" from="LevelIcon" to="." method="_on_level_icon_mouse_exited"]

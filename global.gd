@@ -157,13 +157,13 @@ func goto_level(value : int = level) -> void:
 		3:
 			lv = "uid://bc8vcjm8kaofg" # level3.tscn
 		#4: Queen
-		#5: Dog Light
+		#5: Dog Chase
 		#6: Flower Gather Hard
 		#7: Fast Food Hard
-		#8: Titan
+		#8: Dog Chase (Hard)
 		9:
 			lv = "res://Levels/levelSPAM.tscn"
-		#10: Dog Dark (Hard)
+		#10: Light Fight (Titan)
 	game.level_path = lv
 	return game.game_state.send_event("Start")
 

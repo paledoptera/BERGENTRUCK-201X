@@ -15,7 +15,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 texture = ExtResource("2_n245v")
 centered = false
-hframes = 6
+hframes = 10
 
 [node name="Play" type="TextureRect" parent="."]
 offset_left = -21.0

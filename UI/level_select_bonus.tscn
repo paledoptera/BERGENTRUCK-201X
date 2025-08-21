@@ -387,66 +387,81 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Character" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Dog" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 10
 locked = false
+description = "That small dog took off with my car :("
 
-[node name="Character2" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Etc" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 11
 locked = false
+description = "LMAO I DIDN't Mean To put this in the game..
+Maybe replace this with Rouxls
+or make an ect. drive a car"
 
 [node name="Asgore" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 locked = false
 
-[node name="Character4" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Toriel" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 1
 locked = false
 description = "The toriale no wait... the turtoiral. toriael.. how is it spelled?  toriel TORIEL I got it okay."
 
-[node name="Character5" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Spamton" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 2
 locked = false
+description = "THIS [#1 RATED SALESMAN] IS GOING TO GET [Personal Injury Lawsuit] IN YOUR [Motorized Vehicle] "
 
-[node name="Character6" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Frog" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 3
 locked = false
+description = "The third frog"
 
-[node name="Character7" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="VineSauce" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 4
 locked = false
+description = "Vinny VineSauce
+"
 
-[node name="Character8" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Merg" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 5
 locked = false
+description = "Oversized cherry? idk what that thing is.
+although its shades are cool"
 
-[node name="Character9" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Knight" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 6
 locked = false
+description = "THE ROARING KNIGHT"
 
-[node name="Character10" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Kris" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 7
 locked = false
+description = "..."
 
-[node name="Character11" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Friend" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 8
 locked = false
+description = "What if it became even darker?"
 
-[node name="Character12" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+[node name="Envirobear" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 9
 locked = false
+description = "This isn't Enviro-Bear's first time driving.
+"
 
 [node name="Gradient" type="TextureRect" parent="."]
 visible = false

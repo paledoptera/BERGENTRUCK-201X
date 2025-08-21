@@ -15,16 +15,24 @@ var unlocked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	modulate = Color(2,2,2,1)
-	$Sprite2D/RichTextLabel.text = str(value)
-	if number_overide != "":
-		$Sprite2D/RichTextLabel.text = number_overide
+	update_visual(false)
 	unlocked = true #unlocks EVERY LEVEL ALWAYS ---------------------------------//////////
-	if $Sprite2D.frame == 0:
-		$Sprite2D.frame = value
-	
-	if Global.player_save.flags.get("levels_beaten")[value-1]:
+
+func update_visual(dark:bool):
+	$Sprite2D/RichTextLabel.text = str(value)
+	var usedvalue = value
+	if dark: #choose value
+		usedvalue = darkvalue
+		$Sprite2D/RichTextLabel.text = dark_number_overide
+	else:
+		if number_overide != "":
+			$Sprite2D/RichTextLabel.text = number_overide
+	$Sprite2D.frame = usedvalue #level icon
+	if Global.player_save.flags.get("levels_beaten")[usedvalue-1]: #update checkmark
 		$Sprite2D/TickMark.visible = true
+	else:
+		$Sprite2D/TickMark.visible = false
+
 
 
 func _on_gui_input(event: InputEvent) -> void:

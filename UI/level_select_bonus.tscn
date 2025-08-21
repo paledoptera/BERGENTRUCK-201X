@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=23 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -10,10 +10,33 @@
 [ext_resource type="Texture2D" uid="uid://cajwodgk1syf3" path="res://UI/Assets/Visuals/selected_level.png" id="8_b8hd2"]
 [ext_resource type="Script" uid="uid://cr65xp1d3qbhu" path="res://UI/modifiers.gd" id="8_im7r1"]
 [ext_resource type="Script" uid="uid://c8lwf1kx7gubm" path="res://UI/modbutton.gd" id="8_u6vxe"]
+[ext_resource type="Texture2D" uid="uid://bj35835x7v2bi" path="res://UI/Assets/Visuals/modifier_button.png" id="9_ew8hv"]
 [ext_resource type="FontFile" uid="uid://sqawmdirs2pg" path="res://Global/Fonts/HUD.ttf" id="9_li2u5"]
 [ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="10_hewdn"]
 [ext_resource type="Texture2D" uid="uid://lqjqgdnqxcj7" path="res://UI/Assets/Visuals/Closet.png" id="12_m401l"]
 [ext_resource type="Script" uid="uid://bcqytjtjqlgjo" path="res://UI/skins.gd" id="13_u6vxe"]
+[ext_resource type="Script" uid="uid://cgysghcfgt64k" path="res://UI/skin_selector.gd" id="16_b8hd2"]
+[ext_resource type="PackedScene" uid="uid://dvu2jwykeb5yj" path="res://UI/character_icon.tscn" id="17_li2u5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8ko8"]
+texture = ExtResource("9_ew8hv")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew8hv"]
+
+[sub_resource type="Theme" id="Theme_l8ko8"]
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ew8hv")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ew8hv")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_ew8hv")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_ew8hv")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ew8hv")
+
+[sub_resource type="Gradient" id="Gradient_b8hd2"]
+offsets = PackedFloat32Array(0.124601, 0.218462, 0.778462, 0.86901)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_li2u5"]
+gradient = SubResource("Gradient_b8hd2")
+width = 106
 
 [node name="LevelSelect" type="Node"]
 script = ExtResource("1_hr6m7")
@@ -209,6 +232,13 @@ custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 4
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
 script = ExtResource("8_u6vxe")
 
@@ -217,6 +247,13 @@ custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 4
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
 script = ExtResource("8_u6vxe")
 
@@ -225,6 +262,13 @@ custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 4
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
 script = ExtResource("8_u6vxe")
 
@@ -270,6 +314,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("16_b8hd2")
 
 [node name="Select" type="RichTextLabel" parent="SkinSelector"]
 layout_mode = 0
@@ -293,6 +338,126 @@ mouse_filter = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("7_l8ko8")
 text = "A skilled driver with a fatal flaw... the inability to notice deer-shaped roadbumps until it's too late."
+
+[node name="Left" type="Button" parent="SkinSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = 30.0
+offset_right = 31.0
+offset_bottom = 80.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+text = "<"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="Right" type="Button" parent="SkinSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 294.0
+offset_top = 30.0
+offset_right = 319.0
+offset_bottom = 80.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+text = ">"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SkinSelector"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 30.0
+offset_right = 293.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme = SubResource("Theme_l8ko8")
+scroll_horizontal_custom_step = 0.0
+scroll_vertical_custom_step = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkinSelector/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Character" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 10
+locked = false
+
+[node name="Character2" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 11
+locked = false
+
+[node name="Asgore" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+locked = false
+
+[node name="Character4" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 1
+locked = false
+description = "The toriale no wait... the turtoiral. toriael.. how is it spelled?  toriel TORIEL I got it okay."
+
+[node name="Character5" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 2
+locked = false
+
+[node name="Character6" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 3
+locked = false
+
+[node name="Character7" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 4
+locked = false
+
+[node name="Character8" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 5
+locked = false
+
+[node name="Character9" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 6
+locked = false
+
+[node name="Character10" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 7
+locked = false
+
+[node name="Character11" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 8
+locked = false
+
+[node name="Character12" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 9
+locked = false
+
+[node name="Gradient" type="TextureRect" parent="."]
+visible = false
+z_index = 1
+offset_left = 1.0
+offset_top = 29.0
+offset_right = 304.0
+offset_bottom = 81.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_li2u5")
+expand_mode = 1
 
 [node name="Back" type="RichTextLabel" parent="."]
 offset_top = 214.0
@@ -338,6 +503,8 @@ color = Color(0, 0, 0, 1)
 [connection signal="menu_option_clicked" from="Skins" to="." method="_on_skins_menu_option_clicked"]
 [connection signal="mouse_entered" from="Skins" to="Skins" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Skins" to="Skins" method="_on_mouse_exited"]
+[connection signal="pressed" from="SkinSelector/Left" to="SkinSelector" method="_on_left_pressed"]
+[connection signal="pressed" from="SkinSelector/Right" to="SkinSelector" method="_on_right_pressed"]
 [connection signal="gui_input" from="Back" to="Back" method="_on_gui_input"]
 [connection signal="menu_option_clicked" from="Back" to="." method="_on_back_menu_option_clicked"]
 [connection signal="mouse_entered" from="Back" to="Back" method="_on_mouse_entered"]

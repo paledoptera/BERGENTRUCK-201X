@@ -35,10 +35,15 @@ func _mouse_enters(icon: ColorRect) -> void:
 		$LVTitle.text = icon.title
 		return
 	
+	updatetitle(icon)
+
+func updatetitle(icon: ColorRect):
+	$BestTime.visible = false
 	if icon.unlocked:
 		var best_time = Global.player_save.flags["best_time"][icon.value-1]
 		if dark:
 			$LVTitle.text = icon.darktitle
+			best_time = Global.player_save.flags["best_time"][icon.darkvalue-1]
 			#best_time = Global.player_save.flags["best_time"][icon.darkvalue-1]
 		else:
 			$LVTitle.text = icon.title
@@ -48,7 +53,6 @@ func _mouse_enters(icon: ColorRect) -> void:
 			$BestTime.text = "Best Time: " + Global.get_time(best_time)
 	else:
 		$LVTitle.text = "???"
-
 
 func _on_level_icon_mouse_exited() -> void:
 	if big == false:
@@ -61,6 +65,8 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 	if big == false and closet == false:
 		Global.goto_title()
 	if big == true:
+		$Back.hide()
+		big = false
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != current_icon:
 				node.mouse_filter = 0
@@ -75,10 +81,10 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		tweens[0].tween_property(current_icon,"position",current_icon.original_position,.5)
 		tweens[2].tween_property($BestTime,"position",Vector2(0,64),.3)
 		tweens[3].tween_property($Modifiers,"position:y",240,.3)
-		big = false
 		await tweens[1].tween_property(current_icon,"scale",Vector2(1,1),.5).finished
 		current_icon.mouse_filter = 0
 		current_icon = null
+		$Back.show()
 	elif closet == true:
 		$SkinSelector.hide()
 		for node in get_tree().get_nodes_in_group("transparent"):
@@ -88,6 +94,7 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 				alpha.tween_property(node,"modulate:a",1,.5)
 		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
 		$Dark.show()
+		$Gradient.hide()
 		tweens[1].tween_property($Skins,"scale",Vector2(1,1),.5)
 		tweens[2].tween_property($Skins,"modulate",Color(1,1,1,1),.3)
 		closet = false
@@ -99,6 +106,7 @@ func _on_level_icon_clicked(icon):
 	if current_icon != null and icon != current_icon:
 		return
 	if big == false:
+		big = true
 		if icon.scale != Vector2(1,1):
 			return
 		current_icon = icon
@@ -114,7 +122,6 @@ func _on_level_icon_clicked(icon):
 		tweens[0].tween_property(icon,"position",Vector2(100,44),.5)
 		tweens[2].tween_property($BestTime,"position",Vector2(0,144),.3)
 		tweens[3].tween_property($Modifiers,"position:y",170,.3)
-		big = true
 		await tweens[1].tween_property(icon,"scale",Vector2(2,2),.5).finished
 		current_icon.mouse_filter = 0
 	else:
@@ -136,25 +143,16 @@ func _on_dark_menu_option_clicked(option):
 	$LVNumber.text = ""
 	dark = not dark
 	for icon in get_tree().get_nodes_in_group("level_icon"):
-		var sprite = icon.get_node("Sprite2D")
-		var number_text = icon.get_node("Sprite2D/RichTextLabel")
-		if dark:
-			$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_dark_bkg.png")
-			sprite.frame = icon.darkvalue
-			number_text.text = icon.dark_number_overide
-			if big:
-				$LVTitle.text = current_icon.darktitle
-		else:
-			$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_bkg.png")
-			sprite.frame = icon.value
-			number_text.text = str(icon.value)
-			if icon.number_overide != "":
-				number_text.text = icon.number_overide
-			if big:
-				$LVTitle.text = current_icon.title
-		$black.show()
-		await get_tree().create_timer(.1).timeout
-		$black.hide()
+		icon.update_visual(dark) #update icons
+	if big:
+		updatetitle(current_icon)
+	if dark:
+		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_dark_bkg.png")
+	else:
+		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_bkg.png")
+	$black.show()
+	await get_tree().create_timer(.4).timeout
+	$black.hide()
 
 
 func _on_skins_menu_option_clicked(option):
@@ -168,11 +166,14 @@ func _on_skins_menu_option_clicked(option):
 		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
 		$BestTime.hide()
 		$Dark.hide()
+		$Back.hide()
 		$Selected.position = Vector2(99999,99999)
 		tweens[1].tween_property($Skins,"scale",Vector2(6,6),.5)
 		tweens[0].tween_property($Skins,"position:y",75,.5)
 		closet = true
 		$SkinSelector.modulate.a = 0
 		await tweens[2].tween_property($Skins,"modulate",Color(0,0,0,1),.3).finished
+		$Gradient.show()
 		$SkinSelector.show()
 		create_tween().tween_property($SkinSelector,"modulate:a",1,.5).set_trans(Tween.TRANS_SINE)
+		$Back.show()

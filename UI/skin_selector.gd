@@ -40,4 +40,7 @@ func update_selected():
 	for node in characters:
 		node.modulate = Color(1,1,1,1)
 	current_character.modulate = Color(5,5,0,1)
+	$Name.text = current_character.name
 	$Bio.text = current_character.description
+	$Name.scale = Vector2(1,1)
+	create_tween().tween_property($Name,"scale",Vector2(1.1,1.11),.2).set_trans(Tween.TRANS_BOUNCE)

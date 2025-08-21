@@ -327,13 +327,29 @@ theme_override_fonts/normal_font = ExtResource("7_l8ko8")
 text = "SELECT YOUR GUY"
 horizontal_alignment = 1
 
+[node name="Name" type="RichTextLabel" parent="SkinSelector"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 80.0
+offset_right = 306.0
+offset_bottom = 98.0
+scale = Vector2(1.1, 1.11)
+pivot_offset = Vector2(145, 0)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "Asgore"
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="Bio" type="RichTextLabel" parent="SkinSelector"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 81.0
+offset_top = 107.0
 offset_right = 149.0
-offset_bottom = 179.0
+offset_bottom = 205.0
 scale = Vector2(1.1, 1.11)
+pivot_offset = Vector2(0, 50)
 mouse_filter = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("7_l8ko8")

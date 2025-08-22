@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b0obvicgtatpa"]
+[gd_scene load_steps=31 format=4 uid="uid://b0obvicgtatpa"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_s615m"]
 [ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_4i652"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="4_4su86"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="5_kbos6"]
 [ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="6_djtrw"]
+[ext_resource type="PackedScene" uid="uid://pgoef8rvc4p3" path="res://Levels/Assets/Visuals/spring.blend" id="7_4i652"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="7_degev"]
 [ext_resource type="PackedScene" uid="uid://c5out100kqebr" path="res://Entities/queen.tscn" id="8_o3nq2"]
 [ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="8_s615m"]
@@ -31,6 +32,21 @@ resource_name = "springyplayer"
 script/source = "extends \"res://Levels/player.gd\"
 
 var current_hand = true
+@onready var arm_l_pos = $Camera3D/ArmL.position
+@onready var arm_r_pos = $Camera3D/ArmR.position
+var hand_jiggle_siner: float = 0
+
+func _physics_process(delta: float) -> void:
+	super(delta)
+	hand_jiggle_siner += delta
+	
+	$Camera3D/ArmL.rotation.y = (car_angle.x/3)
+	$Camera3D/ArmL.rotation.z = (car_angle.x/2)
+	$Camera3D/ArmL.position = $Camera3D/ArmL.position.lerp(arm_l_pos+Vector3((car_angle.x*1.5)+Utility.get_sine(hand_jiggle_siner,0.2,3.5),(car_angle.x/2)+Utility.get_sine(hand_jiggle_siner,0.2,7.0),abs(car_angle.x)/5),0.2)
+	
+	$Camera3D/ArmR.rotation.y = (car_angle.x/3)
+	$Camera3D/ArmR.rotation.z = (car_angle.x/2)
+	$Camera3D/ArmR.position = $Camera3D/ArmR.position.lerp(arm_r_pos+Vector3((car_angle.x*1.5)+Utility.get_sine(hand_jiggle_siner,0.2,3.5),(-car_angle.x/2)+Utility.get_sine(hand_jiggle_siner,0.2,7.0),abs(car_angle.x)/5),0.2)
 
 func _horn(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -40,14 +56,20 @@ func _horn(event: InputEvent) -> void:
 					
 				horn = true
 				$CarHonk.play()
-				
-				if $Camera3D.position.y == 8.0:
-					car_velocity.y = 1
+				if current_hand and not $ArmAnimationR.is_playing():
+					$ArmAnimationR.play(\"punch\")
+				elif not current_hand and not $ArmAnimationL.is_playing():
+					$ArmAnimationL.play(\"punch\")
+				else:
+					return
+				current_hand = not current_hand
+				#if $Camera3D.position.y == 8.0:
+					#car_velocity.y = 1
 			elif not event.pressed:
 				horn = false
 				$CarHonk.stop()
-				if car_velocity.y > 0:
-					car_velocity.y *= 0.4
+				#if car_velocity.y > 0:
+					#car_velocity.y *= 0.4
 "
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
@@ -65,8 +87,72 @@ uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lek7"]
+no_depth_test = true
+shading_mode = 0
+disable_receive_shadows = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s615m"]
+no_depth_test = true
+specular_mode = 2
 albedo_color = Color(1, 0, 0.560784, 1)
+metallic = 0.4
+roughness = 0.4
+emission_enabled = true
+emission = Color(0.161236, 2.05037e-05, 0.635841, 1)
+emission_energy_multiplier = 0.85
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na7cc"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uwv0f"]
+_surfaces = [{
+"aabb": AABB(-0.913329, -1.01523, -1.0152, 1.58653, 2.40111, 2.54571),
+"format": 34359742465,
+"index_count": 228,
+"index_data": PackedByteArray("BgAEABIABgACAAQAEwAEAAIAFAACAAYAFAATAAIAEwAIAAQACAASAAQAFQATABQACQAIABMAFQAJABMABwAUAAYAFgAVABQAFgAUAAcAFwAGABIABwAGABcACAAKABIAFwASABgACgAYABIACwAKAAgACQALAAgACgAZABgAGgAHABcAAAAXABgAGgAXAAAAAAAYABsAGQAbABgAHAAAABsAGQAcABsAHAAaAAAAHQAZAAoACwAdAAoADQAcABkAHQANABkADAAaABwADQAMABwAHgAHABoADAAeABoAHgAWAAcAAQAWAB4ADgAeAAwADgABAB4AAQAfABYADgAfAAEAHwAVABYAIAAOAAwADgAgAB8AIAAMAA0AHwAhABUAIAAhAB8AIQAJABUAIgAgAA0AIAAiACEAIgANAB0AIQAPAAkAIgAPACEADwAjAAkAEAAiAB0AIgAQAA8ACQAjABEADwADACMAAwARACMAEAADAA8ACQARAAsAEAAdAAsAAwAkABEAEAAkAAMAJAAlABEACwAmABAAEAAFACQAJAAFACUAEAAmAAUAEQAlACcAEQAnAAsAJwAlAAUACwAnACYAJwAFACYA"),
+"lods": [0.682, PackedByteArray("BgACAAQABgAEAAAABwACAAYAAAAHAAYAAgAIAAQABwAJAAIACQAIAAIACAAKAAQACgAAAAQACwAKAAgACQALAAgACgAMAAAAAQAHAAAADQAMAAoACwANAAoADgAAAAwADgABAAAADgAMAA0AAQAPAAcADgAPAAEADwAJAAcAEAAOAA0ADgAQAA8AEAANAAsACQARAAsACwAFABAAEQAFAAsAEAADAA8ADwADAAkAEAAFAAMAAwARAAkAAwAFABEA"), 0.799626, PackedByteArray("AAABAAIAAQADAAIAAgAEAAAAAwAEAAIAAQAAAAUAAQAFAAMABQAAAAQAAwAFAAQA")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("mApXPjW/hD8B8oG/gFEiP5PMXL+DXE+/mApXPjW/hD/9G3w/qNQ9PVsxOb+uC6k/jxxLv5dsZD9wDoA/Pi9dv+rBFb6w54k/EOyoPqRksT+l4qI+L1csP4jxNj+qqqq+3Lwjv7Lv0T6G1F0/5VYKPyqh3r15g4s/L1csv4jxNj+qqqo+Bk8gv2JnwD7bJkY/gvIovx4Iw70c33+/5KVHv3yQhT3haKq+s58GvxoMf7+3Q1+/1TEWP8ztdL/ufTw/qHcZv2IcX78b6BE/rhoTv+jyrT5Bkps/8c9pv7vbnj9s5Ko+Wf0LP9or5D68wYU/L1csP4jxNj+qqqo+L1csP5DBpD2qqqo+L1csP5DBpD2qqqq+EOyoPqRksT+vcrK+8c9pv7vbnj/ocKq+iv45v3f+ND/Giaq+zaMNPx6F6z4AAIC/jxxLv5dsZD8f43+/KEsbv/ye5z6O73+/L1csv5DBpD2qqqo+zaMNPwrXo70AAIC/L1csPwAAgL+qqqq+5KVHvxHzgb/haKq+L1csPwAAgL+qqqo+L1csvwAAgL+qqqo+MI+aPNx+Yb7a58M/Uusbv3XfPr/j3qQ/0kJfv8Qjiz501ZE/MfFmv+1eOb7HvC8/t2NWv+CQoj71qEk/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4i652"]
+resource_name = "boxing glove_Cube"
+_surfaces = [{
+"aabb": AABB(-0.913329, -1.01523, -1.0152, 1.58653, 2.40111, 2.54571),
+"attribute_data": PackedByteArray("AAAgPwAAAD8AAMA+AAAAPwAAID8AAIA+AABgPwAAgD4AAMA+AACAPwAAID8AAIA/AADAPgAAgD4AAAA+AACAPgAAID8AAAAAAADAPgAAAAAAACA/rKqqPlK4Dj9YVdU+UrgOPwAAAABI4fo+AACAPkjh+j4AAAAASOH6PgAAAAAAAMA+AACAPhDNKz4AAAA/AAAAPgAAgD4AAMA+vAw1P0jh+j4AAEA/SOH6PlZVVT8AAMA+AACAP1K4Dj+rqmo/UrgOPwAAgD9I4fo+AACAPwAAYD+sqqo+AAAgP1ZV1T4AAGA/VlXVPlK4Dj+sqqo+AABgPwAAAD9SuA4/AAAAP1K4Dj8AAEA/AAAgPwAAQD9I4fo+AAAAP1K4Dj9WVVU/AAAgP1VVVT8AAMA+VlVVPwAAwD6rqmo/AAAgP6uqaj9I4fo+q6pqPwAAwD4AAIA/SOH6PgAAgD9I4fo+AACAPwAAwD5WVdU+AAAAPlZV1T5I4fo+WFXVPkjh+j6sqqo+AADAPqyqqj4AAAA+rKqqPlK4Dj8AAIA+SOH6PgAAAABI4fo+AACAPkjh+j4AAAAAAADAPgAAAAAAAAA+AACAPgAAAD4AAIA+"),
+"format": 34359742487,
+"index_count": 228,
+"index_data": PackedByteArray("CgADABoACgACAAMAGwAKABoAGwAaABwAHQACAAoAAAAbABwAAAAcAB4ACwAKABsACwAdAAoAHwAbAAAAHwALABsAIAAfAAAAIAAAACEAIgALAB8AIwAgACEAIwAhACQAFAAfACAAFAAiAB8AFQAgACMAFQAUACAAFwAjACQAJQAUABUAJQATABQAEwAiABQAJgAlABUAEwABACIAFwAkACcAKAAVACMAJgAVACgAKAAjABcAFgAmACgAGAAXACcAGAAnAAUAGQAXABgAGQAoABcAFgAoABkAGQApABYAGQAqACkAKgAEACkAKgArAAQAEQAsAAEAEQAtACwAAQAsAC4AAQAuACIAIgAuAAsALgAdAAsALAAvAC4ALgAvAB0ALQAwACwALAAwAC8ALQAxADAALwAyAB0AHQAyAAIAMgAIAAIAMgAMAAgALwANADIADQAMADIAMAANAC8ADQAOAAwAMQAQADAAMAAQAA0AMQASABAADQAPAA4ADwAzAA4AEAA0AA0ADQA0AA8ADwA1ADMAEAAGADQABgAPADQAEgAGABAANgA1AA8ABgA2AA8ANgAJADUAEgA3AAYAEgAHADcAEgA4AAcA"),
+"lods": [0.682, PackedByteArray("CgACAAMACgADAAAACwACAAoAAAALAAoAAgAMAAgADQAMAAIACwANAAIADQAOAAwADQAPAA4ADwAJAA4ABgAJAA8ABgAPAA0AEAANAAsAEAAGAA0AAQAQAAsAAQALAAAAEQAQAAEAEQASABAAEgAGABAAEgAHAAYAEwABAAAAEwAAABQAEwAUABUAFgATABUAFwAUAAAAFQAUABcAFwAAAAUAGAAXAAUAGQAXABgAGQAVABcAFgAVABkAGQAEABYA"), 0.799626, PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAUAAQAGAAIAAQAHAAYABgAIAAIABgAJAAgA")],
+"material": SubResource("StandardMaterial3D_na7cc"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 57,
+"vertex_data": PackedByteArray("mApXPjW/hD8B8oG/gFEiP5PMXL+DXE+/mApXPjW/hD/9G3w/jxxLv5dsZD9wDoA/Pi9dv+rBFb6w54k/jxxLv5dsZD9wDoA/qNQ9PVsxOb+uC6k/Pi9dv+rBFb6w54k/jxxLv5dsZD9wDoA/Pi9dv+rBFb6w54k/EOyoPqRksT+l4qI+L1csP4jxNj+qqqq+3Lwjv7Lv0T6G1F0/5VYKPyqh3r15g4s/Bk8gv2JnwD7bJkY/rhoTv+jyrT5Bkps/1TEWP8ztdL/ufTw/s58GvxoMf7+3Q1+/qHcZv2IcX78b6BE/s58GvxoMf7+3Q1+/gvIovx4Iw70c33+/5KVHv3yQhT3haKq+qHcZv2IcX78b6BE/L1csv4jxNj+qqqo+3Lwjv7Lv0T6G1F0/Bk8gv2JnwD7bJkY/8c9pv7vbnj9s5Ko+EOyoPqRksT+vcrK+8c9pv7vbnj/ocKq+L1csP4jxNj+qqqo+jxxLv5dsZD8f43+/zaMNPx6F6z4AAIC/KEsbv/ye5z6O73+/jxxLv5dsZD8f43+/zaMNPwrXo70AAIC/iv45v3f+ND/Giaq+8c9pv7vbnj/ocKq+5KVHvxHzgb/haKq+L1csvwAAgL+qqqo+8c9pv7vbnj9s5Ko+L1csv5DBpD2qqqo+MfFmv+1eOb7HvC8/t2NWv+CQoj71qEk/0kJfv8Qjiz501ZE/L1csPwAAgL+qqqq+5KVHvxHzgb/haKq+L1csP5DBpD2qqqq+L1csP5DBpD2qqqo+L1csPwAAgL+qqqo+L1csvwAAgL+qqqo+Wf0LP9or5D68wYU/t2NWv+CQoj71qEk/MI+aPNx+Yb7a58M/0kJfv8Qjiz501ZE/Uusbv3XfPr/j3qQ/Uusbv3XfPr/j3qQ/MfFmv+1eOb7HvC8/ftVU6Fs6L9km2UouJbuq62aX56ljM0jeBkpokkIdgptbMmZ2////PwZKaJLznzv9e46uTeF/luNbMmZ2////PwZKaJIeoH/5WzJmdv///z8RpTfIUyvw1bbntKW8Y33yjE6vcPuNfOmIwoWGtXGy9js+QKqmqcLWKnhwvMzE4frerT1N57Uy3YgxmR3B6POnrEm5RQK8L6aIMZkdCjz99k0FSzbGjlL+IgI8iHKC3/6sSblFiUp/2ygZ8WmGanTyjE6vcNWSAeY7PkCqr6jm1B09Ma2eQLmXFbgF21cryNV3LUm8VlEeoLzZppj6YpDyRxJ6yD9Kg7E99QbJK2jk9A4FITTuccP3RxJ6yCd6b+s3+5M2JHEN/u8T42sJbAL2dy1JvFip3eF3OTg/ITyH5R1L5ETYR2vbHT0xrQS+bewPEYx/ZoDM/LYDrUT///8/fi1J0v///z+oR0+j////PxXDmjtLwGbfdzk4P7PBx5xD/z2K2Hp0/zr1yX+rf8n8O7rVRrC9vN8dS+REIL4epq20J4cwb9z2fi1J0v///z/RlhGW5F6M+qhHT6P///8/SFg+VcVmK+BIWD5V////P7YDrUT///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uwv0f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4su86"]
+no_depth_test = true
+specular_mode = 2
+albedo_color = Color(1, 0, 0.560784, 1)
+metallic = 0.4
+roughness = 0.4
+emission_enabled = true
+emission = Color(0.161236, 2.05037e-05, 0.635841, 1)
+emission_energy_multiplier = 0.85
+disable_receive_shadows = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q103l"]
 _surfaces = [{
@@ -100,6 +186,236 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
 
+[sub_resource type="Animation" id="Animation_7lek7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/ArmR:spring_length")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.09]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ArmR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.189, -4.293, -1.347)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/ArmR/GloveR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0561961, -1.66157, -2.41405)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/ArmR/Spring:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.28638, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4i652"]
+resource_name = "punch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/ArmR:spring_length")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.133972, 2.14355, 0.4, 1),
+"update": 0,
+"values": [0.09, 1.73, 0.07, 0.09]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ArmR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.406126, 2.14, 0.4, 1),
+"update": 0,
+"values": [Vector3(3.189, -4.293, -1.347), Vector3(1.5, -3.813, -1.347), Vector3(3.189, -4.602, -1.347), Vector3(3.189, -4.293, -1.347)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/ArmR/GloveR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.241484, 1.36604, 0.307786, 1),
+"update": 0,
+"values": [Vector3(-0.0561961, -1.66157, -2.41405), Vector3(-0.0558505, -1.66155, -2.21657), Vector3(0.31765, -1.73137, -2.58832), Vector3(-0.0561961, -1.66157, -2.41405)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/ArmR/Spring:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.28638, 0, 0), Vector3(2.28638, 0, 0.575959), Vector3(2.28638, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/ArmR/Spring:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.482968, 0.482968, 1.2, 1, 1),
+"update": 0,
+"values": [Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.919, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4su86"]
+_data = {
+&"RESET": SubResource("Animation_7lek7"),
+&"punch": SubResource("Animation_4i652")
+}
+
+[sub_resource type="Animation" id="Animation_kbos6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/ArmL/GloveL:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0558505, -1.66155, -5.55538)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ArmL/Spring:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1, -1, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/ArmL/Spring:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.14159, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4su86"]
+resource_name = "punch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/ArmL:spring_length")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.133972, 2.14355, 0.4, 1),
+"update": 0,
+"values": [0.09, 1.73, 0.07, 0.09]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ArmL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.406126, 2.14, 0.4, 1),
+"update": 0,
+"values": [Vector3(-3.269, -4.293, -1.347), Vector3(-1.4, -3.813, -1.3), Vector3(-3.189, -4.602, -1.347), Vector3(-3.269, -4.293, -1.347)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/ArmL/GloveL:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.241484, 1.36604, 0.307786, 1),
+"update": 0,
+"values": [Vector3(0.0558505, -1.66155, -5.55538), Vector3(0.0558505, -1.66155, -5.35816), Vector3(-0.118682, -1.73137, -5.72992), Vector3(0.0558505, -1.66155, -5.55538)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/ArmL/Spring:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.482968, 0.482968, 1.2, 1, 1),
+"update": 0,
+"values": [Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.919, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/ArmL/Spring:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.28638, 0, 0), Vector3(2.28638, 0, -0.575959), Vector3(2.28638, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kbos6"]
+_data = {
+&"RESET": SubResource("Animation_kbos6"),
+&"punch": SubResource("Animation_4su86")
+}
+
 [node name="LevelQ" instance=ExtResource("1_s615m")]
 script = SubResource("GDScript_s615m")
 music = ExtResource("2_4i652")
@@ -132,30 +448,58 @@ texture = ExtResource("5_kbos6")
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 3.189, -4.293, -1.347)
 spring_length = 0.09
 
-[node name="GloveR" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("8_s615m")]
-transform = Transform3D(0.0207721, -0.0295976, -0.850135, -0.452173, -0.216234, 0.0480224, -0.508792, 0.190963, -0.0773864, 0.000172615, 7.9155e-05, 0.000374794)
+[node name="Spring" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("7_4i652")]
+transform = Transform3D(-1, 0, 0, 0, 0.236181, 0.754711, 0, -0.271695, 0.656058, 0, 0, 0)
+
+[node name="Cube" parent="Player/Camera3D/ArmR/Spring" index="0"]
+sorting_offset = 1e+07
+sorting_use_aabb_center = false
+surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
+
+[node name="GloveR" parent="Player/Camera3D/ArmR" index="1" instance=ExtResource("8_s615m")]
+transform = Transform3D(0.0207696, -0.0295968, -0.850135, -0.452175, -0.216233, 0.0480224, -0.50879, 0.190964, -0.0773825, 0.000172615, 7.9155e-05, 0.000374794)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/GloveR" index="0"]
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
+sorting_offset = 1e+07
+sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
 
 [node name="ArmL" type="SpringArm3D" parent="Player/Camera3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.386, -4.293, -1.347)
+transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.269, -4.293, -1.347)
 spring_length = 0.09
 
-[node name="GloveL" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("8_s615m")]
-transform = Transform3D(-0.0207205, 0.0295435, 0.850154, -0.451733, -0.216401, 0.0480122, -0.509185, 0.190782, -0.0771906, 0.000272751, -0.000102043, 0.000315666)
+[node name="Spring" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("7_4i652")]
+transform = Transform3D(-1, 0, 0, 0, 1, 2.53518e-06, 0, -2.53518e-06, 1, 0, 0, 0)
+
+[node name="Cube" parent="Player/Camera3D/ArmL/Spring" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
+
+[node name="GloveL" parent="Player/Camera3D/ArmL" index="1" instance=ExtResource("8_s615m")]
+transform = Transform3D(0.0712656, -0.00544697, 0.850154, -0.452317, -0.216186, 0.0477274, -0.504075, 0.193219, 0.0773672, 0.000272751, -0.000102043, 0.000315666)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/GloveL" index="0"]
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
+mesh = SubResource("ArrayMesh_4i652")
+surface_material_override/0 = SubResource("StandardMaterial3D_4su86")
 
 [node name="Ground" parent="Player" index="11"]
 material_override = ExtResource("6_djtrw")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null
 
+[node name="ArmAnimationR" type="AnimationPlayer" parent="Player" index="18"]
+libraries = {
+&"": SubResource("AnimationLibrary_4su86")
+}
+
+[node name="ArmAnimationL" type="AnimationPlayer" parent="Player" index="19"]
+libraries = {
+&"": SubResource("AnimationLibrary_kbos6")
+}
+
 [node name="Queen" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("8_o3nq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000480652, 0.0625839, -0.00540352)
 player = NodePath("../../Player")
 entities = NodePath("..")
 
@@ -181,7 +525,9 @@ transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]
 [editable path="Player/Visuals/WidgetGear/DraggableItem"]
+[editable path="Player/Camera3D/ArmR/Spring"]
 [editable path="Player/Camera3D/ArmR/GloveR"]
+[editable path="Player/Camera3D/ArmL/Spring"]
 [editable path="Player/Camera3D/ArmL/GloveL"]
 [editable path="WallL"]
 [editable path="WallR"]

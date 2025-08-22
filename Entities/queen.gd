@@ -56,6 +56,9 @@ func hit(player) -> void:
 
 #region - KNIGHT AI // SLASH PATTERN
 func _start_enter() -> void:
+	var tween = player.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(player.get_node("Camera3D"),"size",.01,2.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	keeping_up_with_player = true
 	attacks_used = 0
 	$EntityContainer/CollisionShape3D.disabled = false
@@ -72,7 +75,7 @@ func _start_process(delta: float) -> void:
 	if sign(current_y) != sign(next_y):
 		sprite.frame = wrap(sprite.frame+1,0,2)
 	
-	horizontal_speed = abs(current_y)
+	horizontal_speed = abs(current_y)/2
 	sprite.position.y = 0.5+abs(current_y)
 
 func _attack_enter() -> void:

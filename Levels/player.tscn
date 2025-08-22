@@ -87,10 +87,8 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="Animation" id="Animation_0p2yg"]
-resource_name = "idle"
-length = 0.2
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_ir6m4"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -104,8 +102,10 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_ir6m4"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_0p2yg"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -364,9 +364,9 @@ offset = Vector2(0, -30)
 [node name="Horn" type="ColorRect" parent="Visuals"]
 modulate = Color(1, 1, 1, 0)
 offset_left = -32.0
-offset_top = 60.0
+offset_top = 55.0
 offset_right = 35.005
-offset_bottom = 128.455
+offset_bottom = 123.455
 rotation = 1.64743
 scale = Vector2(1.2, 1.2)
 

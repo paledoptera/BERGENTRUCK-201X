@@ -124,10 +124,11 @@ transform = Transform3D(1, 0, 0, 0, 0.627202, -0.778857, 0, 0.778857, 0.627202, 
 shape = SubResource("CapsuleShape3D_b2fls")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="1"]
-offset = Vector2(0, 2.02)
-pixel_size = 0.3425
+offset = Vector2(0, 17)
+pixel_size = 0.0325
 billboard = 1
 no_depth_test = true
+fixed_size = true
 texture_filter = 0
 sprite_frames = ExtResource("7_uf544")
 animation = &"idle"

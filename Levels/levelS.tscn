@@ -89,7 +89,7 @@ material_override = ExtResource("5_0dyyc")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null
 
-[node name="Dess" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("7_h0uai")]
+[node name="SpamtonTrigger" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("7_h0uai")]
 transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)
 visible = false
 script = ExtResource("8_4n5bj")

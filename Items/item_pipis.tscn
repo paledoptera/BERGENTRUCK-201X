@@ -1,12 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8wnwarafoj7y"]
+[gd_scene load_steps=10 format=3 uid="uid://dak48q88s8bep"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_mavvb"]
 [ext_resource type="Script" uid="uid://dwl7ebqwdoep7" path="res://Items/item_pipis.gd" id="2_mavvb"]
 [ext_resource type="Texture2D" uid="uid://cqypndglnqwpe" path="res://Entities/Assets/Visuals/Spamton/Pipis.png" id="3_mavvb"]
 [ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="4_1rbyg"]
+[ext_resource type="Texture2D" uid="uid://c4njtep1mlk5h" path="res://Entities/Assets/Visuals/Spamton/pipistext.png" id="5_fgyh5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
 radius = 37.0135
+
+[sub_resource type="Animation" id="Animation_fgyh5"]
+resource_name = "blinking"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.266667, 0.319915, 0.419915, 0.470079, 0.570079, 0.637653, 0.737653, 0.8, 0.9, 0.940158, 1.04016, 1.1, 1.16667, 1.2, 1.26667, 1.3, 1.36667, 1.41894, 1.48561, 1.53333, 1.6, 1.63333, 1.7, 1.76667, 1.83333, 1.9, 1.96667, 2.02395, 2.09062, 2.13059, 2.19726, 2.23333, 2.26667, 2.30462, 2.33795, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.62872, 2.66205, 2.69538, 2.72872, 2.76205, 2.79538, 2.83333, 2.86667, 2.89538, 2.92872, 2.96205, 2.99538, 3.02872, 3.06205, 3.1, 3.13333, 3.16205, 3.19538, 3.22872, 3.26205, 3.29538, 3.32872, 3.36667, 3.4, 3.42872, 3.46205, 3.49538, 3.52872, 3.56205, 3.58694, 3.6, 3.62489, 3.63333, 3.65823, 3.66667, 3.69156, 3.69816, 3.72305, 3.73333, 3.75823, 3.76667, 3.79156, 3.8, 3.82489, 3.83333, 3.85823, 3.86667, 3.89156, 3.9, 3.92489, 3.93333, 3.95823, 3.96667, 3.99156),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1), Color(1, 1, 1, 1), Color(0.792157, 0.517647, 0.784314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hpacf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rbyg"]
+_data = {
+&"RESET": SubResource("Animation_hpacf"),
+&"blinking": SubResource("Animation_fgyh5")
+}
 
 [node name="Pipis" instance=ExtResource("1_mavvb")]
 script = ExtResource("2_mavvb")
@@ -31,6 +69,17 @@ texture = ExtResource("4_1rbyg")
 wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="pipistext" type="Sprite2D" parent="." index="6"]
+position = Vector2(-37.1336, 58.875)
+scale = Vector2(2.00862, 2.00862)
+texture = ExtResource("5_fgyh5")
+
+[node name="start" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+&"": SubResource("AnimationLibrary_1rbyg")
+}
+autoplay = "blinking"
 
 [connection signal="timeout" from="Explode" to="." method="_on_explode_timeout"]
 

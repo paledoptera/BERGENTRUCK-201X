@@ -92,7 +92,7 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 				node.mouse_filter = 0
 				var alpha = create_tween()
 				alpha.tween_property(node,"modulate:a",1,.5)
-		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK)]
 		$Dark.show()
 		$Gradient.hide()
 		tweens[1].tween_property($Skins,"scale",Vector2(1,1),.5)
@@ -116,7 +116,6 @@ func _on_level_icon_clicked(icon):
 				var alpha = create_tween()
 				alpha.tween_property(node,"modulate:a",0,.2)
 		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
-		$BestTime.visible == true
 		$Selected.position = Vector2(99999,99999)
 		current_icon.mouse_filter = 2
 		tweens[0].tween_property(icon,"position",Vector2(100,44),.5)
@@ -161,9 +160,8 @@ func _on_skins_menu_option_clicked(option):
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != $Skins:
 				node.mouse_filter = 2
-				var alpha = create_tween()
-				alpha.tween_property(node,"modulate:a",0,.2)
-		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
+				create_tween().tween_property(node,"modulate:a",0,.2)
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK)]
 		$BestTime.hide()
 		$Dark.hide()
 		$Back.hide()

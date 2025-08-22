@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw4fyx84t4tgx"]
+[gd_scene load_steps=7 format=3 uid="uid://bc4etjw8e8l01"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_yab0a"]
 [ext_resource type="Script" uid="uid://jonlb61s6d80" path="res://Items/item_gun.gd" id="2_yab0a"]
 [ext_resource type="Texture2D" uid="uid://dmoh4b568d1qg" path="res://Entities/Assets/Visuals/gun.png" id="3_yab0a"]
 [ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="4_ua4ec"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="5_pj1tr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
 radius = 48.2597
@@ -11,6 +12,8 @@ radius = 48.2597
 [node name="Gun" instance=ExtResource("1_yab0a")]
 script = ExtResource("2_yab0a")
 lifetime_in_seconds = -1.0
+random_scaling_min = 1.0
+random_scaling_max = 1.0
 
 [node name="DraggableItem" parent="." index="0"]
 scale = Vector2(0.948703, 0.948703)
@@ -25,6 +28,19 @@ shape = SubResource("CircleShape2D_gfcs1")
 [node name="GrabBox" parent="." index="2"]
 self_modulate = Color(1, 0, 1, 0)
 texture = ExtResource("4_ua4ec")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+[node name="tutorial" type="Label" parent="CanvasLayer" index="0"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 11.0
+offset_top = 206.0
+offset_right = 481.0
+offset_bottom = 243.0
+scale = Vector2(0.635, 0.621)
+theme_override_fonts/font = ExtResource("5_pj1tr")
+theme_override_font_sizes/font_size = 36
+text = "Hold the [BIG SHOT] High to SHOOT!"
 
 [connection signal="dragging" from="DraggableItem" to="." method="_on_draggable_item_dragging"]
 

@@ -1,11 +1,14 @@
 extends Item
 
 func _ready():
-	pass
+	if player.hp < 100:
+		$pipistext.hide()
+	else:
+		create_tween().tween_property($pipistext,"modulate:a",0,1)
+	var tween = create_tween()
 
 func use() -> void:
 	pass
-
 
 func _on_explode_timeout():
 	player.hp -= 15

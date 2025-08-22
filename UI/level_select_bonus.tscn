@@ -413,9 +413,7 @@ description = "That small dog took off with my car :("
 layout_mode = 2
 ID = 11
 locked = false
-description = "LMAO I DIDN't Mean To put this in the game..
-Maybe replace this with Rouxls
-or make an ect. drive a car"
+description = "Etc loves his job as being a skin system test dummy."
 
 [node name="Asgore" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 modulate = Color(1, 1, 0, 1)
@@ -458,7 +456,7 @@ although its shades are cool"
 layout_mode = 2
 ID = 6
 locked = false
-description = "THE ROARING KNIGHT"
+description = "THE ROARING KNIGHT STARTED THE ROARING ENGINE OF THE ROARING TRUCK"
 
 [node name="Kris" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
@@ -477,6 +475,13 @@ layout_mode = 2
 ID = 9
 locked = false
 description = "This isn't Enviro-Bear's first time driving.
+"
+
+[node name="Hornet" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
+layout_mode = 2
+ID = 12
+locked = false
+description = "Silk song tommorow
 "
 
 [node name="Gradient" type="TextureRect" parent="."]

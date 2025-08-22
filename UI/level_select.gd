@@ -100,7 +100,7 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		closet = false
 		await tweens[0].tween_property($Skins,"position:y",155,.5).finished
 		$Skins.mouse_filter = 0
-
+		SaveLoad.file_save() #saves the skin you chose
 
 func _on_level_icon_clicked(icon):
 	if current_icon != null and icon != current_icon:

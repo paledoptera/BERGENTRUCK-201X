@@ -8,6 +8,32 @@ var scroll_amount
 
 func _ready():
 	scroll_amount = 54
+	print(Global.player_save.flags.current_skin_id)
+	var characterID = 0
+	var loop = 0
+	for node in characters:
+		if node.ID == Global.player_save.flags.current_skin_id:
+			characterID = loop
+		loop += 1
+	print(characterID)
+	while 2 < characterID:
+		if scroll_container.scroll_horizontal >= Hbox.size.x-scroll_container.size.x: #max scroll
+			Hbox.move_child(Hbox.get_child(0),characters.size()-1)
+			scroll_container.scroll_horizontal -= scroll_amount
+		if characters.find(current_character)+1 >= characters.size():
+			current_character = characters[0]
+		else:
+			current_character = characters[characters.find(current_character)+1]
+		scroll_container.scroll_horizontal+=scroll_amount
+		characterID -= 1
+	while 2 > characterID:
+		if scroll_container.scroll_horizontal <= 0:
+			Hbox.move_child(Hbox.get_child(characters.size()-1),0)
+			scroll_container.scroll_horizontal += scroll_amount
+		current_character = characters[characters.find(current_character)-1]
+		scroll_container.scroll_horizontal-=scroll_amount
+		characterID += 1
+	update_selected()
 
 func _on_left_pressed():
 	if scroll_container.scroll_horizontal <= 0:
@@ -43,4 +69,5 @@ func update_selected():
 	$Name.text = current_character.name
 	$Bio.text = current_character.description
 	$Name.scale = Vector2(1,1)
+	Global.player_save.flags.current_skin_id = current_character.ID
 	create_tween().tween_property($Name,"scale",Vector2(1.1,1.11),.2).set_trans(Tween.TRANS_BOUNCE)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=46 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -86,6 +86,61 @@ animations = [{
 "name": &"sniff",
 "speed": 30.0
 }]
+
+[sub_resource type="Animation" id="Animation_0p2yg"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ir6m4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lor68"]
+resource_name = "sniff"
+length = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lor68"]
+_data = {
+&"RESET": SubResource("Animation_ir6m4"),
+&"idle": SubResource("Animation_0p2yg"),
+&"sniff": SubResource("Animation_lor68")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34hgd"]
 size = Vector3(7.5, 7.968, 1)
@@ -351,10 +406,23 @@ position = Vector2(-210, -127)
 texture = ExtResource("15")
 centered = false
 
-[node name="Nose" type="AnimatedSprite2D" parent="Visuals/Asgore"]
+[node name="OldNose" type="AnimatedSprite2D" parent="Visuals/Asgore"]
+visible = false
 position = Vector2(118, 181)
 sprite_frames = SubResource("SpriteFrames_lor68")
 animation = &"sniff"
+frame = 3
+frame_progress = 1.0
+
+[node name="Nose" type="Sprite2D" parent="Visuals/Asgore"]
+position = Vector2(118, 181)
+texture = ExtResource("16")
+hframes = 3
+
+[node name="NoseAnimation" type="AnimationPlayer" parent="Visuals/Asgore"]
+libraries = {
+&"": SubResource("AnimationLibrary_lor68")
+}
 
 [node name="Parallax2D" type="Parallax2D" parent="Visuals"]
 modulate = Color(1, 1, 0.878431, 0.0784314)
@@ -506,6 +574,7 @@ self_modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 120)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("23")
+metadata/_edit_lock_ = true
 
 [node name="FaceTimer" type="Timer" parent="."]
 one_shot = true

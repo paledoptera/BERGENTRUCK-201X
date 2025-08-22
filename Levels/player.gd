@@ -57,12 +57,13 @@ var screenshake_strength : float = 4.0
 @onready var noise = FastNoiseLite.new()
 
 
-func _ready() -> void:	
+func _ready() -> void:
 	Global.player_save.time = 0
 	$Background.visible = true
 	if Global.modifiers.NoSlow == true:
 		$Visuals/WidgetGear/DraggableItem/CollisionShape2D.disabled = true
 	_correct_sprite_size($Ground)
+	skin_change()
 	$CarEngine.volume_db = -40
 	$CarEngine.play(0.0)
 	var tween = create_tween()
@@ -137,7 +138,42 @@ func _physics_process(delta: float) -> void:
 	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50),0.2)
 	
 	
-	
+
+func skin_change():
+	match Global.player_save.flags.current_skin_id:
+		#0 is just asgore
+		#1: #Toriel
+			
+		2: #spamton
+			$CarHonk.stream = preload("uid://bknqoc88b18yh") #spamtonHorn.wav
+		#3: #Frog
+			
+		#4: #VineSauce
+			
+		#5: #Merg
+			
+		#6: #Knight
+			
+		#7: #Kris
+			
+		#8: #Friend
+			
+		#9: #Enviro-Bear
+			
+		#10: #Dog
+			
+		11: #Etc.
+			$CarHonk.stream = preload("uid://d37f2bo6di3ji") #snd_tensionhorn.wav
+			$Visuals/Asgore/Nose.texture = preload("uid://ckogtawfmvesu") #asgore_noseSKINTEST.png
+			$Visuals/Asgore/Nose.show_behind_parent = true
+			$Visuals/Asgore.texture = preload("uid://bp2v6xxesdck3") #SKINTEST.png
+			$Visuals/Hand.texture = preload("uid://dxcmc26ehr230") #arm handSKINTEST.png
+			$Visuals/Hand/Forearm.texture = preload("uid://7i0olqmdd3my") #arm forearmSKINTEST.png
+			$Visuals/Hand/Forearm/UpperArm.texture = preload("uid://bmofakxp76te3") #arm upperarmSKINTEST.png
+			$Visuals.texture = preload("uid://ist385x4ii4c") #carSKINTEST.png
+		#12: #Hornet? 
+			
+
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):
 		hand.frame = 1
@@ -364,7 +400,7 @@ func _items_in_face() -> void:
 		return
 	
 	if $FaceTimer.is_stopped():
-		$Visuals/Asgore/Nose.play("sniff")
+		$Visuals/Asgore/NoseAnimation.play("sniff")
 		$Visuals/Asgore.position.y += 10
 		$FaceTimer.wait_time = randf_range(0.05,0.2)
 		$FaceTimer.start()

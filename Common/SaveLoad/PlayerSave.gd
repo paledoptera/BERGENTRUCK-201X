@@ -17,7 +17,7 @@ var time = 0
 	"option_music_vol": 1.0,
 	"option_sound_vol": 1.0,
 	"border" : 1,
-	
+	"current_skin_id": 0,
 }
 
 func update_level_time(delta: float, level: int = 1):

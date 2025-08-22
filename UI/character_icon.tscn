@@ -11,4 +11,4 @@ description = "A skilled driver with a fatal flaw... the inability to notice dee
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nngmf")
 centered = false
-hframes = 14
+hframes = 15

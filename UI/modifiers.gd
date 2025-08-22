@@ -7,6 +7,9 @@ func _ready():
 		child.connect("mouse_exited",Callable(self,"_on_modifier_mouse_exit").bind(child))
 		child.button_pressed = Global.modifiers.get(child.name) # keep your modifiers
 		child.modulate.a = .5
+		if Global.modifiers[child.name] == true:
+			child.button_pressed = true
+			child.modulate.a = 1
 
 func _on_modifier_menu_option_clicked(button : Button):
 	if button.button_pressed:

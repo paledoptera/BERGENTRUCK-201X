@@ -6,33 +6,46 @@ var h_speed = 0.0
 var bullet_owner: Node3D
 var player: CharacterBody3D
 
+var chestreturn = false
+var positionx = 0
+
+var particles = []
 
 func _ready() -> void:
-	hide()
-	await get_tree().create_timer(.5).timeout
-	global_position.x = player.get_node("Camera3D").global_position.x
+	#global_position.x = player.get_node("Camera3D").global_position.x
 	#$EntityContainer.global_position.y = player.get_node("Camera3D").global_position.y-15
 	$Timer.start(.05)
 	show()
+	global_rotation_degrees = Vector3.ZERO
+	positionx = global_position.x
+	await create_tween().tween_property(self,"position:z",25,.8).finished
+	$Timer.queue_free()
+	var time = .34
+	for node in particles:
+		create_tween().tween_property(node,"position",Vector3(-1.422,29.375,15.581),time).set_trans(Tween.TRANS_SINE)
+		#time -= .05
+	var tween = create_tween()
+	tween.tween_property(self,"position",Vector3(-1.2,7.6,16.2),.6)
+	await get_tree().create_timer(.1).timeout
+	chestreturn = true
+	await get_tree().create_timer(.4).timeout
+	for node in particles:
+		node.queue_free()
+	queue_free()
 
 func _process(delta: float) -> void:
-	print(bullet_owner.global_position)
 	super(delta)
-	if global_rotation.x < bullet_owner.global_rotation.x:
-		global_rotation.x = bullet_owner.global_rotation.x
-	speed = lerp(speed,0.0,5*delta)
-	global_position.x += h_speed
-	global_rotation.x -= deg_to_rad(speed)
-	
-	if not chases:
-		return
+	if chestreturn:
+		$EntityContainer.position.y = 20
+		#position = position.move_toward(Vector3(0,-20,1),delta*30)
+	else:
+		global_position.x = positionx
+		$EntityContainer.global_position.y = player.get_node("Camera3D").global_position.y-10
 
-	var prevpos = $EntityContainer/Sprite3D.position.y
-	$EntityContainer/Sprite3D.position.y = lerp($EntityContainer/Sprite3D.position.y,player.get_node("Camera3D").position.y-8,0.15)
-	$EntityContainer/Sprite3D.scale.y = 1+abs((player.get_node("Camera3D").position.y-8)-$EntityContainer/Sprite3D.position.y)*0.5
 
 
 func _on_timer_timeout():
 	var particle = preload("res://Global/Particles/heartpuff.tscn").instantiate()
-	get_parent().get_parent().add_child(particle)
+	particles.append(particle)
+	get_parent().add_child(particle)
 	particle.global_position = $EntityContainer/Sprite3D.global_position

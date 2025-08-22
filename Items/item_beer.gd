@@ -1,7 +1,7 @@
 extends Item
 
 func use() -> void:
-	if Global.level == 3 or Global.level == 9:
+	if Global.level == 3 or Global.level == 7:
 		player.hp = min(player.hp+10,100)
 		player.TURN_ACCELERATION += 1
 		queue_free()

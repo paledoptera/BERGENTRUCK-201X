@@ -14,6 +14,7 @@ var border: int = -1:
 var modifiers = {
 	"FragileCar": false,
 	"NoSlow": false,
+	"NoHeal": false,
 	"DrunkMode": false
 }
 

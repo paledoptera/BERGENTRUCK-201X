@@ -86,6 +86,8 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		current_icon = null
 		$Back.show()
 	elif closet == true:
+		$LVTitle.text = "Choose a Level"
+		$LVNumber.text = ""
 		$SkinSelector.hide()
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != $Skins:
@@ -115,7 +117,7 @@ func _on_level_icon_clicked(icon):
 				node.mouse_filter = 2
 				var alpha = create_tween()
 				alpha.tween_property(node,"modulate:a",0,.2)
-		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK),create_tween().set_trans(Tween.TRANS_BACK)]
 		$Selected.position = Vector2(99999,99999)
 		current_icon.mouse_filter = 2
 		tweens[0].tween_property(icon,"position",Vector2(100,44),.5)

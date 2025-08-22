@@ -29,6 +29,7 @@ func _ready() -> void:
 	shake = .2
 	await $AnimationPlayer.animation_finished
 	idleanimation(true)
+	Global.score = 46
 
 func _process(delta: float) -> void:
 	
@@ -183,6 +184,13 @@ func change_speed(value : float):
 func change_horizontal_speed(value : float):
 	horizontal_speed = value
 
+func heart_attack():
+	var bullet_inst = preload("res://Entities/spamton_heart.tscn").instantiate()
+	bullet_inst.bullet_owner = self
+	bullet_inst.player = player
+	add_child(bullet_inst)
+	#bullet_inst.global_position = $EntityContainer/Sprite3D.global_position
+	bullet_inst.global_rotation.x = global_rotation.x
 
 func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 0):
 	var bullet_inst = bullet.instantiate()

@@ -44,7 +44,8 @@ var visuals_angle : float = 0.0
 var steer_wiggle : float = 0.0
 
 var last_direction = Vector2.ZERO
-var hp = 100.0:
+var max_hp: float = 100.0
+var hp = max_hp:
 	set(value):
 		_health_changed(hp, value)
 		hp = value
@@ -60,8 +61,11 @@ var screenshake_strength : float = 4.0
 func _ready() -> void:
 	Global.player_save.time = 0
 	$Background.visible = true
-	if Global.modifiers.NoSlow == true:
+	if Global.modifiers.NoSlow:
 		$Visuals/WidgetGear/DraggableItem/CollisionShape2D.disabled = true
+	if Global.modifiers.FragileCar:
+		max_hp = 50
+		hp = 50
 	_correct_sprite_size($Ground)
 	skin_change()
 	$CarEngine.volume_db = -40
@@ -71,7 +75,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 	if Global.player_save.flags["option_show_time"]:
 		$Visuals/Time.visible = true
 	else:
@@ -116,7 +119,7 @@ func _physics_process(delta: float) -> void:
 	
 	visuals_angle += (noise.get_noise_2d(1,noise_i) * screenshake_strength)/100
 	
-	$Visuals/HealthBar/Dial.rotation_degrees = lerp($Visuals/HealthBar/Dial.rotation_degrees,((50.0-hp)/100.0)*90.0,0.2)
+	$Visuals/HealthBar/Dial.rotation_degrees = lerp($Visuals/HealthBar/Dial.rotation_degrees,((max_hp/2-hp)/max_hp)*90.0,0.2)
 	$Visuals/ProgressBar/Dial.rotation_degrees = lerp($Visuals/ProgressBar/Dial.rotation_degrees,-225.0+(Global.score/Global.goal)*90.0,0.2)
 	var dial_rand_jitter = randf_range(-5,5)
 	$Visuals/SpeedBar/Dial.rotation_degrees = lerp($Visuals/SpeedBar/Dial.rotation_degrees,-195+dial_rand_jitter+(speed/10)*200,0.2)
@@ -242,6 +245,8 @@ func _gear_mechanics() -> void:
 func _steering_mechanics() -> void:
 	
 	steer_wiggle = randf_range(-speed*2,speed*2)
+
+	
 	
 	turn_angle.x = widget_wheel.value.x
 	turn_angle.y = 1+(widget_wheel.value.y*0.5)
@@ -258,7 +263,9 @@ func _steering_mechanics() -> void:
 	friction = lerp(float(friction),1.0,0.1*(0.5+(0.5-(speed/20))))
 	
 	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
-	
+	if Global.modifiers.DrunkMode:
+		car_velocity.x += clamp(car_velocity.x,-1,1)
+		car_velocity.x = clamp(car_velocity.x,-car_velocity.x/1.2,car_velocity.x/1.2)
 	
 	
 #
@@ -509,6 +516,8 @@ func _horn(event: InputEvent) -> void:
 				$CarHonk.play()
 				if $Camera3D.position.y == 8.0:
 					car_velocity.y = 1
+				if Global.modifiers.FragileCar:
+					hp -= 5
 			elif not event.pressed:
 				horn = false
 				$CarHonk.stop()

@@ -21,5 +21,6 @@ shape = SubResource("CircleShape2D_gfcs1")
 [node name="GrabBox" parent="." index="2"]
 self_modulate = Color(1, 0, 1, 0)
 texture = ExtResource("4_w240m")
+metadata/_edit_use_anchors_ = true
 
 [editable path="DraggableItem"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=76 format=3 uid="uid://d16klqsm1uqj1"]
+[gd_scene load_steps=75 format=3 uid="uid://d16klqsm1uqj1"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_7dxir"]
-[ext_resource type="Script" path="res://Entities/spamton.gd" id="2_c3ebg"]
+[ext_resource type="Script" uid="uid://cjkfxh0crkwu0" path="res://Entities/spamton.gd" id="2_c3ebg"]
 [ext_resource type="AudioStream" uid="uid://buleoqyvkkb7x" path="res://Global/SFX/snd_knight_hurtb.wav" id="3_3qhpe"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_c3ebg"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_3qhpe"]
@@ -28,7 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://b5yoqw0u24sa6" path="res://Global/SFX/snd_parry_fast_nodelay.wav" id="23_y7kwa"]
 [ext_resource type="PackedScene" uid="uid://b6b887byujpfv" path="res://Entities/spamton_mailwall.tscn" id="24_6a2wm"]
 [ext_resource type="AudioStream" uid="uid://i3ut37tqqcg5" path="res://Global/SFX/snd_scytheburst.wav" id="25_2wa6i"]
-[ext_resource type="PackedScene" uid="uid://d2xiab3w6t8uf" path="res://Entities/spamton_heart.tscn" id="25_y7kwa"]
 [ext_resource type="AudioStream" uid="uid://bfuq6gcn1x478" path="res://Global/SFX/snd_knight_stretch.wav" id="26_2wa6i"]
 [ext_resource type="AudioStream" uid="uid://bdvn63dfirqnj" path="res://Global/SFX/snd_grab.wav" id="27_6a2wm"]
 [ext_resource type="AudioStream" uid="uid://dibfbp5q88vad" path="res://Global/SFX/snd_bigcut.wav" id="28_6a2wm"]
@@ -801,8 +800,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4.46667),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [],
-"method": &"swap_sword_dir"
+"args": [ExtResource("26_2wa6i")],
+"method": &"play_sound"
 }, {
 "args": [true],
 "method": &"idleanimation"
@@ -838,20 +837,17 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.55416, 2.49222, 3.28548),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(2.06667, 3.06667, 3.77702),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": [ExtResource("26_2wa6i")],
-"method": &"play_sound"
+"args": [],
+"method": &"heart_attack"
 }, {
-"args": [ExtResource("25_y7kwa"), 0.5, 0.0],
-"method": &"spawn_bullet"
+"args": [],
+"method": &"heart_attack"
 }, {
-"args": [ExtResource("25_y7kwa"), 0.5, 0.0],
-"method": &"spawn_bullet"
-}, {
-"args": [ExtResource("25_y7kwa"), 0.5, 0.0],
-"method": &"spawn_bullet"
+"args": [],
+"method": &"heart_attack"
 }]
 }
 tracks/3/type = "value"
@@ -861,7 +857,7 @@ tracks/3/path = NodePath("EntityContainer/Head:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.34551),
+"times": PackedFloat32Array(0, 4.36667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 2]

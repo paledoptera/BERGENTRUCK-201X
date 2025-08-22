@@ -63,11 +63,15 @@ func _on_right_pressed():
 	update_selected()
 
 func update_selected():
-	for node in characters:
-		node.modulate = Color(1,1,1,1)
-	current_character.modulate = Color(5,5,0,1)
-	$Name.text = current_character.name
-	$Bio.text = current_character.description
+	if current_character.unlocked == true:
+		for node in characters:
+			node.modulate = Color(1,1,1,1)
+		current_character.modulate = Color(5,5,0,1)
+		$Name.text = current_character.name
+		$Bio.text = current_character.description
+		Global.player_save.flags.current_skin_id = current_character.ID
+	else:
+		$Name.text = "???"
+		$Bio.text = ""
 	$Name.scale = Vector2(1,1)
-	Global.player_save.flags.current_skin_id = current_character.ID
 	create_tween().tween_property($Name,"scale",Vector2(1.1,1.11),.2).set_trans(Tween.TRANS_BOUNCE)

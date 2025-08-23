@@ -35,7 +35,7 @@ HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_ew8hv")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ew8hv")
 
 [sub_resource type="Gradient" id="Gradient_b8hd2"]
-offsets = PackedFloat32Array(0.124601, 0.218462, 0.778462, 0.86901)
+offsets = PackedFloat32Array(0.124601, 0.218462, 0.782, 0.875)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_li2u5"]
@@ -225,10 +225,12 @@ script = ExtResource("8_im7r1")
 
 [node name="Buttons" type="HBoxContainer" parent="Modifiers"]
 layout_mode = 0
+offset_left = -40.185
 offset_top = 16.0
-offset_right = 268.0
+offset_right = 227.815
 offset_bottom = 40.0
 scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(134.245, 0)
 mouse_filter = 2
 alignment = 1
 
@@ -248,6 +250,7 @@ toggle_mode = true
 icon = ExtResource("10_ulp2l")
 expand_icon = true
 script = ExtResource("8_u6vxe")
+display_text = "Fragile Car"
 
 [node name="NoSlow" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -265,6 +268,7 @@ toggle_mode = true
 icon = ExtResource("12_3npne")
 expand_icon = true
 script = ExtResource("8_u6vxe")
+display_text = "No Slow"
 
 [node name="NoHeal" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -282,6 +286,7 @@ toggle_mode = true
 icon = ExtResource("13_361lv")
 expand_icon = true
 script = ExtResource("8_u6vxe")
+display_text = "No Heal"
 
 [node name="DrunkMode" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -299,6 +304,21 @@ toggle_mode = true
 icon = ExtResource("14_blw1y")
 expand_icon = true
 script = ExtResource("8_u6vxe")
+display_text = "Drunk Mode"
+
+[node name="name" type="RichTextLabel" parent="Modifiers"]
+visible = false
+layout_mode = 0
+offset_top = 32.0
+offset_right = 375.0
+offset_bottom = 75.0
+scale = Vector2(0.5, 0.504)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("6_ew8hv")
+bbcode_enabled = true
+text = "Fragile Car"
+horizontal_alignment = 1
 
 [node name="Selected" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.235294)

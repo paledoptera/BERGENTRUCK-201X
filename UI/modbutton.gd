@@ -1,5 +1,7 @@
 extends Control
 
+@export var display_text: String = "Modifiers"
+
 func _enter_tree() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)

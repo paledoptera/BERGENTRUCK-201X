@@ -20,7 +20,7 @@ func _on_modifier_menu_option_clicked(button : Button):
 	print(Global.modifiers)
 
 func _on_modifier_mouse_enter(button: Button):
-	text = button.name
+	text = button.display_text
 
 func _on_modifier_mouse_exit(button: Button):
 	text = "Modifiers"

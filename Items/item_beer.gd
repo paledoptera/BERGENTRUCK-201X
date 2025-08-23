@@ -5,5 +5,3 @@ func use() -> void:
 		player.hp = min(player.hp+10,100)
 		player.TURN_ACCELERATION += 1
 		queue_free()
-	else:
-		super()

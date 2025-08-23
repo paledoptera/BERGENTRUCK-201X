@@ -16,23 +16,29 @@ var unlocked = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_visual(false)
-	unlocked = true #unlocks EVERY LEVEL ALWAYS ---------------------------------//////////
 
 func update_visual(dark:bool):
-	$Sprite2D/RichTextLabel.text = str(value)
 	var usedvalue = value
 	if dark: #choose value
 		usedvalue = darkvalue
 		$Sprite2D/RichTextLabel.text = dark_number_overide
 	else:
+		$Sprite2D/RichTextLabel.text = str(value)
 		if number_overide != "":
 			$Sprite2D/RichTextLabel.text = number_overide
-	$Sprite2D.frame = usedvalue #level icon
-	if Global.player_save.flags.get("levels_beaten")[usedvalue-1]: #update checkmark
-		$Sprite2D/TickMark.visible = true
+	$Sprite2D.frame = usedvalue #update level icon
+	$Sprite2D/TickMark.visible = Global.player_save.flags.get("levels_beaten")[usedvalue-1] #update checkmark
+	
+	#LOCK THE LEVEL VV
+	if Global.player_save.flags.get("levels_unlocked")[usedvalue-1] or OS.has_feature("editor"): #is the level locked?? IN EDITOR EVERYTHING IS UNLOCKED
+		unlocked = true
+		$Sprite2D/RichTextLabel.show()
 	else:
-		$Sprite2D/TickMark.visible = false
-
+		unlocked = false
+		$Sprite2D/RichTextLabel.hide()
+		$Sprite2D/TickMark.hide()
+		$Sprite2D.frame = 0
+		return
 
 
 func _on_gui_input(event: InputEvent) -> void:

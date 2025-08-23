@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://beo0wp80g721"]
+[gd_scene load_steps=9 format=3 uid="uid://beo0wp80g721"]
 
 [ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Assets/Visuals/level_icons.png" id="1_61kut"]
 [ext_resource type="Script" uid="uid://b63c1cengem0u" path="res://UI/level_icon.gd" id="1_mbt8g"]
 [ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
 [ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Assets/Visuals/tickmark.png" id="4_wkijm"]
+[ext_resource type="Texture2D" uid="uid://be2plntdwbl27" path="res://UI/Assets/Visuals/modifier_icon_FragileCar.png" id="5_itvj5"]
+[ext_resource type="Texture2D" uid="uid://s1ips7in0vf7" path="res://UI/Assets/Visuals/modifier_icon_NoSlow.png" id="6_i5ywb"]
+[ext_resource type="Texture2D" uid="uid://by5h5bes6wsaq" path="res://UI/Assets/Visuals/modifier_icon_NoHeal.png" id="7_2xy3u"]
+[ext_resource type="Texture2D" uid="uid://bik3x6v8vtvdx" path="res://UI/Assets/Visuals/modifier_icon_DrunkMode.png" id="8_7hmek"]
 
 [node name="LevelIcon" type="ColorRect" groups=["level_icon", "transparent"]]
 self_modulate = Color(1, 1, 1, 0)
@@ -31,6 +35,34 @@ text = "1"
 visible = false
 position = Vector2(-27, 28)
 texture = ExtResource("4_wkijm")
+
+[node name="FragileCar" type="Sprite2D" parent="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-30, -28.5714)
+scale = Vector2(0.348922, 0.348922)
+texture = ExtResource("5_itvj5")
+
+[node name="FragileCar2" type="Sprite2D" parent="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-12, -28.571)
+scale = Vector2(0.348922, 0.348922)
+texture = ExtResource("6_i5ywb")
+
+[node name="FragileCar3" type="Sprite2D" parent="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(6, -28.571)
+scale = Vector2(0.348922, 0.348922)
+texture = ExtResource("7_2xy3u")
+
+[node name="FragileCar4" type="Sprite2D" parent="Sprite2D"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(24, -28.571)
+scale = Vector2(0.348922, 0.348922)
+texture = ExtResource("8_7hmek")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

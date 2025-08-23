@@ -8,13 +8,13 @@
 [node name="GameOver" type="Node"]
 script = ExtResource("1_3y5qq")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="YouCrashed" type="Sprite2D" parent="."]
 texture = ExtResource("1_jawqf")
+centered = false
+hframes = 4
+vframes = 4
 
-[node name="DriveAgain" type="RichTextLabel" parent="TextureRect"]
-layout_mode = 0
+[node name="DriveAgain" type="RichTextLabel" parent="YouCrashed"]
 offset_left = 47.0
 offset_top = 208.0
 offset_right = 202.365
@@ -26,8 +26,7 @@ text = "Drive Again"
 scroll_active = false
 script = ExtResource("3_wruqd")
 
-[node name="Quit" type="RichTextLabel" parent="TextureRect"]
-layout_mode = 0
+[node name="Quit" type="RichTextLabel" parent="YouCrashed"]
 offset_left = 174.0
 offset_top = 208.0
 offset_right = 345.485
@@ -39,11 +38,11 @@ text = "Quit to Title"
 scroll_active = false
 script = ExtResource("3_wruqd")
 
-[connection signal="gui_input" from="TextureRect/DriveAgain" to="TextureRect/DriveAgain" method="_on_gui_input"]
-[connection signal="menu_option_clicked" from="TextureRect/DriveAgain" to="." method="option"]
-[connection signal="mouse_entered" from="TextureRect/DriveAgain" to="TextureRect/DriveAgain" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect/DriveAgain" to="TextureRect/DriveAgain" method="_on_mouse_exited"]
-[connection signal="gui_input" from="TextureRect/Quit" to="TextureRect/Quit" method="_on_gui_input"]
-[connection signal="menu_option_clicked" from="TextureRect/Quit" to="." method="option"]
-[connection signal="mouse_entered" from="TextureRect/Quit" to="TextureRect/Quit" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect/Quit" to="TextureRect/Quit" method="_on_mouse_exited"]
+[connection signal="gui_input" from="YouCrashed/DriveAgain" to="YouCrashed/DriveAgain" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="YouCrashed/DriveAgain" to="." method="option"]
+[connection signal="mouse_entered" from="YouCrashed/DriveAgain" to="YouCrashed/DriveAgain" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YouCrashed/DriveAgain" to="YouCrashed/DriveAgain" method="_on_mouse_exited"]
+[connection signal="gui_input" from="YouCrashed/Quit" to="YouCrashed/Quit" method="_on_gui_input"]
+[connection signal="menu_option_clicked" from="YouCrashed/Quit" to="." method="option"]
+[connection signal="mouse_entered" from="YouCrashed/Quit" to="YouCrashed/Quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YouCrashed/Quit" to="YouCrashed/Quit" method="_on_mouse_exited"]

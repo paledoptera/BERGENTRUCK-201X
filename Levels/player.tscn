@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=49 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Assets/Visuals/satisfaction gage.png" id="7"]
 [ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Assets/Visuals/emptybeerometer.png" id="8_lor68"]
 [ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Assets/Visuals/beerometer.png" id="9_is4es"]
 [ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="10"]
 [ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="12"]
@@ -154,6 +156,9 @@ size = Vector2(104.125, 215.502)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0plgk"]
 size = Vector2(104.125, 800)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lor68"]
+size = Vector2(20, 392)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
 size = Vector2(290, 2000)
 
@@ -291,6 +296,19 @@ offset_bottom = -4.0
 mouse_filter = 2
 text = "HP: 100"
 scroll_active = false
+
+[node name="BeerProgress" type="TextureProgressBar" parent="Visuals"]
+visible = false
+offset_left = 37.0
+offset_top = 21.0
+offset_right = 198.0
+offset_bottom = 65.0
+scale = Vector2(0.34, 0.34)
+mouse_filter = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("8_lor68")
+texture_progress = ExtResource("9_is4es")
 
 [node name="WidgetWheel" parent="Visuals" instance=ExtResource("8")]
 self_modulate = Color(1, 1, 1, 0)
@@ -516,6 +534,15 @@ position = Vector2(378, -475)
 rotation = -0.331613
 shape = SubResource("RectangleShape2D_yiue1")
 
+[node name="BeerCollision" type="StaticBody2D" parent="."]
+position = Vector2(394, -17)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeerCollision"]
+position = Vector2(0, 122)
+shape = SubResource("RectangleShape2D_lor68")
+
 [node name="ItemDespawnZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDespawnZone"]
@@ -541,6 +568,9 @@ debug_color = Color(0.976471, 0.482353, 0, 0.717647)
 [node name="FaceActionTimer" type="Timer" parent="."]
 wait_time = 0.33
 one_shot = true
+
+[node name="DrunkTimer" type="Timer" parent="."]
+wait_time = 0.33
 
 [node name="SpawnZone" type="ColorRect" parent="."]
 offset_left = 52.0
@@ -587,6 +617,7 @@ one_shot = true
 [connection signal="body_entered" from="FaceZone" to="." method="_item_entered_face"]
 [connection signal="body_exited" from="FaceZone" to="." method="_item_exited_face"]
 [connection signal="timeout" from="FaceActionTimer" to="." method="_item_action_timeout"]
+[connection signal="timeout" from="DrunkTimer" to="." method="_on_drunk_timer_timeout"]
 
 [editable path="Visuals/WidgetWheel"]
 [editable path="Visuals/WidgetWheel/DraggableItem"]

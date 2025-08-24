@@ -12,6 +12,7 @@ func _ready() -> void:
 		$AnimationPlayer.play("start")
 	else:
 		$AnimationPlayer.play("startflip")
+	
 
 func hit(player):
 	super(player)

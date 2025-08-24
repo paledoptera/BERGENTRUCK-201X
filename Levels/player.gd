@@ -17,8 +17,6 @@ const DRIFT_ACCELERATION = 0.01
 @export var screenshake_decay : float = 5.0
 
 
-
-
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
 var last_turn_speed = 0.0
@@ -39,17 +37,16 @@ var car_angle = Vector2.ZERO
 var car_shake = Vector2.ZERO
 var screeching = false
 var hand_on_wheel: bool = false
-
 var visuals_angle : float = 0.0
 var steer_wiggle : float = 0.0
-
 var last_direction = Vector2.ZERO
 var max_hp: float = 100.0
 var hp = max_hp:
 	set(value):
 		_health_changed(hp, value)
 		hp = value
-		
+var drunkness: int = 0
+var drunk_steer:int = 0
 var current_items_in_face_region : Array[Item]
 
 var noise_i: float = 0.0
@@ -66,6 +63,10 @@ func _ready() -> void:
 	if Global.modifiers.FragileCar:
 		max_hp = 50
 		hp = 50
+	if Global.modifiers.DrunkMode:
+		_spawn_item(preload("res://Items/item_beer.tscn"))
+		$DrunkTimer.start(2)
+		$Visuals/BeerProgress.show()
 	_correct_sprite_size($Ground)
 	skin_change()
 	$CarEngine.volume_db = -40
@@ -244,10 +245,12 @@ func _gear_mechanics() -> void:
 func _steering_mechanics() -> void:
 	
 	steer_wiggle = randf_range(-speed*2,speed*2)
-
 	
 	
 	turn_angle.x = widget_wheel.value.x
+	if Global.modifiers.DrunkMode:
+		$Visuals/BeerProgress.value = 100 - drunkness
+		turn_angle.x += turn_angle.x*drunkness/50
 	turn_angle.y = 1+(widget_wheel.value.y*0.5)
 	turn_speed = turn_angle.x * turn_angle.y
 	turn_speed = clamp(turn_speed,-1,1)
@@ -263,8 +266,7 @@ func _steering_mechanics() -> void:
 	
 	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
 	if Global.modifiers.DrunkMode:
-		car_velocity.x += clamp(car_velocity.x,-1,1)
-		car_velocity.x = clamp(car_velocity.x,-car_velocity.x/1.7,car_velocity.x/1.7)
+		car_velocity.x += sin(drunk_steer+.24)*drunkness/180#+1
 	
 	
 #
@@ -489,6 +491,7 @@ func _gravity_mechanics(delta: float) -> void:
 	if car_velocity.y > 0:
 		car_velocity.y *= 0.9
 	
+	
 	$Camera3D.position.y += car_velocity.y
 	$Camera3D.position.z = 10+($Camera3D.position.y-8)
 	
@@ -513,6 +516,9 @@ func _horn(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				if Global.modifiers.DrunkMode:
+					await get_tree().create_timer(randf_range(0,0.3)*drunkness/20).timeout
+					car_velocity.x = drunkness*[-1,1].pick_random()/10
 				horn = true
 				$CarHonk.play()
 				if $Camera3D.position.y == 8.0:
@@ -590,3 +596,8 @@ func shoot():
 	var bullet = preload("res://Entities/Bullet.tscn").instantiate()
 	add_sibling(bullet)
 	bullet.global_position = $Camera3D.global_position + Vector3($Visuals/Hand.position.x/20,0,0)
+
+
+func _on_drunk_timer_timeout():
+	drunkness += 1
+	drunk_steer = [-1,1].pick_random()

@@ -1082,7 +1082,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0333333),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [ExtResource("24_6a2wm"), 1.0, 0.0],
+"args": [ExtResource("24_6a2wm"), 5.5, 0.0],
 "method": &"spawn_bullet"
 }, {
 "args": [0.0],

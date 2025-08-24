@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6b887byujpfv"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_rfsbs"]
-[ext_resource type="Script" path="res://Entities/spamton_mailwall.gd" id="2_pjsh5"]
+[ext_resource type="Script" uid="uid://d1lstmt8cvl3s" path="res://Entities/spamton_mailwall.gd" id="2_pjsh5"]
 [ext_resource type="AudioStream" uid="uid://bp6a3x3ou8nt0" path="res://Global/SFX/yougotmail.mp3" id="3_jsf10"]
 [ext_resource type="Texture2D" uid="uid://ki1eiorha28p" path="res://Entities/Assets/Visuals/Spamton/box.png" id="4_jsf10"]
 [ext_resource type="Texture2D" uid="uid://cw37vqcbvhy1b" path="res://Entities/Assets/Visuals/Spamton/mail.png" id="5_oge76"]

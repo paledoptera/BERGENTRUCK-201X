@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://r2i1oydr6xb8"]
+[gd_scene load_steps=7 format=3 uid="uid://r2i1oydr6xb8"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_vn4l5"]
 [ext_resource type="Script" uid="uid://cffq65qr5xfhe" path="res://Items/item_beer.gd" id="2_vn4l5"]
+[ext_resource type="AudioStream" uid="uid://svvwsnxko1oc" path="res://Global/SFX/snd_pirouette.wav" id="3_jee5q"]
 [ext_resource type="Texture2D" uid="uid://b0ra1jofgr66n" path="res://Items/beer-png-pint-beer-png-image-2445-3300566572.png" id="3_vn4l5"]
 [ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="4_6mud5"]
 
@@ -10,6 +11,11 @@ radius = 37.0135
 
 [node name="Flower" instance=ExtResource("1_vn4l5")]
 script = ExtResource("2_vn4l5")
+use_sound = ExtResource("3_jee5q")
+score_amount = -10
+weight = 5.0
+random_scaling_min = 1.0
+random_scaling_max = 1.0
 
 [node name="TextureRect" parent="DraggableItem" index="1"]
 scale = Vector2(0.0479112, 0.0479112)

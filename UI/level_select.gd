@@ -7,10 +7,11 @@ var current_icon = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if not Global.player_save.flags["levels_unlocked"][5] and not OS.has_feature("editor"): #if the first dark level is unlocked ALWAYS UNLOCKED IN EDITOR
+		$Dark.hide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Dark Text Changing
 func _process(delta: float) -> void:
 	$LVNumber/Dark.text = $LVNumber.text
 	$LVTitle/Dark.text = $LVTitle.text

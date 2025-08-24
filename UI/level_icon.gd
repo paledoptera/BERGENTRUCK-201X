@@ -28,7 +28,10 @@ func update_visual(dark:bool):
 			$Sprite2D/RichTextLabel.text = number_overide
 	$Sprite2D.frame = usedvalue #update level icon
 	$Sprite2D/TickMark.visible = Global.player_save.flags.get("levels_beaten")[usedvalue-1] #update checkmark
-	
+	for node in $Sprite2D/Modifiers.get_children():
+		node.hide()
+	$Sprite2D/AllMods.hide()
+	$Sprite2D/LesserAllMods.hide()
 	#LOCK THE LEVEL VV
 	if Global.player_save.flags.get("levels_unlocked")[usedvalue-1] or OS.has_feature("editor"): #is the level locked?? IN EDITOR EVERYTHING IS UNLOCKED
 		unlocked = true
@@ -39,6 +42,15 @@ func update_visual(dark:bool):
 		$Sprite2D/TickMark.hide()
 		$Sprite2D.frame = 0
 		return
+	#MODIFIER THINGS
+	for mod in Global.player_save.flags["level_beaten_modifiers"][usedvalue-1]:
+		get_node("Sprite2D/Modifiers/"+mod).show()
+	if Global.player_save.flags["levels_mastered"][usedvalue-1]:
+		$Sprite2D/AllMods.show()
+	$Sprite2D/LesserAllMods.show()
+	for child in $Sprite2D/Modifiers.get_children():
+		if child.visible == false:
+			$Sprite2D/LesserAllMods.hide()
 
 
 func _on_gui_input(event: InputEvent) -> void:

@@ -264,7 +264,7 @@ func _steering_mechanics() -> void:
 	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
 	if Global.modifiers.DrunkMode:
 		car_velocity.x += clamp(car_velocity.x,-1,1)
-		car_velocity.x = clamp(car_velocity.x,-car_velocity.x/1.2,car_velocity.x/1.2)
+		car_velocity.x = clamp(car_velocity.x,-car_velocity.x/1.7,car_velocity.x/1.7)
 	
 	
 #
@@ -589,4 +589,4 @@ func particle_trigger(part_type = 0, value = 5):
 func shoot():
 	var bullet = preload("res://Entities/Bullet.tscn").instantiate()
 	add_sibling(bullet)
-	bullet.global_position = $Camera3D.global_position
+	bullet.global_position = $Camera3D.global_position + Vector3($Visuals/Hand.position.x/20,0,0)

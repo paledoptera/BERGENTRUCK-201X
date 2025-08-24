@@ -8,6 +8,8 @@ var time = 0
 	"first_play": true,
 	"levels_unlocked" : [true,false,false,false,false,false,false,false,false,false],
 	"levels_beaten" : [false,false,false,false,false,false,false,false,false,false],
+	"levels_mastered" : [false,false,false,false,false,false,false,false,false,false], #LEVELS BEATEN W/ ALL MODIFIERS AT SAME TIME
+	"level_beaten_modifiers": [[],[],[],[],[],[],[],[],[],[]],
 	"level_time": [0,0,0,0,0,0,0,0,0,0],
 	"best_time": [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
 	"option_show_time": false,

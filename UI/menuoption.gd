@@ -19,7 +19,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(self,'global_position',start_pos,0.05)
-	pass # Replace with function body.
 
 
 func _on_gui_input(event: InputEvent) -> void:

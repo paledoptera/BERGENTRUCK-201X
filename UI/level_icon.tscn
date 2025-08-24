@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://beo0wp80g721"]
+[gd_scene load_steps=16 format=3 uid="uid://beo0wp80g721"]
 
 [ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Assets/Visuals/level_icons.png" id="1_61kut"]
 [ext_resource type="Script" uid="uid://b63c1cengem0u" path="res://UI/level_icon.gd" id="1_mbt8g"]
@@ -9,6 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://by5h5bes6wsaq" path="res://UI/Assets/Visuals/modifier_icon_NoHeal.png" id="7_2xy3u"]
 [ext_resource type="Texture2D" uid="uid://bik3x6v8vtvdx" path="res://UI/Assets/Visuals/modifier_icon_DrunkMode.png" id="8_7hmek"]
 [ext_resource type="Texture2D" uid="uid://04laa78phkux" path="res://UI/Assets/Visuals/modifier_icon_Drain.png" id="9_i5ywb"]
+
+[sub_resource type="Gradient" id="Gradient_7hmek"]
+offsets = PackedFloat32Array(0, 0.989655)
+colors = PackedColorArray(1, 0.566667, 0, 1, 0.966667, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p4x7v"]
+gradient = SubResource("Gradient_7hmek")
+
+[sub_resource type="Gradient" id="Gradient_2xy3u"]
+colors = PackedColorArray(0.4108, 0.5018, 0.52, 1, 0.8, 0.8, 0.8, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7hmek"]
+gradient = SubResource("Gradient_2xy3u")
+
+[sub_resource type="Gradient" id="Gradient_i5ywb"]
+colors = PackedColorArray(0.852072, 0.507938, 0, 1, 0.746667, 0.8, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2xy3u"]
+gradient = SubResource("Gradient_i5ywb")
 
 [node name="LevelIcon" type="ColorRect" groups=["level_icon", "transparent"]]
 self_modulate = Color(1, 1, 1, 0)
@@ -37,40 +56,127 @@ visible = false
 position = Vector2(-27, 28)
 texture = ExtResource("4_wkijm")
 
-[node name="FragileCar" type="Sprite2D" parent="Sprite2D"]
+[node name="Modifiers" type="Node2D" parent="Sprite2D"]
+scale = Vector2(1, 1)
+
+[node name="FragileCar" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false
 modulate = Color(1, 1, 0, 1)
+clip_children = 1
 position = Vector2(-34.2857, -28.5714)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("5_itvj5")
 
-[node name="FragileCar2" type="Sprite2D" parent="Sprite2D"]
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/FragileCar"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="NoSlow" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false
 modulate = Color(1, 1, 0, 1)
+clip_children = 1
 position = Vector2(-20.5714, -28.571)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("6_i5ywb")
 
-[node name="FragileCar3" type="Sprite2D" parent="Sprite2D"]
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/NoSlow"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="NoHeal" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false
 modulate = Color(1, 1, 0, 1)
+clip_children = 1
 position = Vector2(-2.57143, -28.571)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("7_2xy3u")
 
-[node name="FragileCar4" type="Sprite2D" parent="Sprite2D"]
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/NoHeal"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="DrunkMode" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false
 modulate = Color(1, 1, 0, 1)
+clip_children = 1
 position = Vector2(12.5714, -28.571)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("8_7hmek")
 
-[node name="FragileCar5" type="Sprite2D" parent="Sprite2D"]
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/DrunkMode"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="Drain" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false
 modulate = Color(1, 1, 0, 1)
+clip_children = 1
 position = Vector2(31.1429, -28.571)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("9_i5ywb")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/Drain"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="LesserAllMods" type="Sprite2D" parent="Sprite2D"]
+visible = false
+show_behind_parent = true
+clip_children = 1
+scale = Vector2(1.07121, 1.07519)
+texture = ExtResource("1_61kut")
+hframes = 12
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/LesserAllMods"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_7hmek")
+expand_mode = 1
+
+[node name="AllMods" type="Sprite2D" parent="Sprite2D"]
+visible = false
+show_behind_parent = true
+clip_children = 1
+scale = Vector2(1.07121, 1.07519)
+texture = ExtResource("1_61kut")
+hframes = 12
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/AllMods"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_2xy3u")
+expand_mode = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

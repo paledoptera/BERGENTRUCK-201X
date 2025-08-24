@@ -208,6 +208,16 @@ func die() -> void:
 
 func win() -> void:
 	score = 0.0
+	var all_modifiers = true
+	for mod in modifiers:
+		if modifiers[mod] == true:
+			print("Beaten with ",mod)
+			if modifiers[mod] not in player_save.flags["level_beaten_modifiers"][level-1]:
+				player_save.flags["level_beaten_modifiers"][level-1].append(mod)
+		else:
+			all_modifiers = false
+	if all_modifiers:
+		player_save.flags["levels_mastered"][level-1] = true
 	game.game_state.send_event("Win")
 
 func get_time(time: float) -> String:

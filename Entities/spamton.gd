@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["pipis", "slashes_stars", "mail", "swords_wall"] #"swords_corridor"]
+const ATTACK = ["pipis", "slashes_stars", "mail", "heart"] #"swords_corridor"]
 
 @export var player : Node
 var speed = 0.0
@@ -106,10 +106,10 @@ func _attack_enter() -> void:
 				print("HA")
 				max_attacks_used = 4
 			
-			"swords_wall":
+			"heart":
 				current_attack = ""
-				current_attack_small = "big_sword_wall"
-				current_attack_mega = "big_sword_wall"
+				current_attack_small = "heart_attack"
+				current_attack_mega = "heart_attack"
 				max_attacks_used = 1
 	
 	

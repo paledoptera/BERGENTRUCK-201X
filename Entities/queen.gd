@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["slashes", "slashes_stars", "swords", "swords_wall", "bullet_hell"] #"swords_corridor"]
+const ATTACK = ["punch"] #"swords_corridor"]
 
 @export var player : Node
 var speed = 0.0
@@ -22,6 +22,7 @@ var previous_attack_pool : Array[String]
 @export var sprite : AnimatedSprite3D
 @export var ai_timer : Timer
 @export var ai_anim : AnimationPlayer
+var attack_cooldown: float = 0
 
 
 func _ready() -> void:
@@ -37,20 +38,22 @@ func _process(delta: float) -> void:
 	var dist = global_rotation.x+deg_to_rad(35)
 	
 	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
-	global_rotation.x += deg_to_rad(speed)
-	global_rotation.x = clamp(global_rotation.x,deg_to_rad(-35),deg_to_rad(12))
+	#global_rotation.x += deg_to_rad(speed)
+	global_rotation.x = clamp(global_rotation.x,deg_to_rad(-35),deg_to_rad(-3))
 
 
 func hit(player) -> void:
-	if player.gear < 3:
-		Global.score += randf_range(-1.0,-5.0)
-	Global.score += randf_range(0.0,4.0)
-	Global.score += 5
+	Audio.play_sfx(hit_sound_impact)
+	Global.score += 1
 	if Global.score >= Global.goal:
 		$Timer.stop()
-	player.screenshake_strength += 40
+	player.screenshake_strength += 10
 	player.particle_trigger(particle_effect)
-	$AIState.send_event("Hit")
+	
+	keeping_up_with_player = true
+	ai_anim.play("hit")
+	ai_anim.queue("idle")
+	
 	disable_collision()
 
 
@@ -62,7 +65,7 @@ func _start_enter() -> void:
 	keeping_up_with_player = true
 	attacks_used = 0
 	$EntityContainer/CollisionShape3D.disabled = false
-	ai_timer.start(9999.0)
+	ai_timer.start(2.0)
 	ai_anim.queue("idle")
 
 
@@ -72,11 +75,11 @@ func _start_process(delta: float) -> void:
 	
 	var current_y = Utility.get_sine(siner,1.0,7.0)
 	var next_y = Utility.get_sine(siner+delta,1.0,7.0)
-	if sign(current_y) != sign(next_y):
+	if sign(current_y) != sign(next_y) and $EntityContainer/AnimatedSprite3D.animation == "idle":
 		sprite.frame = wrap(sprite.frame+1,0,2)
 	
-	horizontal_speed = abs(current_y)/2
-	sprite.position.y = 0.5+abs(current_y)
+	horizontal_speed = abs(current_y)*2
+	sprite.position.y = -2.0+abs(current_y)
 
 func _attack_enter() -> void:
 	_get_current_attack_pool()
@@ -99,9 +102,9 @@ func _attack_enter() -> void:
 		last_attack = current_attack
 		print(current_attack)
 		match current_attack:
-			"slashes":
-				current_attack_small = "small_slash_rude"
-				current_attack_mega = "big_slash_bullets"
+			"punch":
+				current_attack_small = "punch"
+				current_attack_mega = "punch"
 				max_attacks_used = 3
 		
 			"slashes_stars":
@@ -147,17 +150,9 @@ func _attack_exit() -> void:
 
 
 func _break_enter() -> void:
-	#ai_anim.play("break")
-	speed = -2.0
-	ai_timer.start(0.2)
-
-func _break_process(delta) -> void:
-	horizontal_speed = lerp(horizontal_speed,0.2,0.1)
-
-
-func _break_exit() -> void:
-	sprite.flip_h = false
-
+	ai_anim.play("idle")
+	ai_timer.start(1.5)
+	
 
 func _end_enter() -> void:
 	current_attack = ""
@@ -170,8 +165,10 @@ func _end_process(delta) -> void:
 
 
 func _hit_enter() -> void:
+	print("HIT")
 	ai_timer.stop()
 	keeping_up_with_player = true
+	$EntityContainer/AnimatedSprite3D.frame = 0
 	ai_anim.play("hit")
 	ai_timer.start(0.5)
 #endregion
@@ -209,7 +206,8 @@ func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 
 
 
 func disable_collision() -> void:
-	$EntityContainer/CollisionShape3D.disabled = true
+	pass
+	#$EntityContainer/CollisionShape3D.disabled = true
 
 
 func play_sound(audio: AudioStream, pitch_scale: float = 1.0, volume_db: float = 0.0) -> void:

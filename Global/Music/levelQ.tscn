@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b0obvicgtatpa"]
+[gd_scene load_steps=32 format=4 uid="uid://b0obvicgtatpa"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_s615m"]
 [ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_4i652"]
@@ -57,19 +57,30 @@ func _horn(event: InputEvent) -> void:
 				horn = true
 				$CarHonk.play()
 				if current_hand and not $ArmAnimationR.is_playing():
+					$Camera3D/ArmR/GloveR/Area3D.monitoring = true
 					$ArmAnimationR.play(\"punch\")
 				elif not current_hand and not $ArmAnimationL.is_playing():
+					$Camera3D/ArmL/GloveL/Area3D.monitoring = true
 					$ArmAnimationL.play(\"punch\")
 				else:
 					return
 				current_hand = not current_hand
 				#if $Camera3D.position.y == 8.0:
-					#car_velocity.y = 1
+					#car_velocity.y = 0.5
 			elif not event.pressed:
 				horn = false
 				$CarHonk.stop()
 				#if car_velocity.y > 0:
 					#car_velocity.y *= 0.4
+
+
+func _punch_collision(area: Area3D) -> void:
+	$Camera3D/ArmL/GloveL/Area3D.monitoring = false
+	$Camera3D/ArmR/GloveR/Area3D.monitoring = false
+	
+	if area.get_parent() is Entity:
+		var entity: Entity = area.get_parent()
+		entity.hit(self)
 "
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
@@ -102,6 +113,9 @@ emission_enabled = true
 emission = Color(0.161236, 2.05037e-05, 0.635841, 1)
 emission_energy_multiplier = 0.85
 disable_receive_shadows = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4i652"]
+radius = 1.91853
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na7cc"]
 resource_name = "Material"
@@ -236,6 +250,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(2.28638, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/ArmR/GloveR/Area3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -50, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4i652"]
 resource_name = "punch"
@@ -300,6 +326,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.919, -1), Vector3(-1, -0.36, -1), Vector3(-1, -0.36, -1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/ArmR/GloveR/Area3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -50, 0), Vector3(0, 0, 0), Vector3(0, -50, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4su86"]
 _data = {
@@ -344,6 +382,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(3.14159, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/ArmL/GloveL/Area3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -50, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_4su86"]
@@ -409,6 +459,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(2.28638, 0, 0), Vector3(2.28638, 0, -0.575959), Vector3(2.28638, 0, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D/ArmL/GloveL/Area3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -50, 0), Vector3(0, 0, 0), Vector3(0, -50, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kbos6"]
 _data = {
@@ -449,21 +511,32 @@ transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 3.189, -
 spring_length = 0.09
 
 [node name="Spring" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("7_4i652")]
-transform = Transform3D(-1, 0, 0, 0, 0.236181, 0.754711, 0, -0.271695, 0.656058, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 0.236181, 0.75471, 0, -0.271696, 0.656058, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/Spring" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.2)
 sorting_offset = 1e+07
 sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
 [node name="GloveR" parent="Player/Camera3D/ArmR" index="1" instance=ExtResource("8_s615m")]
-transform = Transform3D(0.0207696, -0.0295968, -0.850135, -0.452175, -0.216233, 0.0480224, -0.50879, 0.190964, -0.0773825, 0.000172615, 7.9155e-05, 0.000374794)
+transform = Transform3D(0.0207696, -0.0295968, -0.850136, -0.452175, -0.216233, 0.0480224, -0.50879, 0.190964, -0.0773825, 0.000172615, 7.9155e-05, 0.000374794)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/GloveR" index="0"]
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
 sorting_offset = 1e+07
 sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
+
+[node name="Area3D" type="Area3D" parent="Player/Camera3D/ArmR/GloveR" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Camera3D/ArmR/GloveR/Area3D" index="0"]
+shape = SubResource("SphereShape3D_4i652")
 
 [node name="ArmL" type="SpringArm3D" parent="Player/Camera3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.269, -4.293, -1.347)
@@ -473,6 +546,7 @@ spring_length = 0.09
 transform = Transform3D(-1, 0, 0, 0, 1, 2.53518e-06, 0, -2.53518e-06, 1, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/Spring" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.2)
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
 [node name="GloveL" parent="Player/Camera3D/ArmL" index="1" instance=ExtResource("8_s615m")]
@@ -482,6 +556,16 @@ transform = Transform3D(0.0712656, -0.00544697, 0.850154, -0.452317, -0.216186, 
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4i652")
 surface_material_override/0 = SubResource("StandardMaterial3D_4su86")
+
+[node name="Area3D" type="Area3D" parent="Player/Camera3D/ArmL/GloveL" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Camera3D/ArmL/GloveL/Area3D" index="0"]
+shape = SubResource("SphereShape3D_4i652")
 
 [node name="Ground" parent="Player" index="11"]
 material_override = ExtResource("6_djtrw")
@@ -519,6 +603,9 @@ texture = ExtResource("10_odswv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504, -6.3095, 54.1476, 20.326)
+
+[connection signal="area_entered" from="Player/Camera3D/ArmR/GloveR/Area3D" to="Player" method="_punch_collision"]
+[connection signal="area_entered" from="Player/Camera3D/ArmL/GloveL/Area3D" to="Player" method="_punch_collision"]
 
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]

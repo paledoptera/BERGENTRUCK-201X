@@ -29,10 +29,9 @@ func _ready() -> void:
 	shake = .2
 	await $AnimationPlayer.animation_finished
 	idleanimation(true)
-	Global.score = 46
+	#Global.score = 46
 
 func _process(delta: float) -> void:
-	
 	if shake != 0:
 		for node in get_tree().get_nodes_in_group("shake"):
 			node.position += Vector3(randf_range(-shake,shake),(randf_range(-shake,shake)),0)
@@ -245,6 +244,7 @@ func _on_hurtbox_area_entered(area):
 
 func idleanimation(begin:bool):
 	if begin:
+		$AudioStreamPlayer.stop()
 		for node in get_tree().get_nodes_in_group("stop"):
 			node.play("loop")
 		$EntityContainer/Head.play("idle")

@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_ant45"]
 script = ExtResource("3_43lgf")
 item = ExtResource("4_gbimh")
-drop_chance = 80
+drop_chance = 100
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ant45"]

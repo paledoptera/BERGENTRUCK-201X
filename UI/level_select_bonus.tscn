@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=34 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -19,11 +19,34 @@
 [ext_resource type="Texture2D" uid="uid://by5h5bes6wsaq" path="res://UI/Assets/Visuals/modifier_icon_NoHeal.png" id="13_361lv"]
 [ext_resource type="Script" uid="uid://bcqytjtjqlgjo" path="res://UI/skins.gd" id="13_u6vxe"]
 [ext_resource type="Texture2D" uid="uid://bik3x6v8vtvdx" path="res://UI/Assets/Visuals/modifier_icon_DrunkMode.png" id="14_blw1y"]
+[ext_resource type="Texture2D" uid="uid://04laa78phkux" path="res://UI/Assets/Visuals/modifier_icon_Drain.png" id="15_3npne"]
 [ext_resource type="Script" uid="uid://cgysghcfgt64k" path="res://UI/skin_selector.gd" id="16_b8hd2"]
 [ext_resource type="PackedScene" uid="uid://dvu2jwykeb5yj" path="res://UI/character_icon.tscn" id="17_li2u5"]
 
+[sub_resource type="Gradient" id="Gradient_3npne"]
+offsets = PackedFloat32Array(0.295699, 0.930108)
+colors = PackedColorArray(0.152155, 0.00013982, 0.455842, 1, 9.81867e-05, 0.518049, 0.958113, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_361lv"]
+gradient = SubResource("Gradient_3npne")
+width = 200
+
+[sub_resource type="Gradient" id="Gradient_361lv"]
+colors = PackedColorArray(0.774675, 0.551856, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_blw1y"]
+gradient = SubResource("Gradient_361lv")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8ko8"]
 texture = ExtResource("9_ew8hv")
+
+[sub_resource type="Gradient" id="Gradient_blw1y"]
+offsets = PackedFloat32Array(0.295699, 0.930108)
+colors = PackedColorArray(0.662452, 0.662452, 0.662452, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3npne"]
+gradient = SubResource("Gradient_blw1y")
+width = 200
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ew8hv"]
 
@@ -185,6 +208,29 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_ew8hv")
 horizontal_alignment = 1
 
+[node name="Dark" type="RichTextLabel" parent="LVNumber"]
+visible = false
+clip_children = 1
+layout_mode = 0
+offset_left = 12.965
+offset_right = 172.965
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_ew8hv")
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="DarkGradient" type="TextureRect" parent="LVNumber/Dark"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = 37.0
+offset_bottom = 130.0
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_361lv")
+expand_mode = 1
+
 [node name="LVTitle" type="RichTextLabel" parent="."]
 offset_left = -35.0
 offset_top = -6.0
@@ -196,6 +242,28 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_ew8hv")
 text = "Choose a Level"
 horizontal_alignment = 1
+
+[node name="Dark" type="RichTextLabel" parent="LVTitle"]
+visible = false
+clip_children = 1
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_ew8hv")
+text = "Choose a Level"
+horizontal_alignment = 1
+
+[node name="DarkGradient" type="TextureRect" parent="LVTitle/Dark"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = 37.0
+offset_bottom = 130.0
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_361lv")
+expand_mode = 1
 
 [node name="BestTime" type="RichTextLabel" parent="."]
 visible = false
@@ -209,6 +277,28 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("7_l8ko8")
 text = "Best Time: 00:00"
 horizontal_alignment = 1
+
+[node name="Dark" type="RichTextLabel" parent="BestTime"]
+visible = false
+modulate = Color(1, 1, 0.243137, 1)
+clip_children = 1
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "Best Time: 00:00"
+horizontal_alignment = 1
+
+[node name="DarkGradient" type="TextureRect" parent="BestTime/Dark"]
+layout_mode = 0
+offset_left = 43.9883
+offset_top = 16.8605
+offset_right = 58.9883
+offset_bottom = 129.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_blw1y")
+expand_mode = 1
 
 [node name="Modifiers" type="RichTextLabel" parent="."]
 offset_top = 240.0
@@ -251,6 +341,7 @@ icon = ExtResource("10_ulp2l")
 expand_icon = true
 script = ExtResource("8_u6vxe")
 display_text = "Fragile Car"
+explain_text = "Half Health, Jumping Hurts"
 
 [node name="NoSlow" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -269,6 +360,7 @@ icon = ExtResource("12_3npne")
 expand_icon = true
 script = ExtResource("8_u6vxe")
 display_text = "No Slow"
+explain_text = "Permanent Gear 6"
 
 [node name="NoHeal" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -287,6 +379,7 @@ icon = ExtResource("13_361lv")
 expand_icon = true
 script = ExtResource("8_u6vxe")
 display_text = "No Heal"
+explain_text = "Unable to Heal"
 
 [node name="DrunkMode" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -305,20 +398,62 @@ icon = ExtResource("14_blw1y")
 expand_icon = true
 script = ExtResource("8_u6vxe")
 display_text = "Drunk Mode"
+explain_text = "Drink Beer to Keep Control"
 
-[node name="name" type="RichTextLabel" parent="Modifiers"]
-visible = false
+[node name="Drain" type="Button" parent="Modifiers/Buttons"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 4
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
+toggle_mode = true
+icon = ExtResource("15_3npne")
+expand_icon = true
+script = ExtResource("8_u6vxe")
+display_text = "Drain"
+explain_text = "Progress Drains Overtime"
+
+[node name="effect" type="RichTextLabel" parent="Modifiers"]
 layout_mode = 0
 offset_top = 32.0
 offset_right = 375.0
 offset_bottom = 75.0
 scale = Vector2(0.5, 0.504)
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.856067, 0.856067, 0.856067, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_ew8hv")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "Fragile Car"
 horizontal_alignment = 1
+
+[node name="Dark" type="RichTextLabel" parent="Modifiers"]
+visible = false
+clip_children = 1
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 43.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+bbcode_enabled = true
+text = "Modifiers"
+horizontal_alignment = 1
+
+[node name="DarkGradient" type="TextureRect" parent="Modifiers/Dark"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = 37.0
+offset_bottom = 130.0
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_3npne")
+expand_mode = 1
 
 [node name="Selected" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.235294)
@@ -414,6 +549,7 @@ offset_bottom = 80.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("9_li2u5")
 theme_override_font_sizes/font_size = 26
+action_mode = 0
 text = "<"
 flat = true
 script = ExtResource("13_u6vxe")
@@ -430,6 +566,7 @@ offset_bottom = 80.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("9_li2u5")
 theme_override_font_sizes/font_size = 26
+action_mode = 0
 text = ">"
 flat = true
 script = ExtResource("13_u6vxe")
@@ -498,6 +635,7 @@ although its shades are cool"
 layout_mode = 2
 ID = 6
 description = "THE ROARING KNIGHT STARTED THE ROARING ENGINE OF THE ROARING TRUCK"
+locked_description = "BEAT THE KNIGHT"
 
 [node name="Kris" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
@@ -518,6 +656,7 @@ description = "This isn't Enviro-Bear's first time driving.
 [node name="Hornet" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 12
+never_locked = true
 description = "Silk song tommorow
 "
 

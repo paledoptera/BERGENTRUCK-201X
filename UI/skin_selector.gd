@@ -72,6 +72,6 @@ func update_selected():
 		Global.player_save.flags.current_skin_id = current_character.ID
 	else:
 		$Name.text = "???"
-		$Bio.text = ""
+		$Bio.text = current_character.locked_description
 	$Name.scale = Vector2(1,1)
 	create_tween().tween_property($Name,"scale",Vector2(1.1,1.11),.2).set_trans(Tween.TRANS_BOUNCE)

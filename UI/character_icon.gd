@@ -4,6 +4,7 @@ extends TextureRect
 @export var never_locked = false
 var unlocked = true
 @export_multiline var description = ""
+@export_multiline var locked_description = ""
 
 func _ready():
 	$Sprite2D.frame = ID+2

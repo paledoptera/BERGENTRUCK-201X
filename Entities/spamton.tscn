@@ -797,12 +797,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.46667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(4.46667),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [ExtResource("26_2wa6i")],
-"method": &"play_sound"
-}, {
 "args": [true],
 "method": &"idleanimation"
 }]
@@ -957,6 +954,20 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(0.707107, 0.707107, 4.28709, 0.707107, 0.707107, 4.28709, 0.707107, 0.707107, 4.28709, 0.707107),
 "update": 0,
 "values": [Vector3(2.59908e-07, 0, 0), Vector3(0, 0, 0.490438), Vector3(0, 0, -0.785398), Vector3(2.59908e-07, 0, 0), Vector3(0, 0, 0.490438), Vector3(0, 0, -0.785398), Vector3(2.59908e-07, 0, 0), Vector3(0, 0, 0.490438), Vector3(0, 0, -0.785398), Vector3(2.59908e-07, 0, 0)]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AudioStreamPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_g83g5"]
@@ -2330,7 +2341,7 @@ pixel_size = 0.14
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_xs7sa")
 animation = &"idle"
-frame = 1
+frame = 2
 
 [node name="Sprite3D" parent="EntityContainer" index="23" groups=["shake"]]
 transform = Transform3D(2.2933, 0, 0, 0, 2.2933, -5.96047e-07, 0, 5.96047e-07, 2.2933, -1.51865, 11.2558, -1.34059)
@@ -2396,6 +2407,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="12"]
+stream = ExtResource("26_2wa6i")
+pitch_scale = 0.88
 
 [node name="AfterimageTimer" type="Timer" parent="." index="13"]
 wait_time = 0.1

@@ -73,7 +73,6 @@ func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_property($CarEngine,'volume_db',0,3.0)
 
-
 func _physics_process(delta: float) -> void:
 	if Global.player_save.flags["option_show_time"]:
 		$Visuals/Time.visible = true
@@ -469,10 +468,12 @@ func _entity_mechanics() -> void:
 			if entity.items:
 				
 				var items = entity.items.duplicate()
-				var extra_chance = [0,1].pick_random()
+				var extra_chance = gear-1-[0,1].pick_random()
 				if Global.level == 3:
-					extra_chance = 3
-				for i in range(max(gear-1-extra_chance,1)):
+					extra_chance = gear-4
+				if Global.level == 7:
+					extra_chance = 1
+				for i in range(max(extra_chance,1)):
 					for itemdata in items:
 						if not itemdata:
 							continue

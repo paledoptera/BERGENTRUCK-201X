@@ -15,7 +15,8 @@ var modifiers = {
 	"FragileCar": false,
 	"NoSlow": false,
 	"NoHeal": false,
-	"DrunkMode": false
+	"DrunkMode": false,
+	"Drain": false
 }
 
 @onready var player_save : PlayerSave

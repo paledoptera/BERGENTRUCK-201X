@@ -12,7 +12,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$LVNumber/Dark.text = $LVNumber.text
+	$LVTitle/Dark.text = $LVTitle.text
+	$BestTime/Dark.text = $BestTime.text
+	$Modifiers/Dark.text = $Modifiers.text
+	if $LVNumber.text == "":
+		$LVNumber/Dark/DarkGradient.hide()
+	else:
+		$LVNumber/Dark/DarkGradient.show()
 
 
 func _mouse_enters(icon: ColorRect) -> void:
@@ -34,7 +41,6 @@ func _mouse_enters(icon: ColorRect) -> void:
 		$LVNumber.text = str("-Level ", icon.special_val, "-")
 		$LVTitle.text = icon.title
 		return
-	
 	updatetitle(icon)
 
 func updatetitle(icon: ColorRect):
@@ -103,6 +109,7 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		await tweens[0].tween_property($Skins,"position:y",155,.5).finished
 		$Skins.mouse_filter = 0
 		SaveLoad.file_save() #saves the skin you chose
+	
 
 func _on_level_icon_clicked(icon):
 	if current_icon != null and icon != current_icon:
@@ -143,14 +150,22 @@ func _on_dark_menu_option_clicked(option):
 	$LVTitle.text = "Choose a Level"
 	$LVNumber.text = ""
 	dark = not dark
+	$LVTitle/Dark.visible = dark
+	$LVNumber/Dark.visible = dark
+	$BestTime/Dark.visible = dark
+	$Modifiers/Dark.visible = dark
 	for icon in get_tree().get_nodes_in_group("level_icon"):
 		icon.update_visual(dark) #update icons
 	if big:
 		updatetitle(current_icon)
 	if dark:
 		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_dark_bkg.png")
+		$LVNumber.add_theme_color_override("default_color",Color.BLACK)
+		$Skins.icon = preload("uid://buta83lh3jwxf") #ClosetDark.png
 	else:
 		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_bkg.png")
+		$LVNumber.remove_theme_color_override("default_color")
+		$Skins.icon = preload("uid://lqjqgdnqxcj7") #Closet.png
 	$black.show()
 	await get_tree().create_timer(.4).timeout
 	$black.hide()

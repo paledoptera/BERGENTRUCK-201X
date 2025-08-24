@@ -30,6 +30,7 @@ item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "",
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "", "", "", "", "", "", "", "", "", "", ""])
 level_val = 3
+drain_interval = 7
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_06yxo")

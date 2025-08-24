@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_upnl3"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="3_e7qbr"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="4_dfrsb"]
-[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
+[ext_resource type="Material" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="6_0rcmt"]
 [ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="7_h0uai"]
 [ext_resource type="Script" uid="uid://decrvqtcuykfp" path="res://Entities/entity_SPAMMY.gd" id="8_4n5bj"]
@@ -63,11 +63,12 @@ shadow_mesh = SubResource("ArrayMesh_q103l")
 
 [node name="LevelS" instance=ExtResource("1_b2mgy")]
 music = null
-item_queue_intro = Array[String](["uid://bxdf0t3rf0pnj", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-item_queue_mid = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-item_queue_end = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+item_queue_intro = Array[String](["uid://bxdf0t3rf0pnj", "uid://butoedeih22pw", ""])
+item_queue_mid = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
+item_queue_end = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
 trees = ExtResource("2_upnl3")
 level_val = 7
+item_spawn_threshold = 750.0
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_06yxo")

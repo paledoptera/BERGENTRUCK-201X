@@ -13,12 +13,15 @@ class_name Level
 @export var level_val : int = 1
 var bkg_item_spawn_timer : float = 0.0
 @export var bkg_item_spawn_threshold: float = 40.0
+@export var item_spawn_threshold : float = 75.0
 var item_spawn_timer : float = 0.0
-var item_spawn_threshold : float = 100.0
 var chunks_to_be_deleted : Array[Node]
 var current_stage : int = 1
 var faded_in = false
 var win = false
+
+var drain_timer = null
+@export var drain_interval = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +33,17 @@ func _ready() -> void:
 	tween.tween_callback(fade_in_done)
 	
 	Global.level = level_val
+	if Global.modifiers.Drain:
+		drain_timer = Timer.new()
+		add_child(drain_timer)
+		drain_timer.start(drain_interval)
+		drain_timer.connect("timeout",Callable(self,"drain"))
+
+func drain():
+	if Global.score > 10:
+		print("DRAINED")
+		Audio.play_sfx(preload("uid://ou7hsckbba2n"),1,5) #snd_screenshake.wav
+		Global.score -= 1+5*Global.score/150
 
 func start_music() -> void:
 	Audio.play_music(music,false,false)
@@ -76,8 +90,8 @@ func _process(delta: float) -> void:
 		item_spawn_timer += player.speed
 	bkg_item_spawn_timer += player.speed
 	
-	if item_spawn_timer >= 75.0:
-		item_spawn_timer -= 75.0
+	if item_spawn_timer >= item_spawn_threshold:
+		item_spawn_timer -= item_spawn_threshold
 		_spawn_item()
 	
 	if bkg_item_spawn_timer >= bkg_item_spawn_threshold:

@@ -21,6 +21,8 @@ func _on_modifier_menu_option_clicked(button : Button):
 
 func _on_modifier_mouse_enter(button: Button):
 	text = button.display_text
+	$effect.text = button.explain_text
 
 func _on_modifier_mouse_exit(button: Button):
 	text = "Modifiers"
+	$effect.text = ""

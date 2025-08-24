@@ -1,202 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5out100kqebr"]
+[gd_scene load_steps=13 format=3 uid="uid://c5out100kqebr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
 [ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_6n5x4"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_umk3c"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="7_jhqtb"]
+[ext_resource type="PackedScene" uid="uid://h60nwbgep8g0" path="res://Entities/bullet_knight_slash.tscn" id="7_ksqgp"]
 [ext_resource type="SpriteFrames" uid="uid://drnc3dk5kp260" path="res://Entities/Assets/Visuals/Queen/queen_frames.tres" id="7_uf544"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_sun1j"]
+[ext_resource type="AnimationLibrary" uid="uid://cprk67p6w6f70" path="res://Entities/Assets/QueenAnimations.res" id="10_7b0sr"]
 [ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
+
+[sub_resource type="GDScript" id="GDScript_7b0sr"]
+resource_name = "punch"
+script/source = "extends \"res://Entities/bullet.gd\"
+
+func hit(player) -> void:
+	player.particle_trigger(particle_effect)
+	if disable_collision_on_hit and collision_shape:
+		collision_shape.disabled = true
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uf544"]
 size = Vector3(3.86304, 16.4225, 5.8009)
-
-[sub_resource type="Animation" id="Animation_7b0sr"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -3, 0)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EntityContainer/AnimatedSprite3D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"hurt"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("EntityContainer/CollisionShape3D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_ksqgp"]
-resource_name = "hurt"
-length = 0.45
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.433333),
-"transitions": PackedFloat32Array(0.153893, 3.24901, 1),
-"update": 0,
-"values": [Vector3(0, -3, 0), Vector3(-1.83, -3, -2), Vector3(0, -3, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("EntityContainer/AnimatedSprite3D:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"hurt"]
-}
-
-[sub_resource type="Animation" id="Animation_uf544"]
-resource_name = "idle"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"idle", 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_v0ou4"]
-resource_name = "punch"
-length = 1.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"punch"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("EntityContainer/AnimatedSprite3D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.433333, 1.1, 1.23333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [],
-"times": PackedFloat32Array()
-}
-tracks/2/use_blend = true
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EntityContainer/AnimatedSprite3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.1, 1.33333, 1.7),
-"transitions": PackedFloat32Array(1, 1, 0.5, 1.41421, 1),
-"update": 0,
-"values": [Vector3(0, -3, 0), Vector3(-3, -3, -2), Vector3(-3, -3, -2), Vector3(0, -3, 2), Vector3(0, -3, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("EntityContainer/CollisionShape3D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.36667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksqgp"]
-_data = {
-&"RESET": SubResource("Animation_7b0sr"),
-&"hit": SubResource("Animation_ksqgp"),
-&"idle": SubResource("Animation_uf544"),
-&"punch": SubResource("Animation_v0ou4")
-}
 
 [node name="Queen" node_paths=PackedStringArray("sprite", "ai_timer", "ai_anim") instance=ExtResource("1_a77xe")]
 script = ExtResource("2_4sese")
@@ -221,13 +47,7 @@ initial_state = NodePath("Start")
 [node name="Start" type="Node" parent="AIState/Root" index="0"]
 script = ExtResource("7_jhqtb")
 
-[node name="To Hit" type="Node" parent="AIState/Root/Start" index="0"]
-script = ExtResource("8_sun1j")
-to = NodePath("..")
-event = &"Hit"
-delay_in_seconds = "0.0"
-
-[node name="To Attack" type="Node" parent="AIState/Root/Start" index="1"]
+[node name="To Attack" type="Node" parent="AIState/Root/Start" index="0"]
 script = ExtResource("8_sun1j")
 to = NodePath("../../Attack")
 event = &"Progress"
@@ -244,7 +64,6 @@ delay_in_seconds = "0.0"
 
 [node name="To Hit" type="Node" parent="AIState/Root/Attack" index="1"]
 script = ExtResource("8_sun1j")
-to = NodePath("../../Hit")
 event = &"Hit"
 delay_in_seconds = "0.0"
 
@@ -269,37 +88,32 @@ to = NodePath("../../Attack")
 event = &"Progress"
 delay_in_seconds = "0.0"
 
-[node name="Hit" type="Node" parent="AIState/Root" index="3"]
-script = ExtResource("7_jhqtb")
-
-[node name="To Attack" type="Node" parent="AIState/Root/Hit" index="0"]
-script = ExtResource("8_sun1j")
-to = NodePath("../../Start")
-event = &"Progress"
-delay_in_seconds = "0.0"
-
-[node name="To Attack2" type="Node" parent="AIState/Root/Hit" index="1"]
-script = ExtResource("8_sun1j")
-to = NodePath("../../Start")
-event = &"End"
-delay_in_seconds = "0.0"
-
 [node name="EntityContainer" parent="." index="1"]
 collision_layer = 2
 collision_mask = 2
 monitoring = false
 
-[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+[node name="PunchBullet" parent="EntityContainer" index="0" node_paths=PackedStringArray("bullet_owner") instance=ExtResource("7_ksqgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.205, 5.525)
+script = SubResource("GDScript_7b0sr")
+bullet_owner = NodePath("../..")
+damage = 5.0
+hit_sound_impact = null
+
+[node name="CollisionShape3D" parent="EntityContainer/PunchBullet/EntityContainer" index="0"]
+disabled = true
+
+[node name="CollisionShape3D" parent="EntityContainer" index="1"]
 transform = Transform3D(1.89, 0, 0, 0, 0.962413, -0.271592, 0, 0.271592, 0.962413, 0.4109, 7.07107, 3.26102)
 shape = SubResource("BoxShape3D_uf544")
 
-[node name="Sprite3D" parent="EntityContainer" index="1"]
+[node name="Sprite3D" parent="EntityContainer" index="2"]
 visible = false
 offset = Vector2(0, 30)
 pixel_size = 0.14
 texture = ExtResource("10_q2ppl")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 offset = Vector2(0, 40)
 pixel_size = 0.2205
@@ -315,7 +129,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
-&"": SubResource("AnimationLibrary_ksqgp")
+&"": ExtResource("10_7b0sr")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
@@ -327,5 +141,6 @@ libraries = {
 [connection signal="state_processing" from="AIState/Root/Attack" to="." method="_attack_process"]
 [connection signal="state_entered" from="AIState/Root/Break" to="." method="_break_enter"]
 [connection signal="state_processing" from="AIState/Root/Break" to="." method="_start_process"]
-[connection signal="state_entered" from="AIState/Root/Hit" to="." method="_hit_enter"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="EntityContainer/PunchBullet"]

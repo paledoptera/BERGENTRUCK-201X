@@ -40,7 +40,7 @@ mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-box2d/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/godot-box2d/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
 
 [global_group]
 

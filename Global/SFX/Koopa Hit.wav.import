@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5jqjsouocgmc"
-path="res://.godot/imported/snd_metalhit.wav-1d0507d45f07bfa7d932b692c77f1c9d.sample"
+path="res://.godot/imported/Koopa Hit.wav-2f527bde187c85f0276fdc92af6ee05b.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_metalhit.wav"
-dest_files=["res://.godot/imported/snd_metalhit.wav-1d0507d45f07bfa7d932b692c77f1c9d.sample"]
+source_file="res://Global/SFX/Koopa Hit.wav"
+dest_files=["res://.godot/imported/Koopa Hit.wav-2f527bde187c85f0276fdc92af6ee05b.sample"]
 
 [params]
 

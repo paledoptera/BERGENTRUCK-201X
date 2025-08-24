@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://flflc5ft83kw"
-path="res://.godot/imported/motor_upper_quick.wav-05265cb30c0a964ed7724aa7b75390a0.sample"
+path="res://.godot/imported/Punch Whoosh.wav-d55332ce2173341231bbd9439da0b3cd.sample"
 
 [deps]
 
-source_file="res://Global/SFX/motor_upper_quick.wav"
-dest_files=["res://.godot/imported/motor_upper_quick.wav-05265cb30c0a964ed7724aa7b75390a0.sample"]
+source_file="res://Global/SFX/Punch Whoosh.wav"
+dest_files=["res://.godot/imported/Punch Whoosh.wav-d55332ce2173341231bbd9439da0b3cd.sample"]
 
 [params]
 
@@ -16,7 +16,7 @@ force/8_bit=false
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
-edit/trim=false
+edit/trim=true
 edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0

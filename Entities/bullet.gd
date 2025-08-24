@@ -3,7 +3,7 @@ extends Entity
 @export var chases: bool = false
 var speed = 5.0
 var h_speed = 0.0
-var bullet_owner: Node3D
+@export var bullet_owner: Node3D
 var player: CharacterBody3D
 
 

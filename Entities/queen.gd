@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["punch"] #"swords_corridor"]
+const ATTACK = ["punch", "kick", "baseball_toss", "double_kick", "laser", "wheels","waves_of_queen","fast_kicks","pirouette","basebalL_giant"] #
 
 @export var player : Node
 var speed = 0.0
@@ -43,8 +43,8 @@ func _process(delta: float) -> void:
 	#var dist = global_rotation.x+deg_to_rad(35)
 	if gear_dif < 0:
 		gear_dif *= 3.5
-	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch":
-		current_player_speed = lerp(current_player_speed,float(player.speed),0.5)
+	#if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch":
+		#current_player_speed = lerp(current_player_speed,float(player.speed),0.5)
 	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
 	global_position.z = lerp(global_position.z,gear_dif*3,0.1)
 	
@@ -115,6 +115,7 @@ func _attack_enter() -> void:
 			"punch":
 				current_attack_small = "punch"
 				current_attack_mega = "punch"
+				horizontal_speed = 0.0
 				max_attacks_used = 3
 		
 			"slashes_stars":
@@ -162,25 +163,10 @@ func _attack_exit() -> void:
 func _break_enter() -> void:
 	ai_anim.play("idle")
 	ai_timer.start(1.5)
-	
-
-func _end_enter() -> void:
-	current_attack = ""
-	ai_anim.play("vulnerable")
-	ai_timer.start(2.0)
 
 
 func _end_process(delta) -> void:
 	speed = lerp(speed,0.0,0.04)
-
-
-func _hit_enter() -> void:
-	print("HIT")
-	ai_timer.stop()
-	keeping_up_with_player = true
-	$EntityContainer/AnimatedSprite3D.frame = 0
-	ai_anim.play("hit")
-	ai_timer.start(0.5)
 #endregion
 
 

@@ -59,9 +59,11 @@ func _horn(event: InputEvent) -> void:
 				if current_hand and not $ArmAnimationR.is_playing():
 					$Camera3D/ArmR/GloveR/Area3D.monitoring = true
 					$ArmAnimationR.play(\"punch\")
+					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-6)
 				elif not current_hand and not $ArmAnimationL.is_playing():
 					$Camera3D/ArmL/GloveL/Area3D.monitoring = true
 					$ArmAnimationL.play(\"punch\")
+					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-6)
 				else:
 					return
 				current_hand = not current_hand
@@ -81,6 +83,11 @@ func _punch_collision(area: Area3D) -> void:
 	if area.get_parent() is Entity:
 		var entity: Entity = area.get_parent()
 		entity.hit(self)
+
+func _health_changed(previous_hp, new_hp) -> void:
+	super(previous_hp, new_hp)
+	Audio.play_sfx(preload(\"uid://dfn0ygwdxovre\"),0.9, -6) # Punch Recieved
+	Audio.play_sfx(preload(\"uid://5jqjsouocgmc\")) # Koopa Hit
 "
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
@@ -567,7 +574,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Camera3D/ArmL/GloveL/Area3D" index="0"]
 shape = SubResource("SphereShape3D_4i652")
 
-[node name="Ground" parent="Player" index="11"]
+[node name="Ground" parent="Player" index="13"]
 material_override = ExtResource("6_djtrw")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null

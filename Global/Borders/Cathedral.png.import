@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlc5e78c7swx4"
-path="res://.godot/imported/border_dw_church_a_0.png-60bdfffe5927e4e0e2b6af63317339c0.ctex"
+path="res://.godot/imported/Cathedral.png-64ceab419557d80d9cc66503e0d979e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Global/Borders/border_dw_church_a_0.png"
-dest_files=["res://.godot/imported/border_dw_church_a_0.png-60bdfffe5927e4e0e2b6af63317339c0.ctex"]
+source_file="res://Global/Borders/Cathedral.png"
+dest_files=["res://.godot/imported/Cathedral.png-64ceab419557d80d9cc66503e0d979e4.ctex"]
 
 [params]
 

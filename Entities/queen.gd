@@ -23,6 +23,7 @@ var previous_attack_pool : Array[String]
 @export var ai_timer : Timer
 @export var ai_anim : AnimationPlayer
 var attack_cooldown: float = 0
+var current_player_speed: float = 1
 
 
 func _ready() -> void:
@@ -30,14 +31,23 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	siner += delta
+	siner += delta*(0.66+(float(player.gear)/3))
 	
 	if keeping_up_with_player:
 		speed = lerp(speed,-player.speed,0.1)
 	
-	var dist = global_rotation.x+deg_to_rad(35)
 	
+	var gear_dif = float(player.speed) - current_player_speed
+	current_player_speed = lerp(current_player_speed,float(player.speed),0.1)
+	print("CURRENT GEAR DIF: ",gear_dif)
+	#var dist = global_rotation.x+deg_to_rad(35)
+	if gear_dif < 0:
+		gear_dif *= 3.5
+	if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch":
+		current_player_speed = lerp(current_player_speed,float(player.speed),0.5)
 	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
+	global_position.z = lerp(global_position.z,gear_dif*3,0.1)
+	
 	#global_rotation.x += deg_to_rad(speed)
 	global_rotation.x = clamp(global_rotation.x,deg_to_rad(-35),deg_to_rad(-3))
 

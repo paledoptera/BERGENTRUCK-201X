@@ -1,30 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://cro28ctqlf873"]
+[gd_scene load_steps=10 format=3 uid="uid://cro28ctqlf873"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_crqnh"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_qckv3"]
 [ext_resource type="AudioStream" uid="uid://qnhh0v6jmp2o" path="res://Global/Music/Knight Finalphase Concept.ogg" id="2_vfss5"]
-[ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Assets/Visuals/Dark Ground Texture.tres" id="3_vfss5"]
+[ext_resource type="Texture2D" uid="uid://c6ap4micdxy0m" path="res://Levels/Assets/Visuals/skybox_3.png" id="3_qckv3"]
 [ext_resource type="PackedScene" uid="uid://p7xe4agr330n" path="res://Entities/knight.tscn" id="5_qckv3"]
+[ext_resource type="Texture2D" uid="uid://02ekbi75vede" path="res://Levels/Assets/Visuals/ground_cathedral.png" id="5_vfss5"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1
 background_color = Color(0, 0.0248728, 0.0920472, 1)
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0135
+fog_depth_begin = 4.5
+fog_depth_end = 20.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
 size = Vector2(500, 100)
 orientation = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5oim"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qckv3"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_qckv3")
+albedo_texture = ExtResource("3_qckv3")
 uv1_scale = Vector3(0.315, 0.9, 0)
 uv1_offset = Vector3(0.635, 0, 0)
 uv1_triplanar_sharpness = 0.353554
 texture_filter = 0
 texture_repeat = false
 
-[node name="Level3" instance=ExtResource("1_crqnh")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfss5"]
+resource_name = "Ground"
+cull_mode = 2
+specular_mode = 2
+albedo_color = Color(0.599168, 0.660513, 0.889643, 1)
+albedo_texture = ExtResource("5_vfss5")
+roughness = 0.7
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.2
+emission_operator = 1
+emission_texture = ExtResource("5_vfss5")
+texture_filter = 0
+
+[node name="Level3Hard" instance=ExtResource("1_crqnh")]
 music = ExtResource("2_vfss5")
 item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
@@ -36,9 +55,9 @@ drain_interval = 7
 environment = SubResource("Environment_06yxo")
 
 [node name="Background" parent="Player" index="0"]
-transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -75.5802, -200)
+transform = Transform3D(2.325, 0, 0, 0, 2.02173, -0.294141, 0, 0.444432, 1.33805, 0, -49.0905, -223.461)
 mesh = SubResource("PlaneMesh_2385j")
-surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
+surface_material_override/0 = SubResource("StandardMaterial3D_qckv3")
 
 [node name="Particles" parent="Player" index="1"]
 modulate = Color(0.34902, 0.486275, 0.670588, 1)
@@ -46,9 +65,29 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/Camera3D" index="1"]
+transform = Transform3D(0.866025, 0.439824, -0.237812, 0, 0.475624, 0.879649, 0.5, -0.761798, 0.411903, 7.69894, -6.4902, -4.04888)
+light_energy = 50.0
+light_indirect_energy = 30.0
+light_size = 2.0
+spot_range = 10.424
+spot_attenuation = 0.5
+spot_angle = 90.0
+spot_angle_attenuation = 26.3902
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Player/Camera3D" index="2"]
+transform = Transform3D(0.866025, -0.439824, 0.237812, 0, 0.475624, 0.879649, -0.5, -0.761798, 0.411903, -5.13233, -6.4902, -4.04888)
+light_energy = 50.0
+light_indirect_energy = 30.0
+light_size = 2.0
+distance_fade_begin = 5.0
+spot_range = 10.424
+spot_attenuation = 0.5
+spot_angle = 90.0
+spot_angle_attenuation = 26.3902
+
 [node name="Ground" parent="Player" index="11"]
-material_override = ExtResource("3_vfss5")
-surface_material_override/0 = null
+material_override = SubResource("StandardMaterial3D_vfss5")
 
 [node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_qckv3")]
 player = NodePath("../../Player")

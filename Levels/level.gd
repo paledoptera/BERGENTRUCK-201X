@@ -124,6 +124,8 @@ func _spawn_item() -> void:
 
 
 func _spawn_bkg_item() -> void:
+	if not trees:
+		return
 	var tree_inst = trees.instantiate()
 	entities.add_child(tree_inst)
 	tree_inst.sprite.global_position.x += randi_range(-3,0)

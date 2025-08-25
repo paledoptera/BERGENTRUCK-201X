@@ -77,12 +77,41 @@ func _horn(event: InputEvent) -> void:
 
 
 func _punch_collision(area: Area3D) -> void:
-	$Camera3D/ArmL/GloveL/Area3D.monitoring = false
-	$Camera3D/ArmR/GloveR/Area3D.monitoring = false
+	
 	
 	if area.get_parent() is Entity:
 		var entity: Entity = area.get_parent()
 		entity.hit(self)
+		
+		var fist_dir = true # true = right, false = false
+		
+		var left_fist: Area3D = $Camera3D/ArmL/GloveL/Area3D
+		var right_fist: Area3D = $Camera3D/ArmR/GloveR/Area3D
+		
+		if left_fist.overlaps_area(area):
+			print(\"LEFT HOOK\")
+			fist_dir = false
+			$Camera3D/ArmL/GloveL/Area3D.monitoring = false
+		elif right_fist.overlaps_area(area):
+			print(\"RIGHT HOOK\")
+			fist_dir = true
+			$Camera3D/ArmR/GloveR/Area3D.monitoring = false
+		
+		# see which fist hit entity
+		if entity.name == \"Queen\":
+			if fist_dir:
+				entity.ai_anim.play(\"hit_left\")
+			else:
+				entity.ai_anim.play(\"hit_right\")
+			entity.ai_anim.queue(\"idle\")
+			
+			
+		
+			
+			
+		
+		
+			
 
 func _health_changed(previous_hp, new_hp) -> void:
 	super(previous_hp, new_hp)

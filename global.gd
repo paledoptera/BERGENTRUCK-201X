@@ -174,7 +174,8 @@ func goto_level(value : int = level) -> void:
 		#6: # Thorns
 		7: # Buyout City
 			lv = "uid://cnseiocfp02jr" # levelS.tscn
-		#8: # Frozen Food
+		8: # Frozen Food
+			lv = "uid://dlbag4r2ncy86" # level2_hard.tscn
 		#9: # Dog Chase
 		10: # Light Fight
 			lv = "uid://cro28ctqlf873" # level3_hard.tscn

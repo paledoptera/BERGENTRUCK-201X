@@ -45,9 +45,9 @@ texture_filter = 0
 
 [node name="Level3Hard" instance=ExtResource("1_crqnh")]
 music = ExtResource("2_vfss5")
-item_queue_intro = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "", "", "", "", "", "", "", "", "", "", ""])
+trees = null
 level_val = 10
 drain_interval = 7
 
@@ -86,7 +86,7 @@ spot_attenuation = 0.5
 spot_angle = 90.0
 spot_angle_attenuation = 26.3902
 
-[node name="Ground" parent="Player" index="11"]
+[node name="Ground" parent="Player" index="14"]
 material_override = SubResource("StandardMaterial3D_vfss5")
 
 [node name="Knight" parent="Entities" index="1" node_paths=PackedStringArray("player", "entities") instance=ExtResource("5_qckv3")]

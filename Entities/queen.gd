@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["punch", "kick", "baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
+const ATTACK = ["punch", "kick"] #"baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
 
 @export var player : Node
 var speed = 0.0
@@ -13,7 +13,7 @@ var sword_dir = false # false = right, true = left
 var vulnerable = false
 var current_attack: String
 var last_attack: String
-var current_attack_small: String
+var current_attack_small: Array
 var current_attack_mega: String
 var attack_pool : Array[String]
 var previous_attack_pool : Array[String]
@@ -31,7 +31,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	siner += delta*(0.66+(float(player.gear)/3))
+	siner += delta*(0.66+(float(player.gear)/2.5))
 	
 	if keeping_up_with_player:
 		speed = lerp(speed,-player.speed,0.1)
@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 	
 	var gear_dif = float(player.speed) - current_player_speed
 	current_player_speed = lerp(current_player_speed,float(player.speed),0.1)
-	print("CURRENT GEAR DIF: ",gear_dif)
 	#var dist = global_rotation.x+deg_to_rad(35)
 	if gear_dif < 0:
 		gear_dif *= 3.5
@@ -89,6 +88,7 @@ func _start_process(delta: float) -> void:
 		sprite.frame = wrap(sprite.frame+1,0,2)
 	
 	horizontal_speed = abs(current_y)*2
+	sprite.position.z = lerp(sprite.position.z,0.0,0.2)
 	sprite.position.y = -2.0+abs(current_y)
 
 func _attack_enter() -> void:
@@ -111,42 +111,9 @@ func _attack_enter() -> void:
 			current_attack = attack_pool.pick_random()
 		last_attack = current_attack
 		print(current_attack)
-		match current_attack:
-			"punch":
-				current_attack_small = "punch"
-				current_attack_mega = "punch"
-				horizontal_speed = 0.0
-				max_attacks_used = 3
 		
-			"slashes_stars":
-				current_attack_small = "big_slash_bullets"
-				current_attack_mega = "big_slash_bullets"
-				max_attacks_used = 1
-			
-			"swords":
-				current_attack_small = "small_sword_stab"
-				current_attack_mega = "small_sword_stab"
-				max_attacks_used = 4
-			
-			"swords_wall":
-				current_attack = ""
-				current_attack_small = "big_sword_wall"
-				current_attack_mega = "big_sword_wall"
-				max_attacks_used = 1
-			
-			"bullet_hell":
-				current_attack_small = "big_bullet_hell"
-				current_attack_mega = "big_slash_bullets"
-				max_attacks_used = 1
 	
-	
-	if sword_dir:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
-	
-	
-	var attack_anim = current_attack_mega if attacks_used >= max_attacks_used else current_attack_small
+	var attack_anim = ATTACK.pick_random()
 	
 	ai_anim.play(attack_anim)
 	ai_timer.start(ai_anim.current_animation_length)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cjkn1xlnu1jmc"
-path="res://.godot/imported/snd_queenhowl_b.wav-19ec7e218a458f6b3e17660ef3671864.sample"
+path="res://.godot/imported/Queen Hoot.wav-b741551a87cadacda22e7e77c8f27be7.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_queenhowl_b.wav"
-dest_files=["res://.godot/imported/snd_queenhowl_b.wav-19ec7e218a458f6b3e17660ef3671864.sample"]
+source_file="res://Global/SFX/Queen Hoot.wav"
+dest_files=["res://.godot/imported/Queen Hoot.wav-b741551a87cadacda22e7e77c8f27be7.sample"]
 
 [params]
 

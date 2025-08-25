@@ -56,35 +56,9 @@ delay_in_seconds = "0.0"
 [node name="Attack" type="Node" parent="AIState/Root" index="1"]
 script = ExtResource("7_jhqtb")
 
-[node name="To Break" type="Node" parent="AIState/Root/Attack" index="0"]
-script = ExtResource("8_sun1j")
-to = NodePath("../../Break")
-event = &"Progress"
-delay_in_seconds = "0.0"
-
-[node name="To Hit" type="Node" parent="AIState/Root/Attack" index="1"]
-script = ExtResource("8_sun1j")
-event = &"Hit"
-delay_in_seconds = "0.0"
-
-[node name="To End" type="Node" parent="AIState/Root/Attack" index="2"]
+[node name="To Start" type="Node" parent="AIState/Root/Attack" index="0"]
 script = ExtResource("8_sun1j")
 to = NodePath("../../Start")
-event = &"End"
-delay_in_seconds = "0.0"
-
-[node name="Break" type="Node" parent="AIState/Root" index="2"]
-script = ExtResource("7_jhqtb")
-
-[node name="To End" type="Node" parent="AIState/Root/Break" index="0"]
-script = ExtResource("8_sun1j")
-to = NodePath("../../Start")
-event = &"End"
-delay_in_seconds = "0.0"
-
-[node name="To Attack" type="Node" parent="AIState/Root/Break" index="1"]
-script = ExtResource("8_sun1j")
-to = NodePath("../../Attack")
 event = &"Progress"
 delay_in_seconds = "0.0"
 
@@ -102,9 +76,6 @@ hit_sound_impact = null
 
 [node name="CollisionShape3D" parent="EntityContainer/PunchBullet/EntityContainer" index="0"]
 disabled = true
-
-[node name="Sprite3D" parent="EntityContainer/PunchBullet/EntityContainer" index="1"]
-visible = false
 
 [node name="CollisionShape3D" parent="EntityContainer" index="1"]
 transform = Transform3D(1.89, 0, 0, 0, 0.962413, -0.271592, 0, 0.271592, 0.962413, 0.4109, 7.07107, 3.26102)
@@ -142,8 +113,6 @@ libraries = {
 [connection signal="state_entered" from="AIState/Root/Attack" to="." method="_attack_enter"]
 [connection signal="state_exited" from="AIState/Root/Attack" to="." method="_attack_exit"]
 [connection signal="state_processing" from="AIState/Root/Attack" to="." method="_attack_process"]
-[connection signal="state_entered" from="AIState/Root/Break" to="." method="_break_enter"]
-[connection signal="state_processing" from="AIState/Root/Break" to="." method="_start_process"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="EntityContainer/PunchBullet"]

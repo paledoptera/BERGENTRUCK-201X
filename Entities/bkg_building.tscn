@@ -18,11 +18,13 @@ shape = null
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 transform = Transform3D(-4.37114e-08, -0.661955, 0.882948, 0, 1.24496, 0.469472, -1, 2.8935e-08, -3.85949e-08, -45, 0, 0)
+visible = false
 billboard = 0
 texture = ExtResource("3_llbne")
 
 [node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
 transform = Transform3D(-4.37114e-08, 0.661955, -0.882948, 0, 1.24496, 0.469472, 1, 2.8935e-08, -3.85949e-08, 45, 0, 0)
+visible = false
 sorting_use_aabb_center = false
 offset = Vector2(0, 128)
 pixel_size = 0.06

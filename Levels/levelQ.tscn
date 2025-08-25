@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b0obvicgtatpa"]
+[gd_scene load_steps=35 format=4 uid="uid://b0obvicgtatpa"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_s615m"]
 [ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_4i652"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5out100kqebr" path="res://Entities/queen.tscn" id="8_o3nq2"]
 [ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="8_s615m"]
 [ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="10_odswv"]
+[ext_resource type="Texture2D" uid="uid://dyjb7i1b8evdq" path="res://Entities/Assets/Visuals/Queen/cityscape.png" id="12_oyqdn"]
 
 [sub_resource type="GDScript" id="GDScript_s615m"]
 resource_name = "LevelQ"
@@ -19,7 +20,7 @@ script/source = "extends Level
 
 func _process(delta: float) -> void:
 	super(delta)
-	#$MeshInstance3D.mesh.material.uv1_offset.z += (player.speed*delta)/50
+	$MeshInstance3D.mesh.material.uv1_offset.z += (player.speed*delta)/100
 	#$CityScape/Circle.get_surface_override_material(0).uv1_offset.z -= (player.speed*delta)/50
 "
 
@@ -514,6 +515,28 @@ _data = {
 &"punch": SubResource("Animation_4su86")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyqdn"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(0.461866, 0.540582, 0.632269, 1)
+albedo_texture = ExtResource("12_oyqdn")
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("12_oyqdn")
+uv1_scale = Vector3(0, 0.018, -0.006)
+uv1_offset = Vector3(0, -1.447, 0.347)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 5.38452
+texture_filter = 5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oyqdn"]
+material = SubResource("StandardMaterial3D_oyqdn")
+flip_faces = true
+top_radius = 101.765
+bottom_radius = 70.395
+height = 41.065
+cap_top = false
+cap_bottom = false
+
 [node name="LevelQ" instance=ExtResource("1_s615m")]
 script = SubResource("GDScript_s615m")
 music = ExtResource("2_4i652")
@@ -639,6 +662,11 @@ entities = NodePath("../Entities")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504, -6.3095, 54.1476, 20.326)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="10"]
+transform = Transform3D(1.095, 0, 0, 0, 1.07438, 1.23483, 0, -0.437377, 3.03328, 0, 16.9598, 0)
+extra_cull_margin = 100.0
+mesh = SubResource("CylinderMesh_oyqdn")
 
 [connection signal="area_entered" from="Player/Camera3D/ArmR/GloveR/Area3D" to="Player" method="_punch_collision"]
 [connection signal="area_entered" from="Player/Camera3D/ArmL/GloveL/Area3D" to="Player" method="_punch_collision"]

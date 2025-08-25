@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["punch", "kick", "baseball_toss", "double_kick", "laser", "wheels","waves_of_queen","fast_kicks","pirouette","basebalL_giant"] #
+const ATTACK = ["punch", "kick", "baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
 
 @export var player : Node
 var speed = 0.0
@@ -61,8 +61,8 @@ func hit(player) -> void:
 	player.particle_trigger(particle_effect)
 	
 	keeping_up_with_player = true
-	ai_anim.play("hit")
-	ai_anim.queue("idle")
+	#ai_anim.play("hit")
+	
 	
 	disable_collision()
 

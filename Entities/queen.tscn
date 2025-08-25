@@ -103,6 +103,9 @@ hit_sound_impact = null
 [node name="CollisionShape3D" parent="EntityContainer/PunchBullet/EntityContainer" index="0"]
 disabled = true
 
+[node name="Sprite3D" parent="EntityContainer/PunchBullet/EntityContainer" index="1"]
+visible = false
+
 [node name="CollisionShape3D" parent="EntityContainer" index="1"]
 transform = Transform3D(1.89, 0, 0, 0, 0.962413, -0.271592, 0, 0.271592, 0.962413, 0.4109, 7.07107, 3.26102)
 shape = SubResource("BoxShape3D_uf544")
@@ -114,7 +117,7 @@ pixel_size = 0.14
 texture = ExtResource("10_q2ppl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 offset = Vector2(0, 40)
 pixel_size = 0.2205
 billboard = 1

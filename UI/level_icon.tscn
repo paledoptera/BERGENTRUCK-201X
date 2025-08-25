@@ -57,7 +57,6 @@ position = Vector2(-27, 28)
 texture = ExtResource("4_wkijm")
 
 [node name="Modifiers" type="Node2D" parent="Sprite2D"]
-scale = Vector2(1, 1)
 
 [node name="FragileCar" type="Sprite2D" parent="Sprite2D/Modifiers"]
 visible = false

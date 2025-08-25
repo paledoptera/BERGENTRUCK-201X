@@ -32,6 +32,9 @@ func _ready() -> void:
 		add_child(drain_timer)
 		drain_timer.start(drain_interval)
 		drain_timer.connect("timeout",Callable(self,"drain"))
+	for node in $"Progress Points".get_children():
+		node.add_to_group("progress_point")
+	$"Progress Points".get_child($"Progress Points".get_child_count()-1).remove_from_group("progress_point")
 
 func drain():
 	if Global.score > 10:

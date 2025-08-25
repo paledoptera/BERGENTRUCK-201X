@@ -523,8 +523,10 @@ func _horn(event: InputEvent) -> void:
 				$CarHonk.play()
 				if $Camera3D.position.y == 8.0:
 					car_velocity.y = 1
-				if Global.modifiers.FragileCar:
-					hp -= 5
+					if Global.modifiers.FragileCar:
+						if $FragileTimer.time_left != 0:
+							hp -= 5
+						$FragileTimer.start(1)
 			elif not event.pressed:
 				horn = false
 				$CarHonk.stop()

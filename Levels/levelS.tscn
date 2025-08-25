@@ -85,7 +85,7 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
 texture = ExtResource("4_dfrsb")
 
-[node name="Ground" parent="Player" index="11"]
+[node name="Ground" parent="Player" index="14"]
 material_override = ExtResource("5_0dyyc")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null

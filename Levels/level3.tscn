@@ -45,7 +45,7 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.348619, 0.487624, 0.669518, 1)
 
-[node name="Ground" parent="Player" index="11"]
+[node name="Ground" parent="Player" index="14"]
 material_override = ExtResource("4_vr4rd")
 surface_material_override/0 = null
 

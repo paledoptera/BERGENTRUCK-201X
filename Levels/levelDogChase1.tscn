@@ -1,0 +1,862 @@
+[gd_scene load_steps=59 format=3 uid="uid://8ue6vqtkskwt"]
+
+[ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/level_dog_chase.gd" id="1_8m5h0"]
+[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_fcbso"]
+[ext_resource type="Texture2D" uid="uid://bmmwo35sp1ufv" path="res://Levels/Assets/Visuals/road crossjunction texture.png" id="2_po82j"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_x8rsx"]
+[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="3_f6p25"]
+[ext_resource type="Script" uid="uid://thtwdoa14og" path="res://Levels/playerKart.gd" id="3_po82j"]
+[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="4_kb8qp"]
+[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="5_8m5h0"]
+[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Assets/Visuals/speedometer dial.png" id="6_fcbso"]
+[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="7_oejat"]
+[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Assets/Visuals/satisfaction gage.png" id="8_bmnbb"]
+[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Assets/Visuals/emptybeerometer.png" id="9_xtdoy"]
+[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Assets/Visuals/beerometer.png" id="10_rm0vb"]
+[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="11_k5dun"]
+[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="12_w7d7v"]
+[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="13_c6qow"]
+[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="14_4lg2l"]
+[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="15_el8sa"]
+[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="16_ylxu4"]
+[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Assets/Visuals/arm upperarm.png" id="17_rou4v"]
+[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="18_ibhpg"]
+[ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Assets/Visuals/asgore_nose.png" id="19_8ic5o"]
+[ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Assets/Visuals/windscreen_sheen.png" id="20_ruk7g"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="21_u4hha"]
+[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="23_y8nxh"]
+[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="24_mato5"]
+[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="25_tupof"]
+[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="26_8ugdk"]
+[ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="27_vsxlg"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="28_fwvmc"]
+[ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="28_kb8qp"]
+
+[sub_resource type="Environment" id="Environment_po82j"]
+background_mode = 1
+background_color = Color(0.328983, 0.520776, 0.952579, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_f6p25"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po82j"]
+albedo_texture = ExtResource("2_po82j")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f6p25"]
+material = SubResource("StandardMaterial3D_po82j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb8qp"]
+albedo_texture = ExtResource("3_f6p25")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir6m4"]
+size = Vector2(300, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p2yg"]
+size = Vector2(443.333, 73.3333)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y8g1j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8g1j"]
+radius = 21.0238
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0plgk"]
+atlas = ExtResource("19_8ic5o")
+region = Rect2(0, 0, 28, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p2yg"]
+atlas = ExtResource("19_8ic5o")
+region = Rect2(28, 0, 28, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir6m4"]
+atlas = ExtResource("19_8ic5o")
+region = Rect2(56, 0, 28, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lor68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0plgk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0plgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p2yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir6m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0plgk")
+}],
+"loop": false,
+"name": &"sniff",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_ir6m4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0p2yg"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lor68"]
+resource_name = "sniff"
+length = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Nose:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lor68"]
+_data = {
+&"RESET": SubResource("Animation_ir6m4"),
+&"idle": SubResource("Animation_0p2yg"),
+&"sniff": SubResource("Animation_lor68")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_34hgd"]
+size = Vector3(7.5, 7.968, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpukm"]
+size = Vector2(460, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiue1"]
+size = Vector2(104.125, 215.502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0plgk"]
+size = Vector2(104.125, 800)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lor68"]
+size = Vector2(20, 392)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1kdx"]
+size = Vector2(290, 2000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1kdx"]
+radius = 51.0882
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2385j"]
+size = Vector2(500, 100)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5oim"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_x8rsx")
+uv1_scale = Vector3(0.315, 0.9, 0)
+uv1_offset = Vector3(0.635, 0, 0)
+uv1_triplanar_sharpness = 0.353554
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1j5vb"]
+size = Vector3(10, 50, 50)
+
+[node name="LevelDog" type="Node3D" node_paths=PackedStringArray("timer", "player", "entities")]
+process_mode = 1
+script = ExtResource("1_8m5h0")
+music = ExtResource("2_fcbso")
+timer = NodePath("Entities/Timer")
+player = NodePath("Player")
+entities = NodePath("Entities")
+level_val = 5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_po82j")
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("WorldBoundaryShape3D_f6p25")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(63.7994, 0, 0, 0, 63.7994, 0, 0, 0, 418.071, 0, 0, -360.369)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1969.05, 0, 0, 0, 336.546, 0, 0, 0, -1628.87, -864.67, -2.18021, -360.369)
+material_override = SubResource("StandardMaterial3D_kb8qp")
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(42.7075, 0, 310.585, 0, 63.7994, 0, -47.3966, 0, 279.858, -272.338, 0, -1047.23)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(5.69026, 0, 416.405, 0, 63.7994, 0, -63.5452, 0, 37.2877, -913.656, 0, -1329.1)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(-36.756, 0, 341.717, 0, 63.7994, 0, -52.1475, 0, -240.858, -1678.53, 0, -1162.28)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(-63.4535, 0, 43.4754, 0, 63.7994, 0, -6.63453, 0, -415.804, -2046.56, 0, -525.358)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(-30.9257, 0, -365.671, 0, 63.7994, 0, 55.8029, 0, -202.653, -1787.85, 0, 62.3463)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(-30.9257, 0, -365.671, 0, 63.7994, 0, 55.8029, 0, -202.653, -1191.42, 0, 415.19)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(11.4381, 0, -411.297, 0, 63.7994, 0, 62.7657, 0, 74.953, -498.245, 0, 548.299)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(61.0903, 0, -120.535, 0, 63.7994, 0, 18.3942, 0, 400.318, -75.459, 0, 279.943)
+mesh = SubResource("PlaneMesh_f6p25")
+
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entities", "entity_hitbox")]
+script = ExtResource("3_po82j")
+hand = NodePath("Visuals/Hand")
+widget_gear = NodePath("Visuals/WidgetGear")
+widget_wheel = NodePath("Visuals/WidgetWheel")
+visual_gear = NodePath("Visuals/GearShift")
+visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
+visual_asgore = NodePath("Visuals/Asgore")
+entities = NodePath("../Entities")
+entity_hitbox = NodePath("Camera3D/Area3D")
+screenshake_speed = 400.0
+screenshake_decay = 3.0
+
+[node name="Particles" type="Node2D" parent="Player"]
+modulate = Color(0.34902, 0.486275, 0.670588, 1)
+
+[node name="Shimmer" type="Marker2D" parent="Player/Particles"]
+z_index = 60
+position = Vector2(77, 188)
+
+[node name="Leaves" type="Marker2D" parent="Player/Particles"]
+z_index = 60
+position = Vector2(153, 188)
+
+[node name="Explosion" type="Marker2D" parent="Player/Particles"]
+z_index = 60
+position = Vector2(163, 150)
+
+[node name="Visuals" type="Sprite2D" parent="Player"]
+modulate = Color(0.348619, 0.487624, 0.669518, 1)
+position = Vector2(160, 130)
+texture = ExtResource("4_kb8qp")
+offset = Vector2(3.075, -1.565)
+
+[node name="SpeedBar" type="Sprite2D" parent="Player/Visuals"]
+position = Vector2(64, 55)
+texture = ExtResource("5_8m5h0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Visuals/SpeedBar"]
+visible = false
+offset_left = -29.0
+offset_top = -40.0
+offset_right = 47.09
+mouse_filter = 2
+text = "SPD: 0"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Dial" type="Sprite2D" parent="Player/Visuals/SpeedBar"]
+position = Vector2(-7.07805e-08, 12)
+rotation = -3.40339
+scale = Vector2(0.95, 1)
+texture = ExtResource("6_fcbso")
+offset = Vector2(17, 0)
+
+[node name="HealthBar" type="Sprite2D" parent="Player/Visuals"]
+position = Vector2(12.5, 44)
+texture = ExtResource("7_oejat")
+
+[node name="Dial" type="Sprite2D" parent="Player/Visuals/HealthBar"]
+position = Vector2(-18, 0)
+rotation = -0.785398
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_fcbso")
+offset = Vector2(36, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Visuals/HealthBar"]
+visible = false
+offset_left = -29.0
+offset_top = -44.0
+offset_right = 47.09
+offset_bottom = -4.0
+mouse_filter = 2
+text = "HP: 100"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="Sprite2D" parent="Player/Visuals"]
+position = Vector2(115.5, 44)
+texture = ExtResource("8_bmnbb")
+
+[node name="Dial" type="Sprite2D" parent="Player/Visuals/ProgressBar"]
+position = Vector2(18, 0)
+rotation = -3.92699
+scale = Vector2(0.5, 1)
+texture = ExtResource("6_fcbso")
+offset = Vector2(36, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Visuals/ProgressBar"]
+visible = false
+offset_left = -29.0
+offset_top = -44.0
+offset_right = 47.09
+offset_bottom = -4.0
+mouse_filter = 2
+text = "HP: 100"
+scroll_active = false
+
+[node name="BeerProgress" type="TextureProgressBar" parent="Player/Visuals"]
+visible = false
+offset_left = 37.0
+offset_top = 21.0
+offset_right = 198.0
+offset_bottom = 65.0
+scale = Vector2(0.34, 0.34)
+mouse_filter = 2
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("9_xtdoy")
+texture_progress = ExtResource("10_rm0vb")
+
+[node name="WidgetWheel" parent="Player/Visuals" instance=ExtResource("11_k5dun")]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-71, 90)
+scale = Vector2(0.5, 0.5)
+snap_to_cursor = false
+drag_speed = 0.1
+snap_speed = 0.05
+
+[node name="ColorRect" parent="Player/Visuals/WidgetWheel" index="0"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 137.94
+color = Color(0, 0, 0, 0)
+
+[node name="Marker2D" parent="Player/Visuals/WidgetWheel/Notches" index="0"]
+position = Vector2(0, -150)
+
+[node name="CollisionShape2D" parent="Player/Visuals/WidgetWheel/Area2D" index="0"]
+scale = Vector2(1.225, 1.225)
+
+[node name="DraggableItem" parent="Player/Visuals/WidgetWheel" index="3"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -150)
+
+[node name="SteeringWheel" type="Sprite2D" parent="Player/Visuals/WidgetWheel"]
+position = Vector2(0, -6.00001)
+scale = Vector2(2, 2)
+texture = ExtResource("12_w7d7v")
+
+[node name="WidgetGear" parent="Player/Visuals" instance=ExtResource("13_c6qow")]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 67.0
+offset_top = 20.0
+offset_right = 494.0
+offset_bottom = 84.0
+scale = Vector2(0.215, 2.015)
+snap_to_cursor = true
+snap_speed = 0.7
+
+[node name="DraggableItem" parent="Player/Visuals/WidgetGear" index="1"]
+modulate = Color(1, 1, 1, 0)
+z_index = 11
+scale = Vector2(3.58, 0.5)
+
+[node name="CollisionShape2D" parent="Player/Visuals/WidgetGear/DraggableItem" index="2"]
+position = Vector2(87.24, 0)
+shape = SubResource("RectangleShape2D_ir6m4")
+
+[node name="Marker2D" type="Marker2D" parent="Player/Visuals/WidgetGear"]
+position = Vector2(32, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="Player/Visuals/WidgetGear"]
+position = Vector2(213.5, 32)
+
+[node name="Marker2D2" type="Marker2D" parent="Player/Visuals/WidgetGear"]
+position = Vector2(385.714, 32)
+
+[node name="Area2D" type="Area2D" parent="Player/Visuals/WidgetGear"]
+scale = Vector2(1.665, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Visuals/WidgetGear/Area2D"]
+position = Vector2(211.667, 36.6667)
+shape = SubResource("RectangleShape2D_0p2yg")
+
+[node name="GearShift" type="Sprite2D" parent="Player/Visuals"]
+position = Vector2(95, 120)
+texture = ExtResource("14_4lg2l")
+offset = Vector2(0, -30)
+
+[node name="Horn" type="ColorRect" parent="Player/Visuals"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -32.0
+offset_top = 55.0
+offset_right = 35.005
+offset_bottom = 123.455
+rotation = 1.64743
+scale = Vector2(1.2, 1.2)
+
+[node name="Hand" type="Sprite2D" parent="Player/Visuals"]
+z_index = 50
+position = Vector2(42, 90)
+texture = ExtResource("15_el8sa")
+offset = Vector2(-10, 15)
+hframes = 2
+
+[node name="Forearm" type="Sprite2D" parent="Player/Visuals/Hand"]
+show_behind_parent = true
+position = Vector2(-1, 57)
+texture = ExtResource("16_ylxu4")
+offset = Vector2(5, 53)
+
+[node name="UpperArm" type="Sprite2D" parent="Player/Visuals/Hand/Forearm"]
+show_behind_parent = true
+position = Vector2(4.45293, 103.542)
+texture = ExtResource("17_rou4v")
+offset = Vector2(55.96, 1.026)
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Player/Visuals/Hand"]
+position = Vector2(-1, 21)
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_y8g1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Visuals/Hand/RigidBody2D"]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_y8g1j")
+debug_color = Color(0.993915, 0, 0.230347, 0.42)
+
+[node name="Asgore" type="Sprite2D" parent="Player/Visuals"]
+z_index = 999
+position = Vector2(-210, -127)
+texture = ExtResource("18_ibhpg")
+centered = false
+
+[node name="OldNose" type="AnimatedSprite2D" parent="Player/Visuals/Asgore"]
+visible = false
+position = Vector2(118, 181)
+sprite_frames = SubResource("SpriteFrames_lor68")
+animation = &"sniff"
+frame = 3
+frame_progress = 1.0
+
+[node name="Nose" type="Sprite2D" parent="Player/Visuals/Asgore"]
+position = Vector2(118, 181)
+texture = ExtResource("19_8ic5o")
+hframes = 3
+
+[node name="NoseAnimation" type="AnimationPlayer" parent="Player/Visuals/Asgore"]
+libraries = {
+&"": SubResource("AnimationLibrary_lor68")
+}
+
+[node name="Parallax2D" type="Parallax2D" parent="Player/Visuals"]
+modulate = Color(1, 1, 0.878431, 0.0784314)
+z_index = -4096
+scroll_offset = Vector2(0, 0.239)
+repeat_size = Vector2(637.5, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Visuals/Parallax2D"]
+position = Vector2(7, -36)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_ruk7g")
+
+[node name="Time" type="RichTextLabel" parent="Player/Visuals"]
+visible = false
+offset_left = 40.0
+offset_top = -118.0
+offset_right = 140.0
+offset_bottom = -78.0
+rotation = 0.0687174
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("21_u4hha")
+text = "Time: 0:00"
+scroll_active = false
+horizontal_alignment = 2
+
+[node name="Score" type="RichTextLabel" parent="Player"]
+visible = false
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 210.0
+offset_bottom = 48.0
+mouse_filter = 2
+text = "Score: 0p"
+scroll_active = false
+
+[node name="FPS" type="RichTextLabel" parent="Player"]
+visible = false
+offset_left = 10.0
+offset_top = 38.0
+offset_right = 210.0
+offset_bottom = 78.0
+mouse_filter = 2
+text = "FPS: "
+scroll_active = false
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.366972, -0.930232, 0, 0.930232, 0.366972, 10, 10.5633, 10)
+keep_aspect = 0
+projection = 2
+current = true
+fov = 10.0
+size = 0.006
+frustum_offset = Vector2(0, -0.003)
+near = 0.001
+
+[node name="Area3D" type="Area3D" parent="Player/Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177612, -4.48462, 2.38419e-06)
+shape = SubResource("BoxShape3D_34hgd")
+debug_color = Color(0, 1, 0.486275, 0.972549)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+z_index = -4096
+position = Vector2(0, 284)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(163, -26)
+shape = SubResource("RectangleShape2D_wpukm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(-69, -36)
+rotation = -0.384921
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(416, 33)
+rotation = 1.69041
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(-92, -269)
+rotation = 0.192772
+shape = SubResource("RectangleShape2D_0plgk")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Player/StaticBody2D"]
+position = Vector2(378, -475)
+rotation = -0.331613
+shape = SubResource("RectangleShape2D_yiue1")
+
+[node name="BeerCollision" type="StaticBody2D" parent="Player"]
+position = Vector2(394, -17)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BeerCollision"]
+position = Vector2(0, 122)
+shape = SubResource("RectangleShape2D_lor68")
+debug_color = Color(0.67458, 0.506815, 0, 0.42)
+
+[node name="ItemDespawnZone" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ItemDespawnZone"]
+position = Vector2(-264, 17.5)
+shape = SubResource("RectangleShape2D_d1kdx")
+debug_color = Color(0.992855, 0, 0.246118, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/ItemDespawnZone"]
+position = Vector2(590, 18)
+shape = SubResource("RectangleShape2D_d1kdx")
+debug_color = Color(0.992855, 0, 0.246118, 0.42)
+
+[node name="FaceZone" type="Area2D" parent="Player"]
+z_index = -4096
+position = Vector2(-10, -11)
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/FaceZone"]
+position = Vector2(36, 210)
+shape = SubResource("CircleShape2D_d1kdx")
+debug_color = Color(0.976471, 0.482353, 0, 0.717647)
+
+[node name="FaceActionTimer" type="Timer" parent="Player"]
+wait_time = 0.33
+one_shot = true
+
+[node name="DrunkTimer" type="Timer" parent="Player"]
+wait_time = 0.33
+
+[node name="FragileTimer" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="SpawnZone" type="ColorRect" parent="Player"]
+offset_left = 52.0
+offset_top = -160.0
+offset_right = 293.0
+offset_bottom = -110.0
+
+[node name="CarHonk" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("23_y8nxh")
+bus = &"SFX"
+
+[node name="CarEngine" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("24_mato5")
+bus = &"SFX"
+
+[node name="CarHurt" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("25_tupof")
+bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+anchor_mode = 0
+
+[node name="DamageSplash" type="Sprite2D" parent="Player"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 120)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("26_8ugdk")
+metadata/_edit_lock_ = true
+
+[node name="FaceTimer" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="Background" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, 114.865, -200)
+top_level = true
+mesh = SubResource("PlaneMesh_2385j")
+surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
+
+[node name="Entities" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+
+[node name="Timer" type="Timer" parent="Entities"]
+one_shot = true
+
+[node name="Tree" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -98.8736)
+
+[node name="Tree2" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -124.024)
+
+[node name="Tree3" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -147.197)
+
+[node name="Tree4" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -174.092)
+
+[node name="Tree5" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -196.747)
+
+[node name="Tree6" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -226.475)
+
+[node name="Tree7" parent="Entities" instance=ExtResource("28_kb8qp")]
+transform = Transform3D(1.9877, 0, 0, 0, 1.9877, 0, 0, 0, 1.9877, -47.1971, -18.4716, -258.767)
+
+[node name="WallL" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16.0046, -72.0726, -15, -381.328)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL15" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.827588, 0, -2.22109, 0, 1, 0, 0.224975, 0, 8.17045, -129.375, -15, 220.795)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL2" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 16.0046, 91.0199, -15, -381.328)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="CollisionShape3D" parent="WallL2/EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.45034, 0, 0, 0.769346)
+
+[node name="WallL3" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.952667, 0, -4.86566, 0, 1, 0, 0.304016, 0, 15.2471, 29.0285, -15, 154.72)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL4" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.186884, 0, -15.7226, 0, 1, 0, 0.982382, 0, 2.99101, -462.534, -15, 612.518)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL6" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.468238, 0, -14.1417, 0, 1, 0, 0.883602, 0, -7.49397, -1187.09, -15, 508.024)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL7" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.468238, 0, -14.1417, 0, 1, 0, 0.883602, 0, -7.49397, -1886.12, -15, 130.229)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallL7/EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.867, 0, -9.3812)
+shape = SubResource("BoxShape3D_1j5vb")
+debug_color = Color(0.906774, 0.300631, 0.313104, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="WallL7/EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.713, 0, -49.852)
+shape = SubResource("BoxShape3D_1j5vb")
+debug_color = Color(0.906774, 0.300631, 0.313104, 1)
+
+[node name="WallL8" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.988686, 0, 2.40071, 0, 1, 0, -0.150001, 0, -15.8235, -2188.4, -15, -449.349)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallL8/EntityContainer" index="1"]
+transform = Transform3D(0.980424, 0, 0, 0, 1, 0, 1.86265e-09, 0, 0.870969, -216.02, 0, 5.66159)
+shape = SubResource("BoxShape3D_1j5vb")
+debug_color = Color(0.906774, 0.300631, 0.313104, 1)
+
+[node name="WallL9" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.724148, 0, 11.0375, 0, 1, 0, -0.689645, 0, -11.5897, -1871.09, -15, -1124.12)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL10" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.0402015, 0, 15.9917, 0, 1, 0, -0.999191, 0, -0.643408, -1202.74, -15, -1434.23)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL13" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.0514819, 0, 15.9834, 0, 1, 0, -0.998674, 0, 0.823949, -1000.23, -15, -1232.81)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL14" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(-0.661588, 0, 10.7897, 0, 1, 0, -0.90431, 0, -7.8937, -1646.84, -15, -1043.47)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL11" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.162844, 0, 15.791, 0, 1, 0, -0.986652, 0, 2.60625, -452.999, -15, -1389)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallL12" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.650588, 0, 12.1544, 0, 1, 0, -0.75943, 0, 10.4124, -231.573, -15, -1147.68)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="WallL12/EntityContainer" index="1"]
+transform = Transform3D(0.885736, 0, 4.76837e-07, 0, 1, 0, -1.86265e-09, 0, 0.866621, -181.874, 0, 1.87595)
+shape = SubResource("BoxShape3D_1j5vb")
+debug_color = Color(0.906774, 0.300631, 0.313104, 1)
+
+[node name="WallL5" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(0.191303, 0, -13.7683, 0, 1, 0, 1.00561, 0, 2.61923, -519.352, -15, 483.829)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="WallR" parent="." instance=ExtResource("27_vsxlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
+damage = 2.0
+hit_sound_impact = ExtResource("28_fwvmc")
+disable_collision_on_hit = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="FadeEffect" type="ColorRect" parent="."]
+z_index = 4096
+offset_left = -103.0
+offset_top = -48.0
+offset_right = 450.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FlashEffect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+offset_left = -103.0
+offset_top = -48.0
+offset_right = 450.0
+offset_bottom = 450.0
+mouse_filter = 2
+
+[connection signal="drag_started" from="Player/Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="Player" method="_steering_wheel_get_y"]
+[connection signal="input_event" from="Player/Visuals/WidgetGear/Area2D" to="Player/Visuals/WidgetGear/DraggableItem" method="_on_input_event"]
+[connection signal="gui_input" from="Player/Visuals/Horn" to="Player" method="_horn"]
+[connection signal="area_entered" from="Player/Camera3D/Area3D" to="Player" method="_on_area_entered"]
+[connection signal="body_entered" from="Player/ItemDespawnZone" to="Player" method="_on_item_despawn_zone_body_entered"]
+[connection signal="body_entered" from="Player/FaceZone" to="Player" method="_item_entered_face"]
+[connection signal="body_exited" from="Player/FaceZone" to="Player" method="_item_exited_face"]
+[connection signal="timeout" from="Player/FaceActionTimer" to="Player" method="_item_action_timeout"]
+[connection signal="timeout" from="Player/DrunkTimer" to="Player" method="_on_drunk_timer_timeout"]
+
+[editable path="Player/Visuals/WidgetWheel"]
+[editable path="Player/Visuals/WidgetWheel/DraggableItem"]
+[editable path="Player/Visuals/WidgetGear"]
+[editable path="Player/Visuals/WidgetGear/DraggableItem"]
+[editable path="WallL"]
+[editable path="WallL15"]
+[editable path="WallL2"]
+[editable path="WallL3"]
+[editable path="WallL4"]
+[editable path="WallL6"]
+[editable path="WallL7"]
+[editable path="WallL8"]
+[editable path="WallL9"]
+[editable path="WallL10"]
+[editable path="WallL13"]
+[editable path="WallL14"]
+[editable path="WallL11"]
+[editable path="WallL12"]
+[editable path="WallL5"]
+[editable path="WallR"]

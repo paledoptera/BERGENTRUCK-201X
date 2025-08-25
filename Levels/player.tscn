@@ -542,6 +542,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeerCollision"]
 position = Vector2(0, 122)
 shape = SubResource("RectangleShape2D_lor68")
+debug_color = Color(0.67458, 0.506815, 0, 0.42)
 
 [node name="ItemDespawnZone" type="Area2D" parent="."]
 

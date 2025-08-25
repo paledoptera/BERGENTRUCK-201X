@@ -1,5 +1,4 @@
 extends Node3D
-class_name Level
 
 @export var music : AudioStream
 @export_file var item_queue_intro: Array[String]
@@ -10,10 +9,6 @@ class_name Level
 @export var player : Node3D
 @export var entities : Node3D
 @export var level_val : int = 1
-var bkg_item_spawn_timer : float = 0.0
-@export var bkg_item_spawn_threshold: float = 40.0
-@export var item_spawn_threshold : float = 75.0
-var item_spawn_timer : float = 0.0
 var chunks_to_be_deleted : Array[Node]
 var current_stage : int = 1
 var faded_in = false
@@ -85,17 +80,6 @@ func _process(delta: float) -> void:
 			win = true
 			
 	
-	if faded_in and not win:
-		item_spawn_timer += player.speed
-	bkg_item_spawn_timer += player.speed
-	
-	if item_spawn_timer >= item_spawn_threshold:
-		item_spawn_timer -= item_spawn_threshold
-		_spawn_item()
-	
-	if bkg_item_spawn_timer >= bkg_item_spawn_threshold:
-		bkg_item_spawn_timer -= bkg_item_spawn_threshold
-		_spawn_bkg_item()
 
 func _spawn_item() -> void:
 	var queue: Array

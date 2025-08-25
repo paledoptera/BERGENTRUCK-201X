@@ -47,7 +47,6 @@ texture_filter = 0
 music = ExtResource("2_vfss5")
 item_queue_mid = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://cuu8u82sv6b75", "", "", "", "", "", "", "", "uid://dod06qvkdjumy", "", "", "", "", "", "", "", "", "", "", ""])
-trees = null
 level_val = 10
 drain_interval = 7
 

@@ -1,24 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlbag4r2ncy86"]
+[gd_scene load_steps=10 format=3 uid="uid://dlbag4r2ncy86"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_wjoae"]
 [ext_resource type="AudioStream" uid="uid://dcxhye6g77fhl" path="res://Global/Music/THE GENERATOR.ogg" id="2_wjoae"]
+[ext_resource type="Texture2D" uid="uid://cgid23bdecbuk" path="res://Levels/Assets/Visuals/ground_snow.png" id="3_6x3kj"]
+[ext_resource type="PackedScene" uid="uid://cvfw5knxdmsmo" path="res://Entities/bkg_tree_christmas.tscn" id="3_cgx6m"]
+[ext_resource type="Texture2D" uid="uid://d18s87aum88fg" path="res://Levels/Assets/Visuals/skybox_fancynight.png" id="4_3u2gq"]
 
-[sub_resource type="Environment" id="Environment_24phs"]
+[sub_resource type="Environment" id="Environment_3u2gq"]
 background_mode = 1
-background_color = Color(0.293763, 0.280784, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_6x3kj"]
+resource_name = "slipperyplayer"
+script/source = "extends \"res://Levels/player.gd\"
+
+func set_car_pos(delta: float):
+	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,2.5*delta)
+	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2r36"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_3u2gq")
+uv1_triplanar_sharpness = 0.353554
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgx6m"]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_6x3kj")
+texture_filter = 0
 
 [node name="Level2" instance=ExtResource("1_wjoae")]
 music = ExtResource("2_wjoae")
 item_queue_intro = Array[String](["", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "", "", ""])
 item_queue_mid = Array[String](["uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "uid://dgsiwdkdb2p3l", "", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://b0ecjulakvjyr", ""])
 item_queue_end = Array[String](["uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "", "", "", "uid://b0ecjulakvjyr", "uid://b0ecjulakvjyr", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", ""])
+trees = ExtResource("3_cgx6m")
 level_val = 2
 
 [node name="WorldEnvironment" parent="." index="0"]
-environment = SubResource("Environment_24phs")
+environment = SubResource("Environment_3u2gq")
+
+[node name="Player" parent="." index="1"]
+script = SubResource("GDScript_6x3kj")
+friction_impact = 0.3
+angle_lerp = 0.1
+
+[node name="Background" parent="Player" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y2r36")
 
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.951701, 0.76891, 0.801011, 1)
+
+[node name="Ground" parent="Player" index="14"]
+material_override = SubResource("StandardMaterial3D_cgx6m")
 
 [node name="DamageSplash" parent="Player" index="19"]
 self_modulate = Color(1, 1, 1, 0.305882)

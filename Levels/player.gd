@@ -16,6 +16,8 @@ const DRIFT_ACCELERATION = 0.01
 @export var screenshake_speed : float = 30.0
 @export var screenshake_decay : float = 5.0
 
+@export var friction_impact: float = 0.7
+@export var angle_lerp: float = 0.2
 
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
@@ -111,7 +113,7 @@ func _physics_process(delta: float) -> void:
 	
 	if last_angle != car_angle.x:
 		var difference = abs(car_angle.x - last_angle)
-		friction -= (difference*0.7)
+		friction -= (difference*friction_impact)
 		visuals_angle = (car_angle.x - last_angle)
 		visuals_angle = clamp(visuals_angle,-0.1,0.1)
 	else:
@@ -131,8 +133,7 @@ func _physics_process(delta: float) -> void:
 	$Visuals/SpeedBar/RichTextLabel.text = str("SPD: ", int(speed))
 	$Visuals/HealthBar/RichTextLabel.text = str("HP: ", int(hp))
 	
-	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
-	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
+	set_car_pos(delta)
 	$Visuals.rotation = lerp($Visuals.rotation,visuals_angle*0.6,0.45)
 	$Visuals.global_position.x = lerp($Visuals.global_position.x,(160+(visuals_angle*100)+((-visuals_angle*200)))+(car_shake.x),0.8)
 	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*30),0.4)
@@ -140,7 +141,11 @@ func _physics_process(delta: float) -> void:
 	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)),0.3)
 	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50),0.2)
 	
-	
+
+func set_car_pos(delta: float):
+	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
+	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
+
 
 func skin_change():
 	match Global.player_save.flags.current_skin_id:
@@ -259,7 +264,7 @@ func _steering_mechanics() -> void:
 	
 	turn_speed *= (speed/5)*(2-friction)
 
-	car_angle.x = lerp(car_angle.x,turn_speed,0.2)
+	car_angle.x = lerp(car_angle.x,turn_speed,angle_lerp)
 	
 	friction = clamp(float(friction), 0.0, 1.0)
 	friction = lerp(float(friction),1.0,0.1*(0.5+(0.5-(speed/20))))
@@ -267,8 +272,6 @@ func _steering_mechanics() -> void:
 	car_velocity.x = lerp(car_velocity.x,car_angle.x,friction)
 	if Global.modifiers.DrunkMode:
 		car_velocity.x += sin(drunk_steer+.24)*drunkness/180#+1
-	
-	
 #
 #func _physics_process(delta: float) -> void:
 #

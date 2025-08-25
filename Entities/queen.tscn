@@ -117,7 +117,7 @@ pixel_size = 0.14
 texture = ExtResource("10_q2ppl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 offset = Vector2(0, 40)
 pixel_size = 0.2205
 billboard = 1

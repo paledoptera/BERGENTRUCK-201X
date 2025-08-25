@@ -603,7 +603,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Camera3D/ArmL/GloveL/Area3D" index="0"]
 shape = SubResource("SphereShape3D_4i652")
 
-[node name="Ground" parent="Player" index="13"]
+[node name="Ground" parent="Player" index="14"]
 material_override = ExtResource("6_djtrw")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null

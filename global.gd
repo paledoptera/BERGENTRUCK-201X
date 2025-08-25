@@ -171,7 +171,8 @@ func goto_level(value : int = level) -> void:
 			lv = "uid://8ue6vqtkskwt" #levelDogChase1.tscn (good enough name? probably not but I can't have two levelD's)
 		# DARK MODE
 		
-		#6: # Thorns
+		6: # Thorns
+			lv = "uid://fshgeql7ofkj" # level1_hard.tscn
 		7: # Buyout City
 			lv = "uid://cnseiocfp02jr" # levelS.tscn
 		8: # Frozen Food

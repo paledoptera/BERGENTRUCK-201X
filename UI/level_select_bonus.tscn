@@ -133,8 +133,8 @@ offset_left = 191.0
 offset_top = 91.0
 offset_right = 247.0
 offset_bottom = 147.0
-number_overide = "Q"
-dark_number_overide = ":3"
+number_overide = "♛"
+dark_number_overide = "·ᴥ·"
 value = 4
 title = "Punchout City"
 darkvalue = 9
@@ -145,7 +145,7 @@ offset_left = 251.0
 offset_top = 91.0
 offset_right = 307.0
 offset_bottom = 147.0
-number_overide = "D"
+number_overide = "·ᴥ·"
 dark_number_overide = "3"
 value = 5
 title = "Dog Race"
@@ -591,6 +591,7 @@ size_flags_vertical = 3
 [node name="Dog" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 10
+never_locked = true
 description = "That small dog took off with my car :("
 
 [node name="Etc" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
@@ -602,10 +603,12 @@ description = "Etc loves his job as being a skin system test dummy."
 [node name="Asgore" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 modulate = Color(1, 1, 0, 1)
 layout_mode = 2
+never_locked = true
 
 [node name="Toriel" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 1
+never_locked = true
 description = "The toriale no wait... the turtoiral. toriael.. how is it spelled?  toriel TORIEL I got it okay."
 
 [node name="Spamton" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
@@ -617,39 +620,46 @@ description = "THIS [#1 RATED SALESMAN] IS GOING TO GET [Personal Injury Lawsuit
 [node name="Frog" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 3
+never_locked = true
 description = "The third frog"
 
 [node name="VineSauce" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 4
+never_locked = true
 description = "Vinny VineSauce
 "
 
 [node name="Merg" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 5
+never_locked = true
 description = "Oversized cherry? idk what that thing is.
 although its shades are cool"
 
 [node name="Knight" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 6
+never_locked = true
 description = "THE ROARING KNIGHT STARTED THE ROARING ENGINE OF THE ROARING TRUCK"
 locked_description = "BEAT THE KNIGHT"
 
 [node name="Kris" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 7
+never_locked = true
 description = "..."
 
 [node name="Friend" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 8
+never_locked = true
 description = "What if it became even darker?"
 
 [node name="Envirobear" parent="SkinSelector/ScrollContainer/HBoxContainer" instance=ExtResource("17_li2u5")]
 layout_mode = 2
 ID = 9
+never_locked = true
 description = "This isn't Enviro-Bear's first time driving.
 "
 

@@ -60,11 +60,11 @@ func _horn(event: InputEvent) -> void:
 				if current_hand and not $ArmAnimationR.is_playing():
 					$Camera3D/ArmR/GloveR/Area3D.monitoring = true
 					$ArmAnimationR.play(\"punch\")
-					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-6)
+					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-2)
 				elif not current_hand and not $ArmAnimationL.is_playing():
 					$Camera3D/ArmL/GloveL/Area3D.monitoring = true
 					$ArmAnimationL.play(\"punch\")
-					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-6)
+					Audio.play_sfx(preload(\"uid://flflc5ft83kw\"),1.0,-2)
 				else:
 					return
 				current_hand = not current_hand

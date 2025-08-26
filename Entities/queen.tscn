@@ -69,6 +69,7 @@ monitoring = false
 
 [node name="PunchBullet" parent="EntityContainer" index="0" node_paths=PackedStringArray("bullet_owner") instance=ExtResource("7_ksqgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.205, 5.525)
+visible = false
 script = SubResource("GDScript_7b0sr")
 bullet_owner = NodePath("../..")
 damage = 5.0

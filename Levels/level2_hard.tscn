@@ -46,8 +46,8 @@ environment = SubResource("Environment_3u2gq")
 
 [node name="Player" parent="." index="1"]
 script = SubResource("GDScript_6x3kj")
-friction_impact = 0.3
-angle_lerp = 0.1
+friction_impact = 0.95
+angle_lerp = 0.08
 
 [node name="Background" parent="Player" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_y2r36")
@@ -57,6 +57,7 @@ modulate = Color(0.951701, 0.76891, 0.801011, 1)
 
 [node name="Ground" parent="Player" index="14"]
 material_override = SubResource("StandardMaterial3D_cgx6m")
+surface_material_override/0 = null
 
 [node name="DamageSplash" parent="Player" index="19"]
 self_modulate = Color(1, 1, 1, 0.305882)

@@ -433,6 +433,7 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Nose" type="Sprite2D" parent="Visuals/Asgore"]
+visible = false
 position = Vector2(118, 181)
 texture = ExtResource("16")
 hframes = 3

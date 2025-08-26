@@ -1,6 +1,6 @@
 extends Entity
 
-const ATTACK = ["punch", "kick"] #"baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
+const ATTACK = ["punch_left", "kick"]#"punch_right", "kick"] #"baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
 
 @export var player : Node
 var speed = 0.0
@@ -138,11 +138,15 @@ func _end_process(delta) -> void:
 
 
 func _on_timer_timeout() -> void:
-	if attacks_used > max_attacks_used:
-		attacks_used = 0
-		$AIState.send_event("End")
-	else:
-		$AIState.send_event("Progress")
+	if $AnimationPlayer.is_playing():
+		match $AnimationPlayer.current_animation:
+			"idle":
+				pass
+			"hit_left", "hit_right":
+				await $AnimationPlayer.animation_changed
+			_:
+				await $AnimationPlayer.animation_finished
+	$AIState.send_event("Progress")
 
 
 func swap_sword_dir() -> void:

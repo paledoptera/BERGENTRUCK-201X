@@ -148,27 +148,41 @@ func set_car_pos(delta: float):
 
 
 func skin_change():
+	
+	var skin_nodes = [$Visuals/Asgore,$Visuals/Hand,$Visuals/Hand/Forearm,$Visuals/Hand/Forearm/UpperArm]
+	var skin_assets = [null,null,null,null]
+	
 	match Global.player_save.flags.current_skin_id:
 		#0 is just asgore
-		#1: #Toriel
+		1: #Toriel
+			skin_assets[0] = preload("uid://by3fjakbb2d4c") # toriel.png
 			
-		2: #spamton
+		2: #Spamton
+			skin_assets[0] = preload("uid://du87vck3orilf") # spamton.png
 			$CarHonk.stream = preload("uid://bknqoc88b18yh") #spamtonHorn.wav
-		#3: #Frog
+		3: #Froggit
+			skin_assets[0] = preload("uid://bnft7ige4u2g1") # froggit.png
 			
-		#4: #VineSauce
+		4: #VineSauce
+			skin_assets[0] = preload("uid://bhkrohdwfaego") # vargfren.png
 			
-		#5: #Merg
+		5: #Merg
+			skin_assets[0] = preload("uid://d4anay0yc2sqw") # cherry.png
 			
-		#6: #Knight
+		6: #Knight
+			skin_assets = [preload("uid://bjl01o4blmdpc"), preload("uid://dr5aqgupd1qxa"), preload("uid://dl68q4vf16xto"), preload("uid://d350oo00hiqn3")]
 			
-		#7: #Kris
+		7: #Kris
+			skin_assets[0] = preload("uid://6di7i7mobvv4") # kris.png
 			
-		#8: #Friend
+		8: #Friend
+			skin_assets = [preload("uid://cm6ne36vn0ske"), preload("uid://c3a1fgfvhgm06"), preload("uid://ubge3j3qg846"), preload("uid://cacnn50n8kt72")]
 			
-		#9: #Enviro-Bear
+		9: #Enviro-Bear
+			skin_assets[0] = preload("uid://drsaqa2y16uag") # envirobear.png
 			
-		#10: #Dog
+		10: #Dog
+			skin_assets[0] = preload("uid://c0y5187ebxqi1") # dog.png
 			
 		11: #Etc.
 			$CarHonk.stream = preload("uid://d37f2bo6di3ji") #snd_tensionhorn.wav
@@ -180,7 +194,12 @@ func skin_change():
 			$Visuals/Hand/Forearm/UpperArm.texture = preload("uid://bmofakxp76te3") #arm upperarmSKINTEST.png
 			$Visuals.texture = preload("uid://ist385x4ii4c") #carSKINTEST.png
 		#12: #Hornet? 
-			
+			skin_assets[0] = preload("uid://c0w2dcq1hf7v8") # hornet.png
+	
+	for i in range(skin_nodes.size()):
+		if not skin_assets[i]:
+			continue
+		skin_nodes[i].texture = skin_assets[i]
 
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):

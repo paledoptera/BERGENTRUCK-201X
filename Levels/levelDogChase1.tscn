@@ -917,7 +917,7 @@ text = "FPS: "
 scroll_active = false
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.366972, -0.930232, 0, 0.930232, 0.366972, 10, 10.5633, 10)
+transform = Transform3D(1, 1.16326e-09, -2.6823e-09, -2.92204e-09, 0.428336, -0.90362, 9.77742e-11, 0.90362, 0.428336, 10, 10.5633, 10)
 keep_aspect = 0
 projection = 2
 current = true

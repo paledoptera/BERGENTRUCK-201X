@@ -125,6 +125,7 @@ func _physics_process(delta: float) -> void:
 	$Visuals/ProgressBar/Dial.rotation_degrees = lerp($Visuals/ProgressBar/Dial.rotation_degrees,-225.0+(Global.score/Global.goal)*90.0,0.2)
 	var dial_rand_jitter = randf_range(-5,5)
 	$Visuals/SpeedBar/Dial.rotation_degrees = lerp($Visuals/SpeedBar/Dial.rotation_degrees,-195+dial_rand_jitter+(speed/10)*200,0.2)
+	print($Visuals/SpeedBar/Dial.rotation_degrees)
 	$DamageSplash.self_modulate.a = lerp($DamageSplash.self_modulate.a,0.0,0.05)
 	
 	# DEBUG
@@ -184,7 +185,7 @@ func skin_change():
 		10: #Dog
 			skin_assets[0] = preload("uid://c0y5187ebxqi1") # dog.png
 			
-		11: #Etc.
+		11: #Etc (SKIN TESt)
 			$CarHonk.stream = preload("uid://d37f2bo6di3ji") #snd_tensionhorn.wav
 			$Visuals/Asgore/Nose.texture = preload("uid://ckogtawfmvesu") #asgore_noseSKINTEST.png
 			$Visuals/Asgore/Nose.show_behind_parent = true
@@ -193,7 +194,7 @@ func skin_change():
 			$Visuals/Hand/Forearm.texture = preload("uid://7i0olqmdd3my") #arm forearmSKINTEST.png
 			$Visuals/Hand/Forearm/UpperArm.texture = preload("uid://bmofakxp76te3") #arm upperarmSKINTEST.png
 			$Visuals.texture = preload("uid://ist385x4ii4c") #carSKINTEST.png
-		#12: #Hornet? 
+		12: #Hornet
 			skin_assets[0] = preload("uid://c0w2dcq1hf7v8") # hornet.png
 	
 	for i in range(skin_nodes.size()):

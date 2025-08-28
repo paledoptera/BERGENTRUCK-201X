@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bodeubup707r6"
-path="res://.godot/imported/dess.png-a32a590c53b3db18263e53da0e193b25.ctex"
+uid="uid://dsfpn52y4tpe1"
+path="res://.godot/imported/dogplans1.png-7998b1a5f3d23988aa9979c42ac9303f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Assets/Visuals/dess.png"
-dest_files=["res://.godot/imported/dess.png-a32a590c53b3db18263e53da0e193b25.ctex"]
+source_file="res://Levels/Assets/Visuals/dogplans1.png"
+dest_files=["res://.godot/imported/dogplans1.png-7998b1a5f3d23988aa9979c42ac9303f.ctex"]
 
 [params]
 

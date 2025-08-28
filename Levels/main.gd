@@ -111,7 +111,6 @@ func update_dynamic_border() -> void:
 		
 		"LevelQ", "LevelS":
 			fade_to_border(preload("uid://cy1hkw0wv0i01")) # City.png
-		
 		"Level3Hard":
 			fade_to_border(preload("uid://dlc5e78c7swx4")) # Cathedral.png
 		

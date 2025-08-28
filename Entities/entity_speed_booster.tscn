@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhxugegrs270h"]
+
+[ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_wvhif"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_6ofv2"]
+[ext_resource type="AudioStream" uid="uid://bg7ham6vgii6k" path="res://Global/SFX/snd_knight_teleport.wav" id="6_6ofv2"]
+[ext_resource type="Texture2D" uid="uid://bytdso1wubgcj" path="res://Levels/Assets/Visuals/boost.png" id="7_6ofv2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ofv2"]
+size = Vector3(39.5876, 4.34717, 38.5068)
+
+[node name="boost" groups=["boost"] instance=ExtResource("1_wvhif")]
+items = Array[ExtResource("2_6ofv2")]([])
+stompable = false
+hit_sound_impact = null
+hit_sound_effect = ExtResource("6_6ofv2")
+disable_collision_on_hit = false
+particle_effect = -1
+
+[node name="EntityContainer" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10597, -6.19519)
+shape = SubResource("BoxShape3D_6ofv2")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+transform = Transform3D(2.64303, 0, 0, 0, -1.15531e-07, 2.64303, 0, -2.64303, -1.15531e-07, 0, 0, 0)
+billboard = 0
+texture = ExtResource("7_6ofv2")

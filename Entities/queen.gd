@@ -1,6 +1,27 @@
 extends Entity
 
-const ATTACK = ["punch_left", "kick"]#"punch_right", "kick"] #"baseball_toss", "double_kick", "laser", "fast_kicks", "waves_of_queen"] #
+const ATTACK_POOL = {
+	"round1":
+		{
+			0: ["punch"], #["punch"],
+			1: ["kick", "punch"],
+			2: ["baseball_throw","punch","kick","punch","kick"],
+		},
+	
+	"round2":
+		{
+			0: ["multi_kick","punch","kick"],
+			1: ["laser", "multi_kick","laser","laser","punch","baseball_throw"],
+		},
+	
+	"round3":
+		{
+			0: ["multi_laser", "kick", "punch", "laser"],
+			1: ["waves_of_queen","multi_kick","punch","laser"],
+			2: ["giant_baseball_toss","multi_kick","multi_laser"]
+		},
+	
+	}
 
 @export var player : Node
 var speed = 0.0
@@ -9,14 +30,13 @@ var speed_acc = 0.1
 var siner = 0
 var attacks_used = 0
 var max_attacks_used = 0
-var sword_dir = false # false = right, true = left
 var vulnerable = false
 var current_attack: String
 var last_attack: String
 var current_attack_small: Array
 var current_attack_mega: String
-var attack_pool : Array[String]
-var previous_attack_pool : Array[String]
+@onready var attack_pool : Array
+var previous_attack_pool : Array
 @export var keeping_up_with_player = true
 @export var entities : Node3D
 @export var sprite : AnimatedSprite3D
@@ -24,6 +44,7 @@ var previous_attack_pool : Array[String]
 @export var ai_anim : AnimationPlayer
 var attack_cooldown: float = 0
 var current_player_speed: float = 1
+var dir = "left"
 
 
 func _ready() -> void:
@@ -31,6 +52,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	#print("SCORE: ", Global.score)
+	
 	siner += delta*(0.66+(float(player.gear)/2.5))
 	
 	if keeping_up_with_player:
@@ -45,7 +68,7 @@ func _process(delta: float) -> void:
 	#if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch":
 		#current_player_speed = lerp(current_player_speed,float(player.speed),0.5)
 	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
-	global_position.z = lerp(global_position.z,gear_dif*3,0.1)
+	global_position.z = gear_dif*3
 	
 	#global_rotation.x += deg_to_rad(speed)
 	global_rotation.x = clamp(global_rotation.x,deg_to_rad(-35),deg_to_rad(-3))
@@ -75,47 +98,44 @@ func _start_enter() -> void:
 	attacks_used = 0
 	$EntityContainer/CollisionShape3D.disabled = false
 	ai_timer.start(2.0)
-	ai_anim.queue("idle")
+	#ai_anim.queue("idle")
 
 
 func _start_process(delta: float) -> void:
 	speed = -player.speed
 	
+	#
+	#var current_y = Utility.get_sine(siner,1.0,7.0)
+	#var next_y = Utility.get_sine(siner+delta,1.0,7.0)
+	#if sign(current_y) != sign(next_y) and $EntityContainer/AnimatedSprite3D.animation == "idle":
+		#sprite.frame = wrap(sprite.frame+1,0,2)
 	
-	var current_y = Utility.get_sine(siner,1.0,7.0)
-	var next_y = Utility.get_sine(siner+delta,1.0,7.0)
-	if sign(current_y) != sign(next_y) and $EntityContainer/AnimatedSprite3D.animation == "idle":
-		sprite.frame = wrap(sprite.frame+1,0,2)
-	
-	horizontal_speed = abs(current_y)*2
+	horizontal_speed = 2#abs(current_y)*2
 	sprite.position.z = lerp(sprite.position.z,0.0,0.2)
-	sprite.position.y = -2.0+abs(current_y)
+	#sprite.position.y = lerp(sprite.position.y,-2.0+abs(current_y),0.2)
 
 func _attack_enter() -> void:
 	_get_current_attack_pool()
-	
-	if not current_attack:
-		print(attack_pool)
-		if previous_attack_pool != attack_pool.duplicate():
-			print("NEW ATTACK")
-			previous_attack_pool.clear()
-			previous_attack_pool = attack_pool.duplicate()
-			current_attack = attack_pool.back()
-		else:
-			if last_attack and attack_pool.size() > 1:
-				attack_pool.erase(last_attack)
+	print(attack_pool)
+	if previous_attack_pool != attack_pool.duplicate():
+		print("NEW ATTACK")
+		previous_attack_pool.clear()
+		previous_attack_pool = attack_pool.duplicate()
+		current_attack = attack_pool.front()
+	else:
+		if last_attack and attack_pool.size() > 1:
+			attack_pool.erase(last_attack)
 			
-			if previous_attack_pool != attack_pool:
-				attack_pool.append
-				
-			current_attack = attack_pool.pick_random()
-		last_attack = current_attack
-		print(current_attack)
+		current_attack = attack_pool.pick_random()
+	last_attack = current_attack
+	print(current_attack)
 		
 	
-	var attack_anim = ATTACK.pick_random()
+	match current_attack:
+		"punch", "kick", "multi_kick":
+			current_attack += ("_" + dir)
 	
-	ai_anim.play(attack_anim)
+	ai_anim.play(current_attack)
 	ai_timer.start(ai_anim.current_animation_length)
 
 
@@ -125,32 +145,29 @@ func _attack_process(delta) -> void:
 
 func _attack_exit() -> void:
 	attacks_used += 1
-
-
-func _break_enter() -> void:
-	ai_anim.play("idle")
-	ai_timer.start(1.5)
-
-
-func _end_process(delta) -> void:
-	speed = lerp(speed,0.0,0.04)
 #endregion
 
 
-func _on_timer_timeout() -> void:
-	if $AnimationPlayer.is_playing():
-		match $AnimationPlayer.current_animation:
-			"idle":
-				pass
-			"hit_left", "hit_right":
-				await $AnimationPlayer.animation_changed
-			_:
-				await $AnimationPlayer.animation_finished
-	$AIState.send_event("Progress")
-
-
-func swap_sword_dir() -> void:
-	sword_dir = not sword_dir
+#func _on_timer_timeout() -> void:
+	#if $AnimationPlayer.is_playing():
+		#match $AnimationPlayer.current_animation:
+			#"idle":
+				#pass
+			#"hit_left", "hit_right":
+				#await $AnimationPlayer.animation_changed
+				#sprite.position.z = 0.0
+				#siner = 0.0
+			#"punch_left", "punch_right":
+				#await $AnimationPlayer.animation_finished
+				#sprite.animation = "idle"
+				#sprite.flip_h = not sprite.flip_h
+				#sprite.offset = Vector2(-7,40)
+				#if sprite.flip_h: sprite.offset.x *= -1
+				#sprite.position.z = 0.0
+				#siner = 0.0
+			#_:
+				#await $AnimationPlayer.animation_finished
+	#$AIState.send_event("Progress")
 
 
 func change_speed(value : float):
@@ -167,7 +184,8 @@ func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 
 	bullet_inst.speed = player.speed * spd_mult
 	bullet_inst.h_speed = h_spd
 	bullet_inst.bullet_owner = self
-	bullet_inst.global_position.x = global_position.x
+	bullet_inst.global_position.x = sprite.global_position.x+6.5
+	bullet_inst.entity_container.position.y = (sprite.position.y*2)
 	bullet_inst.global_rotation.x = global_rotation.x
 	bullet_inst.player = player
 
@@ -182,11 +200,25 @@ func play_sound(audio: AudioStream, pitch_scale: float = 1.0, volume_db: float =
 
 
 func _get_current_attack_pool() -> void:
-	var current_attack_num = Global.score / 18
-	current_attack_num = clamp(int(current_attack_num),0,ATTACK.size()-1)
+	print("SCORE: ", Global.score)
 	attack_pool.clear()
-	for i in range(current_attack_num+1):
-		attack_pool.append(ATTACK[i])
+	
+	if Global.score < 10.0:
+		attack_pool = ATTACK_POOL["round1"][0].duplicate()
+	elif Global.score < 20.0: 
+		attack_pool = ATTACK_POOL["round1"][1].duplicate()
+	elif Global.score < 33.0:
+		attack_pool = ATTACK_POOL["round1"][2].duplicate()
+	elif Global.score < 40.0:
+		attack_pool = ATTACK_POOL["round2"][0].duplicate()
+	elif Global.score < 66.0:
+		attack_pool = ATTACK_POOL["round2"][1].duplicate()
+	elif Global.score < 70.0:
+		attack_pool = ATTACK_POOL["round3"][0].duplicate()
+	elif Global.score < 85.0:
+		attack_pool = ATTACK_POOL["round3"][1].duplicate()
+	else:
+		attack_pool = ATTACK_POOL["round3"][2].duplicate()
 
 #
 #func _on_afterimage_timer_timeout() -> void:
@@ -198,3 +230,35 @@ func _get_current_attack_pool() -> void:
 	#afterimage.animation =  $EntityContainer/AnimatedSprite3D.animation
 	#afterimage.frame =  $EntityContainer/AnimatedSprite3D.frame
 	#afterimage.flip_h =  $EntityContainer/AnimatedSprite3D.flip_h
+
+
+func _animation_finished(anim_name: StringName) -> void:
+	
+	match anim_name:
+		"hit_left":
+			$AnimationPlayer.play("idle_right")
+		
+		"hit_right":
+			$AnimationPlayer.play("idle_left")
+		
+		"punch_left":
+			$AnimationPlayer.play("idle_right")
+		
+		"punch_right":
+			$AnimationPlayer.play("idle_left")
+		
+	
+	if ai_timer.is_stopped():
+		$AIState.send_event("Progress")
+		return
+	
+	match anim_name:
+		
+		"idle_left", "idle_right":
+			dir = ["left","right"].pick_random()
+			$AnimationPlayer.play("idle_" + dir)
+
+		
+		#_:
+			#await $AnimationPlayer.animation_finished
+	

@@ -152,51 +152,6 @@ title = "Dog Race"
 darkvalue = 10
 darktitle = "Light Fight"
 
-[node name="Parallax2D3" type="Parallax2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-repeat_size = Vector2(197, 0)
-autoscroll = Vector2(-32, 0)
-repeat_times = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Parallax2D3"]
-offset_left = 52.0
-offset_top = 154.0
-offset_right = 132.0
-offset_bottom = 194.0
-scale = Vector2(2.41, 1.755)
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.510601, 0.510601, 0.510601, 1)
-theme_override_constants/outline_size = 9
-theme_override_fonts/normal_font = ExtResource("6_ew8hv")
-text = "COMINGSOON"
-scroll_active = false
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="Parallax2D3"]
-offset_left = 52.0
-offset_top = 180.0
-offset_right = 132.0
-offset_bottom = 220.0
-scale = Vector2(2.41, 1.755)
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.510601, 0.510601, 0.510601, 1)
-theme_override_constants/outline_size = 9
-theme_override_fonts/normal_font = ExtResource("6_ew8hv")
-text = "COMINGSOON"
-scroll_active = false
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Parallax2D3"]
-offset_left = 52.0
-offset_top = 208.0
-offset_right = 132.0
-offset_bottom = 248.0
-scale = Vector2(2.41, 1.755)
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.510601, 0.510601, 0.510601, 1)
-theme_override_constants/outline_size = 9
-theme_override_fonts/normal_font = ExtResource("6_ew8hv")
-text = "COMINGSOON"
-scroll_active = false
-
 [node name="LVNumber" type="RichTextLabel" parent="." groups=["transparent"]]
 offset_left = 3.0
 offset_top = 41.0

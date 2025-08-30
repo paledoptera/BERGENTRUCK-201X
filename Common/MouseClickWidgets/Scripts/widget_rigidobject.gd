@@ -69,5 +69,5 @@ func use() -> void :
 	destroyanim.sprite.global_scale = $DraggableItem / TextureRect.global_scale
 	destroyanim.sprite.modulate = modulate
 	player.particle_trigger(0, score_amount)
-	Global.score += score_amount
+	Global.score += max(score_amount,0.2)
 	queue_free()

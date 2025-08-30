@@ -89,7 +89,7 @@ pixel_size = 0.14
 texture = ExtResource("10_q2ppl")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0.5)
 offset = Vector2(0, 40)
 pixel_size = 0.2205
 billboard = 1
@@ -106,14 +106,20 @@ one_shot = true
 libraries = {
 &"": ExtResource("10_7b0sr")
 }
+autoplay = "idle_left"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="5"]
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="state_entered" from="AIState/Root/Start" to="." method="_start_enter"]
 [connection signal="state_processing" from="AIState/Root/Start" to="." method="_start_process"]
 [connection signal="state_entered" from="AIState/Root/Attack" to="." method="_attack_enter"]
 [connection signal="state_exited" from="AIState/Root/Attack" to="." method="_attack_exit"]
 [connection signal="state_processing" from="AIState/Root/Attack" to="." method="_attack_process"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_animation_finished"]
 
 [editable path="EntityContainer/PunchBullet"]

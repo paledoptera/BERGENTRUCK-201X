@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnybvrsfow2gk"
-path="res://.godot/imported/snd_motor_upper_2.wav-51226ae29e41e1b62b320ffa24ef872d.sample"
+path="res://.godot/imported/Kick Whoosh.wav-c9a6e1801060cb37e894836652a73a2e.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_motor_upper_2.wav"
-dest_files=["res://.godot/imported/snd_motor_upper_2.wav-51226ae29e41e1b62b320ffa24ef872d.sample"]
+source_file="res://Global/SFX/Kick Whoosh.wav"
+dest_files=["res://.godot/imported/Kick Whoosh.wav-c9a6e1801060cb37e894836652a73a2e.sample"]
 
 [params]
 

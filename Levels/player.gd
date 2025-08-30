@@ -125,7 +125,7 @@ func _physics_process(delta: float) -> void:
 	$Visuals/ProgressBar/Dial.rotation_degrees = lerp($Visuals/ProgressBar/Dial.rotation_degrees,-225.0+(Global.score/Global.goal)*90.0,0.2)
 	var dial_rand_jitter = randf_range(-5,5)
 	$Visuals/SpeedBar/Dial.rotation_degrees = lerp($Visuals/SpeedBar/Dial.rotation_degrees,-195+dial_rand_jitter+(speed/10)*200,0.2)
-	print($Visuals/SpeedBar/Dial.rotation_degrees)
+	#print($Visuals/SpeedBar/Dial.rotation_degrees)
 	$DamageSplash.self_modulate.a = lerp($DamageSplash.self_modulate.a,0.0,0.05)
 	
 	# DEBUG

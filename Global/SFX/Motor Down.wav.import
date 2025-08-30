@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vkxr4jgeaoey"
-path="res://.godot/imported/motor_swing_down.wav-5fb43e15c6ef28793f760afd8cffbcbf.sample"
+path="res://.godot/imported/Motor Down.wav-6e6348f4f4b0c70646441123efaa5b60.sample"
 
 [deps]
 
-source_file="res://Global/SFX/motor_swing_down.wav"
-dest_files=["res://.godot/imported/motor_swing_down.wav-5fb43e15c6ef28793f760afd8cffbcbf.sample"]
+source_file="res://Global/SFX/Motor Down.wav"
+dest_files=["res://.godot/imported/Motor Down.wav-6e6348f4f4b0c70646441123efaa5b60.sample"]
 
 [params]
 

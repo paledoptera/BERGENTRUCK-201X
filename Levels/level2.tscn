@@ -9,9 +9,9 @@ background_color = Color(0.293763, 0.280784, 1, 1)
 
 [node name="Level2" instance=ExtResource("1_24phs")]
 music = ExtResource("2_ty1rc")
-item_queue_intro = Array[String](["", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "", "", ""])
-item_queue_mid = Array[String](["uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "uid://dgsiwdkdb2p3l", "", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://b0ecjulakvjyr", ""])
-item_queue_end = Array[String](["uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "", "", "", "uid://b0ecjulakvjyr", "uid://b0ecjulakvjyr", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", ""])
+item_queue_intro = Array[String](["", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "", "", ""])
+item_queue_mid = Array[String](["uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "uid://dgsiwdkdb2p3l", "", "", "uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://b0ecjulakvjyr", ""])
+item_queue_end = Array[String](["uid://btetd788ltvnu", "uid://dod06qvkdjumy", "uid://dod06qvkdjumy", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://dgsiwdkdb2p3l", "uid://cpbo5ryuwaua5", "", "", "", "uid://b0ecjulakvjyr", "uid://b0ecjulakvjyr", "uid://bympmn5b7p10t", ""])
 level_val = 2
 
 [node name="WorldEnvironment" parent="." index="0"]
@@ -20,7 +20,7 @@ environment = SubResource("Environment_24phs")
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.951701, 0.76891, 0.801011, 1)
 
-[node name="DamageSplash" parent="Player" index="16"]
+[node name="DamageSplash" parent="Player" index="19"]
 self_modulate = Color(1, 1, 1, 0.305882)
 
 [node name="WallL" parent="." index="3"]
@@ -35,5 +35,6 @@ disable_collision_on_hit = false
 [editable path="Player/Visuals/WidgetWheel"]
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]
+[editable path="Player/Visuals/WidgetGear/DraggableItem"]
 [editable path="WallL"]
 [editable path="WallR"]

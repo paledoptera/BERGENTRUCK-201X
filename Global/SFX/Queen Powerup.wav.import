@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ykhrw1clo454"
-path="res://.godot/imported/snd_cardrive.wav-9b5433591c715e69dee6a3299147f910.sample"
+path="res://.godot/imported/Queen Powerup.wav-2d0345729620c4127d1a680c8702549d.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_cardrive.wav"
-dest_files=["res://.godot/imported/snd_cardrive.wav-9b5433591c715e69dee6a3299147f910.sample"]
+source_file="res://Global/SFX/Queen Powerup.wav"
+dest_files=["res://.godot/imported/Queen Powerup.wav-2d0345729620c4127d1a680c8702549d.sample"]
 
 [params]
 

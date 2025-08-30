@@ -3,6 +3,7 @@ extends Node
 var dark = false
 var big = false
 var closet = false
+var car = false
 var current_icon = null
 
 # Called when the node enters the scene tree for the first time.
@@ -69,7 +70,7 @@ func _on_level_icon_mouse_exited() -> void:
 
 
 func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
-	if big == false and closet == false:
+	if big == false and closet == false and car == false:
 		Global.goto_title()
 	if big == true:
 		$Back.hide()
@@ -96,6 +97,7 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		$LVTitle.text = "Choose a Level"
 		$LVNumber.text = ""
 		$SkinSelector.hide()
+		$Skins.z_index = 1
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != $Skins:
 				node.mouse_filter = 0
@@ -108,9 +110,27 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		tweens[2].tween_property($Skins,"modulate",Color(1,1,1,1),.3)
 		closet = false
 		await tweens[0].tween_property($Skins,"position:y",155,.5).finished
+		$Skins.z_index = 0
 		$Skins.mouse_filter = 0
 		SaveLoad.file_save() #saves the skin you chose
-	
+	elif car == true:
+		$LVTitle.text = "Choose a Level"
+		$LVNumber.text = ""
+		$CarSelector.hide()
+		for node in get_tree().get_nodes_in_group("transparent"):
+			if node != $Car:
+				node.mouse_filter = 0
+				var alpha = create_tween()
+				alpha.tween_property(node,"modulate:a",1,.5)
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK)]
+		$Dark.show()
+		$Gradient2.hide()
+		tweens[1].tween_property($Car,"scale",Vector2(1,1),.5)
+		tweens[2].tween_property($Car,"modulate",Color(1,1,1,1),.3)
+		car = false
+		await tweens[0].tween_property($Car,"position:y",155,.5).finished
+		$Car.mouse_filter = 0
+		SaveLoad.file_save() #saves the stuff you chose
 
 func _on_level_icon_clicked(icon):
 	if current_icon != null and icon != current_icon:
@@ -162,10 +182,12 @@ func _on_dark_menu_option_clicked(option):
 	if dark:
 		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_dark_bkg.png")
 		$LVNumber.add_theme_color_override("default_color",Color.BLACK)
+		$Car.icon = preload("uid://durbxn4j3s10y") #CarDark.png
 		$Skins.icon = preload("uid://buta83lh3jwxf") #ClosetDark.png
 	else:
 		$TextureRect.texture = preload("res://UI/Assets/Visuals/level_select_bkg.png")
 		$LVNumber.remove_theme_color_override("default_color")
+		$Car.icon = preload("uid://dbpvgd2erptjf") #Car.png
 		$Skins.icon = preload("uid://lqjqgdnqxcj7") #Closet.png
 	$black.show()
 	await get_tree().create_timer(.4).timeout
@@ -173,7 +195,7 @@ func _on_dark_menu_option_clicked(option):
 
 
 func _on_skins_menu_option_clicked(option):
-	if closet == false:
+	if closet == false and car == false:
 		$Skins.mouse_filter = 2
 		for node in get_tree().get_nodes_in_group("transparent"):
 			if node != $Skins:
@@ -184,7 +206,7 @@ func _on_skins_menu_option_clicked(option):
 		$Dark.hide()
 		$Back.hide()
 		$Selected.position = Vector2(99999,99999)
-		tweens[1].tween_property($Skins,"scale",Vector2(6,6),.5)
+		tweens[1].tween_property($Skins,"scale",Vector2(7,6),.5)
 		tweens[0].tween_property($Skins,"position:y",75,.5)
 		closet = true
 		$SkinSelector.modulate.a = 0
@@ -192,4 +214,27 @@ func _on_skins_menu_option_clicked(option):
 		$Gradient.show()
 		$SkinSelector.show()
 		create_tween().tween_property($SkinSelector,"modulate:a",1,.5).set_trans(Tween.TRANS_SINE)
+		$Back.show()
+
+
+func _on_car_menu_option_clicked(option):
+	if car == false and closet == false:
+		$Car.mouse_filter = 2
+		for node in get_tree().get_nodes_in_group("transparent"):
+			if node != $Car:
+				node.mouse_filter = 2
+				create_tween().tween_property(node,"modulate:a",0,.2)
+		var tweens = [create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_CUBIC),create_tween().set_trans(Tween.TRANS_BACK)]
+		$BestTime.hide()
+		$Dark.hide()
+		$Back.hide()
+		$Selected.position = Vector2(99999,99999)
+		tweens[1].tween_property($Car,"scale",Vector2(15,10),.5)
+		tweens[0].tween_property($Car,"position:y",75,.5)
+		car = true
+		$CarSelector.modulate.a = 0
+		await tweens[2].tween_property($Car,"modulate",Color(0,0,0,1),.3).finished
+		$Gradient2.show()
+		$CarSelector.show()
+		create_tween().tween_property($CarSelector,"modulate:a",1,.5).set_trans(Tween.TRANS_SINE)
 		$Back.show()

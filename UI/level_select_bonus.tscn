@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=41 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -22,6 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://04laa78phkux" path="res://UI/Assets/Visuals/modifier_icon_Drain.png" id="15_3npne"]
 [ext_resource type="Script" uid="uid://cgysghcfgt64k" path="res://UI/skin_selector.gd" id="16_b8hd2"]
 [ext_resource type="PackedScene" uid="uid://dvu2jwykeb5yj" path="res://UI/character_icon.tscn" id="17_li2u5"]
+[ext_resource type="Texture2D" uid="uid://dbpvgd2erptjf" path="res://UI/Assets/Visuals/Car.png" id="21_361lv"]
+[ext_resource type="Script" uid="uid://dgg7ndct2nlp1" path="res://UI/car_selector.gd" id="24_blw1y"]
+[ext_resource type="Texture2D" uid="uid://ds1kxg2tqpdht" path="res://UI/Assets/Visuals/CarWhite.png" id="25_0xhjr"]
+[ext_resource type="PackedScene" uid="uid://frrp0sjlyi21" path="res://UI/trinket_icon.tscn" id="25_l6dl2"]
+[ext_resource type="Texture2D" uid="uid://bx0gawqks5w52" path="res://Levels/Assets/Visuals/bobbles/kris.png" id="26_wi4v3"]
+[ext_resource type="Texture2D" uid="uid://eoibsc5nrqgd" path="res://Levels/Assets/Visuals/fresheners/familyvalues.png" id="27_l6dl2"]
 
 [sub_resource type="Gradient" id="Gradient_3npne"]
 offsets = PackedFloat32Array(0.295699, 0.930108)
@@ -56,6 +62,8 @@ HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ew8hv")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_ew8hv")
 HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_ew8hv")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_ew8hv")
+
+[sub_resource type="ImageTexture" id="ImageTexture_361lv"]
 
 [sub_resource type="Gradient" id="Gradient_b8hd2"]
 offsets = PackedFloat32Array(0.124601, 0.218462, 0.782, 0.875)
@@ -434,13 +442,26 @@ vertical_alignment = 1
 script = ExtResource("10_hewdn")
 
 [node name="Skins" type="Button" parent="." groups=["transparent"]]
-offset_left = 116.0
+visibility_layer = 3
+offset_left = 76.0
 offset_top = 155.0
-offset_right = 194.0
+offset_right = 154.0
 offset_bottom = 244.0
 pivot_offset = Vector2(36.045, 42.995)
 focus_mode = 0
 icon = ExtResource("12_m401l")
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, -3)
+
+[node name="Car" type="Button" parent="." groups=["transparent"]]
+offset_left = 156.0
+offset_top = 155.0
+offset_right = 234.0
+offset_bottom = 244.0
+pivot_offset = Vector2(36.045, 42.995)
+focus_mode = 0
+icon = ExtResource("21_361lv")
 flat = true
 script = ExtResource("13_u6vxe")
 offset_on_cursor = Vector2(0, -3)
@@ -625,6 +646,315 @@ never_locked = true
 description = "Silk song tommorow
 "
 
+[node name="CarSelector" type="Control" parent="."]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("24_blw1y")
+
+[node name="CarColor" type="ColorRect" parent="CarSelector"]
+clip_children = 1
+layout_mode = 2
+offset_left = 35.0
+offset_top = 71.0
+offset_right = 71.0
+offset_bottom = 355.0
+rotation = -1.57079
+scale = Vector2(0.548692, 0.548692)
+
+[node name="ColorPicker" type="ColorPicker" parent="CarSelector/CarColor"]
+layout_mode = 0
+offset_left = 297.071
+offset_top = 282.489
+offset_right = 595.071
+offset_bottom = 854.489
+rotation = 3.14159
+theme_override_icons/picker_cursor_bg = SubResource("ImageTexture_361lv")
+theme_override_icons/picker_cursor = SubResource("ImageTexture_361lv")
+theme_override_icons/overbright_indicator = SubResource("ImageTexture_361lv")
+theme_override_icons/sample_revert = SubResource("ImageTexture_361lv")
+theme_override_icons/sample_bg = SubResource("ImageTexture_361lv")
+theme_override_icons/bar_arrow = SubResource("ImageTexture_361lv")
+theme_override_icons/shape_circle = SubResource("ImageTexture_361lv")
+theme_override_icons/shape_rect_wheel = SubResource("ImageTexture_361lv")
+theme_override_icons/shape_rect = SubResource("ImageTexture_361lv")
+theme_override_icons/add_preset = SubResource("ImageTexture_361lv")
+theme_override_icons/folded_arrow = SubResource("ImageTexture_361lv")
+theme_override_icons/expanded_arrow = SubResource("ImageTexture_361lv")
+theme_override_icons/screen_picker = SubResource("ImageTexture_361lv")
+theme_override_icons/menu_option = SubResource("ImageTexture_361lv")
+color = Color(0, 0.883333, 1, 1)
+edit_alpha = false
+color_mode = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="Select" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 31.0
+scale = Vector2(1.705, 1.72)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "CUSTOMIZE YOUR CAR"
+horizontal_alignment = 1
+
+[node name="header1" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 35.0
+offset_right = 209.0
+offset_bottom = 52.0
+scale = Vector2(1.1, 1.11)
+pivot_offset = Vector2(0, 50)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "Car Color"
+horizontal_alignment = 1
+
+[node name="header2" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 79.0
+offset_right = 209.0
+offset_bottom = 96.0
+scale = Vector2(1.1, 1.11)
+pivot_offset = Vector2(0, 50)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "Bobblehead"
+horizontal_alignment = 1
+
+[node name="header3" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 151.0
+offset_right = 209.0
+offset_bottom = 168.0
+scale = Vector2(1.1, 1.11)
+pivot_offset = Vector2(0, 50)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("7_l8ko8")
+text = "Air Freshener"
+horizontal_alignment = 1
+
+[node name="BobbleName" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = 131.0
+offset_right = 368.0
+offset_bottom = 149.0
+scale = Vector2(0.438651, 0.442639)
+pivot_offset = Vector2(145, 0)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("9_li2u5")
+text = "Asgore"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Left" type="Button" parent="CarSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 93.0
+offset_right = 37.0
+offset_bottom = 143.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = "<"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="Right" type="Button" parent="CarSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 213.0
+offset_top = 93.0
+offset_right = 247.0
+offset_bottom = 143.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = ">"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="BobbleScroll" type="ScrollContainer" parent="CarSelector"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 93.0
+offset_right = 214.0
+offset_bottom = 129.0
+mouse_filter = 2
+theme = SubResource("Theme_l8ko8")
+scroll_horizontal_custom_step = 0.0
+scroll_vertical_custom_step = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CarSelector/BobbleScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Wrong Knight" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 6
+
+[node name="Dark The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 1
+
+[node name="The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+
+[node name="TV Time" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 2
+
+[node name="Comedian" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 3
+
+[node name="Fren" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 4
+
+[node name="Mike" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 5
+
+[node name="FreshnerName" type="RichTextLabel" parent="CarSelector"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = 204.0
+offset_right = 436.0
+offset_bottom = 222.0
+scale = Vector2(0.438651, 0.442639)
+pivot_offset = Vector2(145, 0)
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("9_li2u5")
+text = "FAMILY VALUES"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="FreshLeft" type="Button" parent="CarSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 166.0
+offset_right = 37.0
+offset_bottom = 216.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = "<"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="FreshRight" type="Button" parent="CarSelector"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 213.0
+offset_top = 166.0
+offset_right = 247.0
+offset_bottom = 216.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("9_li2u5")
+theme_override_font_sizes/font_size = 26
+action_mode = 0
+text = ">"
+flat = true
+script = ExtResource("13_u6vxe")
+offset_on_cursor = Vector2(0, 3)
+
+[node name="FreshenerScroll" type="ScrollContainer" parent="CarSelector"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 166.0
+offset_right = 214.0
+offset_bottom = 202.0
+mouse_filter = 2
+theme = SubResource("Theme_l8ko8")
+scroll_horizontal_custom_step = 0.0
+scroll_vertical_custom_step = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CarSelector/FreshenerScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cool Cherry" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 5
+fresheners = true
+
+[node name="Annoying Dog" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 6
+fresheners = true
+
+[node name="Family Values" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+fresheners = true
+
+[node name="Fluffy Dice" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 1
+fresheners = true
+
+[node name="Christmas Tree" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 2
+fresheners = true
+
+[node name="Delta Rune" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 3
+fresheners = true
+
+[node name="Odd Mushroom" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 4
+fresheners = true
+
+[node name="car" type="Sprite2D" parent="CarSelector"]
+position = Vector2(249, 56)
+texture = ExtResource("25_0xhjr")
+
+[node name="bobble" type="Sprite2D" parent="CarSelector"]
+position = Vector2(249, 128)
+texture = ExtResource("26_wi4v3")
+
+[node name="freshener" type="Sprite2D" parent="CarSelector"]
+position = Vector2(263, 190)
+texture = ExtResource("27_l6dl2")
+
 [node name="Gradient" type="TextureRect" parent="."]
 visible = false
 z_index = 1
@@ -632,6 +962,26 @@ offset_left = 1.0
 offset_top = 29.0
 offset_right = 304.0
 offset_bottom = 81.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_li2u5")
+expand_mode = 1
+
+[node name="Gradient2" type="TextureRect" parent="."]
+visible = false
+z_index = 1
+offset_left = 6.0
+offset_top = 92.0
+offset_right = 231.0
+offset_bottom = 131.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_li2u5")
+expand_mode = 1
+
+[node name="Gradient3" type="TextureRect" parent="Gradient2"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 225.0
+offset_bottom = 111.0
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_li2u5")
 expand_mode = 1
@@ -675,6 +1025,12 @@ color = Color(0, 0, 0, 1)
 [connection signal="mouse_in" from="LevelIcon5" to="." method="_mouse_enters"]
 [connection signal="menu_option_clicked" from="Dark" to="." method="_on_dark_menu_option_clicked"]
 [connection signal="menu_option_clicked" from="Skins" to="." method="_on_skins_menu_option_clicked"]
+[connection signal="menu_option_clicked" from="Car" to="." method="_on_car_menu_option_clicked"]
 [connection signal="pressed" from="SkinSelector/Left" to="SkinSelector" method="_on_left_pressed"]
 [connection signal="pressed" from="SkinSelector/Right" to="SkinSelector" method="_on_right_pressed"]
+[connection signal="color_changed" from="CarSelector/CarColor/ColorPicker" to="CarSelector" method="_on_color_picker_color_changed"]
+[connection signal="pressed" from="CarSelector/Left" to="CarSelector" method="_on_left_pressed"]
+[connection signal="pressed" from="CarSelector/Right" to="CarSelector" method="_on_right_pressed"]
+[connection signal="pressed" from="CarSelector/FreshLeft" to="CarSelector" method="_on_fresh_left_pressed"]
+[connection signal="pressed" from="CarSelector/FreshRight" to="CarSelector" method="_on_fresh_right_pressed"]
 [connection signal="menu_option_clicked" from="Back" to="." method="_on_back_menu_option_clicked"]

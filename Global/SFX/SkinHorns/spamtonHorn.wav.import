@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bknqoc88b18yh"
-path="res://.godot/imported/spamtonHorn.wav-6b32b07b37fce3b84602068503321ebb.sample"
+path="res://.godot/imported/spamtonHorn.wav-635ece0a761ecb74fabc88232bc4929d.sample"
 
 [deps]
 
-source_file="res://Global/SFX/spamtonHorn.wav"
-dest_files=["res://.godot/imported/spamtonHorn.wav-6b32b07b37fce3b84602068503321ebb.sample"]
+source_file="res://Global/SFX/SkinHorns/spamtonHorn.wav"
+dest_files=["res://.godot/imported/spamtonHorn.wav-635ece0a761ecb74fabc88232bc4929d.sample"]
 
 [params]
 

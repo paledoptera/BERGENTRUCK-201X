@@ -20,7 +20,9 @@ var time = 0
 	"option_sound_vol": 1.0,
 	"border" : 1,
 	"current_skin_id": 0,
-	"skins_unlocked": [true,false,false,false,false,false,false,false,false,false,false,false,false]
+	"skins_unlocked": [true,false,false,false,false,false,false,false,false,false,false,false,false],
+	"current_bobble_id": 0,
+	"current_freshener_id": 0
 }
 
 func update_level_time(delta: float, level: int = 1):

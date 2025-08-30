@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://0luro7goxv45"]
+[gd_scene load_steps=107 format=3 uid="uid://0luro7goxv45"]
 
 [ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/level_dog_chase.gd" id="1_ra5q3"]
 [ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_0vxqt"]
@@ -133,6 +133,12 @@ size = Vector3(42.3385, 2300.93, 586.071)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0kpnr"]
 size = Vector3(5.92828, 34.5458, 1232.71)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bi7jc"]
+size = Vector3(5.92828, 71.722, 411.011)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdh7p"]
+size = Vector3(5.92828, 56.9486, 479.311)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_syoe7"]
 size = Vector3(13.0908, 115.712, 1379.51)
 
@@ -154,6 +160,9 @@ size = Vector3(13.0908, 115.712, 3081.23)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eptlp"]
 size = Vector3(13.0908, 115.712, 2673.73)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8him"]
+size = Vector3(13.0908, 217.265, 2964.28)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xuwng"]
 size = Vector3(13.0908, 115.712, 3209.49)
 
@@ -171,6 +180,18 @@ size = Vector3(13.0908, 115.712, 627.462)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cojaf"]
 size = Vector3(13.0908, 115.712, 1237.28)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28siu"]
+size = Vector3(13.0908, 115.712, 1298.44)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lay2k"]
+size = Vector3(13.0908, 115.712, 1634.61)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xyxsw"]
+size = Vector3(13.0908, 115.712, 1430.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ke48v"]
+size = Vector3(13.0908, 115.712, 1924.54)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s88vx"]
 size = Vector3(13.0908, 115.712, 2101.27)
@@ -346,7 +367,7 @@ environment = SubResource("Environment_ra5q3")
 curve = SubResource("Curve3D_syoe7")
 
 [node name="dogfollow" type="PathFollow3D" parent="dogpath"]
-transform = Transform3D(0.0263626, -2.25054e-05, -0.99965, -9.09493e-13, 0.999999, -2.25132e-05, 0.999651, 5.93511e-07, 0.0263626, -11093.3, -0.396973, 478.522)
+transform = Transform3D(0.0263626, -2.25054e-05, -0.99965, -9.09494e-13, 0.999999, -2.25132e-05, 0.999651, 5.93511e-07, 0.0263626, -11093.3, -0.396973, 478.522)
 script = ExtResource("3_syoe7")
 
 [node name="Sprite3D" type="Sprite3D" parent="dogpath/dogfollow"]
@@ -756,19 +777,19 @@ mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
 
 [node name="MeshInstance3D66" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(-80.4489, 0, 226.707, 0, 2.172, 0, -113.353, 0, -160.898, 3509.31, 1.963, -3931.74)
+transform = Transform3D(-138.126, 0, 31.1282, 0, 2.172, 0, -15.5639, 0, -276.252, 2658.66, 1.963, -4509.04)
 material_override = SubResource("StandardMaterial3D_6inao")
 mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
 
 [node name="MeshInstance3D67" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(-80.4489, 0, 226.707, 0, 2.172, 0, -113.353, 0, -160.898, 3056.88, 1.963, -3610.65)
+transform = Transform3D(-138.126, 0, 31.1282, 0, 2.172, 0, -15.5639, 0, -276.252, 2596.53, 1.963, -3957.74)
 material_override = SubResource("StandardMaterial3D_787wp")
 mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
 
 [node name="MeshInstance3D68" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(-80.4489, 0, 226.707, 0, 2.172, 0, -113.353, 0, -160.898, 2603.29, 1.963, -3288.73)
+transform = Transform3D(-138.126, 0, 31.1282, 0, 2.172, 0, -15.5639, 0, -276.252, 2534.25, 1.963, -3405.02)
 material_override = SubResource("StandardMaterial3D_uhnpn")
 mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
@@ -780,13 +801,13 @@ mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
 
 [node name="MeshInstance3D70" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(-109.846, 0, -170.35, 0, 2.172, 0, 85.1749, 0, -219.693, 3036.56, 1.963, -4773.72)
+transform = Transform3D(-138.983, 0, -4.2648, 0, 2.172, 0, 2.13261, 0, -277.968, 2680.44, 1.963, -4946.43)
 material_override = SubResource("StandardMaterial3D_787wp")
 mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
 
 [node name="MeshInstance3D71" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(-109.846, 0, -170.35, 0, 2.172, 0, 85.1749, 0, -219.693, 3377.39, 1.963, -4334.16)
+transform = Transform3D(-116.754, 0, 150.856, 0, 2.172, 0, -75.4275, 0, -233.509, 2741.16, 1.963, -4905.07)
 material_override = SubResource("StandardMaterial3D_uhnpn")
 mesh = SubResource("PlaneMesh_f6p25")
 surface_material_override/0 = SubResource("StandardMaterial3D_p3ygm")
@@ -933,6 +954,13 @@ transform = Transform3D(1, 0, -8.35187e-23, 0, 1, 0, -8.35187e-23, 0, 1, 0, 0, 0
 transform = Transform3D(1, 0, -8.35187e-23, 0, 1, 0, -8.35187e-23, 0, 1, 20.4187, 2.83789, -1.66138)
 shape = SubResource("BoxShape3D_dbu1h")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="walls/CSGBox3D8"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -350.923, 402.574, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/CSGBox3D8/StaticBody3D2"]
+transform = Transform3D(1, 0, -8.35187e-23, 0, 1, 0, -8.35187e-23, 0, 1, 20.4187, 2.83789, -1.66138)
+shape = SubResource("BoxShape3D_dbu1h")
+
 [node name="CSGBox3D9" type="CSGBox3D" parent="walls"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.998202, 0.0599335, -4.36328e-08, 0.0599335, -0.998202, -2.61978e-09, 2506.98, 19.95, -1329.03)
 size = Vector3(80, 1886.86, 596.962)
@@ -955,7 +983,49 @@ shape = SubResource("BoxShape3D_0kpnr")
 shape = SubResource("BoxShape3D_0kpnr")
 
 [node name="Trees" parent="walls/wall/CollisionShape3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 616.356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 616.355)
+
+[node name="wall31" parent="walls" instance=ExtResource("11_0g8oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6655.57, 0, -1065.07)
+place_trees = false
+
+[node name="CollisionShape3D" parent="walls/wall31" index="0"]
+transform = Transform3D(1, 0, -2.23514e-07, 0, 1, 0, 2.23514e-07, 0, 1, -173.028, 18.2243, -75.2867)
+shape = SubResource("BoxShape3D_bi7jc")
+
+[node name="CollisionShape3D2" parent="walls/wall31/CollisionShape3D/Hurtbox/EntityContainer" index="0"]
+shape = SubResource("BoxShape3D_bi7jc")
+
+[node name="Trees" parent="walls/wall31/CollisionShape3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 205.505)
+
+[node name="wall32" parent="walls" instance=ExtResource("11_0g8oa")]
+transform = Transform3D(-0.994035, 0, -0.109058, 0, 1, 0, 0.109058, 0, -0.994035, -6341.47, 0, -1131.17)
+place_trees = false
+
+[node name="CollisionShape3D" parent="walls/wall32" index="0"]
+transform = Transform3D(0.999998, 0, -4.47035e-07, 0, 1, 0, 4.47035e-07, 0, 0.999998, -173.026, 26.5899, -41.1367)
+shape = SubResource("BoxShape3D_bdh7p")
+
+[node name="CollisionShape3D2" parent="walls/wall32/CollisionShape3D/Hurtbox/EntityContainer" index="0"]
+shape = SubResource("BoxShape3D_bdh7p")
+
+[node name="Trees" parent="walls/wall32/CollisionShape3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.656)
+
+[node name="wall33" parent="walls" instance=ExtResource("11_0g8oa")]
+transform = Transform3D(-0.994035, 0, -0.109058, 0, 1, 0, 0.109058, 0, -0.994035, -6287.53, 0, 534.018)
+place_trees = false
+
+[node name="CollisionShape3D" parent="walls/wall33" index="0"]
+transform = Transform3D(0.999998, 0, -4.47035e-07, 0, 1, 0, 4.47035e-07, 0, 0.999998, -173.026, 26.5899, -41.1367)
+shape = SubResource("BoxShape3D_bdh7p")
+
+[node name="CollisionShape3D2" parent="walls/wall33/CollisionShape3D/Hurtbox/EntityContainer" index="0"]
+shape = SubResource("BoxShape3D_bdh7p")
+
+[node name="Trees" parent="walls/wall33/CollisionShape3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.656)
 
 [node name="wall4" type="StaticBody3D" parent="walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6834.73, 14.6091, -1824.15)
@@ -1377,6 +1447,64 @@ visible = false
 [node name="Trees" type="Node3D" parent="walls/wall19/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1336.86)
 
+[node name="wall48" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.999976, -0.000255818, 0.00697654, -0.000115626, 0.999798, 0.0200878, -0.00698027, 0.0200865, -0.999774, 2798.32, 14.6091, -327.496)
+script = ExtResource("9_787wp")
+place_trees = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall48"]
+transform = Transform3D(1.00001, -6.69388e-10, 0, 2.03727e-09, 1, 0, 0, 1.30385e-07, 1, 0.125244, 135.471, 1523.66)
+shape = SubResource("BoxShape3D_x8him")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall48/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall48/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall48/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_x8him")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall48/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall48/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1482.14)
+
+[node name="wall49" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.999976, -0.000146204, 0.0069797, 0, 0.999781, 0.0209424, -0.00698123, 0.0209419, -0.999756, 2129.64, 14.6091, -327.496)
+script = ExtResource("9_787wp")
+place_trees = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall49"]
+transform = Transform3D(1.00001, 0, 0, 0, 1, 0, 0, 0, 1, 0.125732, 135.471, 1437.4)
+shape = SubResource("BoxShape3D_x8him")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall49/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall49/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall49/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_x8him")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall49/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall49/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1482.14)
+
 [node name="wall20" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.994351, 0, -0.106143, 0, 1, 0, 0.106143, 0, 0.994351, 2216.36, 14.6091, -453.257)
 script = ExtResource("9_787wp")
@@ -1684,6 +1812,398 @@ visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall30/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 618.64)
+
+[node name="wall34" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.994658, 0, 0.103226, 0, 1, 0, -0.103226, 0, 0.994658, 1829.29, 14.6091, -3476.16)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall34"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -327.025)
+shape = SubResource("BoxShape3D_28siu")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall34/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall34/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall34/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_28siu")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall34/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall34/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 649.22)
+
+[node name="wall35" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.999983, 0, -0.00572471, 0, 1, 0, 0.00572471, 0, 0.999983, 1735.5, 14.6091, -4749.7)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall35"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall35/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall35/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall35/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall35/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall35/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall36" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.593686, 0, -0.804697, 0, 1, 0, 0.804697, 0, 0.593686, 2058.62, 14.6091, -5623.86)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall36"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall36/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall36/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall36/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall36/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall36/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall37" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.75169, 0, 0.659516, 0, 1, 0, -0.659516, 0, 0.75169, 2873.26, 14.6091, -6402.23)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall37"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall37/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall37/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall37/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall37/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall37/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall38" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.935973, 0, -0.35207, 0, 1, 0, 0.35207, 0, 0.935973, 2096.52, 14.6091, -7854.19)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall38"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall38/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall38/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall38/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall38/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall38/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall39" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.988675, 0, -0.15007, 0, 1, 0, 0.15007, 0, 0.988675, 2584.76, 14.6091, -9331.25)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall39"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall39/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall39/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall39/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall39/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall39/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall40" type="StaticBody3D" parent="walls"]
+transform = Transform3D(0.999956, 0, -0.00935473, 0, 1, 0, 0.00935473, 0, 0.999956, 2773.29, 14.6091, -10887.6)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall40"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall40/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall40/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall40/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall40/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall40/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall41" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.999956, 0, 0.00935481, 0, 1, 0, -0.00935481, 0, -0.999956, 3593.85, 14.6091, -11842.7)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall41"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall41/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall41/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall41/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall41/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall41/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall42" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.981114, 0, 0.19343, 0, 1, 0, -0.19343, 0, -0.981114, 3519.83, 14.6091, -10215.6)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall42"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall42/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall42/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall42/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall42/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall42/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall43" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.974932, 0, 0.222501, 0, 1, 0, -0.222501, 0, -0.974932, 3209.07, 14.6091, -8625.93)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall43"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall43/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall43/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall43/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall43/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall43/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall44" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.69894, 0, -0.715181, 0, 1, 0, 0.715181, 0, -0.69894, 3109.06, 14.6091, -7299.96)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall44"]
+transform = Transform3D(1.00001, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1.00001, 181.987, -17.1367, -495.112)
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall44/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall44/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall44/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_lay2k")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall44/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall44/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 817.305)
+
+[node name="wall45" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.562661, 0, 0.826688, 0, 1, 0, -0.826688, 0, -0.562661, 3763.46, 14.6091, -5943.47)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall45"]
+transform = Transform3D(1.00001, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1.00001, 181.987, -17.1367, -393.06)
+shape = SubResource("BoxShape3D_xyxsw")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall45/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall45/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall45/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_xyxsw")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall45/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall45/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 715.25)
+
+[node name="wall46" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.752081, 0, -0.65907, 0, 1, 0, 0.65907, 0, -0.752081, 3105.52, 14.6091, -5328.88)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall46"]
+transform = Transform3D(1.00001, 0, 6.55651e-07, 0, 1, 0, -6.55651e-07, 0, 1.00001, 181.987, -17.1367, -640.079)
+shape = SubResource("BoxShape3D_ke48v")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall46/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall46/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall46/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_ke48v")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall46/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall46/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 962.27)
+
+[node name="wall47" type="StaticBody3D" parent="walls"]
+transform = Transform3D(-0.591577, 0, 0.806248, 0, 1, 0, -0.806248, 0, -0.591577, 4211.23, 14.6091, -3963.92)
+script = ExtResource("9_787wp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/wall47"]
+transform = Transform3D(1.00001, 0, 6.55651e-07, 0, 1, 0, -6.55651e-07, 0, 1.00001, 181.987, -17.1367, -640.079)
+shape = SubResource("BoxShape3D_ke48v")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Hurtbox" type="Node3D" parent="walls/wall47/CollisionShape3D" node_paths=PackedStringArray("collision_shape")]
+transform = Transform3D(1, 0, 2.23514e-07, 0, 1, 0, -2.23514e-07, 0, 1, 0, 0, 0)
+script = ExtResource("10_uhnpn")
+damage = 2.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D2")
+pixel_size = 0.0
+
+[node name="EntityContainer" type="Area3D" parent="walls/wall47/CollisionShape3D/Hurtbox"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/wall47/CollisionShape3D/Hurtbox/EntityContainer"]
+shape = SubResource("BoxShape3D_ke48v")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Sprite3D" type="Sprite3D" parent="walls/wall47/CollisionShape3D/Hurtbox/EntityContainer"]
+visible = false
+
+[node name="Trees" type="Node3D" parent="walls/wall47/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 962.27)
 
 [node name="wall16" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.999906, 0, -0.0136831, 0, 1, 0, 0.0136831, 0, 0.999906, 6213.16, 14.6091, -131.077)
@@ -2410,6 +2930,9 @@ mouse_filter = 2
 [connection signal="timeout" from="Player/DrunkTimer" to="Player" method="_on_drunk_timer_timeout"]
 
 [editable path="walls/wall"]
+[editable path="walls/wall31"]
+[editable path="walls/wall32"]
+[editable path="walls/wall33"]
 [editable path="Player/Visuals/WidgetWheel"]
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]

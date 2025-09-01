@@ -49,7 +49,7 @@ func update_visual(dark:bool):
 		$Sprite2D/AllMods.show()
 	$Sprite2D/LesserAllMods.show()
 	for child in $Sprite2D/Modifiers.get_children():
-		if child.visible == false:
+		if child.visible == false and child != $Sprite2D/Modifiers/NoHeal and child != $Sprite2D/Modifiers/Drain:
 			$Sprite2D/LesserAllMods.hide()
 
 

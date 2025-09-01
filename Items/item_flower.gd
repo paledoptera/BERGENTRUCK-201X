@@ -9,8 +9,10 @@ func _ready() -> void:
 
 func use() -> void:
 	if Global.level == 3 or Global.level == 7:
-		if Global.modifiers.NoHeal == false:
+		if Global.modifiers.DrunkMode == false:
 			player.hp = min(player.hp+10,player.max_hp)
+		else:
+			player.hp = min(player.hp+max(0,10-player.drunkness/3),player.max_hp)
 		queue_free()
 	else:
 		super()

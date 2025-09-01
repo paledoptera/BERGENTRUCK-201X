@@ -62,8 +62,8 @@ texture = ExtResource("4_wkijm")
 visible = false
 modulate = Color(1, 1, 0, 1)
 clip_children = 1
-position = Vector2(-34.2857, -28.5714)
-scale = Vector2(0.348922, 0.348922)
+position = Vector2(-27.8711, -26.4425)
+scale = Vector2(0.493, 0.493)
 texture = ExtResource("5_itvj5")
 
 [node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/FragileCar"]
@@ -79,28 +79,11 @@ expand_mode = 1
 visible = false
 modulate = Color(1, 1, 0, 1)
 clip_children = 1
-position = Vector2(-20.5714, -28.571)
-scale = Vector2(0.348922, 0.348922)
+position = Vector2(-2.85714, -25.7143)
+scale = Vector2(0.493, 0.493)
 texture = ExtResource("6_i5ywb")
 
 [node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/NoSlow"]
-offset_left = -41.3416
-offset_top = 39.8601
-offset_right = 38.6584
-offset_bottom = 121.86
-rotation = -1.57079
-texture = SubResource("GradientTexture1D_p4x7v")
-expand_mode = 1
-
-[node name="NoHeal" type="Sprite2D" parent="Sprite2D/Modifiers"]
-visible = false
-modulate = Color(1, 1, 0, 1)
-clip_children = 1
-position = Vector2(-2.57143, -28.571)
-scale = Vector2(0.348922, 0.348922)
-texture = ExtResource("7_2xy3u")
-
-[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/NoHeal"]
 offset_left = -41.3416
 offset_top = 39.8601
 offset_right = 38.6584
@@ -113,11 +96,28 @@ expand_mode = 1
 visible = false
 modulate = Color(1, 1, 0, 1)
 clip_children = 1
-position = Vector2(12.5714, -28.571)
-scale = Vector2(0.348922, 0.348922)
+position = Vector2(24.9861, -27.8711)
+scale = Vector2(0.493, 0.493)
 texture = ExtResource("8_7hmek")
 
 [node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/DrunkMode"]
+offset_left = -41.3416
+offset_top = 39.8601
+offset_right = 38.6584
+offset_bottom = 121.86
+rotation = -1.57079
+texture = SubResource("GradientTexture1D_p4x7v")
+expand_mode = 1
+
+[node name="NoHeal" type="Sprite2D" parent="Sprite2D/Modifiers"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+clip_children = 1
+position = Vector2(31.7143, -5.71385)
+scale = Vector2(0.348922, 0.348922)
+texture = ExtResource("7_2xy3u")
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Modifiers/NoHeal"]
 offset_left = -41.3416
 offset_top = 39.8601
 offset_right = 38.6584
@@ -130,7 +130,7 @@ expand_mode = 1
 visible = false
 modulate = Color(1, 1, 0, 1)
 clip_children = 1
-position = Vector2(31.1429, -28.571)
+position = Vector2(18.5714, -5.71428)
 scale = Vector2(0.348922, 0.348922)
 texture = ExtResource("9_i5ywb")
 

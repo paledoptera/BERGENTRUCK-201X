@@ -10,8 +10,8 @@ func _ready():
 func use() -> void:
 	if Global.modifiers.DrunkMode:
 		if $DraggableItem.drag:
-			player.drunkness = max(player.drunkness-15,0)
-			lifetime = 1.0
+			player.drunkness = max(player.drunkness-1,0)
+			lifetime = 0.1
 	elif Global.level == 3 or Global.level == 7:
 		player.hp = min(player.hp+10,100)
 		player.TURN_ACCELERATION += 1

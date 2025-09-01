@@ -274,7 +274,7 @@ func _steering_mechanics() -> void:
 	
 	turn_angle.x = widget_wheel.value.x
 	if Global.modifiers.DrunkMode:
-		$Visuals/BeerProgress.value = 100 - drunkness
+		$Visuals/BeerProgress.value = 50 - drunkness
 		turn_angle.x += turn_angle.x*drunkness/50
 	turn_angle.y = 1+(widget_wheel.value.y*0.5)
 	turn_speed = turn_angle.x * turn_angle.y

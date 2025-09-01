@@ -14,7 +14,6 @@ var border: int = -1:
 var modifiers = {
 	"FragileCar": false,
 	"NoSlow": false,
-	"NoHeal": false,
 	"DrunkMode": false,
 	"Drain": false
 }
@@ -26,7 +25,6 @@ func _ready() -> void:
 	player_save = SaveLoad.file_load()
 	_refresh_flags()
 	border = get_flag("border")
-	
 	if get_flag("option_skip_tutorials"):
 		controls_shown = false
 	
@@ -210,15 +208,12 @@ func die() -> void:
 
 func win() -> void:
 	score = 0.0
-	var all_modifiers = true
 	for mod in modifiers:
 		if modifiers[mod] == true:
 			print("Beaten with ",mod)
 			if modifiers[mod] not in player_save.flags["level_beaten_modifiers"][level-1]:
 				player_save.flags["level_beaten_modifiers"][level-1].append(mod)
-		else:
-			all_modifiers = false
-	if all_modifiers:
+	if modifiers.NoSlow and modifiers.FragileCar and modifiers.DrunkMode:
 		player_save.flags["levels_mastered"][level-1] = true
 	game.game_state.send_event("Win")
 

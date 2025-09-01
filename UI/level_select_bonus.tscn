@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=40 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://be2plntdwbl27" path="res://UI/Assets/Visuals/modifier_icon_FragileCar.png" id="10_ulp2l"]
 [ext_resource type="Texture2D" uid="uid://s1ips7in0vf7" path="res://UI/Assets/Visuals/modifier_icon_NoSlow.png" id="12_3npne"]
 [ext_resource type="Texture2D" uid="uid://lqjqgdnqxcj7" path="res://UI/Assets/Visuals/Closet.png" id="12_m401l"]
-[ext_resource type="Texture2D" uid="uid://by5h5bes6wsaq" path="res://UI/Assets/Visuals/modifier_icon_NoHeal.png" id="13_361lv"]
 [ext_resource type="Script" uid="uid://bcqytjtjqlgjo" path="res://UI/skins.gd" id="13_u6vxe"]
 [ext_resource type="Texture2D" uid="uid://bik3x6v8vtvdx" path="res://UI/Assets/Visuals/modifier_icon_DrunkMode.png" id="14_blw1y"]
 [ext_resource type="Texture2D" uid="uid://04laa78phkux" path="res://UI/Assets/Visuals/modifier_icon_Drain.png" id="15_3npne"]
@@ -300,6 +299,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
+action_mode = 0
 icon = ExtResource("10_ulp2l")
 expand_icon = true
 script = ExtResource("8_u6vxe")
@@ -319,30 +319,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
+action_mode = 0
 icon = ExtResource("12_3npne")
 expand_icon = true
 script = ExtResource("8_u6vxe")
 display_text = "No Slow"
 explain_text = "Permanent Gear 6"
-
-[node name="NoHeal" type="Button" parent="Modifiers/Buttons"]
-custom_minimum_size = Vector2(24, 0)
-layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 4
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/hover = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
-theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
-toggle_mode = true
-icon = ExtResource("13_361lv")
-expand_icon = true
-script = ExtResource("8_u6vxe")
-display_text = "No Heal"
-explain_text = "Unable to Heal"
 
 [node name="DrunkMode" type="Button" parent="Modifiers/Buttons"]
 custom_minimum_size = Vector2(24, 0)
@@ -357,6 +339,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
+action_mode = 0
 icon = ExtResource("14_blw1y")
 expand_icon = true
 script = ExtResource("8_u6vxe")
@@ -364,6 +347,7 @@ display_text = "Drunk Mode"
 explain_text = "Drink Beer to Keep Control"
 
 [node name="Drain" type="Button" parent="Modifiers/Buttons"]
+visible = false
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 0
@@ -376,6 +360,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_l8ko8")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l8ko8")
 toggle_mode = true
+action_mode = 0
 icon = ExtResource("15_3npne")
 expand_icon = true
 script = ExtResource("8_u6vxe")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5out100kqebr"]
+[gd_scene load_steps=15 format=3 uid="uid://c5out100kqebr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
 [ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
@@ -11,6 +11,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cprk67p6w6f70" path="res://Entities/Assets/QueenAnimations.res" id="10_7b0sr"]
 [ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
 [ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Assets/Visuals/Queen/Baseball.png" id="11_v0ou4"]
+[ext_resource type="Texture2D" uid="uid://cw86fvjr3eka8" path="res://Entities/Assets/Visuals/Queen/LaserSign.png" id="11_wec7u"]
 
 [sub_resource type="GDScript" id="GDScript_7b0sr"]
 resource_name = "punch"
@@ -70,8 +71,8 @@ monitoring = false
 
 [node name="PunchBullet" parent="EntityContainer" index="0" node_paths=PackedStringArray("bullet_owner") instance=ExtResource("7_ksqgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.205, 5.525)
-visible = false
 script = SubResource("GDScript_7b0sr")
+speed = 5.0
 bullet_owner = NodePath("../..")
 damage = 5.0
 hit_sound_impact = null
@@ -108,6 +109,13 @@ texture_filter = 0
 sprite_frames = ExtResource("7_uf544")
 animation = &"hurt"
 autoplay = "idle"
+
+[node name="LaserSprite" type="Sprite3D" parent="EntityContainer" index="5"]
+transform = Transform3D(1.61, 0, 0, 0, 0.731949, 0.68136, 0, -0.68136, 0.731949, 0, 0, 12.4959)
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.305
+texture_filter = 0
+texture = ExtResource("11_wec7u")
 
 [node name="Timer" type="Timer" parent="." index="2"]
 one_shot = true

@@ -3,7 +3,7 @@ extends Entity
 const ATTACK_POOL = {
 	"round1":
 		{
-			0: ["punch"],
+			0: ["laser"], #["punch"],
 			1: ["kick", "punch"],
 			2: ["baseball_throw","punch","kick","punch","kick"],
 		},
@@ -65,8 +65,8 @@ func _process(delta: float) -> void:
 	#var dist = global_rotation.x+deg_to_rad(35)
 	if gear_dif < 0:
 		gear_dif *= 3.5
-	#if $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch":
-		#current_player_speed = lerp(current_player_speed,float(player.speed),0.5)
+	if $AnimationPlayer.current_animation == "punch_left" or $AnimationPlayer.current_animation == "punch_right":
+		current_player_speed = lerp(current_player_speed,float(player.speed),0.3)
 	global_position.x = lerp(global_position.x,player.get_node("Camera3D").global_position.x,horizontal_speed*delta)
 	global_position.z = gear_dif*3
 	
@@ -115,6 +115,7 @@ func _start_process(delta: float) -> void:
 	#sprite.position.y = lerp(sprite.position.y,-2.0+abs(current_y),0.2)
 
 func _attack_enter() -> void:
+	horizontal_speed = 1#abs(current_y)*2
 	_get_current_attack_pool()
 	print(attack_pool)
 	if previous_attack_pool != attack_pool.duplicate():
@@ -181,12 +182,17 @@ func change_horizontal_speed(value : float):
 func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 0):
 	var bullet_inst = bullet.instantiate()
 	entities.add_child(bullet_inst)
-	bullet_inst.speed = player.speed * spd_mult
+	bullet_inst.speed = bullet_inst.speed * spd_mult
 	bullet_inst.h_speed = h_spd
 	bullet_inst.bullet_owner = self
-	bullet_inst.global_position.x = sprite.global_position.x+6.5
-	bullet_inst.entity_container.position.y = (sprite.position.y*2)
+	bullet_inst.global_position.x = sprite.global_position.x+1
 	bullet_inst.global_rotation.x = global_rotation.x
+	if bullet_inst is QueenBall:
+		bullet_inst.speed = player.speed * spd_mult
+		bullet_inst.entity_container.position.y = (sprite.position.y*2)
+		bullet_inst.global_position.x = sprite.global_position.x+6.5
+		bullet_inst.global_rotation.x = global_rotation.x
+	
 	bullet_inst.player = player
 
 

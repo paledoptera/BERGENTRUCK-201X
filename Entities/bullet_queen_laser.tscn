@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbyhd87p1rtqx"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_7l30y"]
+[ext_resource type="Script" uid="uid://i7dmctmhelxe" path="res://Entities/bullet_knight_sword_stabbelow.gd" id="2_7l30y"]
+[ext_resource type="Texture2D" uid="uid://ds4q3vnrodujp" path="res://Entities/Assets/Visuals/Queen/LaserExplosion.png" id="3_7l30y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l57n"]
+atlas = ExtResource("3_7l30y")
+region = Rect2(0, 0, 33, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ht6"]
+atlas = ExtResource("3_7l30y")
+region = Rect2(33, 0, 33, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nruah"]
+atlas = ExtResource("3_7l30y")
+region = Rect2(66, 0, 33, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8gxo"]
+atlas = ExtResource("3_7l30y")
+region = Rect2(99, 0, 33, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s11re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l57n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ht6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nruah")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_g8gxo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="QueenLaser" node_paths=PackedStringArray("entity_container", "collision_shape") instance=ExtResource("1_7l30y")]
+script = ExtResource("2_7l30y")
+chases = false
+speed = 2.0
+entity_container = NodePath("EntityContainer")
+solid = false
+damage = 10.0
+car_jump_mult = 3.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.14
+hit_sound_impact = null
+particle_effect = 2
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16218, 1.17139)
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.95855e-08, 5.95855e-08)
+sorting_offset = 20.0
+offset = Vector2(0, 10)
+pixel_size = 0.2
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_s11re")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="EntityContainer/AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

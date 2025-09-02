@@ -3,22 +3,22 @@ extends Entity
 const ATTACK_POOL = {
 	"round1":
 		{
-			0: ["punch"], #["punch"],
+			0: ["punch"],
 			1: ["kick", "punch"],
 			2: ["baseball_throw","punch","kick","punch","kick"],
 		},
 	
 	"round2":
 		{
-			0: ["multi_kick","punch","kick"],
-			1: ["laser", "multi_kick","laser","laser","punch","baseball_throw"],
+			0: ["kick_double","punch","kick"],
+			1: ["laser", "kick_double","laser","laser","punch","baseball_throw"],
 		},
 	
 	"round3":
 		{
-			0: ["multi_laser", "kick", "punch", "laser"],
-			1: ["waves_of_queen","multi_kick","punch","laser"],
-			2: ["giant_baseball_toss","multi_kick","multi_laser"]
+			0: ["laser_double", "kick", "punch", "laser"],
+			1: ["waves_of_queen","kick_double","punch","laser"],
+			2: ["giant_baseball_toss","kick_double","laser_double"]
 		},
 	
 	}
@@ -132,7 +132,7 @@ func _attack_enter() -> void:
 		
 	
 	match current_attack:
-		"punch", "kick", "multi_kick":
+		"punch", "kick", "kick_double":
 			current_attack += ("_" + dir)
 	
 	ai_anim.play(current_attack)
@@ -235,10 +235,10 @@ func _get_current_attack_pool() -> void:
 func _animation_finished(anim_name: StringName) -> void:
 	
 	match anim_name:
-		"hit_left":
+		"hit_left", "kick_right", "hit_drunk_left":
 			$AnimationPlayer.play("idle_right")
 		
-		"hit_right":
+		"hit_right", "kick_left", "hit_drunk_right":
 			$AnimationPlayer.play("idle_left")
 		
 		"punch_left":
@@ -246,6 +246,15 @@ func _animation_finished(anim_name: StringName) -> void:
 		
 		"punch_right":
 			$AnimationPlayer.play("idle_left")
+		
+		
+		"baseball_throw":
+			if player.baseball_hit:
+				player.baseball_hit = false
+				$AnimationPlayer.play("baseball_after_hit")
+			else:
+				$AnimationPlayer.play("baseball_after_miss")
+			$AnimationPlayer.queue("idle_right")
 		
 	
 	if ai_timer.is_stopped():

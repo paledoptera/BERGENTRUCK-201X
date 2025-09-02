@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5out100kqebr"]
+[gd_scene load_steps=14 format=3 uid="uid://c5out100kqebr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
 [ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_sun1j"]
 [ext_resource type="AnimationLibrary" uid="uid://cprk67p6w6f70" path="res://Entities/Assets/QueenAnimations.res" id="10_7b0sr"]
 [ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
+[ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Assets/Visuals/Queen/Baseball.png" id="11_v0ou4"]
 
 [sub_resource type="GDScript" id="GDScript_7b0sr"]
 resource_name = "punch"
@@ -81,6 +82,7 @@ disabled = true
 [node name="CollisionShape3D" parent="EntityContainer" index="1"]
 transform = Transform3D(1.89, 0, 0, 0, 0.962413, -0.271592, 0, 0.271592, 0.962413, 0.4109, 7.07107, 3.26102)
 shape = SubResource("BoxShape3D_uf544")
+disabled = true
 
 [node name="Sprite3D" parent="EntityContainer" index="2"]
 visible = false
@@ -88,7 +90,15 @@ offset = Vector2(0, 30)
 pixel_size = 0.14
 texture = ExtResource("10_q2ppl")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
+[node name="BallSprite" type="Sprite3D" parent="EntityContainer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, -8.721)
+modulate = Color(1, 1, 1, 0)
+pixel_size = 1.0
+billboard = 1
+texture_filter = 0
+texture = ExtResource("11_v0ou4")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="EntityContainer" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0.5)
 offset = Vector2(0, 40)
 pixel_size = 0.2205

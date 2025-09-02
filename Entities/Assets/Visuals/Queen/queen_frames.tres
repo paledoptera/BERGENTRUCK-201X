@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://binoik74g5spx" path="res://Entities/Assets/Visuals/Queen/QueenPirouette.png" id="5_a5yjb"]
 [ext_resource type="Texture2D" uid="uid://8c6t47qjj53q" path="res://Entities/Assets/Visuals/Queen/QueenLaugh.png" id="5_ulfe8"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_57l21"]
+atlas = ExtResource("1_333rl")
+region = Rect2(198, 0, 99, 150)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7j5x"]
 atlas = ExtResource("1_333rl")
 region = Rect2(0, 0, 99, 150)
@@ -16,10 +20,6 @@ region = Rect2(0, 0, 99, 150)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0rf8"]
 atlas = ExtResource("1_333rl")
 region = Rect2(99, 0, 99, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57l21"]
-atlas = ExtResource("1_333rl")
-region = Rect2(198, 0, 99, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_377yc"]
 atlas = ExtResource("1_333rl")
@@ -157,13 +157,13 @@ region = Rect2(594, 0, 99, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_57l21")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x7j5x")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r0rf8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57l21")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_377yc")

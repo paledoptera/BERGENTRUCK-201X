@@ -1,8 +1,9 @@
 extends Entity
 
 const SPRITES := [
-	preload("res://Entities/Assets/Visuals/building.png"),
-	preload("res://Entities/Assets/Visuals/buildingblue.png"),
+	preload("uid://d2vici5x316kj"),
+	#preload("res://Entities/Assets/Visuals/building.png"),
+	#preload("res://Entities/Assets/Visuals/buildingblue.png"),
 ]
 
 

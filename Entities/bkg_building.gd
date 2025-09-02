@@ -5,7 +5,6 @@ extends "res://Entities/entity_building.gd"
 
 
 func _ready() -> void:
-	super()
 	sprite_2.global_position.x = -sprite.global_position.x
 	sprite_2.texture = sprite.texture
 	sprite_2.flip_h = not sprite.flip_h

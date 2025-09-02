@@ -10,6 +10,7 @@ class_name Level
 @export var player : Node3D
 @export var entities : Node3D
 @export var level_val : int = 1
+@export var level_code : String = "0"
 var bkg_item_spawn_timer : float = 0.0
 @export var bkg_item_spawn_threshold: float = 40.0
 @export var item_spawn_threshold : float = 75.0

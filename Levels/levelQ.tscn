@@ -36,6 +36,7 @@ var current_hand = true
 @onready var arm_l_pos = $Camera3D/ArmL.position
 @onready var arm_r_pos = $Camera3D/ArmR.position
 var hand_jiggle_siner: float = 0
+var baseball_hit: bool = false
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -101,15 +102,21 @@ func _punch_collision(area: Area3D) -> void:
 		# see which fist hit entity
 		if entity is QueenBall:
 			entity.deflect()
+			baseball_hit = true
 			return
 		
 		match entity.name:
 			\"Queen\":
 				entity.hit(self)
+				var hitanim = \"hit_\"
+				
+				if entity.ai_anim.current_animation == \"baseball_after_hit\":
+					hitanim = \"hit_drunk_\"
+				
 				if fist_dir:
-					entity.ai_anim.play(\"hit_left\")
+					entity.ai_anim.play(hitanim + \"left\")
 				else:
-					entity.ai_anim.play(\"hit_right\")
+					entity.ai_anim.play(hitanim + \"right\")
 			
 			_: 
 				entity.hit(self)
@@ -560,7 +567,8 @@ item_queue_mid = Array[String](["uid://butoedeih22pw", "", "", "", "", "", "", "
 item_queue_end = Array[String](["uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 trees = ExtResource("3_7lek7")
 level_val = 4
-bkg_item_spawn_threshold = 150.0
+level_code = "Q (Punchout City)"
+bkg_item_spawn_threshold = 30.0
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_s615m")
@@ -657,14 +665,14 @@ libraries = {
 }
 
 [node name="WallL" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
 texture = ExtResource("10_odswv")
 
 [node name="WallR" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallR/EntityContainer" index="1"]

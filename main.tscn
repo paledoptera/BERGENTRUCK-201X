@@ -1,0 +1,231 @@
+[gd_scene load_steps=11 format=3 uid="uid://pfn2cpkppd67"]
+
+[ext_resource type="Script" uid="uid://c047atpq0lmk3" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_272bh"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="4_kek77"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bu325xsdlvy3f" path="res://Global/Borders/Blank.png" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://dpa0bdsngjtpf" path="res://Common/discord_manager.gd" id="7_272bh"]
+
+[sub_resource type="Animation" id="Animation_hbaan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverBorder:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ovrsl"]
+resource_name = "change_border"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverBorder:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_he5fp"]
+_data = {
+&"RESET": SubResource("Animation_hbaan"),
+&"change_border": SubResource("Animation_ovrsl")
+}
+
+[node name="Main" type="Node" node_paths=PackedStringArray("game_state", "window", "border", "over_border", "discord_manager")]
+process_mode = 3
+script = ExtResource("1_7mycd")
+game_state = NodePath("GameState")
+window = NodePath("SubViewportContainer/SubViewport")
+border = NodePath("Border")
+over_border = NodePath("OverBorder")
+discord_manager = NodePath("discord-manager")
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("2_272bh")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="GameState"]
+script = ExtResource("3_5vw27")
+initial_state = NodePath("Title")
+
+[node name="To Title" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../Title")
+event = &"Title"
+delay_in_seconds = "0.0"
+
+[node name="To Options" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../Options")
+event = &"Options"
+delay_in_seconds = "0.0"
+
+[node name="To LevelSelect" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../LevelSelect")
+event = &"LevelSelect"
+delay_in_seconds = "0.0"
+
+[node name="To ControlSplash" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../ControlSplash")
+event = &"ControlSplash"
+delay_in_seconds = "0.0"
+
+[node name="To StoryScreen" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../StoryScreen")
+event = &"StoryScreen"
+delay_in_seconds = "0.0"
+
+[node name="To Level" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../Level")
+event = &"Start"
+delay_in_seconds = "0.0"
+
+[node name="To Credits" type="Node" parent="GameState/Root"]
+script = ExtResource("4_kek77")
+to = NodePath("../Credits")
+event = &"Credits"
+delay_in_seconds = "0.0"
+
+[node name="Title" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="Options" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="LevelSelect" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="ControlSplash" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="StoryScreen" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="Level" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="To Victory" type="Node" parent="GameState/Root/Level"]
+script = ExtResource("4_kek77")
+to = NodePath("../../Victory")
+event = &"Win"
+delay_in_seconds = "0.0"
+
+[node name="To GameOver" type="Node" parent="GameState/Root/Level"]
+script = ExtResource("4_kek77")
+to = NodePath("../../GameOver")
+event = &"Die"
+delay_in_seconds = "0.0"
+
+[node name="GameOver" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="Victory" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="Credits" type="Node" parent="GameState/Root"]
+script = ExtResource("5_4c57u")
+
+[node name="Border" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_efxa6")
+expand_mode = 3
+
+[node name="OverBorder" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_efxa6")
+expand_mode = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(400, 255)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_target = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+size = Vector2i(320, 240)
+size_2d_override = Vector2i(400, 255)
+render_target_update_mode = 4
+
+[node name="Overlay" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+size = Vector2i(320, 240)
+size_2d_override = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_he5fp")
+}
+
+[node name="discord-manager" type="Node" parent="."]
+script = ExtResource("7_272bh")
+
+[connection signal="state_entered" from="GameState/Root/Title" to="." method="_title_screen_enter"]
+[connection signal="state_entered" from="GameState/Root/Options" to="." method="_options_entered"]
+[connection signal="state_entered" from="GameState/Root/LevelSelect" to="." method="_level_select_enter"]
+[connection signal="state_exited" from="GameState/Root/LevelSelect" to="." method="_level_select_exit"]
+[connection signal="state_entered" from="GameState/Root/ControlSplash" to="." method="_controlsplash_entered"]
+[connection signal="state_entered" from="GameState/Root/StoryScreen" to="." method="_story_screen_enter"]
+[connection signal="state_entered" from="GameState/Root/Level" to="." method="_level_enter"]
+[connection signal="state_exited" from="GameState/Root/Level" to="." method="_level_exit"]
+[connection signal="state_processing" from="GameState/Root/Level" to="." method="_level_process"]
+[connection signal="state_entered" from="GameState/Root/GameOver" to="." method="_gameover_enter"]
+[connection signal="state_entered" from="GameState/Root/Victory" to="." method="_victory_enter"]
+[connection signal="state_entered" from="GameState/Root/Credits" to="." method="_credits_entered"]

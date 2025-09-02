@@ -2,13 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="1_llbne"]
 [ext_resource type="Script" uid="uid://dn38ul4mgt7vb" path="res://Entities/bkg_building.gd" id="2_llbne"]
-[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="3_llbne"]
+[ext_resource type="Texture2D" uid="uid://d2vici5x316kj" path="res://Entities/Assets/Visuals/Queen/PunchBollard.png" id="3_llbne"]
 
 [node name="BkgTree" node_paths=PackedStringArray("sprite", "sprite_2") instance=ExtResource("1_llbne")]
 script = ExtResource("2_llbne")
 sprite = NodePath("EntityContainer/Sprite3D")
 sprite_2 = NodePath("EntityContainer/Sprite3D2")
 damage = 0.0
+pixel_size = 0.15
 hit_sound_impact = null
 disable_collision_on_hit = false
 particle_effect = 1
@@ -17,16 +18,16 @@ particle_effect = 1
 shape = null
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
-transform = Transform3D(-4.37114e-08, -0.661955, 0.882948, 0, 1.24496, 0.469472, -1, 2.8935e-08, -3.85949e-08, -45, 0, 0)
-visible = false
-billboard = 0
+transform = Transform3D(-4.37114e-08, -0.661955, 0.882948, 0, 1.24496, 0.469472, -1, 2.8935e-08, -3.85949e-08, -65, 0, 0)
+offset = Vector2(0, 30)
+pixel_size = 0.15
 texture = ExtResource("3_llbne")
 
 [node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
-transform = Transform3D(-4.37114e-08, 0.661955, -0.882948, 0, 1.24496, 0.469472, 1, 2.8935e-08, -3.85949e-08, 45, 0, 0)
-visible = false
+transform = Transform3D(-4.37114e-08, 0.661955, -0.882948, 0, 1.24496, 0.469472, 1, 2.8935e-08, -3.85949e-08, 65, 0, 0)
 sorting_use_aabb_center = false
-offset = Vector2(0, 128)
-pixel_size = 0.06
+offset = Vector2(0, 30)
+pixel_size = 0.15
+billboard = 1
 texture_filter = 0
 texture = ExtResource("3_llbne")

@@ -3,7 +3,7 @@ extends Entity
 const ATTACK_POOL = {
 	"round1":
 		{
-			0: ["laser"], #["punch"],
+			0: ["punch"],
 			1: ["kick", "punch"],
 			2: ["baseball_throw","punch","kick","punch","kick"],
 		},
@@ -16,9 +16,9 @@ const ATTACK_POOL = {
 	
 	"round3":
 		{
-			0: ["laser_double", "kick", "punch", "laser"],
+			0: ["laser", "kick", "punch", "laser"],
 			1: ["waves_of_queen","kick_double","punch","laser"],
-			2: ["giant_baseball_toss","kick_double","laser_double"]
+			2: ["baseball_throws","kick_double","laser"]
 		},
 	
 	}
@@ -115,7 +115,7 @@ func _start_process(delta: float) -> void:
 	#sprite.position.y = lerp(sprite.position.y,-2.0+abs(current_y),0.2)
 
 func _attack_enter() -> void:
-	horizontal_speed = 1#abs(current_y)*2
+	horizontal_speed = 0.7#abs(current_y)*2
 	_get_current_attack_pool()
 	print(attack_pool)
 	if previous_attack_pool != attack_pool.duplicate():
@@ -192,6 +192,9 @@ func spawn_bullet(bullet : PackedScene, spd_mult : float = 1.0, h_spd : float = 
 		bullet_inst.entity_container.position.y = (sprite.position.y*2)
 		bullet_inst.global_position.x = sprite.global_position.x+6.5
 		bullet_inst.global_rotation.x = global_rotation.x
+	if bullet_inst is QueenWall:
+		bullet_inst.global_rotation.x = -1.5
+		
 	
 	bullet_inst.player = player
 
@@ -241,10 +244,10 @@ func _get_current_attack_pool() -> void:
 func _animation_finished(anim_name: StringName) -> void:
 	
 	match anim_name:
-		"hit_left", "kick_right", "hit_drunk_left":
+		"hit_left", "kick_right", "hit_drunk_left", "waves_of_queen":
 			$AnimationPlayer.play("idle_right")
 		
-		"hit_right", "kick_left", "hit_drunk_right":
+		"hit_right", "kick_left", "hit_drunk_right", "laser":
 			$AnimationPlayer.play("idle_left")
 		
 		"punch_left":

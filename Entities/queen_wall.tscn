@@ -1,0 +1,377 @@
+[gd_scene load_steps=17 format=3 uid="uid://bckbyuh31d5xb"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_riiub"]
+[ext_resource type="Script" uid="uid://btnrgqsxlomik" path="res://Entities/queen_wall.gd" id="2_riiub"]
+[ext_resource type="AudioStream" uid="uid://r7gf0adp5ot2" path="res://Global/SFX/Knight Slash.wav" id="3_riiub"]
+[ext_resource type="Texture2D" uid="uid://0evmut23mdud" path="res://Entities/Assets/Visuals/Queen/QueenKick.png" id="4_eqnkq"]
+[ext_resource type="Texture2D" uid="uid://8c6t47qjj53q" path="res://Entities/Assets/Visuals/Queen/QueenLaugh.png" id="5_dbyhq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsf10"]
+size = Vector3(72.0558, 18.8259, 1.09012)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgne0"]
+atlas = ExtResource("5_dbyhq")
+region = Rect2(99, 0, 99, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8eu2"]
+atlas = ExtResource("4_eqnkq")
+region = Rect2(297, 0, 99, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoo8h"]
+atlas = ExtResource("4_eqnkq")
+region = Rect2(495, 0, 99, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srg6v"]
+atlas = ExtResource("4_eqnkq")
+region = Rect2(594, 0, 99, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ssch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgne0")
+}],
+"loop": true,
+"name": &"legs",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8eu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoo8h")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_srg6v")
+}],
+"loop": true,
+"name": &"prance",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_jsf10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Queen5:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"prance"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(50, -4, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-50, -4, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EntityContainer/Queen4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EntityContainer/Queen6:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_riiub"]
+resource_name = "middle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Queen5:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"legs"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(50, -4, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-50, -4, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_ia4ao"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Queen4:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.0521, -4, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-66.9479, -4, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_4bp4m"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/Queen6:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EntityContainer/CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(63.7825, -4, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EntityContainer/CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-36.2175, -4, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oge76"]
+_data = {
+&"RESET": SubResource("Animation_jsf10"),
+&"left": SubResource("Animation_ia4ao"),
+&"middle": SubResource("Animation_riiub"),
+&"right": SubResource("Animation_4bp4m")
+}
+
+[node name="QueenWall" node_paths=PackedStringArray("queens", "collision_shape") instance=ExtResource("1_riiub")]
+script = ExtResource("2_riiub")
+chases = false
+queens = [NodePath("EntityContainer/Queen1"), NodePath("EntityContainer/Queen2"), NodePath("EntityContainer/Queen3"), NodePath("EntityContainer/Queen4"), NodePath("EntityContainer/Queen5"), NodePath("EntityContainer/Queen6"), NodePath("EntityContainer/Queen7"), NodePath("EntityContainer/Queen8"), NodePath("EntityContainer/Queen9")]
+solid = false
+damage = 5.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+hit_sound_impact = ExtResource("3_riiub")
+particle_effect = 2
+
+[node name="EntityContainer" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 2.38419e-07)
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 50, -4, 1.5)
+shape = SubResource("BoxShape3D_jsf10")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="EntityContainer" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.975561, -0.219727, 0, 0.219727, 0.975561, -50, -4, 1.5)
+shape = SubResource("BoxShape3D_jsf10")
+debug_color = Color(0.956863, 0.239216, 0, 1)
+
+[node name="Sprite3D" parent="EntityContainer" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0)
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = null
+
+[node name="Queen1" type="AnimatedSprite3D" parent="EntityContainer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -60, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen2" type="AnimatedSprite3D" parent="EntityContainer" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -45, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen3" type="AnimatedSprite3D" parent="EntityContainer" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -30, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen4" type="AnimatedSprite3D" parent="EntityContainer" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -15, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen5" type="AnimatedSprite3D" parent="EntityContainer" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen6" type="AnimatedSprite3D" parent="EntityContainer" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 15, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen7" type="AnimatedSprite3D" parent="EntityContainer" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 30, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen8" type="AnimatedSprite3D" parent="EntityContainer" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 45, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="Queen9" type="AnimatedSprite3D" parent="EntityContainer" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, 60, 0, 0)
+offset = Vector2(0, 66)
+flip_h = true
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_8ssch")
+animation = &"prance"
+autoplay = "prance"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_oge76")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+volume_db = -6.0
+pitch_scale = 1.02
+max_polyphony = 10
+bus = &"SFX"
+
+[connection signal="animation_looped" from="EntityContainer/Queen1" to="." method="_on_queen_animation_looped"]

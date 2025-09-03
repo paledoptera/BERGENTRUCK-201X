@@ -110,7 +110,7 @@ func _punch_collision(area: Area3D) -> void:
 				entity.hit(self)
 				var hitanim = \"hit_\"
 				
-				if entity.ai_anim.current_animation == \"baseball_after_hit\":
+				if entity.ai_anim.current_animation == \"baseball_after_hit\" or entity.ai_anim.current_animation == \"waves_of_queen\":
 					hitanim = \"hit_drunk_\"
 				
 				if fist_dir:

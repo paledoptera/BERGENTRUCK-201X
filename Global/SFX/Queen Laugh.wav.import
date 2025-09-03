@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b0t51gebb5hp0"
-path="res://.godot/imported/snd_queen_laugh_0.wav-abb3ef5c70dd8f01776613e46591b860.sample"
+path="res://.godot/imported/Queen Laugh.wav-cc224000b91f58de3325708781a89467.sample"
 
 [deps]
 
-source_file="res://Global/SFX/snd_queen_laugh_0.wav"
-dest_files=["res://.godot/imported/snd_queen_laugh_0.wav-abb3ef5c70dd8f01776613e46591b860.sample"]
+source_file="res://Global/SFX/Queen Laugh.wav"
+dest_files=["res://.godot/imported/Queen Laugh.wav-cc224000b91f58de3325708781a89467.sample"]
 
 [params]
 

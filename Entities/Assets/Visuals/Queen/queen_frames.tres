@@ -292,6 +292,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oxkqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgne0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abdmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg2is")
+}],
+"loop": true,
+"name": &"prance",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_333rl")
 }, {
 "duration": 1.0,

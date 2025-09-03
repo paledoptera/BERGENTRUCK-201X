@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5out100kqebr"]
+[gd_scene load_steps=16 format=3 uid="uid://c5out100kqebr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
 [ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
 [ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Assets/Visuals/Queen/Baseball.png" id="11_v0ou4"]
 [ext_resource type="Texture2D" uid="uid://cw86fvjr3eka8" path="res://Entities/Assets/Visuals/Queen/LaserSign.png" id="11_wec7u"]
+[ext_resource type="AudioStream" uid="uid://b0t51gebb5hp0" path="res://Global/SFX/Queen Laugh.wav" id="13_womkt"]
 
 [sub_resource type="GDScript" id="GDScript_7b0sr"]
 resource_name = "punch"
@@ -71,6 +72,7 @@ monitoring = false
 
 [node name="PunchBullet" parent="EntityContainer" index="0" node_paths=PackedStringArray("bullet_owner") instance=ExtResource("7_ksqgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.205, 5.525)
+visible = false
 script = SubResource("GDScript_7b0sr")
 speed = 5.0
 bullet_owner = NodePath("../..")
@@ -131,6 +133,11 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="5"]
 volume_db = -5.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("13_womkt")
+volume_db = -3.0
 bus = &"SFX"
 
 [connection signal="state_entered" from="AIState/Root/Start" to="." method="_start_enter"]

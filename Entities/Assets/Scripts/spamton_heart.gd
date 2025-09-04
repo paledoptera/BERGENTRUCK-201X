@@ -20,23 +20,22 @@ func _ready() -> void:
 	positionx = global_position.x
 	await create_tween().tween_property(self,"position:z",25,.8).finished
 	$Timer.queue_free()
-	var time = .34
+	var time = .5
+	particles[particles.size()-1].hide()
 	for node in particles:
-		create_tween().tween_property(node,"position",Vector3(-1.422,29.375,15.581),time).set_trans(Tween.TRANS_SINE)
+		create_tween().tween_property(node,"position",Vector3(-1.422,39.375,10),time)
 		#time -= .05
-	var tween = create_tween()
-	tween.tween_property(self,"position",Vector3(-1.2,7.6,16.2),.6)
-	await get_tree().create_timer(.1).timeout
 	chestreturn = true
-	await get_tree().create_timer(.4).timeout
+	await get_tree().create_timer(.55).timeout
 	for node in particles:
 		node.queue_free()
-	queue_free()
+	$AnimationPlayer.play("fade")
+	set_process(false)
 
 func _process(delta: float) -> void:
 	super(delta)
 	if chestreturn:
-		$EntityContainer.position.y = 20
+		$EntityContainer.global_position = particles[particles.size()-1].global_position + Vector3(0,-5,1)
 		#position = position.move_toward(Vector3(0,-20,1),delta*30)
 	else:
 		global_position.x = positionx

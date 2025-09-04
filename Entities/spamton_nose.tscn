@@ -119,6 +119,7 @@ _data = {
 [node name="KnightStar" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_e8d3l")]
 script = ExtResource("2_qlsbs")
 chases = false
+speed = 5.0
 solid = false
 damage = 1.0
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
@@ -136,7 +137,7 @@ pixel_size = 0.16
 texture = ExtResource("3_e8d3l")
 
 [node name="Sprite3D2" type="Sprite3D" parent="EntityContainer" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -5.28387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.31762, -5.28387)
 sorting_use_aabb_center = false
 offset = Vector2(0, 30)
 pixel_size = 0.16
@@ -145,7 +146,7 @@ texture_filter = 0
 texture = ExtResource("3_e8d3l")
 
 [node name="Sprite3D3" type="Sprite3D" parent="EntityContainer" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -11.089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78092, -11.089)
 sorting_use_aabb_center = false
 offset = Vector2(0, 30)
 pixel_size = 0.16
@@ -154,7 +155,7 @@ texture_filter = 0
 texture = ExtResource("3_e8d3l")
 
 [node name="Sprite3D4" type="Sprite3D" parent="EntityContainer" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88839, -15.6472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.582539, -15.6472)
 sorting_use_aabb_center = false
 offset = Vector2(0, 30)
 pixel_size = 0.16

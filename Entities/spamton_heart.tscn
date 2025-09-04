@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2xiab3w6t8uf"]
+[gd_scene load_steps=10 format=3 uid="uid://d2xiab3w6t8uf"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p8fhw"]
 [ext_resource type="Script" uid="uid://u4ndqmv4bohu" path="res://Entities/Assets/Scripts/spamton_heart.gd" id="2_8pilv"]
@@ -21,6 +21,57 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_p8fhw"]
+resource_name = "fade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tcn2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityContainer/AnimatedSprite3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suu52"]
+_data = {
+&"RESET": SubResource("Animation_tcn2o"),
+&"fade": SubResource("Animation_p8fhw")
+}
 
 [node name="Heart" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_p8fhw")]
 script = ExtResource("2_8pilv")
@@ -57,5 +108,10 @@ frame_progress = 0.435045
 
 [node name="Timer" type="Timer" parent="." index="1"]
 wait_time = 0.05
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_suu52")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

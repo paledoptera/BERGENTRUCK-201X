@@ -1,15 +1,24 @@
-[gd_scene load_steps=18 format=4 uid="uid://cnseiocfp02jr"]
+[gd_scene load_steps=35 format=4 uid="uid://cnseiocfp02jr"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_b2mgy"]
+[ext_resource type="Script" uid="uid://q1a3hurk2fbf" path="res://Levels/level_s.gd" id="2_e7qbr"]
 [ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_upnl3"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="3_e7qbr"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="4_dfrsb"]
-[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
+[ext_resource type="Material" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="6_0rcmt"]
 [ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="7_h0uai"]
 [ext_resource type="Script" uid="uid://decrvqtcuykfp" path="res://Entities/entity_SPAMMY.gd" id="8_4n5bj"]
 [ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="9_egi8r"]
+[ext_resource type="Texture2D" uid="uid://belx11jwbc13l" path="res://Entities/Assets/Visuals/Spamton/wire.png" id="10_afm8j"]
 [ext_resource type="Texture2D" uid="uid://dyjb7i1b8evdq" path="res://Entities/Assets/Visuals/Queen/cityscape.png" id="10_upnl3"]
+[ext_resource type="Texture2D" uid="uid://c5gj5eswk1irl" path="res://Entities/Assets/Visuals/Spamton/rightleg.png" id="11_5k8mk"]
+[ext_resource type="Texture2D" uid="uid://cchfis4ir1u58" path="res://Entities/Assets/Visuals/Spamton/leftleg.png" id="12_76ryg"]
+[ext_resource type="Texture2D" uid="uid://m8vot50jdxtp" path="res://Entities/Assets/Visuals/Spamton/arms.png" id="13_w1ply"]
+[ext_resource type="Texture2D" uid="uid://douegcdvxsim0" path="res://Entities/Assets/Visuals/Spamton/rightwing.png" id="14_513ip"]
+[ext_resource type="Texture2D" uid="uid://vddn8f7lmhwx" path="res://Entities/Assets/Visuals/Spamton/leftwing.png" id="15_oyhe0"]
+[ext_resource type="Texture2D" uid="uid://dh2sguuaml7c4" path="res://Entities/Assets/Visuals/Spamton/head.png" id="16_ty0p8"]
+[ext_resource type="Texture2D" uid="uid://bw4loghftc8vv" path="res://Entities/Assets/Visuals/Spamton/body.png" id="17_anv81"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1
@@ -62,6 +71,77 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ef7"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(0, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a2wm"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(36, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avd3n"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(72, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7kwa"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(108, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xtoj"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(144, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wa6i"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(180, 0, 36, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q87we"]
+atlas = ExtResource("16_ty0p8")
+region = Rect2(216, 0, 36, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsoxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ef7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a2wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avd3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7kwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xtoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wa6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q87we")
+}],
+"loop": true,
+"name": &"all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ef7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a2wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avd3n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyqdn"]
 shading_mode = 0
 specular_mode = 2
@@ -85,6 +165,7 @@ cap_top = false
 cap_bottom = false
 
 [node name="LevelS" instance=ExtResource("1_b2mgy")]
+script = ExtResource("2_e7qbr")
 music = null
 item_queue_intro = Array[String](["uid://bxdf0t3rf0pnj", "uid://butoedeih22pw", ""])
 item_queue_mid = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
@@ -116,28 +197,190 @@ surface_material_override/0 = null
 
 [node name="SpamtonTrigger" parent="Entities" index="1" node_paths=PackedStringArray("player", "level") instance=ExtResource("7_h0uai")]
 transform = Transform3D(1, 0, 0, 0, -0.962408, 0.271608, 0, -0.271608, -0.962408, 25.9983, 0, 0)
-visible = false
 script = ExtResource("8_4n5bj")
 player = NodePath("../../Player")
 level = NodePath("../..")
 disable_collision_on_hit = false
 
+[node name="AnimatedSprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="2"]
+visible = false
+
+[node name="wire" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="3"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 3.15377, 24.3075, 9.10547)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire2" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="4"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, -0.777536, 26.4144, 9.14001)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire3" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="5"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 2.97338, 30.1053, 12.7006)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire4" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="6"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 2.13397, 28.0885, 15.0082)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire5" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="7"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, -3.18691, 30.5389, 11.2113)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire6" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="8"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, -1.46148, 29.5339, 12.4654)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire7" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="9"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 5.11547, 29.7486, 15.1581)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire8" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="10"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 6.78566, 29.7486, 15.1581)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire9" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="11"]
+transform = Transform3D(0.649306, 0, 0, 0, 1.43123, -1.14696, 0, 1.14696, 1.43123, 1.5269, 19.001, 4.47318)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire10" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="12"]
+transform = Transform3D(0.649306, 0, 0, 0, 1.43123, -1.14696, 0, 1.14696, 1.43123, 0.362173, 19.001, 4.47318)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire11" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="13"]
+transform = Transform3D(0.649306, 0, 0, 0, 1.43123, -1.14696, 0, 1.14696, 1.43123, 3.66896, 19.001, 4.47318)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire12" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="14"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 1.51093, 26.9554, 7.14138)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire13" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="15"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 0.0545864, 26.9554, 7.14138)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="wire14" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="16"]
+transform = Transform3D(0.811872, 0, 0, 0, 1.78956, -1.43412, 0, 1.43412, 1.78956, 4.18929, 26.9554, 7.14138)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.08
+texture = ExtResource("10_afm8j")
+
+[node name="RightLeg" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="17" groups=["shake"]]
+transform = Transform3D(1.81786, 1.35735, -0.334962, -1.24977, 1.33144, -1.38729, -0.626628, 1.28222, 1.79512, 2.69703, 1.52325, -11.793)
+sorting_use_aabb_center = false
+offset = Vector2(0, -18.385)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("11_5k8mk")
+
+[node name="LeftLeg" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="18" groups=["shake"]]
+transform = Transform3D(1.7185, 1.38825, -0.615426, -1.45609, 1.2426, -1.26292, -0.43105, 1.33713, 1.81259, 0.0571499, 1.06049, -12.1639)
+sorting_use_aabb_center = false
+offset = Vector2(0, -17.085)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("12_76ryg")
+
+[node name="RightArm" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="19" groups=["shake"]]
+transform = Transform3D(2.06587, 0.929607, 0.356674, -0.913792, 2.09641, -0.171132, -0.39542, 0.0120395, 2.25892, 4.19844, 4.0815, -7.7674)
+sorting_use_aabb_center = false
+offset = Vector2(0, -18.385)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("13_w1ply")
+hframes = 7
+frame = 1
+
+[node name="LeftArm" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="20" groups=["shake"]]
+transform = Transform3D(2.29058, -0.0212593, 0.1097, 0.0981082, 1.46029, -1.76555, -0.0534857, 1.76814, 1.45947, -1.48688, 5.18488, -10.0927)
+sorting_use_aabb_center = false
+offset = Vector2(0, -17.085)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("13_w1ply")
+hframes = 7
+
+[node name="RightWing" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="21" groups=["shake"]]
+transform = Transform3D(1.91191, -0.987704, -0.792633, 0.275074, 1.72495, -1.48597, 1.23619, 1.14377, 1.55655, 1.72764, 6.31458, -8.54082)
+sorting_use_aabb_center = false
+offset = Vector2(24.54, -0.765)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("14_513ip")
+
+[node name="LeftWing" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="22" groups=["shake"]]
+transform = Transform3D(2.13673, -0.64953, -0.521246, 0.180893, 1.76304, -1.4554, 0.812936, 1.31493, 1.6939, 0.159597, 5.02289, -12.9394)
+sorting_use_aabb_center = false
+offset = Vector2(-10.28, 15.92)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("15_oyhe0")
+
+[node name="Head" type="AnimatedSprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="23" groups=["shake"]]
+transform = Transform3D(1.54559, 0, 0, 0, 1.20609, -0.966537, 0, 0.966537, 1.20609, 1.12457, 3.65331, -6.48629)
+sorting_use_aabb_center = false
+offset = Vector2(4.355, 10.21)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_jsoxp")
+animation = &"idle"
+
+[node name="Sprite3D2" type="Sprite3D" parent="Entities/SpamtonTrigger/EntityContainer" index="24" groups=["shake"]]
+transform = Transform3D(2.02298, -1.08017, 0, 0.842905, 1.57862, -1.43412, 0.675487, 1.26507, 1.78956, -0.751007, 4.19387, -9.39528)
+sorting_use_aabb_center = false
+offset = Vector2(4.675, -3.77)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.14
+texture_filter = 0
+texture = ExtResource("17_anv81")
+
 [node name="WallL" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
 texture = ExtResource("9_egi8r")
 
 [node name="WallR" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
 texture = ExtResource("9_egi8r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="8"]
-transform = Transform3D(1.095, 0, 0, 0, 1.07438, 1.23483, 0, -0.437377, 3.03328, 0, 16.9598, 0)
+transform = Transform3D(1.095, 0, 0, 0, 1.02603, 1.52782, 0, -0.541152, 2.89679, 0, 16.9598, 0)
 extra_cull_margin = 100.0
 mesh = SubResource("CylinderMesh_e7qbr")
 
@@ -146,5 +389,6 @@ mesh = SubResource("CylinderMesh_e7qbr")
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]
 [editable path="Player/Visuals/WidgetGear"]
 [editable path="Player/Visuals/WidgetGear/DraggableItem"]
+[editable path="Entities/SpamtonTrigger"]
 [editable path="WallL"]
 [editable path="WallR"]

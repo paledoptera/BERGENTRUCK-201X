@@ -1,11 +1,12 @@
 extends Item
 
 func _ready():
+	if randi_range(1,100) == 97:
+		$DraggableItem/TextureRect.texture = preload("uid://3hug78wjwykg") #MsPipis.png
 	if player.hp < 100:
 		$pipistext.hide()
 	else:
 		create_tween().tween_property($pipistext,"modulate:a",0,1)
-	var tween = create_tween()
 
 func use() -> void:
 	pass

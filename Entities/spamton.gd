@@ -9,8 +9,6 @@ var speed_acc = 0.1
 var siner = 0
 var attacks_used = 0
 var max_attacks_used = 0
-var sword_dir = false # false = right, true = left
-var vulnerable = false
 var current_attack: String
 var last_attack: String
 var current_attack_small: String
@@ -19,7 +17,6 @@ var attack_pool : Array[String]
 var previous_attack_pool : Array[String]
 @export var keeping_up_with_player = true
 @export var entities : Node3D
-@export var sprite : AnimatedSprite3D
 @export var ai_timer : Timer
 @export var ai_anim : AnimationPlayer
 var shake: float = 0
@@ -29,7 +26,6 @@ func _ready() -> void:
 	shake = .2
 	await $AnimationPlayer.animation_finished
 	idleanimation(true)
-	#Global.score = 46
 
 func _process(delta: float) -> void:
 	if shake != 0:
@@ -67,11 +63,11 @@ func _start_enter() -> void:
 func _start_process(delta: float) -> void:
 	horizontal_speed = lerp(horizontal_speed,0.2,0.2)
 	speed = -player.speed
-	sprite.position.y = 0.5+Utility.get_sine(siner,0.5,5.0)
 
 
 func _attack_enter() -> void:
 	_get_current_attack_pool()
+	
 	if not current_attack:
 		print(attack_pool)
 		if previous_attack_pool != attack_pool.duplicate():
@@ -113,17 +109,13 @@ func _attack_enter() -> void:
 				max_attacks_used = 1
 	
 	
-	if sword_dir:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
 	
 	
 	var attack_anim = current_attack_mega if attacks_used >= max_attacks_used else current_attack_small
 	
 	ai_anim.play(attack_anim)
 	ai_timer.start(ai_anim.current_animation_length)
-
+	
 
 func _attack_process(delta) -> void:
 	pass
@@ -140,10 +132,6 @@ func _break_enter() -> void:
 
 func _break_process(delta) -> void:
 	horizontal_speed = lerp(horizontal_speed,0.2,0.1)
-
-
-func _break_exit() -> void:
-	sprite.flip_h = false
 
 
 func _end_enter() -> void:
@@ -170,11 +158,6 @@ func _on_timer_timeout() -> void:
 		$AIState.send_event("End")
 	else:
 		$AIState.send_event("Progress")
-
-
-func swap_sword_dir() -> void:
-	sword_dir = not sword_dir
-
 
 func change_speed(value : float):
 	speed = value
@@ -218,26 +201,21 @@ func _get_current_attack_pool() -> void:
 		attack_pool.append(ATTACK[i])
 
 
-func _on_afterimage_timer_timeout() -> void:
-	var afterimage = preload("uid://cgwpbuermixlc").instantiate() # afterimage.tscn
-	get_parent().add_child(afterimage)
-	afterimage.global_position = $EntityContainer/AnimatedSprite3D.global_position
-	afterimage.global_rotation = $EntityContainer/AnimatedSprite3D.global_rotation
-	afterimage.sprite_frames =  $EntityContainer/AnimatedSprite3D.sprite_frames
-	afterimage.animation =  $EntityContainer/AnimatedSprite3D.animation
-	afterimage.frame =  $EntityContainer/AnimatedSprite3D.frame
-	afterimage.flip_h =  $EntityContainer/AnimatedSprite3D.flip_h
-
-
 func _on_hurtbox_area_entered(area):
-	area.get_parent().queue_free()
 	idleanimation(false)
+	if player.gear == 1:
+		shake = .1
+		$AnimationPlayer.play("dodge")
+		await get_tree().create_timer(1).timeout
+		idleanimation(true)
+		return
+	area.get_parent().queue_free()
 	$AnimationPlayer.play("hit")
 	Global.score += 6
 	player.screenshake_strength += 10
 	player.particle_trigger(particle_effect)
-	Audio.play_sfx(preload("res://Global/SFX/Small Item Hit 3.wav"),1,10)
 	shake = 1
+	Audio.play_sfx(preload("res://Global/SFX/Small Item Hit 3.wav"),1,10)
 	await get_tree().create_timer(.2).timeout
 	shake = 0
 	idleanimation(true)
@@ -251,3 +229,7 @@ func idleanimation(begin:bool):
 	else:
 		for node in get_tree().get_nodes_in_group("stop"):
 			node.stop(false)
+
+func reset_limb_positions():
+	$Leg1.play("loop")
+	$Leg1.stop()

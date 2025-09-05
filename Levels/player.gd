@@ -71,6 +71,8 @@ func _ready() -> void:
 		$Visuals/BeerProgress.show()
 	_correct_sprite_size($Ground)
 	skin_change()
+	bobble_change()
+	freshner_change()
 	$CarEngine.volume_db = -40
 	$CarEngine.play(0.0)
 	var tween = create_tween()
@@ -149,7 +151,6 @@ func set_car_pos(delta: float):
 
 
 func skin_change():
-	
 	var skin_nodes = [$Visuals/Asgore,$Visuals/Hand,$Visuals/Hand/Forearm,$Visuals/Hand/Forearm/UpperArm]
 	var skin_assets = [null,null,null,null]
 	
@@ -189,10 +190,10 @@ func skin_change():
 			$CarHonk.stream = preload("uid://d37f2bo6di3ji") #snd_tensionhorn.wav
 			$Visuals/Asgore/Nose.texture = preload("uid://ckogtawfmvesu") #asgore_noseSKINTEST.png
 			$Visuals/Asgore/Nose.show_behind_parent = true
-			$Visuals/Asgore.texture = preload("uid://bp2v6xxesdck3") #SKINTEST.png
-			$Visuals/Hand.texture = preload("uid://dxcmc26ehr230") #arm handSKINTEST.png
-			$Visuals/Hand/Forearm.texture = preload("uid://7i0olqmdd3my") #arm forearmSKINTEST.png
-			$Visuals/Hand/Forearm/UpperArm.texture = preload("uid://bmofakxp76te3") #arm upperarmSKINTEST.png
+			skin_assets[0] = preload("uid://bp2v6xxesdck3") #SKINTEST.png
+			skin_assets[1] = preload("uid://dxcmc26ehr230") #arm handSKINTEST.png
+			skin_assets[2] = preload("uid://7i0olqmdd3my") #arm forearmSKINTEST.png
+			skin_assets[3] = preload("uid://bmofakxp76te3") #arm upperarmSKINTEST.png
 			$Visuals.texture = preload("uid://ist385x4ii4c") #carSKINTEST.png
 		12: #Hornet
 			skin_assets[0] = preload("uid://c0w2dcq1hf7v8") # hornet.png
@@ -201,6 +202,40 @@ func skin_change():
 		if not skin_assets[i]:
 			continue
 		skin_nodes[i].texture = skin_assets[i]
+
+func bobble_change():
+	var bobble = $Visuals/Bobble
+	match Global.player_save.flags.current_bobble_id:
+		#0 is default
+		1:
+			bobble.texture = preload("uid://bxl5jnxhfu52f") #krisdark.png
+		#2: #TV Time
+			
+		#3:  #Comedian
+			
+		#4:  #Fren
+			
+		#5:  #Mike
+			
+		#6:  #Wrong Knight
+			
+
+func freshner_change():
+	var freshner = $Visuals/Freshener
+	match Global.player_save.flags.current_freshener_id:
+		#0 is default
+		1:  #Fluffy Dice
+			pass
+		#2: #Christmas Tree
+			
+		#3:  #Delta Rune
+			
+		#4:  #Odd Mushroom
+			
+		#5:  #Cool Cherry
+			
+		#6:  #Annoying Dog
+			
 
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):

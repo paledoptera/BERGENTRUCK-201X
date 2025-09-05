@@ -12,6 +12,9 @@ func _ready():
 	select_saved($FreshenerScroll,Global.player_save.flags.current_freshener_id,scroll_amount,freshenerSelected)
 	update_selected($BobbleScroll/HBoxContainer.get_children(),$BobbleScroll,bobbleSelected)
 	update_selected($FreshenerScroll/HBoxContainer.get_children(),$FreshenerScroll,freshenerSelected)
+	#update color
+	$CarColor/ColorPicker.color.h = Global.player_save.flags.current_car_hue
+	$car.modulate = $CarColor/ColorPicker.color
 
 func select_saved(scroll_container:ScrollContainer,ID:int,scroll_amount:float,current_character:Node):
 	var Hbox = scroll_container.get_node("HBoxContainer")
@@ -120,3 +123,4 @@ func update_selected(characters:Array,scroll_container:ScrollContainer,current_c
 
 func _on_color_picker_color_changed(color):
 	$car.modulate = color
+	Global.player_save.flags.current_car_hue = color.h

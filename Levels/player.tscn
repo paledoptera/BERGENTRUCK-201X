@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=51 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -23,7 +23,9 @@
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="19"]
 [ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="20"]
 [ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="21"]
+[ext_resource type="Texture2D" uid="uid://bx0gawqks5w52" path="res://Levels/Assets/Visuals/bobbles/kris.png" id="21_4rwrr"]
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="22"]
+[ext_resource type="Texture2D" uid="uid://eoibsc5nrqgd" path="res://Levels/Assets/Visuals/fresheners/familyvalues.png" id="22_qjdec"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="23"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
@@ -470,6 +472,14 @@ theme_override_fonts/normal_font = ExtResource("18")
 text = "Time: 0:00"
 scroll_active = false
 horizontal_alignment = 2
+
+[node name="Bobble" type="Sprite2D" parent="Visuals"]
+position = Vector2(140, -3.565)
+texture = ExtResource("21_4rwrr")
+
+[node name="Freshener" type="Sprite2D" parent="Visuals"]
+position = Vector2(104.09, -66.575)
+texture = ExtResource("22_qjdec")
 
 [node name="Score" type="RichTextLabel" parent="."]
 visible = false

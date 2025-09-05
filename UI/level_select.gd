@@ -109,10 +109,10 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		tweens[1].tween_property($Skins,"scale",Vector2(1,1),.5)
 		tweens[2].tween_property($Skins,"modulate",Color(1,1,1,1),.3)
 		closet = false
+		SaveLoad.file_save() #saves the skin you chose
 		await tweens[0].tween_property($Skins,"position:y",155,.5).finished
 		$Skins.z_index = 0
 		$Skins.mouse_filter = 0
-		SaveLoad.file_save() #saves the skin you chose
 	elif car == true:
 		$LVTitle.text = "Choose a Level"
 		$LVNumber.text = ""
@@ -128,9 +128,9 @@ func _on_back_menu_option_clicked(option: RichTextLabel) -> void:
 		tweens[1].tween_property($Car,"scale",Vector2(1,1),.5)
 		tweens[2].tween_property($Car,"modulate",Color(1,1,1,1),.3)
 		car = false
+		SaveLoad.file_save() #saves the stuff you chose
 		await tweens[0].tween_property($Car,"position:y",155,.5).finished
 		$Car.mouse_filter = 0
-		SaveLoad.file_save() #saves the stuff you chose
 
 func _on_level_icon_clicked(icon):
 	if current_icon != null and icon != current_icon:

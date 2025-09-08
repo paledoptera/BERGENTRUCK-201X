@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://4gx4xn01pkxc"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_3hmmx"]
+[ext_resource type="Texture2D" uid="uid://4m682h1roep1" path="res://Entities/Assets/Visuals/booster_pad.png" id="2_kpc31"]
+[ext_resource type="AudioStream" uid="uid://vttgygj85smg" path="res://Global/SFX/snd_criticalswing.wav" id="2_qtv6x"]
+
+[sub_resource type="GDScript" id="GDScript_kpc31"]
+resource_name = "booster pad"
+script/source = "extends Entity
+
+func hit(player) -> void:
+	super(player)
+	player.car_velocity.z += 1
+	player.speed += 1
+"
+
+[node name="Booster" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_3hmmx")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = SubResource("GDScript_kpc31")
+solid = false
+stompable = true
+car_jump_mult = 0.1
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.15
+hit_sound_impact = ExtResource("2_qtv6x")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+pixel_size = 0.15
+axis = 1
+billboard = 0
+texture = ExtResource("2_kpc31")

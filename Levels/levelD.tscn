@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=3 uid="uid://c547y3wpuauvr"]
+
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_dumou"]
+[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_aqnv7"]
+[ext_resource type="Texture2D" uid="uid://dq8own0hd6suw" path="res://Levels/Assets/Visuals/ground_racetrack.png" id="3_8jmtf"]
+[ext_resource type="Texture2D" uid="uid://cgbls7vqt4a5m" path="res://Levels/Assets/Visuals/road texture.png" id="4_aepm4"]
+[ext_resource type="PackedScene" uid="uid://q0y2miqm1o6c" path="res://Entities/dog.tscn" id="5_qufdn"]
+
+[sub_resource type="Environment" id="Environment_qufdn"]
+background_mode = 1
+background_color = Color(0.578944, 0.840586, 0.638341, 1)
+
+[sub_resource type="GDScript" id="GDScript_8jmtf"]
+resource_name = "dograce player"
+script/source = "extends \"res://Levels/player.gd\"
+@export var road_turning_angle: float = 0.0
+#
+
+func _physics_process(delta: float) -> void:
+	super(delta)
+	car_position.z += speed
+	print(car_position)
+	Global.score = car_position.z/1000
+#func set_car_pos(delta: float):
+	#super(delta)
+	##$Ground.global_rotation.x = road_turning_angle/10
+	##$Ground.rotation.y = road_turning_angle/5
+	##$Ground.rotation.z = road_turning_angle/5
+	#car_position.x -= road_turning_angle/15
+	##$Camera3D.rotation.y = road_turning_angle/10
+	##$Camera3D.rotation.z = -road_turning_angle/20
+	##$Camera3D.position.z = 10+road_turning_angle
+	#$Ground.position.x = road_turning_angle
+	#$Camera3D.frustum_offset.x -= road_turning_angle/20000
+	##$Camera3D.frustum_offset.y = -0.003-abs(road_turning_angle)/1000
+#
+#
+#func _gravity_mechanics(delta: float) -> void:
+	#super(delta)
+	##$Camera3D.position.z -= abs(road_turning_angle)*5
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aepm4"]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_8jmtf")
+heightmap_scale = 16.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4_aepm4")
+uv1_triplanar_sharpness = 150.0
+texture_filter = 0
+point_size = 55.0
+
+[sub_resource type="Animation" id="Animation_aepm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:road_turning_angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8jmtf"]
+resource_name = "turn_left"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:road_turning_angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.94, 1.93333, 2.91, 4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [0.0, -2.5, -5.0, -2.5, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qufdn"]
+_data = {
+&"RESET": SubResource("Animation_aepm4"),
+&"turn_left": SubResource("Animation_8jmtf")
+}
+
+[node name="LevelD" instance=ExtResource("1_dumou")]
+music = ExtResource("2_aqnv7")
+item_queue_intro = Array[String](["uid://4gx4xn01pkxc"])
+item_queue_mid = Array[String](["uid://4gx4xn01pkxc"])
+item_queue_end = Array[String](["uid://4gx4xn01pkxc"])
+trees = null
+level_code = "D (Dog Race)"
+item_spawn_threshold = 500.0
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_qufdn")
+
+[node name="Player" parent="." index="1"]
+script = SubResource("GDScript_8jmtf")
+road_turning_angle = 0.0
+
+[node name="Camera3D" parent="Player" index="5"]
+size = 0.008
+
+[node name="Ground" parent="Player" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_aepm4")
+
+[node name="Dog" parent="Entities" index="1" node_paths=PackedStringArray("player") instance=ExtResource("5_qufdn")]
+player = NodePath("../../Player")
+
+[node name="WallL" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="WallR" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_qufdn")
+}
+autoplay = "turn_left"
+
+[editable path="Player"]
+[editable path="Player/Visuals/WidgetWheel"]
+[editable path="Player/Visuals/WidgetWheel/DraggableItem"]
+[editable path="Player/Visuals/WidgetGear"]
+[editable path="Player/Visuals/WidgetGear/DraggableItem"]
+[editable path="WallL"]
+[editable path="WallR"]

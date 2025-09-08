@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy5s1qmefmmj7"]
+
+[ext_resource type="Texture2D" uid="uid://btr7flpovr0ou" path="res://Entities/Assets/Visuals/spawn_beam.png" id="1_aio2s"]
+[ext_resource type="Script" uid="uid://s7l2pcagunn4" path="res://Entities/spawn_beam.gd" id="2_2dmpa"]
+
+[sub_resource type="Animation" id="Animation_2dmpa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aio2s"]
+resource_name = "spawn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.5),
+"transitions": PackedFloat32Array(2, 0.5, -2, 1),
+"update": 0,
+"values": [Vector3(1, 0, 1), Vector3(5, 0.7, 1), Vector3(1, 1, 1), Vector3(1, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 1.5),
+"transitions": PackedFloat32Array(1, -2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dmpa"]
+_data = {
+&"RESET": SubResource("Animation_2dmpa"),
+&"spawn": SubResource("Animation_aio2s")
+}
+
+[node name="Sprite3D" type="Sprite3D"]
+ignore_occlusion_culling = true
+offset = Vector2(0, 16)
+pixel_size = 0.2
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_aio2s")
+hframes = 4
+script = ExtResource("2_2dmpa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2dmpa")
+}
+autoplay = "spawn"

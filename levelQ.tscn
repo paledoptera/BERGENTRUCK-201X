@@ -1,17 +1,17 @@
 [gd_scene load_steps=35 format=4 uid="uid://b0obvicgtatpa"]
 
-[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_s615m"]
-[ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_4i652"]
-[ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="3_7lek7"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="4_4su86"]
-[ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="5_kbos6"]
-[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="6_djtrw"]
-[ext_resource type="PackedScene" uid="uid://pgoef8rvc4p3" path="res://Levels/Assets/Visuals/spring.blend" id="7_4i652"]
-[ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="7_degev"]
-[ext_resource type="PackedScene" uid="uid://c5out100kqebr" path="res://Entities/queen.tscn" id="8_o3nq2"]
-[ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="8_s615m"]
-[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="10_odswv"]
-[ext_resource type="Texture2D" uid="uid://dyjb7i1b8evdq" path="res://Entities/Assets/Visuals/Queen/cityscape.png" id="12_oyqdn"]
+[ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_q4tt2"]
+[ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_cfrn7"]
+[ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="3_4kq2w"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="4_u3bq1"]
+[ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="5_u0esn"]
+[ext_resource type="PackedScene" uid="uid://pgoef8rvc4p3" path="res://Levels/Assets/Visuals/spring.blend" id="6_cqv2q"]
+[ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="7_f2jwh"]
+[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="8_lpud7"]
+[ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="9_yfsbt"]
+[ext_resource type="PackedScene" uid="uid://c5out100kqebr" path="res://Entities/queen.tscn" id="10_kxnw8"]
+[ext_resource type="Texture2D" uid="uid://dyjb7i1b8evdq" path="res://Entities/Assets/Visuals/Queen/cityscape.png" id="11_5j5ca"]
+[ext_resource type="Texture2D" uid="uid://dgd433sk5xj0q" path="res://Entities/Assets/Visuals/building.png" id="12_o0dts"]
 
 [sub_resource type="GDScript" id="GDScript_s615m"]
 resource_name = "LevelQ"
@@ -20,7 +20,7 @@ script/source = "extends Level
 
 func _process(delta: float) -> void:
 	super(delta)
-	$MeshInstance3D.mesh.material.uv1_offset.z += (player.speed*delta)/100
+	$Cityscape.mesh.material.uv1_offset.z += (player.speed*delta)/100
 	#$CityScape/Circle.get_surface_override_material(0).uv1_offset.z -= (player.speed*delta)/50
 "
 
@@ -150,7 +150,7 @@ orientation = 2
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.717647, 1, 1, 0.262745)
-albedo_texture = ExtResource("4_4su86")
+albedo_texture = ExtResource("4_u3bq1")
 uv1_scale = Vector3(0.315, 0.9, 0)
 uv1_offset = Vector3(0.635, 0, 0)
 uv1_triplanar_sharpness = 0.353554
@@ -249,7 +249,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 384,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUACAAEAAYABwAJAAUACAAGAAoABwALAAkADAAIAAoACwANAAkADAAKAA4ACwAPAA0AEAAMAA4ADwARAA0AEAAOABIADwATABEAFAAQABIAEwAVABEAFAASABYAEwAXABUAGAAUABYAFwAZABUAGAAWABoAFwAbABkAGwAcABkAGwAdABwAHgAYABoAHgAaAB8AIAAeAB8AIAAfACEAIgAjACQAIgAlACMAJQAmACMAJQAnACYAJwAoACYAJwApACgAKQAqACgAKQArACoAKwAsACoAKwAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAAMQAyADAAMQAzADIAMwA0ADIAMwA1ADQANQA2ADQANQA3ADYANwA4ADYANwA5ADgAOQA6ADgAOQA7ADoAOwA8ADoAOwA9ADwAPQA+ADwAPQA/AD4APwBAAD4APwBBAEAAQQBCAEAAQQBDAEIARABFAEYARABHAEUARwBIAEUARwBJAEgASQBKAEgASQBLAEoASwBMAEoASwBNAEwATQBOAEwATQBPAE4ATwBQAE4ATwBRAFAAUQBSAFAAUQBTAFIAUwBUAFIAUwBVAFQAVQBWAFQAVQBXAFYAVwBYAFYAVwBZAFgAWQBaAFgAWQBbAFoAWwBcAFoAWwBdAFwAXQBeAFwAXQBfAF4AXwBgAF4AXwBhAGAAYQBiAGAAYQBjAGIAYwBkAGIAYwBlAGQAZgBnAGgAZgBpAGcAaQBqAGcAaQBrAGoAawBsAGoAawBtAGwAbQBuAGwAbQBvAG4AbwBwAG4AbwBxAHAAcQByAHAAcQBzAHIAcwB0AHIAcwB1AHQAdQB2AHQAdQB3AHYAdwB4AHYAdwB5AHgAeQB6AHgAeQB7AHoAewB8AHoAewB9AHwAfQB+AHwAfQB/AH4AfwCAAH4AfwCBAIAAgQCCAIAAgQCDAIIAgwCEAIIAgwCFAIQAhQCGAIQAhQCHAIYA"),
-"material": ExtResource("7_degev"),
+"material": ExtResource("9_yfsbt"),
 "name": "Ground",
 "primitive": 3,
 "uv_scale": Vector4(2.86408, 1.9918, 0, 0),
@@ -537,13 +537,13 @@ _data = {
 &"punch": SubResource("Animation_4su86")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyqdn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlii5"]
 shading_mode = 0
 specular_mode = 2
 albedo_color = Color(0.461866, 0.540582, 0.632269, 1)
-albedo_texture = ExtResource("12_oyqdn")
+albedo_texture = ExtResource("11_5j5ca")
 heightmap_scale = 16.0
-heightmap_texture = ExtResource("12_oyqdn")
+heightmap_texture = ExtResource("11_5j5ca")
 uv1_scale = Vector3(0, 0.018, -0.006)
 uv1_offset = Vector3(0, -1.447, 0.347)
 uv1_triplanar = true
@@ -551,7 +551,7 @@ uv1_triplanar_sharpness = 5.38452
 texture_filter = 5
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_oyqdn"]
-material = SubResource("StandardMaterial3D_oyqdn")
+material = SubResource("StandardMaterial3D_wlii5")
 flip_faces = true
 top_radius = 101.765
 bottom_radius = 70.395
@@ -559,13 +559,13 @@ height = 41.065
 cap_top = false
 cap_bottom = false
 
-[node name="LevelQ" instance=ExtResource("1_s615m")]
+[node name="LevelQ" instance=ExtResource("1_q4tt2")]
 script = SubResource("GDScript_s615m")
-music = ExtResource("2_4i652")
+music = ExtResource("2_cfrn7")
 item_queue_intro = Array[String](["uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://butoedeih22pw", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
-trees = ExtResource("3_7lek7")
+trees = ExtResource("3_4kq2w")
 level_val = 4
 level_code = "Q (Punchout City)"
 bkg_item_spawn_threshold = 30.0
@@ -573,7 +573,7 @@ bkg_item_spawn_threshold = 30.0
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_s615m")
 
-[node name="Player" parent="." index="1"]
+[node name="Player" parent="." index="6"]
 script = SubResource("GDScript_o3nq2")
 
 [node name="Background" parent="Player" index="0"]
@@ -586,13 +586,13 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 
 [node name="Visuals" parent="Player" index="2"]
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
-texture = ExtResource("5_kbos6")
+texture = ExtResource("5_u0esn")
 
 [node name="ArmR" type="SpringArm3D" parent="Player/Camera3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 3.189, -4.293, -1.347)
 spring_length = 0.09
 
-[node name="Spring" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("7_4i652")]
+[node name="Spring" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("6_cqv2q")]
 transform = Transform3D(-1, 0, 0, 0, 0.236181, 0.75471, 0, -0.271696, 0.656058, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/Spring" index="0"]
@@ -601,7 +601,7 @@ sorting_offset = 1e+07
 sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
-[node name="GloveR" parent="Player/Camera3D/ArmR" index="1" instance=ExtResource("8_s615m")]
+[node name="GloveR" parent="Player/Camera3D/ArmR" index="1" instance=ExtResource("7_f2jwh")]
 transform = Transform3D(0.0207696, -0.0295968, -0.850136, -0.452175, -0.216233, 0.0480224, -0.50879, 0.190964, -0.0773826, 0.000172615, 7.9155e-05, 0.000374794)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/GloveR" index="0"]
@@ -624,14 +624,14 @@ shape = SubResource("SphereShape3D_4i652")
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.269, -4.293, -1.347)
 spring_length = 0.09
 
-[node name="Spring" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("7_4i652")]
+[node name="Spring" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("6_cqv2q")]
 transform = Transform3D(-1, 0, 0, 0, 1, 2.53518e-06, 0, -2.53518e-06, 1, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/Spring" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.2)
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
-[node name="GloveL" parent="Player/Camera3D/ArmL" index="1" instance=ExtResource("8_s615m")]
+[node name="GloveL" parent="Player/Camera3D/ArmL" index="1" instance=ExtResource("7_f2jwh")]
 transform = Transform3D(0.0712656, -0.00544697, 0.850154, -0.452317, -0.216186, 0.0477274, -0.504075, 0.193219, 0.0773672, 0.000272751, -0.000102043, 0.000315666)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/GloveL" index="0"]
@@ -650,7 +650,7 @@ monitorable = false
 shape = SubResource("SphereShape3D_4i652")
 
 [node name="Ground" parent="Player" index="14"]
-material_override = ExtResource("6_djtrw")
+material_override = ExtResource("8_lpud7")
 mesh = SubResource("ArrayMesh_p320n")
 surface_material_override/0 = null
 
@@ -664,21 +664,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_kbos6")
 }
 
-[node name="WallL" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
-disable_collision_on_hit = false
-
-[node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
-texture = ExtResource("10_odswv")
-
-[node name="WallR" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
-disable_collision_on_hit = false
-
-[node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
-texture = ExtResource("10_odswv")
-
-[node name="Queen" parent="." index="8" node_paths=PackedStringArray("player", "entities") instance=ExtResource("8_o3nq2")]
+[node name="Queen" parent="." index="8" node_paths=PackedStringArray("player", "entities") instance=ExtResource("10_kxnw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 player = NodePath("../Player")
 entities = NodePath("../Entities")
@@ -686,10 +672,24 @@ entities = NodePath("../Entities")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504, -6.3095, 54.1476, 20.326)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="10"]
+[node name="Cityscape" type="MeshInstance3D" parent="." index="10"]
 transform = Transform3D(1.095, 0, 0, 0, 1.07438, 1.23483, 0, -0.437377, 3.03328, 0, 16.9598, 0)
 extra_cull_margin = 100.0
 mesh = SubResource("CylinderMesh_oyqdn")
+
+[node name="WallL" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
+texture = ExtResource("12_o0dts")
+
+[node name="WallR" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
+texture = ExtResource("12_o0dts")
 
 [connection signal="area_entered" from="Player/Camera3D/ArmR/GloveR/Area3D" to="Player" method="_punch_collision"]
 [connection signal="area_entered" from="Player/Camera3D/ArmL/GloveL/Area3D" to="Player" method="_punch_collision"]

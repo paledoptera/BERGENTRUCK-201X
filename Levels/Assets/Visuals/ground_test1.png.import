@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i4f4s570ec1v"
-path.s3tc="res://.godot/imported/bigtree.png-51c3d937a15a004daadcdf28d5211505.s3tc.ctex"
-path.etc2="res://.godot/imported/bigtree.png-51c3d937a15a004daadcdf28d5211505.etc2.ctex"
+uid="uid://dh4tmrhktl5xp"
+path.s3tc="res://.godot/imported/ground_test1.png-c3524a9de4748acfd3992b56a1b65de9.s3tc.ctex"
+path.etc2="res://.godot/imported/ground_test1.png-c3524a9de4748acfd3992b56a1b65de9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Assets/Visuals/bigtree.png"
-dest_files=["res://.godot/imported/bigtree.png-51c3d937a15a004daadcdf28d5211505.s3tc.ctex", "res://.godot/imported/bigtree.png-51c3d937a15a004daadcdf28d5211505.etc2.ctex"]
+source_file="res://Levels/Assets/Visuals/ground_test1.png"
+dest_files=["res://.godot/imported/ground_test1.png-c3524a9de4748acfd3992b56a1b65de9.s3tc.ctex", "res://.godot/imported/ground_test1.png-c3524a9de4748acfd3992b56a1b65de9.etc2.ctex"]
 
 [params]
 

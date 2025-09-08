@@ -50,6 +50,7 @@ metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [node name="Bush" instance=ExtResource("1_d8i0g")]
 items = Array[ExtResource("2_5k4uf")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_5k4uf"), SubResource("Resource_kykoh"), SubResource("Resource_s06vd"), SubResource("Resource_pgspd"), SubResource("Resource_thkat"), SubResource("Resource_l72u0"), SubResource("Resource_kykoh"), SubResource("Resource_kykoh"), SubResource("Resource_kykoh")])
+beam_on_spawn = 1
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 texture = ExtResource("5_d8i0g")

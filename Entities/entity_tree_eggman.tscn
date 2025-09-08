@@ -60,6 +60,7 @@ animations = [{
 script = ExtResource("2_4m5y2")
 items = Array[ExtResource("2_3m8h3")]([SubResource("Resource_3oc62")])
 hit_sound_effect = ExtResource("5_3oc62")
+beam_on_spawn = 3
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 visible = false

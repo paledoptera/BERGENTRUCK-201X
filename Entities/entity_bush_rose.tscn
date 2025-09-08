@@ -42,6 +42,7 @@ metadata/_custom_type_script = "uid://x4oraccw1vua"
 items = Array[ExtResource("2_ogbkj")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_qei76"), SubResource("Resource_eh35o"), SubResource("Resource_wbq2r"), SubResource("Resource_pmyec")])
 damage = 2.0
 hit_sound_impact = ExtResource("5_mdad7")
+beam_on_spawn = 3
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 texture = ExtResource("5_ca8tf")

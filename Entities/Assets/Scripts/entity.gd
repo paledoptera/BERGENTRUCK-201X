@@ -1,6 +1,7 @@
 extends Node3D
 class_name Entity
 
+enum Beam {NONE, WHITE, GREEN, YELLOW, RED}
 
 @export var hp = -1
 @export var items : Array[ItemDropData]
@@ -14,6 +15,7 @@ class_name Entity
 @export var hit_sound_effect : AudioStream
 @export var disable_collision_on_hit : bool = false
 @export var particle_effect : int = 1
+@export var beam_on_spawn: Beam = Beam.NONE
 
 func _ready() -> void:
 	var rand_scale = randf_range(0.8,1.2)
@@ -25,7 +27,7 @@ func _ready() -> void:
 		#collision_shape.scale *= Vector3(rand_scale,rand_scale,rand_scale)
 
 func _process(delta: float) -> void:
-	if $EntityContainer/Sprite3D.global_position.y < -30.0:
+	if $EntityContainer/Sprite3D.global_position.y < -30.0 and $EntityContainer/Sprite3D.global_position.z > 0.0:
 		queue_free()
 
 func hit(player) -> void:

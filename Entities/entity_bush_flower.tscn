@@ -33,6 +33,7 @@ metadata/_custom_type_script = "uid://x4oraccw1vua"
 
 [node name="Bush2" instance=ExtResource("1_2w5dm")]
 items = Array[ExtResource("2_d4hl2")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_ln8mh"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_6b46r"), SubResource("Resource_x1hwt")])
+beam_on_spawn = 1
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 texture = ExtResource("2_j58kf")

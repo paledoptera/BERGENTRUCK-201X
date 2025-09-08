@@ -1,14 +1,79 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmfdo622wwei3"]
+[gd_scene load_steps=22 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
 [ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
 [ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
+[ext_resource type="Texture2D" uid="uid://5jykcbykxlx4" path="res://Levels/Assets/Visuals/backgrounds/Background_7.png" id="3_ccp6f"]
+[ext_resource type="Texture2D" uid="uid://iss7qwlxx5rv" path="res://Levels/Assets/Visuals/backgrounds/Background_9.png" id="4_kbs61"]
+[ext_resource type="Texture2D" uid="uid://b770jtdedvewt" path="res://Levels/Assets/Visuals/backgrounds/Background_8.png" id="5_kbs61"]
+[ext_resource type="Texture2D" uid="uid://b8mla2cft88bj" path="res://Levels/Assets/Visuals/backgrounds/Background_10.png" id="5_kfjuk"]
+[ext_resource type="Texture2D" uid="uid://caymepvqmd6n1" path="res://Levels/Assets/Visuals/backgrounds/Background_11.png" id="6_kbs61"]
 [ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="7_ccp6f"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
 
 [sub_resource type="Environment" id="Environment_s57tf"]
 background_mode = 1
 background_color = Color(0.228992, 0.570844, 0.999975, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28c0n"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_ccp6f")
+texture_filter = 1
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lugxk"]
+material = SubResource("StandardMaterial3D_28c0n")
+size = Vector2(4000, 300)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qia2h"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_kbs61")
+texture_filter = 1
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bkwct"]
+material = SubResource("StandardMaterial3D_qia2h")
+size = Vector2(700, 100)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfjuk"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_kbs61")
+texture_filter = 1
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_28c0n"]
+material = SubResource("StandardMaterial3D_kfjuk")
+size = Vector2(700, 100)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkwct"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_kfjuk")
+texture_filter = 1
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_chfsc"]
+material = SubResource("StandardMaterial3D_bkwct")
+size = Vector2(500, 80)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lugxk"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("6_kbs61")
+texture_filter = 1
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qia2h"]
+material = SubResource("StandardMaterial3D_lugxk")
+size = Vector2(500, 100)
+orientation = 2
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("timer", "player", "entities")]
 process_mode = 1
@@ -20,6 +85,26 @@ entities = NodePath("Entities")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_s57tf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -176.502, -526.054)
+mesh = SubResource("PlaneMesh_lugxk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9821, -95.2961, -153.636)
+mesh = SubResource("PlaneMesh_bkwct")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -95.2961, -192.284)
+mesh = SubResource("PlaneMesh_28c0n")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -59.3563, -82.2557)
+mesh = SubResource("PlaneMesh_chfsc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8216, -63.3193, -57.1996)
+mesh = SubResource("PlaneMesh_qia2h")
 
 [node name="Player" parent="." node_paths=PackedStringArray("entities") instance=ExtResource("1_nv0ke")]
 entities = NodePath("../Entities")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://btetd788ltvnu"]
+[gd_scene load_steps=8 format=3 uid="uid://btetd788ltvnu"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_75vxw"]
 [ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_75vxw"]
@@ -12,6 +12,10 @@ item = ExtResource("3_vsxxk")
 drop_chance = 15
 metadata/_custom_type_script = "uid://x4oraccw1vua"
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_75vxw"]
+radius = 1.2
+height = 5.3929
+
 [node name="Bush" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_75vxw")]
 hp = 1
 items = Array[ExtResource("2_75vxw")]([SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc"), SubResource("Resource_wcjbc")])
@@ -23,6 +27,7 @@ hit_sound_effect = ExtResource("4_07v7m")
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432386, 0)
+shape = SubResource("CapsuleShape3D_75vxw")
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]
 offset = Vector2(0, 30)

@@ -52,7 +52,7 @@ func fade_in_done() -> void:
 	faded_in = true
 
 func _process(delta: float) -> void:
-	
+		
 	if Global.game:
 		if Global.border == 1: #dynamic border
 			Global.game.border.self_modulate = Color("ffffff",1.0-$FadeEffect.modulate.a)
@@ -115,13 +115,22 @@ func _spawn_item() -> void:
 		var item = load(item_path)
 		if not item:
 			return
+		var spawn_beam = preload("uid://cy5s1qmefmmj7").instantiate()
 		item = item.instantiate()
 		#print("ITEM ", item, " CREATED")
 		entities.add_child(item)
+		
 		if level_val == 3:
 			item.get_node("EntityContainer/Sprite3D").modulate = Color("307dff")
 		item.global_position.x = _get_random_item_position()
-		item.global_rotation_degrees.x = -90
+		item.global_rotation_degrees.x = -152
+		if item.beam_on_spawn > 0:
+			spawn_beam.get_node("AnimationPlayer").speed_scale = player.speed/10
+			$Player/Background.add_child(spawn_beam)
+			spawn_beam.base_pos = Vector3(item.get_node("EntityContainer/Sprite3D").global_position.x,-20.0,-40.0)
+			spawn_beam.player = player
+			spawn_beam.frame = item.beam_on_spawn-1
+		
 
 
 func _spawn_bkg_item() -> void:

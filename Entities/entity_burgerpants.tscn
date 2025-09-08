@@ -50,6 +50,7 @@ collision_shape = NodePath("EntityContainer/CollisionShape3D")
 pixel_size = 0.12
 hit_sound_effect = ExtResource("4_facq2")
 particle_effect = -1
+beam_on_spawn = 1
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.432386, 0)

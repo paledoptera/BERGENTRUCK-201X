@@ -4,7 +4,6 @@ extends Entity
 var speed: float = 0.0
 var screaming = true
 
-
 func _process(delta: float) -> void:
 	speed = lerp(speed,-player.speed,0.04)
 	if screaming and $EntityContainer/AnimatedSprite3D.frame < 32:

@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1827bq762t8p"]
+[gd_scene load_steps=3 format=3 uid="uid://b1827bq762t8p"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_24ooq"]
 
+[sub_resource type="GDScript" id="GDScript_24ooq"]
+resource_name = "bkgtree"
+script/source = "extends Entity
+
+const SPRITES := [
+	preload(\"uid://d1mdkawxifsd7\"), # tree_big.png
+	preload(\"uid://b30enj4fl0sv6\"), # tree_giant.png
+	preload(\"uid://cysf0f7go2467\"), # tree_pine.png
+	preload(\"uid://cetvub4tbbdy2\"), # tree_sparse.png
+	]
+
+
+func _ready() -> void:
+	super()
+	$EntityContainer/Sprite3D.texture = SPRITES.pick_random()
+	$EntityContainer/Sprite3D.flip_h = [true, false].pick_random()
+"
+
 [node name="TreeBkg" instance=ExtResource("1_24ooq")]
+script = SubResource("GDScript_24ooq")
+hit_sound_impact = null
 
 [node name="EntityContainer" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.8, 0)

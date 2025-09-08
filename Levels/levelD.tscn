@@ -97,7 +97,6 @@ music = ExtResource("2_aqnv7")
 item_queue_intro = Array[String](["uid://4gx4xn01pkxc"])
 item_queue_mid = Array[String](["uid://4gx4xn01pkxc"])
 item_queue_end = Array[String](["uid://4gx4xn01pkxc"])
-trees = null
 level_code = "D (Dog Race)"
 item_spawn_threshold = 500.0
 

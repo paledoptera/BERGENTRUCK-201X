@@ -39,6 +39,10 @@ func hit(player) -> void:
 	get_parent().add_child(knight)
 	knight.global_rotation = global_rotation
 	knight.player = player
+
+	var tween = player.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(player.get_node("Camera3D"),"size",.008,2.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	
 	level.flash()
 	Audio.stop_music(false)

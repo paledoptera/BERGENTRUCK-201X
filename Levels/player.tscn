@@ -209,10 +209,12 @@ visual_asgore = NodePath("Visuals/Asgore")
 entity_hitbox = NodePath("Camera3D/Area3D")
 screenshake_speed = 400.0
 screenshake_decay = 3.0
+friction_impact = 0.6
 
 [node name="Background" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.325, 0, 0, 0, 2.07, 0, 0, 0, 1.37, 0, -90.105, -200)
 top_level = true
+visible = false
 mesh = SubResource("PlaneMesh_34hgd")
 surface_material_override/0 = SubResource("StandardMaterial3D_wpukm")
 
@@ -507,7 +509,7 @@ keep_aspect = 0
 projection = 2
 current = true
 fov = 10.0
-size = 0.006
+size = 0.007
 frustum_offset = Vector2(0, -0.003)
 near = 0.001
 

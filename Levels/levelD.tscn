@@ -17,10 +17,13 @@ script/source = "extends \"res://Levels/player.gd\"
 #
 
 func _physics_process(delta: float) -> void:
+	if Global.player_save.time >= 90.0 and Global.score < 100.0:
+		Global.die()
+		return
 	super(delta)
 	car_position.z += speed
-	print(car_position)
-	Global.score = car_position.z/1000
+	Global.score = car_position.z/500
+	
 #func set_car_pos(delta: float):
 	#super(delta)
 	##$Ground.global_rotation.x = road_turning_angle/10

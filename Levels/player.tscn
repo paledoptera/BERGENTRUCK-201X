@@ -712,7 +712,7 @@ position = Vector2(146, 125)
 scale = Vector2(2.385, 2.385)
 sprite_frames = SubResource("SpriteFrames_7uaga")
 autoplay = "default"
-frame_progress = 0.460483
+frame_progress = 0.179725
 
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="input_event" from="Visuals/WidgetGear/Area2D" to="Visuals/WidgetGear/DraggableItem" method="_on_input_event"]

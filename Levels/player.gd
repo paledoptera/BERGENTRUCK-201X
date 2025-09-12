@@ -15,7 +15,7 @@ const DRIFT_ACCELERATION = 0.01
 @export var entity_hitbox : Area3D
 @export var screenshake_speed : float = 30.0
 @export var screenshake_decay : float = 5.0
-
+@export var boost: float = 0.0
 @export var friction_impact: float = 0.7
 @export var angle_lerp: float = 0.2
 

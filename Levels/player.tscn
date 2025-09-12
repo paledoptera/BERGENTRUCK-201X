@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=60 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="22"]
 [ext_resource type="Texture2D" uid="uid://eoibsc5nrqgd" path="res://Levels/Assets/Visuals/fresheners/familyvalues.png" id="22_qjdec"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://b21padqbquojs" path="res://UI/Assets/Visuals/speed_lines.png" id="28_qjdec"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
 size = Vector2(500, 30.805)
@@ -197,6 +198,79 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
+
+[sub_resource type="Animation" id="Animation_4rwrr"]
+resource_name = "boost"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:boost")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.733333),
+"transitions": PackedFloat32Array(0.5, -0.5, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qjdec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:boost")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tcnov"]
+_data = {
+&"RESET": SubResource("Animation_qjdec"),
+&"boost": SubResource("Animation_4rwrr")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnov"]
+atlas = ExtResource("28_qjdec")
+region = Rect2(0, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd0of"]
+atlas = ExtResource("28_qjdec")
+region = Rect2(170, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk557"]
+atlas = ExtResource("28_qjdec")
+region = Rect2(340, 0, 170, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ifsp"]
+atlas = ExtResource("28_qjdec")
+region = Rect2(510, 0, 170, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uaga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcnov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd0of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk557")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ifsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entity_hitbox")]
 script = ExtResource("1")
@@ -626,6 +700,19 @@ metadata/_edit_lock_ = true
 
 [node name="FaceTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BoostPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tcnov")
+}
+
+[node name="Speedlines" type="AnimatedSprite2D" parent="."]
+z_index = 4096
+position = Vector2(146, 125)
+scale = Vector2(2.385, 2.385)
+sprite_frames = SubResource("SpriteFrames_7uaga")
+autoplay = "default"
+frame_progress = 0.460483
 
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="input_event" from="Visuals/WidgetGear/Area2D" to="Visuals/WidgetGear/DraggableItem" method="_on_input_event"]

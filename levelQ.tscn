@@ -573,7 +573,7 @@ bkg_item_spawn_threshold = 30.0
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_s615m")
 
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="1"]
 script = SubResource("GDScript_o3nq2")
 
 [node name="Background" parent="Player" index="0"]
@@ -664,6 +664,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_kbos6")
 }
 
+[node name="WallL" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
+texture = ExtResource("12_o0dts")
+
+[node name="WallR" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
+disable_collision_on_hit = false
+
+[node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
+texture = ExtResource("12_o0dts")
+
 [node name="Queen" parent="." index="8" node_paths=PackedStringArray("player", "entities") instance=ExtResource("10_kxnw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 player = NodePath("../Player")
@@ -676,20 +690,6 @@ transform = Transform3D(1, 0, 0, 0, -0.369504, 0.929229, 0, -0.929229, -0.369504
 transform = Transform3D(1.095, 0, 0, 0, 1.07438, 1.23483, 0, -0.437377, 3.03328, 0, 16.9598, 0)
 extra_cull_margin = 100.0
 mesh = SubResource("CylinderMesh_oyqdn")
-
-[node name="WallL" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
-disable_collision_on_hit = false
-
-[node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
-texture = ExtResource("12_o0dts")
-
-[node name="WallR" parent="." index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
-disable_collision_on_hit = false
-
-[node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
-texture = ExtResource("12_o0dts")
 
 [connection signal="area_entered" from="Player/Camera3D/ArmR/GloveR/Area3D" to="Player" method="_punch_collision"]
 [connection signal="area_entered" from="Player/Camera3D/ArmL/GloveL/Area3D" to="Player" method="_punch_collision"]

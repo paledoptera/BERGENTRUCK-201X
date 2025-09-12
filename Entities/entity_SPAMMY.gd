@@ -1,5 +1,6 @@
 extends Entity
 
+@export var animation : AnimationPlayer
 @export var player : Node3D
 @export var level: Node3D
 var running = true
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 
 
 func hit(player) -> void:
+	animation.play("intro")
 	Audio.play_sfx(preload("res://Global/SFX/spamton-laugh.mp3"),1.01)
 	var knight = preload("res://Entities/spamton.tscn").instantiate() # entity.knightintro.tscn
 	get_parent().add_child(knight)

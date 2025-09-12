@@ -137,7 +137,7 @@ func _break_process(delta) -> void:
 func _end_enter() -> void:
 	current_attack = ""
 	ai_anim.play("vulnerable")
-	ai_timer.start(2.0)
+	ai_timer.start(0.1)
 
 
 func _end_process(delta) -> void:
@@ -204,6 +204,7 @@ func _get_current_attack_pool() -> void:
 func _on_hurtbox_area_entered(area):
 	idleanimation(false)
 	if player.gear == 1:
+		max_attacks_used = 1
 		shake = .1
 		$AnimationPlayer.play("dodge")
 		await get_tree().create_timer(1).timeout

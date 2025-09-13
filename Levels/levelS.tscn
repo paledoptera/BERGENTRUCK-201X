@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_upnl3"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="3_e7qbr"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="4_dfrsb"]
-[ext_resource type="Material" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
+[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="6_0rcmt"]
 [ext_resource type="Texture2D" uid="uid://dpnjp872fjwup" path="res://Entities/Assets/Visuals/Spamton/punchers.png" id="6_5k8mk"]
 [ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="7_h0uai"]
@@ -71,81 +71,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q103l")
-
-[sub_resource type="Animation" id="Animation_5k8mk"]
-resource_name = "intro"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Player/Visuals/Punchers:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.633333),
-"transitions": PackedFloat32Array(0.840896, 0.840896, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.840972, 0.601757, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Player/Visuals/Punchers:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.75),
-"transitions": PackedFloat32Array(0.840896, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Player/Visuals/Punchers:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.613333),
-"transitions": PackedFloat32Array(0.840896, 1),
-"update": 0,
-"values": [Vector2(10, 4), Vector2(10, -483.035)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Player/Visuals/Punchers:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.840896, 1),
-"update": 0,
-"values": [0.0, -8.72665]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../Player/Visuals/Punchers:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.613333),
-"transitions": PackedFloat32Array(0.840896, 1),
-"update": 0,
-"values": [Vector2(0.510714, 0.510714), Vector2(0.356, 0.356)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../Player/Visuals/Punchers:skew")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.613333),
-"transitions": PackedFloat32Array(0.840896, 1),
-"update": 0,
-"values": [0.0, 0.490438]
-}
 
 [sub_resource type="Animation" id="Animation_76ryg"]
 length = 0.001
@@ -220,6 +145,81 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5k8mk"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Player/Visuals/Punchers:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.633333),
+"transitions": PackedFloat32Array(0.840896, 0.840896, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.840972, 0.601757, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Player/Visuals/Punchers:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.840896, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Player/Visuals/Punchers:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.613333),
+"transitions": PackedFloat32Array(0.840896, 1),
+"update": 0,
+"values": [Vector2(10, 4), Vector2(10, -483.035)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Player/Visuals/Punchers:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.840896, 1),
+"update": 0,
+"values": [0.0, -8.72665]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Player/Visuals/Punchers:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.613333),
+"transitions": PackedFloat32Array(0.840896, 1),
+"update": 0,
+"values": [Vector2(0.510714, 0.510714), Vector2(0.356, 0.356)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Player/Visuals/Punchers:skew")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.613333),
+"transitions": PackedFloat32Array(0.840896, 1),
+"update": 0,
+"values": [0.0, 0.490438]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w1ply"]
@@ -537,24 +537,24 @@ pixel_size = 0.14
 texture_filter = 0
 texture = ExtResource("17_anv81")
 
-[node name="Cityscape" type="MeshInstance3D" parent="." index="8"]
-transform = Transform3D(1.095, 0, 0, 0, 1.02603, 1.52782, 0, -0.541152, 2.89679, 0, 16.9598, 0)
-extra_cull_margin = 100.0
-mesh = SubResource("CylinderMesh_e7qbr")
-
-[node name="WallL" parent="." index="9"]
+[node name="WallL" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallL/EntityContainer" index="1"]
 texture = ExtResource("9_egi8r")
 
-[node name="WallR" parent="." index="10"]
+[node name="WallR" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -15, 0)
 disable_collision_on_hit = false
 
 [node name="Sprite3D" parent="WallR/EntityContainer" index="1"]
 texture = ExtResource("9_egi8r")
+
+[node name="Cityscape" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(1.095, 0, 0, 0, 1.02603, 1.52782, 0, -0.541152, 2.89679, 0, 16.9598, 0)
+extra_cull_margin = 100.0
+mesh = SubResource("CylinderMesh_e7qbr")
 
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]

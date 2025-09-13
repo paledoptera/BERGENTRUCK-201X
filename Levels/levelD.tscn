@@ -97,11 +97,11 @@ _data = {
 
 [node name="LevelD" instance=ExtResource("1_dumou")]
 music = ExtResource("2_aqnv7")
-item_queue_intro = Array[String](["uid://4gx4xn01pkxc"])
-item_queue_mid = Array[String](["uid://4gx4xn01pkxc"])
-item_queue_end = Array[String](["uid://4gx4xn01pkxc"])
+item_queue_intro = Array[String](["uid://4gx4xn01pkxc", "uid://ds3gw8cnub01d", "uid://btdiac7sycvm2"])
+item_queue_mid = Array[String](["uid://4gx4xn01pkxc", "uid://ds3gw8cnub01d", "uid://btdiac7sycvm2"])
+item_queue_end = Array[String](["uid://4gx4xn01pkxc", "uid://ds3gw8cnub01d", "uid://btdiac7sycvm2"])
 level_code = "D (Dog Race)"
-item_spawn_threshold = 500.0
+item_spawn_threshold = 200.0
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_qufdn")

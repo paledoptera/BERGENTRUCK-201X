@@ -37,7 +37,7 @@ func hit(player) -> void:
 	var tween = player.create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	tween.tween_property(player.get_node("Camera3D"),"size",.01,2.0)
+	tween.tween_property(player, "frustum_size",.01,2.0)
 	#tween.tween_property(player.get_node("Visuals"),"scale",Vector2(0.85,0.85),1.0)
 	#ween.tween_property(player.get_node("Visuals"),"position",Vector2(160,120),1.0)
 	#player.get_node("Camera3D").size = .01

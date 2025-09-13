@@ -18,6 +18,7 @@ const DRIFT_ACCELERATION = 0.01
 @export var boost: float = 0.0
 @export var friction_impact: float = 0.7
 @export var angle_lerp: float = 0.2
+@export var frustum_size: float = 0.007
 
 var turn_angle = Vector2(0.0,0.0)
 var turn_speed = 0.0
@@ -100,7 +101,7 @@ func _physics_process(delta: float) -> void:
 	
 	_gear_mechanics()
 	
-	speed = lerp(speed,float(gear*3.34),friction*delta)
+	speed = lerp(speed,float(gear*3.34)+float(boost*5.0),(friction+boost)*delta)
 	
 	_steering_mechanics()
 	_hand_visuals()
@@ -138,16 +139,21 @@ func _physics_process(delta: float) -> void:
 	
 	set_car_pos(delta)
 	$Visuals.rotation = lerp($Visuals.rotation,visuals_angle*0.6,0.45)
-	$Visuals.global_position.x = lerp($Visuals.global_position.x,(160+(visuals_angle*100)+((-visuals_angle*200)))+(car_shake.x),0.8)
-	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*30),0.4)
+	$Visuals.global_position.x = lerp($Visuals.global_position.x,(160+(visuals_angle*400)+((-visuals_angle*200)))+(car_shake.x),0.8)
+	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*20),0.4)
 	$Visuals.skew = ((-visuals_angle)*(1-friction))/2
-	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*200)*(1-friction)),0.3)
-	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50),0.2)
+	$Visuals.scale = Vector2(1.0,1.0) - Vector2(boost*0.1,boost*0.1)
+	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50)+(car_velocity.y*30),0.2)
+	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*400)*(1-friction)),0.2)
+	
+	$Speedlines.modulate = Color("ffffff",0.0).lerp(Color.WHITE,boost)
+	$Speedlines.scale = Vector2(3.3-(boost),3.3-(boost))
 	
 
 func set_car_pos(delta: float):
 	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
 	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
+	$Camera3D.size = frustum_size + (boost/900)
 
 
 func skin_change():
@@ -607,7 +613,7 @@ func _correct_sprite_size(object: Node) -> void:
 
 func _get_shake(delta: float) -> Vector2:
 	noise_i += delta * screenshake_speed
-	screenshake_strength = lerp(screenshake_strength,0.0,screenshake_decay*delta)
+	screenshake_strength = lerp(screenshake_strength,0.0+(boost*10.0),screenshake_decay*delta)
 	return Vector2(
 		noise.get_noise_2d(1,noise_i) * screenshake_strength,
 		noise.get_noise_2d(100, noise_i) * screenshake_strength
@@ -661,3 +667,7 @@ func shoot():
 func _on_drunk_timer_timeout():
 	drunkness += 1
 	drunk_steer = [-1,1].pick_random()
+
+func trigger_boost(level: int = 1):
+	$BoostPlayer.stop()
+	$BoostPlayer.play("boost")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds3gw8cnub01d"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_nttc0"]
+[ext_resource type="Texture2D" uid="uid://d0uwlkcjq2krd" path="res://Entities/Assets/Visuals/traffic_cone.png" id="2_lyurc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lyurc"]
+radius = 0.608
+height = 3.548
+
+[node name="Cone" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_nttc0")]
+solid = false
+stompable = true
+damage = 5.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.15
+beam_on_spawn = 4
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = SubResource("CapsuleShape3D_lyurc")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 32)
+pixel_size = 0.15
+texture = ExtResource("2_lyurc")

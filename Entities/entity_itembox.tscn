@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://btdiac7sycvm2"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_deoik"]
+[ext_resource type="Texture2D" uid="uid://cdo528brtg7n7" path="res://Entities/Assets/Visuals/item_box.png" id="2_qu1wx"]
+
+[node name="Entity" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_deoik")]
+solid = false
+stompable = true
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.1
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 37.66)
+pixel_size = 0.1
+texture = ExtResource("2_qu1wx")

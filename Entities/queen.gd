@@ -93,7 +93,7 @@ func hit(player) -> void:
 func _start_enter() -> void:
 	var tween = player.create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(player.get_node("Camera3D"),"size",.01,2.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tween.tween_property(player,"frustum_size",.01,2.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	keeping_up_with_player = true
 	attacks_used = 0
 	$EntityContainer/CollisionShape3D.disabled = false

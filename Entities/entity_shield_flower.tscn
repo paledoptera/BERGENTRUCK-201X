@@ -16,11 +16,12 @@ metadata/_custom_type_script = "uid://x4oraccw1vua"
 radius = 2.3733
 height = 6.92655
 
-[node name="Bush2" instance=ExtResource("1_jl6cv")]
+[node name="ShieldFlower" instance=ExtResource("1_jl6cv")]
 items = Array[ExtResource("2_6fn5a")]([SubResource("Resource_x1hwt")])
 car_jump_mult = 0.0
 hit_sound_effect = ExtResource("4_v2iim")
 particle_effect = 3
+beam_on_spawn = 1
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
 transform = Transform3D(1.48847, 0, 0, 0, 1.48847, 0, 0, 0, 1.48847, 0, 0.432386, 0)

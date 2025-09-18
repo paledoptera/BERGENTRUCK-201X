@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bduavdq3r3w4p"]
+
+[ext_resource type="PackedScene" uid="uid://1nxnu6rfn7aw" path="res://UI/speech_bubble.tscn" id="1_3rrwn"]
+[ext_resource type="Script" uid="uid://cf0o0ln53ruxq" path="res://UI/speech_bubble_3d.gd" id="1_xjbqy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3rrwn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rrwn"]
+resource_local_to_scene = true
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_3rrwn")
+texture_filter = 0
+billboard_mode = 1
+fixed_size = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_3rrwn"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_3rrwn")
+size = Vector2(4.77, 2.58)
+
+[node name="SpeechBubble3D" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_3rrwn")
+script = ExtResource("1_xjbqy")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+oversampling = false
+oversampling_override = 0.275
+size = Vector2i(159, 86)
+size_2d_override = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="SpeechBubble" parent="SubViewport" instance=ExtResource("1_3rrwn")]
+position = Vector2(79, 43)

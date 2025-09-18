@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=4 uid="uid://b0obvicgtatpa"]
+[gd_scene load_steps=36 format=4 uid="uid://b0obvicgtatpa"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_q4tt2"]
 [ext_resource type="AudioStream" uid="uid://bi7n1we3ctc68" path="res://Global/Music/KNOCK YOU DOWN.ogg" id="2_cfrn7"]
 [ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="3_4kq2w"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="4_u3bq1"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="5_u0esn"]
+[ext_resource type="PackedScene" uid="uid://1nxnu6rfn7aw" path="res://UI/speech_bubble.tscn" id="6_cfrn7"]
 [ext_resource type="PackedScene" uid="uid://pgoef8rvc4p3" path="res://Levels/Assets/Visuals/spring.blend" id="6_cqv2q"]
 [ext_resource type="PackedScene" uid="uid://b3fxsryei52e4" path="res://Levels/Assets/Visuals/boxing glove.blend" id="7_f2jwh"]
 [ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="8_lpud7"]
@@ -588,25 +589,32 @@ modulate = Color(0.34902, 0.486275, 0.670588, 1)
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
 texture = ExtResource("5_u0esn")
 
+[node name="SpeechBubble1" parent="Player/Visuals/Asgore" index="3" instance=ExtResource("6_cfrn7")]
+position = Vector2(202, 187)
+flip_h = true
+text = "Why,
+thank you!"
+delay = 4.0
+
 [node name="ArmR" type="SpringArm3D" parent="Player/Camera3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, 3.189, -4.293, -1.347)
 spring_length = 0.09
 
 [node name="Spring" parent="Player/Camera3D/ArmR" index="0" instance=ExtResource("6_cqv2q")]
-transform = Transform3D(-1, 0, 0, 0, 0.236181, 0.75471, 0, -0.271696, 0.656058, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 0.23618107, 0.75471014, 0, -0.27169594, 0.6560578, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/Spring" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.2)
-sorting_offset = 1e+07
+sorting_offset = 10000000.0
 sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
 [node name="GloveR" parent="Player/Camera3D/ArmR" index="1" instance=ExtResource("7_f2jwh")]
-transform = Transform3D(0.0207696, -0.0295968, -0.850136, -0.452175, -0.216233, 0.0480224, -0.50879, 0.190964, -0.0773826, 0.000172615, 7.9155e-05, 0.000374794)
+transform = Transform3D(0.0207696, -0.0295968, -0.85013634, -0.4521748, -0.2162332, 0.048022415, -0.50879025, 0.19096376, -0.07738261, 0.000172615, 7.9155e-05, 0.000374794)
 
 [node name="Cube" parent="Player/Camera3D/ArmR/GloveR" index="0"]
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)
-sorting_offset = 1e+07
+sorting_offset = 10000000.0
 sorting_use_aabb_center = false
 surface_material_override/0 = SubResource("StandardMaterial3D_s615m")
 
@@ -625,14 +633,14 @@ transform = Transform3D(1, 0, 0, 0, -0.866025, -0.5, 0, 0.5, -0.866025, -3.269, 
 spring_length = 0.09
 
 [node name="Spring" parent="Player/Camera3D/ArmL" index="0" instance=ExtResource("6_cqv2q")]
-transform = Transform3D(-1, 0, 0, 0, 1, 2.53518e-06, 0, -2.53518e-06, 1, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 2.5351817e-06, 0, -2.5351817e-06, 1, 0, 0, 0)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/Spring" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.2)
 surface_material_override/0 = SubResource("StandardMaterial3D_7lek7")
 
 [node name="GloveL" parent="Player/Camera3D/ArmL" index="1" instance=ExtResource("7_f2jwh")]
-transform = Transform3D(0.0712656, -0.00544697, 0.850154, -0.452317, -0.216186, 0.0477274, -0.504075, 0.193219, 0.0773672, 0.000272751, -0.000102043, 0.000315666)
+transform = Transform3D(0.07126561, -0.00544697, 0.85015404, -0.45231712, -0.21618636, 0.04772737, -0.5040749, 0.19321854, 0.07736716, 0.000272751, -0.000102043, 0.000315666)
 
 [node name="Cube" parent="Player/Camera3D/ArmL/GloveL" index="0"]
 transform = Transform3D(0.999631, 0.00520581, -0.0266696, -0.00403872, 0.99904, 0.0436283, 0.0268711, -0.0435045, 0.998692, 0, 0, 0)

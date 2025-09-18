@@ -111,7 +111,7 @@ level_code = "1 (Flowers)"
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_utqd4")
 
-[node name="SpeechBubbles" parent="Player/Visuals/Asgore" index="3" instance=ExtResource("11_u55on")]
+[node name="SpeechBubble1" parent="Player/Visuals/Asgore" index="3" instance=ExtResource("11_u55on")]
 position = Vector2(202, 187)
 flip_h = true
 text = "What a

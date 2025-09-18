@@ -1,0 +1,202 @@
+[gd_scene load_steps=9 format=3 uid="uid://1nxnu6rfn7aw"]
+
+[ext_resource type="Texture2D" uid="uid://bvmdri2h6pd2u" path="res://UI/Assets/Visuals/speech_bubble_large.png" id="1_hqh3f"]
+[ext_resource type="Script" uid="uid://w4d7loh3wdcq" path="res://UI/speech_bubble.gd" id="2_re2bb"]
+[ext_resource type="AudioStream" uid="uid://cjkg2bw1yl0j8" path="res://Global/SFX/Asgore Talk.wav" id="3_re2bb"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="4_re2bb"]
+
+[sub_resource type="Theme" id="Theme_re2bb"]
+default_font = ExtResource("4_re2bb")
+RichTextLabel/constants/line_separation = 8
+
+[sub_resource type="Animation" id="Animation_hqh3f"]
+resource_name = "textbox"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 0.5, 0),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.7, 0.2), Vector2(1, 0.68), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.46666667),
+"transitions": PackedFloat32Array(1, 1.4640859, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 3), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.03490658503988659, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 0.29730183, 1),
+"update": 0,
+"values": [Vector2(-37, -21), Vector2(-37, -24.275), Vector2(-37, -18), Vector2(-37, -21)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 3.1666667, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1.9318726, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_snkjx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, -18)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re2bb"]
+_data = {
+&"RESET": SubResource("Animation_snkjx"),
+&"textbox": SubResource("Animation_hqh3f")
+}
+
+[node name="SpeechBubbles" type="Sprite2D"]
+z_index = 4096
+texture = ExtResource("1_hqh3f")
+script = ExtResource("2_re2bb")
+talksound = ExtResource("3_re2bb")
+
+[node name="TextPivot" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -37.0
+offset_top = -18.0
+offset_right = 109.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme = SubResource("Theme_re2bb")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -2
+theme_override_constants/paragraph_separation = -2
+theme_override_font_sizes/normal_font_size = 16
+text = "Test test
+test test
+test test"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_re2bb")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

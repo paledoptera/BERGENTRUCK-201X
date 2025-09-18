@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7p8pcqopqawn"]
+[gd_scene load_steps=26 format=3 uid="uid://c7p8pcqopqawn"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_t21ke"]
 [ext_resource type="Texture2D" uid="uid://cknf7v441tka6" path="res://Levels/Assets/Visuals/grass.png" id="2_i4kf4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b770jtdedvewt" path="res://Levels/Assets/Visuals/backgrounds/Background_8.png" id="8_pdma0"]
 [ext_resource type="Texture2D" uid="uid://dje1ejxays164" path="res://Levels/Assets/Visuals/backgrounds/Background_278.png" id="9_utqd4"]
 [ext_resource type="Texture2D" uid="uid://dt5g3ortdpmkb" path="res://Levels/Assets/Visuals/backgrounds/Background_279.png" id="10_u55on"]
+[ext_resource type="PackedScene" uid="uid://1nxnu6rfn7aw" path="res://UI/speech_bubble.tscn" id="11_u55on"]
 
 [sub_resource type="Environment" id="Environment_utqd4"]
 background_mode = 1
@@ -109,6 +110,14 @@ level_code = "1 (Flowers)"
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_utqd4")
+
+[node name="SpeechBubbles" parent="Player/Visuals/Asgore" index="3" instance=ExtResource("11_u55on")]
+position = Vector2(202, 187)
+flip_h = true
+text = "What a
+lovely day
+for a drive!"
+delay = 4.0
 
 [node name="GrassL" type="MultiMeshInstance3D" parent="Player/Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 12.75, 0)

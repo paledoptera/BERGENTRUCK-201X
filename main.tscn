@@ -194,6 +194,7 @@ canvas_item_default_texture_filter = 0
 physics_object_picking = true
 physics_object_picking_sort = true
 physics_object_picking_first_only = true
+oversampling = false
 size = Vector2i(320, 240)
 size_2d_override = Vector2i(400, 255)
 render_target_update_mode = 4

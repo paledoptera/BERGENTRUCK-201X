@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7p8pcqopqawn"]
+[gd_scene load_steps=29 format=3 uid="uid://c7p8pcqopqawn"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_t21ke"]
 [ext_resource type="Texture2D" uid="uid://cknf7v441tka6" path="res://Levels/Assets/Visuals/grass.png" id="2_i4kf4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b770jtdedvewt" path="res://Levels/Assets/Visuals/backgrounds/Background_8.png" id="8_pdma0"]
 [ext_resource type="Texture2D" uid="uid://dje1ejxays164" path="res://Levels/Assets/Visuals/backgrounds/Background_278.png" id="9_utqd4"]
 [ext_resource type="Texture2D" uid="uid://dt5g3ortdpmkb" path="res://Levels/Assets/Visuals/backgrounds/Background_279.png" id="10_u55on"]
+[ext_resource type="Texture2D" uid="uid://6g6j1wxm6k4s" path="res://UI/Assets/Visuals/Shine.png" id="11_pdma0"]
 [ext_resource type="PackedScene" uid="uid://1nxnu6rfn7aw" path="res://UI/speech_bubble.tscn" id="11_u55on"]
 
 [sub_resource type="Environment" id="Environment_utqd4"]
@@ -90,15 +91,29 @@ material = SubResource("StandardMaterial3D_pdma0")
 size = Vector2(500, 80)
 orientation = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkwct"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20gr8"]
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("10_u55on")
 texture_filter = 0
 texture_repeat = false
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_sqs0x"]
+material = SubResource("StandardMaterial3D_20gr8")
+size = Vector2(500, 80)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jijn"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.5)
+albedo_texture = ExtResource("11_pdma0")
+texture_filter = 0
+texture_repeat = false
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_r7a1c"]
-material = SubResource("StandardMaterial3D_bkwct")
+material = SubResource("StandardMaterial3D_1jijn")
 size = Vector2(500, 80)
 orientation = 2
 
@@ -142,7 +157,7 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 58.854, -15.0562, -20.3002)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
-modulate = Color(0.833754, 0.609729, 0.692476, 1)
+modulate = Color(0.9553575, 0.88179743, 0.90717477, 1)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("3_fy36t")
@@ -151,7 +166,7 @@ texture = ExtResource("3_fy36t")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 71.3272, -12.3203, -17.0096)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
-modulate = Color(0.694118, 0.427451, 0.533333, 1)
+modulate = Color(0.8440857, 0.63011354, 0.70948225, 1)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("4_njhy2")
@@ -160,7 +175,7 @@ texture = ExtResource("4_njhy2")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 71.0679, -8.60478, -11.1303)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
-modulate = Color(0.835294, 0.607843, 0.694118, 1)
+modulate = Color(0.7964215, 0.54244024, 0.64111894, 1)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("5_m6f6w")
@@ -180,7 +195,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 54.1665, -17.8517, -17.7473)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
 flip_h = true
-modulate = Color(0.835294, 0.607843, 0.694118, 1)
+modulate = Color(0.9603202, 0.8963095, 0.9183389, 1)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("4_njhy2")
@@ -199,7 +214,7 @@ texture = ExtResource("3_fy36t")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 56.8629, -11.7806, -9.87113)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
-modulate = Color(0.694118, 0.427451, 0.533333, 1)
+modulate = Color(0.9571623, 0.88940346, 0.9123562, 1)
 pixel_size = 0.05
 billboard = 1
 texture = ExtResource("3_fy36t")
@@ -218,7 +233,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 81.9994, -19.3277, -18.4371)
 sorting_use_aabb_center = false
 offset = Vector2(0, 127)
 flip_h = true
-modulate = Color(0.833754, 0.609729, 0.692476, 1)
+modulate = Color(0.6373326, 0.37518725, 0.48198646, 1)
 pixel_size = 0.07
 billboard = 1
 texture = ExtResource("3_fy36t")
@@ -303,6 +318,10 @@ mesh = SubResource("PlaneMesh_1jijn")
 
 [node name="BackgroundNearer" type="MeshInstance3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 17.4796, -67.7938, -81.1737)
+mesh = SubResource("PlaneMesh_sqs0x")
+
+[node name="BackgroundOverlay" type="MeshInstance3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 17.4796, -43.927216, -60.888992)
 mesh = SubResource("PlaneMesh_r7a1c")
 
 [editable path="Player"]

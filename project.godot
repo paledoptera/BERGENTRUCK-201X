@@ -37,7 +37,7 @@ window/size/viewport_height=270
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
-window/vsync/vsync_mode=2
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 
 [editor_plugins]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccpu6yt87u87w" path="res://Entities/bkg_building.tscn" id="2_upnl3"]
 [ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="3_e7qbr"]
 [ext_resource type="Texture2D" uid="uid://dhdsrm425eepr" path="res://Levels/Assets/Visuals/cardark.png" id="4_dfrsb"]
-[ext_resource type="Material" uid="uid://ddsqja20t5b1y" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
+[ext_resource type="Material" path="res://Levels/Assets/Visuals/Cyber Ground Texture.tres" id="5_0dyyc"]
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="6_0rcmt"]
 [ext_resource type="Texture2D" uid="uid://dpnjp872fjwup" path="res://Entities/Assets/Visuals/Spamton/punchers.png" id="6_5k8mk"]
 [ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="7_h0uai"]
@@ -324,9 +324,9 @@ cap_bottom = false
 [node name="LevelS" instance=ExtResource("1_b2mgy")]
 script = ExtResource("2_e7qbr")
 music = null
-item_queue_intro = Array[String](["uid://bxdf0t3rf0pnj", ""])
-item_queue_mid = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
-item_queue_end = Array[String](["uid://bxdf0t3rf0pnj", "uid://cqhgj0b8d0w3x", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
+item_queue_intro = Array[String]([""])
+item_queue_mid = Array[String](["uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
+item_queue_end = Array[String](["uid://cqhgj0b8d0w3x", "uid://cqhgj0b8d0w3x", "uid://butoedeih22pw"])
 trees = ExtResource("2_upnl3")
 level_val = 7
 level_code = "QX (Buyout City)"
@@ -555,6 +555,12 @@ texture = ExtResource("9_egi8r")
 transform = Transform3D(1.095, 0, 0, 0, 1.02603, 1.52782, 0, -0.541152, 2.89679, 0, 16.9598, 0)
 extra_cull_margin = 100.0
 mesh = SubResource("CylinderMesh_e7qbr")
+
+[node name="GunBushSpawnTimer" type="Timer" parent="." index="9"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="GunBushSpawnTimer" to="." method="_on_gun_bush_spawn_timer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]

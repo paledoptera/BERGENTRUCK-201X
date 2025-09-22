@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cdroslw0y1fx2" path="res://Entities/Assets/Visuals/Spamton/heartblink.png" id="4_tcn2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8fhw"]
-size = Vector3(8.76147, 8.03174, 1)
+size = Vector3(8.76147, 8.03174, 4.070801)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_suu52"]
 animations = [{
@@ -87,7 +87,7 @@ particle_effect = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0410919, 20, 0)
 
 [node name="CollisionShape3D" parent="EntityContainer" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0489888, 7.53799, 1.14815)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0489888, 7.5379906, -0.38725042)
 shape = SubResource("BoxShape3D_p8fhw")
 
 [node name="Sprite3D" parent="EntityContainer" index="1"]

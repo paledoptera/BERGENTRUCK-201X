@@ -3,17 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btr7flpovr0ou"
-path.s3tc="res://.godot/imported/spawn_beam.png-997e0a829d3dea55d933bb4217ca4441.s3tc.ctex"
 path.etc2="res://.godot/imported/spawn_beam.png-997e0a829d3dea55d933bb4217ca4441.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Entities/Assets/Visuals/spawn_beam.png"
-dest_files=["res://.godot/imported/spawn_beam.png-997e0a829d3dea55d933bb4217ca4441.s3tc.ctex", "res://.godot/imported/spawn_beam.png-997e0a829d3dea55d933bb4217ca4441.etc2.ctex"]
+dest_files=["res://.godot/imported/spawn_beam.png-997e0a829d3dea55d933bb4217ca4441.etc2.ctex"]
 
 [params]
 

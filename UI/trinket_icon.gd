@@ -3,6 +3,7 @@ extends TextureRect
 @export var ID = 0
 @export var never_locked = false
 @export var fresheners = false
+@export var selected_icon = preload("res://Levels/Assets/Visuals/bobbles/kris.png")
 var unlocked = true
 
 func _ready():

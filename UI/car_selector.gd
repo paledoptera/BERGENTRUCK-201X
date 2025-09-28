@@ -8,15 +8,15 @@ var scroll_amount
 
 func _ready():
 	scroll_amount = 39
-	select_saved($BobbleScroll,Global.player_save.flags.current_bobble_id,scroll_amount,bobbleSelected)
-	select_saved($FreshenerScroll,Global.player_save.flags.current_freshener_id,scroll_amount,freshenerSelected)
+	select_saved($BobbleScroll,Global.player_save.flags.current_bobble_id,bobbleSelected)
+	select_saved($FreshenerScroll,Global.player_save.flags.current_freshener_id,freshenerSelected)
 	update_selected($BobbleScroll/HBoxContainer.get_children(),$BobbleScroll,bobbleSelected)
 	update_selected($FreshenerScroll/HBoxContainer.get_children(),$FreshenerScroll,freshenerSelected)
 	#update color
 	$CarColor/ColorPicker.color.h = Global.player_save.flags.current_car_hue
 	$car.modulate = $CarColor/ColorPicker.color
 
-func select_saved(scroll_container:ScrollContainer,ID:int,scroll_amount:float,current_character:Node):
+func select_saved(scroll_container:ScrollContainer,ID:int,current_character:Node):
 	var Hbox = scroll_container.get_node("HBoxContainer")
 	var characters = Hbox.get_children()
 	var characterID = 0
@@ -102,7 +102,7 @@ func _on_fresh_left_pressed():
 func _on_fresh_right_pressed():
 	freshenerSelected = await scroll_right($FreshenerScroll,freshenerSelected)
 
-func update_selected(characters:Array,scroll_container:ScrollContainer,current_character:Node,loading = false):
+func update_selected(characters:Array,scroll_container:ScrollContainer,current_character:Node):
 	var Name = $BobbleName
 	if scroll_container == $FreshenerScroll:
 		Name = $FreshnerName
@@ -111,10 +111,16 @@ func update_selected(characters:Array,scroll_container:ScrollContainer,current_c
 			node.modulate = Color(1,1,1,1)
 		current_character.modulate = Color(5,5,0,1)
 		Name.text = current_character.name
-		if Name == $FreshnerName:
+		if Name == $FreshnerName: #if frreshener
 			Global.player_save.flags.current_freshener_id = current_character.ID
+			$freshener.texture = current_character.selected_icon
+			$freshener.scale = Vector2(.2,.2)
+			create_tween().tween_property($freshener,"scale",Vector2(1,1),.3).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 		else:
 			Global.player_save.flags.current_bobble_id = current_character.ID
+			$bobble.texture = current_character.selected_icon
+			$bobble.scale = Vector2(.2,.2)
+			create_tween().tween_property($bobble,"scale",Vector2(1,1),.3).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	else:
 		Name.text = "???"
 	Name.scale = Vector2(0.4,0.4)

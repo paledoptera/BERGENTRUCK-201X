@@ -228,11 +228,13 @@ func skin_change():
 		skin_nodes[i].texture = skin_assets[i]
 
 func bobble_change():
-	var bobble = $Visuals/Bobble
+	var bobblehead = $Visuals/BobbleHead/Sprite2D
+	var bobbleroot = $Visuals/BobbleRoot/Sprite2D
 	match Global.player_save.flags.current_bobble_id:
 		#0 is default
 		1:
-			bobble.texture = preload("uid://bxl5jnxhfu52f") #krisdark.png
+			bobblehead.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
+			bobbleroot.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
 		#2: #TV Time
 			
 		#3:  #Comedian
@@ -245,7 +247,7 @@ func bobble_change():
 			
 
 func freshner_change():
-	var freshner = $Visuals/Freshener
+	var freshner = $Visuals/FreshenerTag/FreshenerTag
 	match Global.player_save.flags.current_freshener_id:
 		#0 is default
 		1:  #Fluffy Dice

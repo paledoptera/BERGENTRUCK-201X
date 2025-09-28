@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=41 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://dgg7ndct2nlp1" path="res://UI/car_selector.gd" id="24_blw1y"]
 [ext_resource type="Texture2D" uid="uid://ds1kxg2tqpdht" path="res://UI/Assets/Visuals/CarWhite.png" id="25_0xhjr"]
 [ext_resource type="PackedScene" uid="uid://frrp0sjlyi21" path="res://UI/trinket_icon.tscn" id="25_l6dl2"]
+[ext_resource type="Texture2D" uid="uid://bxl5jnxhfu52f" path="res://Levels/Assets/Visuals/bobbles/krisdark.png" id="25_vyblk"]
 [ext_resource type="Texture2D" uid="uid://bx0gawqks5w52" path="res://Levels/Assets/Visuals/bobbles/kris.png" id="26_wi4v3"]
 [ext_resource type="Texture2D" uid="uid://eoibsc5nrqgd" path="res://Levels/Assets/Visuals/fresheners/familyvalues.png" id="27_l6dl2"]
 
@@ -807,6 +808,7 @@ ID = 6
 [node name="Dark The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 1
+selected_icon = ExtResource("25_vyblk")
 
 [node name="The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
@@ -907,6 +909,7 @@ fresheners = true
 [node name="Family Values" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 fresheners = true
+selected_icon = ExtResource("27_l6dl2")
 
 [node name="Fluffy Dice" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2

@@ -42,7 +42,7 @@ mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godot-box2d/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
 
 [global_group]
 
@@ -74,7 +74,7 @@ test={
 
 [physics]
 
-2d/physics_engine="Box2D"
+2d/physics_engine="Rapier2D"
 3d/default_gravity=1.0
 
 [rendering]

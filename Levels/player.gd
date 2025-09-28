@@ -32,6 +32,7 @@ var angle = 0.0
 var drift = 0.0
 var siner = 0.0
 var friction = 1.0
+var land_anim = false
 
 var car_position = Vector3.ZERO
 var car_velocity = Vector3.ZERO
@@ -53,12 +54,14 @@ var drunk_steer:int = 0
 var current_items_in_face_region : Array[Item]
 
 var noise_i: float = 0.0
+var noise_bh: float = 0.0
 var screenshake_strength : float = 4.0
 
 @onready var noise = FastNoiseLite.new()
 
 
 func _ready() -> void:
+	$Visuals.self_modulate.h = Global.get_flag("current_car_hue")
 	Global.player_save.time = 0
 	$Background.visible = true
 	if Global.modifiers.NoSlow:
@@ -90,6 +93,21 @@ func _physics_process(delta: float) -> void:
 	car_velocity.z = lerp(car_velocity.z,(0.003*speed),friction)
 	$Ground.rotation.x += car_velocity.z
 	entities.rotation.x += car_velocity.z
+	#
+	#var line = $Visuals/Line2D
+	#line.points[0] = $Visuals/FreshenerRoot.global_position
+	#line.points[1] = $Visuals/FreshenerTag/Sprite2D.global_position
+	#
+	_bobblehead(delta)
+	
+	#$Visuals/FreshenerString.look_at($Visuals/FreshenerTag/Sprite2D.global_position)
+	
+	
+	#$Visuals/FreshenerString/Sprite2D.rotation = $Visuals/FreshenerString.linear_velocity.angle()
+	#$Visuals/FreshenerTag/Sprite2D.rotation = $Visuals/FreshenerTag.linear_velocity.angle()
+	#print($Visuals/BobbleHead.linear_velocity.angle())
+	#$Visuals/BobbleHead/Sprite2D.rotation = $Visuals/BobbleHead.linear_velocity.angle()
+	
 	
 	#if friction < 0.3:
 		#$CarScreech.play()
@@ -111,7 +129,7 @@ func _physics_process(delta: float) -> void:
 	_items_in_face()
 	$Camera2D.offset=_get_shake(delta)
 	
-	$Visuals/Parallax2D.scroll_offset.x = car_position.x
+	$Visuals/Parallax2D.scroll_offset.x = car_position.x*5
 	car_position.x += car_velocity.x
 	
 	if last_angle != car_angle.x:
@@ -141,7 +159,7 @@ func _physics_process(delta: float) -> void:
 	$Visuals.rotation = lerp($Visuals.rotation,visuals_angle*0.6,0.45)
 	$Visuals.global_position.x = lerp($Visuals.global_position.x,(160+(visuals_angle*400)+((-visuals_angle*200)))+(car_shake.x),0.8)
 	$Visuals.global_position.y = lerp($Visuals.global_position.y,130+(car_velocity.y*20),0.4)
-	$Visuals.skew = ((-visuals_angle)*(1-friction))/2
+	$Visuals.skew = (((-visuals_angle)*(1-friction))*1.2)
 	$Visuals.scale = Vector2(1.0,1.0) - Vector2(boost*0.1,boost*0.1)
 	visual_asgore.position.y = lerp(visual_asgore.position.y,-127+((hand.position.y)/50)+(car_velocity.y*30),0.2)
 	visual_asgore.position.x = lerp(visual_asgore.position.x,-210+(visuals_angle*100)+((-visuals_angle*400)*(1-friction)),0.2)
@@ -246,13 +264,13 @@ func freshner_change():
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):
 		hand.frame = 1
-		$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = false
+		#$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = false
 	else:
 		hand.frame = 0
-		$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = true
+		#$Visuals/Hand/RigidBody2D/CollisionShape2D.disabled = true
 	
 	
-	$Visuals/Hand/RigidBody2D.global_position = $Visuals/Hand.global_position
+	#$Visuals/Hand/RigidBody2D.global_position = $Visuals/Hand.global_position
 	
 	var wheel_dragpoint = widget_wheel.get_node("DraggableItem")
 	var gearbox_dragpoint = widget_gear.get_node("DraggableItem")
@@ -559,15 +577,22 @@ func _gravity_mechanics(delta: float) -> void:
 	$Camera3D.position.y += car_velocity.y
 	$Camera3D.position.z = 10+($Camera3D.position.y-8)
 	
+	if $Camera3D.position.y >= 12.0:
+		land_anim = true
+	
 	if $Camera3D.position.y <= 8.0:
 		$Camera3D.position.y = 8.0
 		car_velocity.y = 0
 		if in_air:
+			if land_anim:
+				land_anim = false
+				$CharacterAnims.play("land")
 			car_velocity.x += randf_range(-speed,speed)/20
 			in_air = false
 			car_velocity.z *= 0.8
 	elif $Camera3D.position.y > 8.0:
 		if not in_air:
+			$CharacterAnims.play("jump")
 			car_velocity.x += randf_range(-speed,speed)/20
 			car_velocity.y *= speed/10
 			in_air = true
@@ -619,6 +644,16 @@ func _get_shake(delta: float) -> Vector2:
 		noise.get_noise_2d(100, noise_i) * screenshake_strength
 	)
 
+func _bobblehead(delta: float):
+	noise_bh += delta * 100.0
+	var bh_strength = screenshake_strength+50.0
+	var bh_vector = Vector2(
+		noise.get_noise_2d(1,noise_bh) * bh_strength,
+		noise.get_noise_2d(100,noise_bh) * bh_strength
+	)
+	#$Visuals/BobbleHead.rotation = lerp_angle($Visuals/BobbleHead.rotation,bh_vector.angle(),0.5)
+	
+
 
 func _health_changed(previous_hp, new_hp) -> void:
 	var difference = previous_hp-new_hp
@@ -630,6 +665,8 @@ func _health_changed(previous_hp, new_hp) -> void:
 	screenshake_strength += value
 	$DamageSplash.self_modulate.a += value/30
 	Audio.play_sfx(preload("uid://c4ta6hdrl6ci5"),1.01,2)
+	$CharacterAnims.play("hurt")
+	particle_trigger(4)
 	#$CarHurt.play()
 
 func particle_trigger(part_type = 0, value = 5):
@@ -655,6 +692,10 @@ func particle_trigger(part_type = 0, value = 5):
 			particlefx.emitting = true
 		3:
 			var particlefx = preload("res://Global/Particles/Glasspuff.tscn").instantiate()
+			$Particles/Explosion.add_child(particlefx)
+			particlefx.emitting = true
+		4:
+			var particlefx = preload("uid://74yyrit7t5rw").instantiate()
 			$Particles/Explosion.add_child(particlefx)
 			particlefx.emitting = true
 

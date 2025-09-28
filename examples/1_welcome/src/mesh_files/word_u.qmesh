@@ -1,0 +1,455 @@
+{
+	"meshes": [
+		{
+			"internal_springs": [
+				[
+					0,
+					14
+				],
+				[
+					15,
+					13
+				],
+				[
+					16,
+					12
+				],
+				[
+					17,
+					11
+				],
+				[
+					11,
+					5
+				],
+				[
+					18,
+					11
+				],
+				[
+					11,
+					4
+				],
+				[
+					11,
+					8
+				],
+				[
+					9,
+					6
+				],
+				[
+					10,
+					25
+				],
+				[
+					6,
+					10
+				],
+				[
+					6,
+					25
+				],
+				[
+					23,
+					25
+				],
+				[
+					23,
+					24
+				],
+				[
+					21,
+					24
+				],
+				[
+					21,
+					22
+				],
+				[
+					19,
+					22
+				],
+				[
+					19,
+					20
+				],
+				[
+					3,
+					20
+				],
+				[
+					15,
+					14
+				],
+				[
+					16,
+					13
+				],
+				[
+					17,
+					12
+				],
+				[
+					8,
+					9
+				]
+			],
+			"name": "QMeshData",
+			"particles": [
+				{
+					"is_internal": false,
+					"position": [
+						-64,
+						-80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						64,
+						-80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						-80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						-80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-48,
+						80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						48,
+						80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						0.0000149999996210681,
+						80
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						0.0000149999996210681,
+						48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						-16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-32,
+						-48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-64,
+						-48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-64,
+						-16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-64,
+						16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						-64,
+						48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						-48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						64,
+						-48
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						-16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						64,
+						-16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						32,
+						16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						64,
+						16
+					],
+					"radius": 0
+				},
+				{
+					"is_internal": false,
+					"position": [
+						64,
+						48
+					],
+					"radius": 0
+				}
+			],
+			"polygon": [
+				0,
+				2,
+				14,
+				13,
+				12,
+				11,
+				9,
+				10,
+				23,
+				21,
+				19,
+				3,
+				1,
+				20,
+				22,
+				24,
+				25,
+				7,
+				6,
+				8,
+				5,
+				4,
+				18,
+				17,
+				16,
+				15
+			],
+			"position": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"springs": [
+				[
+					4,
+					18
+				],
+				[
+					18,
+					17
+				],
+				[
+					17,
+					16
+				],
+				[
+					16,
+					15
+				],
+				[
+					0,
+					2
+				],
+				[
+					2,
+					14
+				],
+				[
+					0,
+					15
+				],
+				[
+					14,
+					13
+				],
+				[
+					13,
+					12
+				],
+				[
+					12,
+					11
+				],
+				[
+					11,
+					9
+				],
+				[
+					9,
+					10
+				],
+				[
+					23,
+					21
+				],
+				[
+					10,
+					23
+				],
+				[
+					21,
+					19
+				],
+				[
+					19,
+					3
+				],
+				[
+					3,
+					1
+				],
+				[
+					1,
+					20
+				],
+				[
+					20,
+					22
+				],
+				[
+					22,
+					22
+				],
+				[
+					22,
+					24
+				],
+				[
+					24,
+					25
+				],
+				[
+					25,
+					7
+				],
+				[
+					7,
+					6
+				],
+				[
+					6,
+					8
+				],
+				[
+					8,
+					5
+				],
+				[
+					5,
+					4
+				]
+			],
+			"uv_maps": []
+		}
+	]
+}

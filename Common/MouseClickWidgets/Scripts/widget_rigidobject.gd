@@ -6,6 +6,7 @@ extends RigidBody2D
 @export var score_amount: int = 100
 @onready var lifetime: float = lifetime_in_seconds
 var strength = 50
+var item_velocity: Vector2 = Vector2(0.0,0.0)
 @export var weight: float = 1.0
 @onready var audio: = $AudioStreamPlayer
 @export var player: Node3D
@@ -31,7 +32,16 @@ func _ready() -> void :
 
 func _integrate_forces(state) -> void :
 	if $DraggableItem.drag:
-		linear_velocity = global_position.direction_to($DraggableItem.global_position) * (global_position.distance_to($DraggableItem.global_position) * strength)
+		linear_velocity *= 0.1
+		var current_velocity = global_position.direction_to($DraggableItem.global_position) * (global_position.distance_to($DraggableItem.global_position) * strength)
+		if linear_velocity.round().abs() < current_velocity.round().abs():
+			linear_velocity = current_velocity
+		#linear_velocity = global_position.direction_to($DraggableItem.global_position) * (global_position.distance_to($DraggableItem.global_position) * strength)
+		#if linear_velocity > item_velocity:
+			#item_velocity = item_velocity.max(linear_velocity)
+		#else:
+			#item_velocity *= 0.9
+		#print(linear_velocity)
 	else:
 		apply_force(global_position.direction_to(global_position + Vector2(player.car_velocity.x, player.car_velocity.y)) * (global_position.distance_to(global_position + Vector2(player.car_velocity.x, player.car_velocity.y) * strength * 50) / weight))
 
@@ -57,8 +67,8 @@ func _physics_process(delta: float) -> void :
 func _on_input_event(event: InputEvent) -> void :
 	if event is InputEventMouseButton:
 		var new_event = event
-		print(new_event.position)
-		new_event.position = global_position + new_event.position + $GrabBox.position
+		print("GLOBAL POSITION ", global_position, "  GLOBAL MOUSE POSITION ", get_global_mouse_position())
+		new_event.position = global_position + (get_global_mouse_position() - global_position)
 		$DraggableItem / MouseDragComponent.object_held_down(event)
 
 func use() -> void :

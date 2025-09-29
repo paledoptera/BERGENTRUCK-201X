@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://yolnmcssxcc"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_abe7q"]
+[ext_resource type="PackedScene" uid="uid://btdiac7sycvm2" path="res://Entities/entity_itembox.tscn" id="2_n74c2"]
+
+[sub_resource type="GDScript" id="GDScript_b42mq"]
+resource_name = "dog_gate"
+script/source = "extends Entity
+
+func _ready() -> void:
+	pass
+"
+
+[node name="Entity" instance=ExtResource("1_abe7q")]
+script = SubResource("GDScript_b42mq")
+solid = false
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = null
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 63.43)
+pixel_size = 0.3365
+billboard = 0
+texture = null
+
+[node name="Entity" parent="." index="1" instance=ExtResource("2_n74c2")]
+
+[node name="Entity2" parent="." index="2" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.042881, 0, 0)
+
+[node name="Entity5" parent="." index="3" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.760765, 0, 0)
+
+[node name="Entity7" parent="." index="4" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.81211, 0, 0)
+
+[node name="Entity3" parent="." index="5" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.189268, 0, 0)
+
+[node name="Entity4" parent="." index="6" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.338812, 0, 0)
+
+[node name="Entity6" parent="." index="7" instance=ExtResource("2_n74c2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.274147, 0, 0)

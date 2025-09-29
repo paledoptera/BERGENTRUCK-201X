@@ -1,11 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://btdiac7sycvm2"]
+[gd_scene load_steps=4 format=3 uid="uid://btdiac7sycvm2"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_deoik"]
 [ext_resource type="Texture2D" uid="uid://cdo528brtg7n7" path="res://Entities/Assets/Visuals/item_box.png" id="2_qu1wx"]
 
+[sub_resource type="GDScript" id="GDScript_qu1wx"]
+resource_name = "itembox"
+script/source = "extends Entity
+
+func _ready() -> void:
+	pass
+	#var rand_scale = randf_range(0.8,1.2)
+	#$EntityContainer/Sprite3D.pixel_size = pixel_size*rand_scale
+	#$EntityContainer/Sprite3D.flip_h = [true,false].pick_random()
+	#damage *= rand_scale
+	#car_jump_mult *= rand_scale
+"
+
 [node name="Entity" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_deoik")]
+script = SubResource("GDScript_qu1wx")
 solid = false
-stompable = true
 collision_shape = NodePath("EntityContainer/CollisionShape3D")
 pixel_size = 0.1
 

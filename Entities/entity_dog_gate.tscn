@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c72ogrigwj54j"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_63yhs"]
+[ext_resource type="Texture2D" uid="uid://b08cip1yq028r" path="res://Entities/Assets/Visuals/dog_gate.png" id="2_b42mq"]
+
+[sub_resource type="GDScript" id="GDScript_b42mq"]
+resource_name = "dog_gate"
+script/source = "extends Entity
+
+func _ready() -> void:
+	pass
+"
+
+[node name="Entity" instance=ExtResource("1_63yhs")]
+script = SubResource("GDScript_b42mq")
+solid = false
+pixel_size = 0.433
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = null
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 63.43)
+pixel_size = 0.3365
+billboard = 2
+texture = ExtResource("2_b42mq")

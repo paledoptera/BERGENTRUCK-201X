@@ -19,8 +19,9 @@ func _enter_tree() -> void:
 #region Game States
 func _title_screen_enter() -> void:
 	if discord_manager:
-		DiscordRPC.state = "Title Screen"
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Title Screen"
+		#DiscordRPC.refresh()
 	
 	if not boot:
 		boot = true
@@ -31,8 +32,9 @@ func _title_screen_enter() -> void:
 
 func _level_select_enter() -> void:
 	if discord_manager:
-		DiscordRPC.state = "Level Select"
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Level Select"
+		#DiscordRPC.refresh()
 	#if Global.get_flag("levels_beaten")[2]:
 	_change_program("uid://chf1v1go0vts5") # level_select_bonus.tscn
 	#else:
@@ -45,8 +47,9 @@ func _level_enter() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	_change_program(level_path)
 	if discord_manager:
-		DiscordRPC.state = "Level " + str(program.level_code)
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Level " + str(program.level_code)
+		#DiscordRPC.refresh()
 
 func _level_process(delta) -> void:
 	if Input.is_action_just_pressed("click_right"):
@@ -69,21 +72,24 @@ func _level_exit() -> void:
 
 func _gameover_enter() -> void:
 	if discord_manager:
-		DiscordRPC.state = "Game Over"
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Game Over"
+		#DiscordRPC.refresh()
 	Audio.stop_music(false)
 	_change_program("uid://dhue5xb8addio") # game_over.tscn
 
 func _victory_enter() -> void:
 	if discord_manager:
-		DiscordRPC.state = "Victory"
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Victory"
+		#DiscordRPC.refresh()
 	_change_program("uid://cs40bcv6qrnuo") # victory.tscn
 
 func _story_screen_enter() -> void:
 	if discord_manager:
-		DiscordRPC.state = "Getting Exposition"
-		DiscordRPC.refresh()
+		pass
+		#DiscordRPC.state = "Getting Exposition"
+		#DiscordRPC.refresh()
 	Audio.stop_music(true)
 	_change_program("uid://cguaj6qonrj1x") # story_screen.tscn
 	pass # Replace with function body.

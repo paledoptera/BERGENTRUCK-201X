@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8g372u0i4ljf"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_uvxel"]
+[ext_resource type="Texture2D" uid="uid://njhefmu5tvnu" path="res://Entities/Assets/Visuals/flowey_fake1.png" id="2_aof7c"]
+
+[node name="Entity" instance=ExtResource("1_uvxel")]
+pixel_size = 0.1
+beam_on_spawn = 4
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.1
+texture = ExtResource("2_aof7c")

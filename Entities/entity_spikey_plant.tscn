@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp874tnj528bf"]
+
+[ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_mc1g7"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_ngcr4"]
+[ext_resource type="PackedScene" uid="uid://4f5wnn3da3ug" path="res://Items/item_thorns.tscn" id="4_yds0u"]
+[ext_resource type="AudioStream" uid="uid://cfwg8525vo6lm" path="res://Global/SFX/Small Item Hit 1.wav" id="5_itxpp"]
+[ext_resource type="Texture2D" uid="uid://dr2ikmlneya8d" path="res://Entities/Assets/Visuals/spikey_plant.png" id="6_mc1g7"]
+
+[sub_resource type="Resource" id="Resource_qei76"]
+script = ExtResource("2_ngcr4")
+item = ExtResource("4_yds0u")
+drop_chance = 80
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_eh35o"]
+script = ExtResource("2_ngcr4")
+item = ExtResource("4_yds0u")
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[sub_resource type="Resource" id="Resource_8wbl0"]
+script = ExtResource("2_ngcr4")
+item = ExtResource("4_yds0u")
+drop_chance = 100
+metadata/_custom_type_script = "uid://x4oraccw1vua"
+
+[node name="Bush" instance=ExtResource("1_mc1g7")]
+items = Array[ExtResource("2_ngcr4")]([SubResource("Resource_qei76"), SubResource("Resource_eh35o"), SubResource("Resource_8wbl0")])
+damage = 2.0
+pixel_size = 0.11
+hit_sound_impact = ExtResource("5_itxpp")
+beam_on_spawn = 4
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+pixel_size = 0.11
+texture = ExtResource("6_mc1g7")

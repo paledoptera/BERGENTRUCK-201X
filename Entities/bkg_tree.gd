@@ -6,7 +6,9 @@ extends "res://Entities/entity_tree.gd"
 
 
 func _ready() -> void:
-	super()
+	if name == "BkgTree":
+		super()
+	
 	var rand_scale = randf_range(0.8,1.2)
 	$EntityContainer/Sprite3D.pixel_size = pixel_size*rand_scale
 	$EntityContainer/Sprite3D.flip_h = [true,false].pick_random()

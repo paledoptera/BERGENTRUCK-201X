@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckxnh2qwh3g02"
-path.s3tc="res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.s3tc.ctex"
-path.etc2="res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.etc2.ctex"
+uid="uid://njhefmu5tvnu"
+path.s3tc="res://.godot/imported/flowey_fake1.png-0e87c6a2b39f4412cb37c082f3a24d78.s3tc.ctex"
+path.etc2="res://.godot/imported/flowey_fake1.png-0e87c6a2b39f4412cb37c082f3a24d78.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Levels/Assets/Visuals/backgrounds/Background_207.png"
-dest_files=["res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.s3tc.ctex", "res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.etc2.ctex"]
+source_file="res://Entities/Assets/Visuals/flowey_fake1.png"
+dest_files=["res://.godot/imported/flowey_fake1.png-0e87c6a2b39f4412cb37c082f3a24d78.s3tc.ctex", "res://.godot/imported/flowey_fake1.png-0e87c6a2b39f4412cb37c082f3a24d78.etc2.ctex"]
 
 [params]
 

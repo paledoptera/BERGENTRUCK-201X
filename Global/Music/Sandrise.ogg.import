@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Sandrise.ogg-cf190fd5ba91ee23eabaf18a3302bd75
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

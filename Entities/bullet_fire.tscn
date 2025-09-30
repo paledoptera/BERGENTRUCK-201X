@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://rk541xkhowpw"]
+
+[ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p20gx"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_sn5q4"]
+[ext_resource type="Texture2D" uid="uid://btqsmkwx7ebyy" path="res://Entities/Assets/Visuals/Fire.png" id="3_p20gx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svovm"]
+radius = 1.5
+height = 5.539
+
+[node name="FireBullet" node_paths=PackedStringArray("collision_shape") instance=ExtResource("1_p20gx")]
+script = ExtResource("2_sn5q4")
+chases = false
+speed = 5.0
+solid = false
+damage = 1.0
+collision_shape = NodePath("EntityContainer/CollisionShape3D")
+pixel_size = 0.1
+particle_effect = 2
+
+[node name="CollisionShape3D" parent="EntityContainer" index="0"]
+shape = SubResource("CapsuleShape3D_svovm")
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+offset = Vector2(0, 30)
+pixel_size = 0.08
+texture = ExtResource("3_p20gx")

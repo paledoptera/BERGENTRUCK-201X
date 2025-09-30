@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckxnh2qwh3g02"
-path.s3tc="res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.s3tc.ctex"
-path.etc2="res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.etc2.ctex"
+uid="uid://cs2yyeaqclo8f"
+path.s3tc="res://.godot/imported/cactus.png-7989bae964cf6ca9edb356215b17827e.s3tc.ctex"
+path.etc2="res://.godot/imported/cactus.png-7989bae964cf6ca9edb356215b17827e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Levels/Assets/Visuals/backgrounds/Background_207.png"
-dest_files=["res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.s3tc.ctex", "res://.godot/imported/Background_207.png-e019b4a4d87e7a9c411f85a92efaa6e6.etc2.ctex"]
+source_file="res://Entities/Assets/Visuals/cactus.png"
+dest_files=["res://.godot/imported/cactus.png-7989bae964cf6ca9edb356215b17827e.s3tc.ctex", "res://.godot/imported/cactus.png-7989bae964cf6ca9edb356215b17827e.etc2.ctex"]
 
 [params]
 

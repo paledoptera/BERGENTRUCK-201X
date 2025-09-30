@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=47 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -24,10 +24,16 @@
 [ext_resource type="Texture2D" uid="uid://dbpvgd2erptjf" path="res://UI/Assets/Visuals/Car.png" id="21_361lv"]
 [ext_resource type="Script" uid="uid://dgg7ndct2nlp1" path="res://UI/car_selector.gd" id="24_blw1y"]
 [ext_resource type="Texture2D" uid="uid://ds1kxg2tqpdht" path="res://UI/Assets/Visuals/CarWhite.png" id="25_0xhjr"]
+[ext_resource type="Texture2D" uid="uid://lp0apst0hkjy" path="res://Levels/Assets/Visuals/bobbles/bobbles6.png" id="25_7sfv0"]
 [ext_resource type="PackedScene" uid="uid://frrp0sjlyi21" path="res://UI/trinket_icon.tscn" id="25_l6dl2"]
 [ext_resource type="Texture2D" uid="uid://bxl5jnxhfu52f" path="res://Levels/Assets/Visuals/bobbles/krisdark.png" id="25_vyblk"]
 [ext_resource type="Texture2D" uid="uid://bx0gawqks5w52" path="res://Levels/Assets/Visuals/bobbles/kris.png" id="26_wi4v3"]
 [ext_resource type="Texture2D" uid="uid://eoibsc5nrqgd" path="res://Levels/Assets/Visuals/fresheners/familyvalues.png" id="27_l6dl2"]
+[ext_resource type="Texture2D" uid="uid://d12va4nol8ui3" path="res://Levels/Assets/Visuals/bobbles/bobbles1.png" id="27_wai4d"]
+[ext_resource type="Texture2D" uid="uid://dbbkf2jc4fyg2" path="res://Levels/Assets/Visuals/bobbles/bobbles2.png" id="28_j5qsd"]
+[ext_resource type="Texture2D" uid="uid://c7hxlfy086103" path="res://Levels/Assets/Visuals/bobbles/bobbles3.png" id="29_ig0aq"]
+[ext_resource type="Texture2D" uid="uid://df1soxie101rv" path="res://Levels/Assets/Visuals/bobbles/bobbles4.png" id="30_ffihx"]
+[ext_resource type="Texture2D" uid="uid://docga7u3s3y7e" path="res://Levels/Assets/Visuals/bobbles/bobbles5.png" id="31_jadw7"]
 
 [sub_resource type="Gradient" id="Gradient_3npne"]
 offsets = PackedFloat32Array(0.295699, 0.930108)
@@ -803,31 +809,37 @@ size_flags_vertical = 3
 
 [node name="Wrong Knight" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
-ID = 6
+ID = 5
+selected_icon = ExtResource("25_7sfv0")
 
 [node name="Dark The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
-ID = 1
+ID = 7
 selected_icon = ExtResource("25_vyblk")
 
 [node name="The Child" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
+selected_icon = ExtResource("27_wai4d")
 
 [node name="TV Time" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
-ID = 2
+ID = 1
+selected_icon = ExtResource("28_j5qsd")
 
 [node name="Comedian" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
-ID = 3
+ID = 2
+selected_icon = ExtResource("29_ig0aq")
 
-[node name="Fren" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+[node name="Vargfren" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+layout_mode = 2
+ID = 3
+selected_icon = ExtResource("30_ffihx")
+
+[node name="Lost Sibling" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 4
-
-[node name="Mike" parent="CarSelector/BobbleScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
-layout_mode = 2
-ID = 5
+selected_icon = ExtResource("31_jadw7")
 
 [node name="FreshnerName" type="RichTextLabel" parent="CarSelector"]
 layout_mode = 0

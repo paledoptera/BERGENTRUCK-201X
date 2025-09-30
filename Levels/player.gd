@@ -230,20 +230,24 @@ func skin_change():
 func bobble_change():
 	var bobblehead = $Visuals/BobbleHead/Sprite2D
 	var bobbleroot = $Visuals/BobbleRoot/Sprite2D
-	match Global.player_save.flags.current_bobble_id:
-		#0 is default
-		1:
-			bobblehead.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
-			bobbleroot.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
-		#2: #TV Time
-			
-		#3:  #Comedian
-			
-		#4:  #Fren
-			
-		#5:  #Mike
-			
-		#6:  #Wrong Knight
+	
+	bobblehead.frame = Global.player_save.flags.current_bobble_id
+	bobbleroot.frame = Global.player_save.flags.current_bobble_id
+	
+	#match Global.player_save.flags.current_bobble_id:
+		##0 is default
+		#1:
+			#bobblehead.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
+			#bobbleroot.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
+		##2: #TV Time
+			#
+		##3:  #Comedian
+			#
+		##4:  #Fren
+			#
+		##5:  #Mike
+			#
+		##6:  #Wrong Knight
 			
 
 func freshner_change():

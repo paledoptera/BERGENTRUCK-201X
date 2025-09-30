@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b560lsaps4025"]
+
+[ext_resource type="PackedScene" uid="uid://bgp4wbehltd08" path="res://Entities/entity_cactus.tscn" id="1_5lmpq"]
+[ext_resource type="Texture2D" uid="uid://7o3bufsb2dub" path="res://Entities/Assets/Visuals/cactus_flower.png" id="2_dn5fi"]
+
+[node name="Entity" instance=ExtResource("1_5lmpq")]
+beam_on_spawn = 3
+
+[node name="Sprite3D" parent="EntityContainer" index="1"]
+texture = ExtResource("2_dn5fi")

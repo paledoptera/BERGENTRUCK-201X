@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=75 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -23,11 +23,12 @@
 [ext_resource type="Material" uid="uid://ujv22l0iy43o" path="res://Levels/Assets/Visuals/Ground Texture.tres" id="19"]
 [ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="20"]
 [ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="21"]
-[ext_resource type="Texture2D" uid="uid://b2p7wbgnn0v6j" path="res://Levels/Assets/Visuals/bobbles/kris-sheet.png" id="21_tcnov"]
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="22"]
 [ext_resource type="Texture2D" uid="uid://ctu3ymy12jteg" path="res://Levels/Assets/Visuals/fresheners/familyvalues-sheet.png" id="22_pd0of"]
 [ext_resource type="Texture2D" uid="uid://ceadeugtjgdhg" path="res://Levels/Assets/Visuals/fresheners/freshenerstring.png" id="22_xk557"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://c0ru83e60pdgt" path="res://Levels/Assets/Visuals/bobbles/bobbles_bodies.png" id="23_xk557"]
+[ext_resource type="Texture2D" uid="uid://v6w84f862kfu" path="res://Levels/Assets/Visuals/bobbles/bobbles_heads.png" id="24_xk557"]
 [ext_resource type="Texture2D" uid="uid://b21padqbquojs" path="res://UI/Assets/Visuals/speed_lines.png" id="28_qjdec"]
 [ext_resource type="Texture2D" uid="uid://c0pe8emsrbklv" path="res://Levels/Assets/Visuals/car_default.png" id="29_tcnov"]
 
@@ -263,34 +264,6 @@ _data = {
 &"boost": SubResource("Animation_4rwrr")
 }
 
-[sub_resource type="Animation" id="Animation_xk557"]
-resource_name = "hurt"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Asgore:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.3),
-"transitions": PackedFloat32Array(0.5, -0.5, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(70.415, 7.525), Vector2(-22.235, 37.785), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/Asgore:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.3),
-"transitions": PackedFloat32Array(0.5, -0.5, 0.5, 1),
-"update": 0,
-"values": [0.0, 0.22689280275926285, -0.13962634015954636, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_1ifsp"]
 length = 0.001
 tracks/0/type = "value"
@@ -340,6 +313,34 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xk557"]
+resource_name = "hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Asgore:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(0.5, -0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(70.415, 7.525), Vector2(-22.235, 37.785), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Asgore:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(0.5, -0.5, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.22689280275926285, -0.13962634015954636, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_7uaga"]
@@ -419,7 +420,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335, 0.099999994, 0.3),
 "transitions": PackedFloat32Array(0.5, 0.49999997, 1),
 "update": 2,
-"values": [0.0, 0.061086523819801536, 0.0]
+"values": [0.0, 0.06108652381980153, 0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -431,7 +432,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.033333335, 0.16666667, 0.33333334),
 "transitions": PackedFloat32Array(0.5, 1, 1),
 "update": 2,
-"values": [0.0, 0.061086523819801536, 0.0]
+"values": [0.0, 0.06108652381980153, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7uaga"]
@@ -802,8 +803,8 @@ constant_linear_velocity = Vector2(0, -5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/BobbleRoot"]
 position = Vector2(-1, -3.5650024)
-texture = ExtResource("21_tcnov")
-hframes = 2
+texture = ExtResource("23_xk557")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/BobbleRoot"]
 position = Vector2(0, 20)
@@ -819,10 +820,9 @@ inertia = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/BobbleHead"]
 position = Vector2(0, -5)
-texture = ExtResource("21_tcnov")
+texture = ExtResource("24_xk557")
 offset = Vector2(-1.36, 3.425)
-hframes = 2
-frame = 1
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/BobbleHead"]
 position = Vector2(0, -9)

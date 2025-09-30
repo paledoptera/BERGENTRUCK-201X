@@ -1,14 +1,222 @@
-[gd_scene load_steps=3 format=3 uid="uid://fshgeql7ofkj"]
+[gd_scene load_steps=34 format=4 uid="uid://fshgeql7ofkj"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_lqeym"]
 [ext_resource type="AudioStream" uid="uid://cvcpmwcicdcp" path="res://Global/Music/Sandrise.ogg" id="2_b5jn4"]
+[ext_resource type="PackedScene" uid="uid://ctqvlpvnb0dxs" path="res://Entities/bkg_tree_palm.tscn" id="3_2m3sh"]
+[ext_resource type="Texture2D" uid="uid://ckd3hw1nfopw6" path="res://Levels/Assets/Visuals/ground_sand.png" id="3_3k8q0"]
+[ext_resource type="Texture2D" uid="uid://ckxnh2qwh3g02" path="res://Levels/Assets/Visuals/backgrounds/Background_207.png" id="3_dbqd3"]
+[ext_resource type="Texture2D" uid="uid://djxywvud8iy6a" path="res://Levels/Assets/Visuals/backgrounds/Background_218.png" id="4_2m3sh"]
+[ext_resource type="Texture2D" uid="uid://dcpgr65exsmmg" path="res://Levels/Assets/Visuals/backgrounds/Background_217.png" id="5_luvwr"]
+[ext_resource type="Texture2D" uid="uid://6g6j1wxm6k4s" path="res://UI/Assets/Visuals/Shine.png" id="8_rd5ux"]
+[ext_resource type="PackedScene" uid="uid://db25rqqt0w0td" path="res://Global/Particles/3DSmoke.tscn" id="9_2m3sh"]
+[ext_resource type="PackedScene" uid="uid://c3a4oi8k5x1mp" path="res://Global/Particles/3DSmokeReal.tscn" id="10_8e548"]
+[ext_resource type="Texture2D" uid="uid://u01xdshxcsxb" path="res://Global/Particles/Assets/Visuals/realsmoke.png" id="11_f8dhg"]
+
+[sub_resource type="Environment" id="Environment_3k8q0"]
+background_mode = 1
+background_color = Color(0.3825825, 0.54276276, 1, 1)
+background_energy_multiplier = 0.9
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.8930768, 0.51573336, 0.78663945, 1)
+fog_light_energy = 0.5
+fog_density = 0.584
+fog_sky_affect = 0.734
+fog_depth_curve = 0.45471525
+fog_depth_begin = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd5ux"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_f8dhg")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_yjrd4"]
+offsets = PackedFloat32Array(0, 0.6528926)
+colors = PackedColorArray(1.5795683, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qt2lg"]
+gradient = SubResource("Gradient_yjrd4")
+
+[sub_resource type="Curve" id="Curve_yjrd4"]
+_data = [Vector2(0, 1), 0.0, -5.31775, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qt2lg"]
+curve = SubResource("Curve_yjrd4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8e548"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.8
+initial_velocity_max = 2.3
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.9
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_qt2lg")
+color = Color(2.184344, 2.184344, 2.184344, 0.1254902)
+color_ramp = SubResource("GradientTexture1D_qt2lg")
+hue_variation_min = -0.100000024
+hue_variation_max = 0.19999997
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8e548"]
+size = Vector2(20, 20)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dbqd3"]
+resource_name = "ground_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-67.5, -10, -10, 135, 20, 20),
+"attribute_data": PackedByteArray("YVlCwP//bLf//0LAYVlst2FZGMn//62u//8YyWFZra5hWdjR//8Ypv//2NFhWRimYVls2v//xJ3//2zaYVnEnWFZweL//8WV///B4mFZxZVhWcDq//8vjv//wOphWS+OYVlW8v//FIf//1byYVkUh///hoBhWYaAYVlx+f//cflhWf/////+/2FZhoD//xSH//+GgGFZFIf//y+OYVkvjv//xZVhWcWV///EnWFZxJ3//ximYVkYpv//ra5hWa2u//9st2FZbLf//0LAYVlCwP//GMlhWRjJ///Y0WFZ2NH//2zaYVls2v//weJhWcHi///A6mFZwOr//1byYVlW8v//cflhWXH5/////2FZ/v9hWYaA//8Uh///hoBhWRSH//8vjmFZL47//8WVYVnFlf//xJ1hWcSd//8YpmFZGKb//62uYVmtrv//bLdhWWy3//9CwGFZQsD//xjJYVkYyf//2NFhWdjR//9s2mFZbNr//8HiYVnB4v//wOphWcDq//9W8mFZVvL//3H5YVlx+f///v9hWf//YVn+////cfn/////YVlx+f//VvJhWVby///A6mFZwOr//8HiYVnB4v//bNphWWza///Y0WFZ2NH//xjJYVkYyf//QsBhWULA//9st2FZbLf//62uYVmtrv//GKZhWRim///EnWFZxJ3//8WVYVnFlf//L45hWS+O//8Uh2FZFIf//4aAYVmGgA=="),
+"format": 34896613399,
+"index_count": 384,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUACAAEAAYABwAJAAUACAAGAAoABwALAAkADAAIAAoACwANAAkADAAKAA4ACwAPAA0AEAAMAA4ADwARAA0AEAAOABIADwATABEAFAAQABIAEwAVABEAFAASABYAEwAXABUAGAAUABYAFwAZABUAGAAWABoAFwAbABkAGwAcABkAGwAdABwAHgAYABoAHgAaAB8AIAAeAB8AIAAfACEAIgAjACQAIgAlACMAJQAmACMAJQAnACYAJwAoACYAJwApACgAKQAqACgAKQArACoAKwAsACoAKwAtACwALQAuACwALQAvAC4ALwAwAC4ALwAxADAAMQAyADAAMQAzADIAMwA0ADIAMwA1ADQANQA2ADQANQA3ADYANwA4ADYANwA5ADgAOQA6ADgAOQA7ADoAOwA8ADoAOwA9ADwAPQA+ADwAPQA/AD4APwBAAD4APwBBAEAAQQBCAEAAQQBDAEIARABFAEYARABHAEUARwBIAEUARwBJAEgASQBKAEgASQBLAEoASwBMAEoASwBNAEwATQBOAEwATQBPAE4ATwBQAE4ATwBRAFAAUQBSAFAAUQBTAFIAUwBUAFIAUwBVAFQAVQBWAFQAVQBXAFYAVwBYAFYAVwBZAFgAWQBaAFgAWQBbAFoAWwBcAFoAWwBdAFwAXQBeAFwAXQBfAF4AXwBgAF4AXwBhAGAAYQBiAGAAYQBjAGIAYwBkAGIAYwBlAGQAZgBnAGgAZgBpAGcAaQBqAGcAaQBrAGoAawBsAGoAawBtAGwAbQBuAGwAbQBvAG4AbwBwAG4AbwBxAHAAcQByAHAAcQBzAHIAcwB0AHIAcwB1AHQAdQB2AHQAdQB3AHYAdwB4AHYAdwB5AHgAeQB6AHgAeQB7AHoAewB8AHoAewB9AHwAfQB+AHwAfQB/AH4AfwCAAH4AfwCBAIAAgQCCAIAAgQCDAIIAgwCEAIIAgwCFAIQAhQCGAIQAhQCHAIYA"),
+"name": "Ground",
+"primitive": 3,
+"uv_scale": Vector4(2.86408, 1.9918, 0, 0),
+"vertex_count": 136,
+"vertex_data": PackedByteArray("AAD///9//7/+/2H/c3P/w///////f/+/AABh/3Nz/8MAAGH/i4z/u///if0GZ//H/v9h/4uM/7sAAIn9Bmf/xwAAif34mP+3//98+tda/8v//4n9+Jj/twAAfPrXWv/LAAB8+iel/7P//0D2A0//z///fPonpf+zAABA9gNP/88AAED2+7D/r///4fCpQ//T//9A9vuw/68AAOHwqUP/0wAA4fBVvP+r/v9s6uI4/9f//+HwVbz/qwAAbOriOP/XAABs6hzH/6f///HizC7/2/7/bOocx/+nAADx4swu/9v+/4HafSX/3wAAgdp9Jf/fAADx4jLR/6P+//HiMtH/owAAgdqB2v+f//+B2oHa/58AAIHafSX/H/7/MtENHQAc/v+B2n0l/x8AADLRDR0AHP7/HMeSFf8XAAAcx5IV/xf+/1W8HQ8AFAAAVbwdDwAU/v/7sL4JABAAAPuwvgkAEP7/J6WCBQAMAAAnpYIFAAz+//iYdQIACAAA+Jh1AgAI/v+LjJ0A/wMAAIuMnQD/A/7//38AAAAAAAD/fwAAAAD+/3NznQD/AwAAc3OdAP8D/v8GZ3UCAAgAAAZndQIACP7/11qCBQAMAADXWoIFAAz+/wNPvgkAEAAAA0++CQAQ/v+pQx0PABQAAKlDHQ8AFP7/4jiSFf8XAADiOJIV/xf+/8wuDR0AHAAAzC4NHQAc/v99JX0l/x8AAH0lfSX/HwAAfSV9Jf8f/v8NHcwu/yP+/30lfSX/HwAADR3MLv8j/v+SFeI4/ycAAJIV4jj/J/7/HQ+pQ/8rAAAdD6lD/yv+/74JA0//LwAAvgkDT/8v/v+CBdda/zMAAIIF11r/M/7/dQIGZ/83AAB1AgZn/zf+/50Ac3P/OwAAnQBzc/87/v8AAP9//z8AAAAA/3//P/7/nQCLjP9DAACdAIuM/0P//3UC+Jj/RwAAdQL4mP9H//+CBSel/0sAAIIFJ6X/S///vgn7sP9PAAC+Cfuw/0///x0PVbz/UwAAHQ9VvP9T/v+SFRzH/1cAAJIVHMf/V/7/DR0y0f9bAAANHTLR/1v//30lgdr/XwAAfSWB2v9fAAB9JYHa/5///8wu8eL/m///fSWB2v+fAADMLvHi/5v//+I4bOr/lwAA4jhs6v+X//+pQ+Hw/5MAAKlD4fD/k/7/A09A9v+PAAADT0D2/4///9dafPr/iwAA11p8+v+L/v8GZ4n9/4cAAAZnif3/h///c3Nh//+DAABzc2H//4P///9///8AgAAA/3///wCA//+LjGH//4MAAIuMYf//g/7/+JiJ/f+HAAD4mIn9/4f//yelfPr/iwAAJ6V8+v+L/v/7sED2/48AAPuwQPb/j///Vbzh8P+TAABVvOHw/5P//xzHbOr/lwAAHMds6v+X//8y0fHi/5sAADLR8eL/m///gdqB2v+fAACB2oHa/5////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//3////9///////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2m3sh"]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1.1374342, 1.1035261, 1.1035261, 1)
+albedo_texture = ExtResource("3_3k8q0")
+texture_filter = 0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8e548"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_8e548"]
+offsets = PackedFloat32Array(0, 0.47348484, 0.8125, 1)
+colors = PackedColorArray(1, 0.87034494, 0, 1, 1, 0, 0.7741893, 1, 0.69577837, 0.47079715, 0.91528577, 1, 0.3547218, 0.43050805, 0.78031594, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8dhg"]
+gradient = SubResource("Gradient_8e548")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f8dhg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e548"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_dbqd3")
+uv1_scale = Vector3(1.42, 1, 1)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f8dhg"]
+material = SubResource("StandardMaterial3D_8e548")
+size = Vector2(4000, 300)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lemp5"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_luvwr")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3r6y7"]
+material = SubResource("StandardMaterial3D_lemp5")
+size = Vector2(700, 100)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbqd3"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_2m3sh")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2m3sh"]
+material = SubResource("StandardMaterial3D_dbqd3")
+size = Vector2(500, 80)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jijn"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.5)
+albedo_texture = ExtResource("8_rd5ux")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pngjm"]
+material = SubResource("StandardMaterial3D_1jijn")
+size = Vector2(500, 80)
+orientation = 2
 
 [node name="Level1" instance=ExtResource("1_lqeym")]
 music = ExtResource("2_b5jn4")
-item_queue_intro = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "", "", "", "", "", "", "", ""])
+item_queue_intro = Array[String](["uid://dod06qvkdjumy", "uid://dod06qvkdjumy", "uid://cp874tnj528bf", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://bgp4wbehltd08", "uid://bgp4wbehltd08", "uid://b560lsaps4025", "uid://cp874tnj528bf", "", "", "", "", "", ""])
 item_queue_mid = Array[String](["uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "", "", "", "", "", ""])
 item_queue_end = Array[String](["uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "uid://btetd788ltvnu", "uid://cuu8u82sv6b75", "uid://dod06qvkdjumy", "uid://ceudumccrqglg", "uid://cuu8u82sv6b75", "", "", ""])
+trees = ExtResource("3_2m3sh")
+level_val = 6
 level_code = "1X (Thorns)"
+bkg_item_spawn_threshold = 60.0
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_3k8q0")
+
+[node name="GPUParticles3D2" parent="Player/Camera3D" index="1" instance=ExtResource("10_8e548")]
+transform = Transform3D(10.465, 0, 0, 0, 4.8455324, 4.1962976, 0, -4.1962976, 4.8455324, 0, -3.1380186, -2.6066475)
+material_override = SubResource("StandardMaterial3D_rd5ux")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_8e548")
+draw_pass_1 = SubResource("QuadMesh_8e548")
+
+[node name="Ground" parent="Player" index="14"]
+mesh = SubResource("ArrayMesh_dbqd3")
+surface_material_override/0 = SubResource("StandardMaterial3D_2m3sh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" index="25"]
+
+[node name="ColorRect" type="TextureRect" parent="Player/CanvasLayer" index="0"]
+visible = false
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+material = SubResource("CanvasItemMaterial_8e548")
+offset_left = 511.0
+offset_right = 778.67
+offset_bottom = 566.6
+rotation = 1.5707964
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_f8dhg")
+expand_mode = 1
+
+[node name="ColorRect2" type="TextureRect" parent="Player/CanvasLayer" index="1"]
+visible = false
+modulate = Color(1.179842, 1.179842, 1.179842, 0.45400003)
+self_modulate = Color(1, 1, 1, 0.48100004)
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+material = SubResource("CanvasItemMaterial_f8dhg")
+offset_left = 511.0
+offset_right = 778.67
+offset_bottom = 566.6
+rotation = 1.5707964
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_f8dhg")
+expand_mode = 1
 
 [node name="WallL" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -15, 0)
@@ -18,5 +226,29 @@ disable_collision_on_hit = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -15, 0)
 disable_collision_on_hit = false
 
+[node name="BackgroundFurthest" type="MeshInstance3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, -214.954, -528.596)
+mesh = SubResource("PlaneMesh_f8dhg")
+
+[node name="BackgroundFar" type="MeshInstance3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, -13.9821, -79.3783, -153.701)
+mesh = SubResource("PlaneMesh_3r6y7")
+
+[node name="BackgroundNear" type="MeshInstance3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, -73.0492, -90.62991)
+mesh = SubResource("PlaneMesh_2m3sh")
+
+[node name="BackgroundOverlay" type="MeshInstance3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 17.4796, -43.927216, -60.888992)
+mesh = SubResource("PlaneMesh_pngjm")
+
+[node name="GPUParticles3D" parent="." index="12" instance=ExtResource("9_2m3sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.165098, -3.1586487, -13.592684)
+
+[editable path="Player"]
+[editable path="Player/Visuals/WidgetWheel"]
+[editable path="Player/Visuals/WidgetWheel/DraggableItem"]
+[editable path="Player/Visuals/WidgetGear"]
+[editable path="Player/Visuals/WidgetGear/DraggableItem"]
 [editable path="WallL"]
 [editable path="WallR"]

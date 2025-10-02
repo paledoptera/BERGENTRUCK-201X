@@ -747,6 +747,7 @@ scroll_active = false
 horizontal_alignment = 2
 
 [node name="FreshenerRoot" type="StaticBody2D" parent="Visuals"]
+z_index = 1
 position = Vector2(112, -95)
 rotation = 0.0687174
 collision_layer = 8
@@ -757,6 +758,7 @@ physics_material_override = SubResource("PhysicsMaterial_iujqn")
 shape = SubResource("CircleShape2D_7uaga")
 
 [node name="FreshenerTag" type="RigidBody2D" parent="Visuals"]
+z_index = 1
 position = Vector2(108, -73)
 collision_layer = 8
 collision_mask = 8
@@ -786,6 +788,7 @@ shape = SubResource("CircleShape2D_7uaga")
 
 [node name="FreshenerPinJoint" type="PinJoint2D" parent="Visuals"]
 physics_interpolation_mode = 1
+z_index = 1
 position = Vector2(112, -95)
 node_a = NodePath("../FreshenerRoot")
 node_b = NodePath("../FreshenerTag")
@@ -795,6 +798,7 @@ angular_limit_lower = -0.17453292
 angular_limit_upper = 0.17453292
 
 [node name="BobbleRoot" type="StaticBody2D" parent="Visuals"]
+z_index = 1
 position = Vector2(141, 0)
 collision_layer = 8
 collision_mask = 8
@@ -811,6 +815,7 @@ position = Vector2(0, 20)
 shape = SubResource("CapsuleShape2D_xk557")
 
 [node name="BobbleHead" type="RigidBody2D" parent="Visuals"]
+z_index = 1
 position = Vector2(141, -1)
 collision_layer = 8
 collision_mask = 8

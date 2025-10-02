@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ckxnh2qwh3g02" path="res://Levels/Assets/Visuals/backgrounds/Background_207.png" id="3_dbqd3"]
 [ext_resource type="Texture2D" uid="uid://djxywvud8iy6a" path="res://Levels/Assets/Visuals/backgrounds/Background_218.png" id="4_2m3sh"]
 [ext_resource type="Texture2D" uid="uid://dcpgr65exsmmg" path="res://Levels/Assets/Visuals/backgrounds/Background_217.png" id="5_luvwr"]
-[ext_resource type="Texture2D" uid="uid://6g6j1wxm6k4s" path="res://UI/Assets/Visuals/Shine.png" id="8_rd5ux"]
+[ext_resource type="Shader" uid="uid://bt2opdfmb6b3a" path="res://Levels/3d_mosaic_test.gdshader" id="6_f8dhg"]
+[ext_resource type="Shader" uid="uid://do6ig3soufyor" path="res://Levels/2d_mosaic.gdshader" id="8_ylm6e"]
 [ext_resource type="PackedScene" uid="uid://db25rqqt0w0td" path="res://Global/Particles/3DSmoke.tscn" id="9_2m3sh"]
 [ext_resource type="PackedScene" uid="uid://c3a4oi8k5x1mp" path="res://Global/Particles/3DSmokeReal.tscn" id="10_8e548"]
 [ext_resource type="Texture2D" uid="uid://u01xdshxcsxb" path="res://Global/Particles/Assets/Visuals/realsmoke.png" id="11_f8dhg"]
@@ -16,7 +17,6 @@
 background_mode = 1
 background_color = Color(0.3825825, 0.54276276, 1, 1)
 background_energy_multiplier = 0.9
-fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.8930768, 0.51573336, 0.78663945, 1)
 fog_light_energy = 0.5
@@ -76,6 +76,13 @@ anim_speed_max = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_8e548"]
 size = Vector2(20, 20)
 
+[sub_resource type="QuadMesh" id="QuadMesh_rd5ux"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lemp5"]
+render_priority = -128
+shader = ExtResource("6_f8dhg")
+shader_parameter/pixel_size = 6
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_dbqd3"]
 resource_name = "ground_Cylinder_001"
 _surfaces = [{
@@ -92,16 +99,22 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2m3sh"]
-resource_name = "Ground"
-cull_mode = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3r6y7"]
 shading_mode = 0
-albedo_color = Color(1.1374342, 1.1035261, 1.1035261, 1)
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
 albedo_texture = ExtResource("3_3k8q0")
 texture_filter = 0
+proximity_fade_distance = 0.01
+distance_fade_min_distance = 37.15
+distance_fade_max_distance = 27.65
+stencil_flags = 2
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8e548"]
-blend_mode = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd5ux"]
+shader = ExtResource("8_ylm6e")
+shader_parameter/cell_size = 3
 
 [sub_resource type="Gradient" id="Gradient_8e548"]
 offsets = PackedFloat32Array(0, 0.47348484, 0.8125, 1)
@@ -110,10 +123,10 @@ colors = PackedColorArray(1, 0.87034494, 0, 1, 1, 0, 0.7741893, 1, 0.69577837, 0
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_f8dhg"]
 gradient = SubResource("Gradient_8e548")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f8dhg"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e548"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("3_dbqd3")
 uv1_scale = Vector3(1.42, 1, 1)
@@ -125,7 +138,9 @@ size = Vector2(4000, 300)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lemp5"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("5_luvwr")
 texture_filter = 0
@@ -137,7 +152,9 @@ size = Vector2(700, 100)
 orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbqd3"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("4_2m3sh")
 texture_filter = 0
@@ -145,20 +162,6 @@ texture_repeat = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2m3sh"]
 material = SubResource("StandardMaterial3D_dbqd3")
-size = Vector2(500, 80)
-orientation = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jijn"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.5)
-albedo_texture = ExtResource("8_rd5ux")
-texture_filter = 0
-texture_repeat = false
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_pngjm"]
-material = SubResource("StandardMaterial3D_1jijn")
 size = Vector2(500, 80)
 orientation = 2
 
@@ -170,7 +173,7 @@ item_queue_end = Array[String](["uid://bympmn5b7p10t", "uid://bympmn5b7p10t", "u
 trees = ExtResource("3_2m3sh")
 level_val = 6
 level_code = "1X (Thorns)"
-bkg_item_spawn_threshold = 60.0
+bkg_item_spawn_threshold = 80.0
 
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_3k8q0")
@@ -182,34 +185,21 @@ amount = 50
 process_material = SubResource("ParticleProcessMaterial_8e548")
 draw_pass_1 = SubResource("QuadMesh_8e548")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03697586, -0.06404066)
+sorting_offset = 1000000000.0
+mesh = SubResource("QuadMesh_rd5ux")
+surface_material_override/0 = SubResource("ShaderMaterial_lemp5")
+
 [node name="Ground" parent="Player" index="14"]
 mesh = SubResource("ArrayMesh_dbqd3")
-surface_material_override/0 = SubResource("StandardMaterial3D_2m3sh")
+surface_material_override/0 = SubResource("StandardMaterial3D_3r6y7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player" index="25"]
-
-[node name="ColorRect" type="TextureRect" parent="Player/CanvasLayer" index="0"]
-visible = false
+[node name="ColorRect3" type="TextureRect" parent="Player" index="25"]
 light_mask = 512
 visibility_layer = 512
 z_index = 4096
-material = SubResource("CanvasItemMaterial_8e548")
-offset_left = 511.0
-offset_right = 778.67
-offset_bottom = 566.6
-rotation = 1.5707964
-mouse_filter = 2
-texture = SubResource("GradientTexture1D_f8dhg")
-expand_mode = 1
-
-[node name="ColorRect2" type="TextureRect" parent="Player/CanvasLayer" index="1"]
-visible = false
-modulate = Color(1.179842, 1.179842, 1.179842, 0.45400003)
-self_modulate = Color(1, 1, 1, 0.48100004)
-light_mask = 512
-visibility_layer = 512
-z_index = 4096
-material = SubResource("CanvasItemMaterial_f8dhg")
+material = SubResource("ShaderMaterial_rd5ux")
 offset_left = 511.0
 offset_right = 778.67
 offset_bottom = 566.6
@@ -238,11 +228,7 @@ mesh = SubResource("PlaneMesh_3r6y7")
 transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 0, -73.0492, -90.62991)
 mesh = SubResource("PlaneMesh_2m3sh")
 
-[node name="BackgroundOverlay" type="MeshInstance3D" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 17.4796, -43.927216, -60.888992)
-mesh = SubResource("PlaneMesh_pngjm")
-
-[node name="GPUParticles3D" parent="." index="12" instance=ExtResource("9_2m3sh")]
+[node name="GPUParticles3D" parent="." index="11" instance=ExtResource("9_2m3sh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.165098, -3.1586487, -13.592684)
 
 [editable path="Player"]

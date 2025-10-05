@@ -41,6 +41,8 @@ func _level_select_enter() -> void:
 
 
 func _level_enter() -> void:
+	if Global.level == 6:
+		$SubViewportContainer.material = preload("uid://bqxjwyqnibq2")
 	Audio.stop_music(true)
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	_change_program(level_path)
@@ -65,6 +67,7 @@ func _level_process(delta) -> void:
 	
 
 func _level_exit() -> void:
+	$SubViewportContainer.material = null
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _gameover_enter() -> void:

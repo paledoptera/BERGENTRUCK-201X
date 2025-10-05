@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://chf1v1go0vts5"]
+[gd_scene load_steps=50 format=3 uid="uid://chf1v1go0vts5"]
 
 [ext_resource type="Script" uid="uid://clbt84ojsb4rs" path="res://UI/level_select.gd" id="1_hr6m7"]
 [ext_resource type="Texture2D" uid="uid://jhnijfpgm013" path="res://UI/Assets/Visuals/level_select_bkg.png" id="2_0derx"]
@@ -34,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://c7hxlfy086103" path="res://Levels/Assets/Visuals/bobbles/bobbles3.png" id="29_ig0aq"]
 [ext_resource type="Texture2D" uid="uid://df1soxie101rv" path="res://Levels/Assets/Visuals/bobbles/bobbles4.png" id="30_ffihx"]
 [ext_resource type="Texture2D" uid="uid://docga7u3s3y7e" path="res://Levels/Assets/Visuals/bobbles/bobbles5.png" id="31_jadw7"]
+[ext_resource type="Texture2D" uid="uid://f4cinnu2i7qq" path="res://Levels/Assets/Visuals/fresheners/airfresheners2.png" id="33_ig0aq"]
+[ext_resource type="Texture2D" uid="uid://sbt68u3y8pwj" path="res://Levels/Assets/Visuals/fresheners/airfresheners3.png" id="34_ffihx"]
+[ext_resource type="Texture2D" uid="uid://byf0xbm5ugx4i" path="res://Levels/Assets/Visuals/fresheners/airfresheners4.png" id="35_jadw7"]
 
 [sub_resource type="Gradient" id="Gradient_3npne"]
 offsets = PackedFloat32Array(0.295699, 0.930108)
@@ -913,7 +916,7 @@ layout_mode = 2
 ID = 5
 fresheners = true
 
-[node name="Annoying Dog" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+[node name="Placeholder2" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 6
 fresheners = true
@@ -923,20 +926,23 @@ layout_mode = 2
 fresheners = true
 selected_icon = ExtResource("27_l6dl2")
 
-[node name="Fluffy Dice" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+[node name="Christmas Tree" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 1
 fresheners = true
+selected_icon = ExtResource("33_ig0aq")
 
-[node name="Christmas Tree" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
+[node name="Annoying Dog" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 2
 fresheners = true
+selected_icon = ExtResource("34_ffihx")
 
 [node name="Delta Rune" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2
 ID = 3
 fresheners = true
+selected_icon = ExtResource("35_jadw7")
 
 [node name="Odd Mushroom" parent="CarSelector/FreshenerScroll/HBoxContainer" instance=ExtResource("25_l6dl2")]
 layout_mode = 2

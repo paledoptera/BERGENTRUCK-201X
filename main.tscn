@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pfn2cpkppd67"]
+[gd_scene load_steps=14 format=3 uid="uid://pfn2cpkppd67"]
 
 [ext_resource type="Script" uid="uid://c047atpq0lmk3" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_272bh"]
@@ -6,7 +6,13 @@
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="4_kek77"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bu325xsdlvy3f" path="res://Global/Borders/Blank.png" id="6_efxa6"]
+[ext_resource type="Shader" uid="uid://df0hik48u5ram" path="res://main.gdshader" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://dpa0bdsngjtpf" path="res://Common/discord_manager.gd" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://dq34j31s1iuha" path="res://Levels/palette1x.png" id="8_kek77"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("7_5vw27")
+shader_parameter/palette = ExtResource("8_kek77")
 
 [sub_resource type="Animation" id="Animation_hbaan"]
 length = 0.001
@@ -174,6 +180,7 @@ texture = ExtResource("6_efxa6")
 expand_mode = 3
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_kek77")
 custom_minimum_size = Vector2(400, 255)
 anchors_preset = 8
 anchor_left = 0.5

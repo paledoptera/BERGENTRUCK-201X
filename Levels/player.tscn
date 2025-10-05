@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dmxrsb6vf3fo0"]
+[gd_scene load_steps=78 format=4 uid="uid://dmxrsb6vf3fo0"]
 
 [ext_resource type="Script" uid="uid://y2icolv1tlef" path="res://Levels/player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bx7udjgnsoknr" path="res://Levels/Assets/Visuals/skybox.png" id="2"]
@@ -24,13 +24,16 @@
 [ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="20"]
 [ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="21"]
 [ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="22"]
-[ext_resource type="Texture2D" uid="uid://ctu3ymy12jteg" path="res://Levels/Assets/Visuals/fresheners/familyvalues-sheet.png" id="22_pd0of"]
+[ext_resource type="Texture2D" uid="uid://bkoiv1qcadxmo" path="res://Levels/Assets/Visuals/fresheners/airfresheners.png" id="22_1ifsp"]
 [ext_resource type="Texture2D" uid="uid://ceadeugtjgdhg" path="res://Levels/Assets/Visuals/fresheners/freshenerstring.png" id="22_xk557"]
 [ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="23"]
 [ext_resource type="Texture2D" uid="uid://c0ru83e60pdgt" path="res://Levels/Assets/Visuals/bobbles/bobbles_bodies.png" id="23_xk557"]
 [ext_resource type="Texture2D" uid="uid://v6w84f862kfu" path="res://Levels/Assets/Visuals/bobbles/bobbles_heads.png" id="24_xk557"]
+[ext_resource type="Texture2D" uid="uid://bjp1nd7kr7j4v" path="res://Levels/Assets/Visuals/rearview mask.png" id="25_upfhq"]
 [ext_resource type="Texture2D" uid="uid://b21padqbquojs" path="res://UI/Assets/Visuals/speed_lines.png" id="28_qjdec"]
 [ext_resource type="Texture2D" uid="uid://c0pe8emsrbklv" path="res://Levels/Assets/Visuals/car_default.png" id="29_tcnov"]
+[ext_resource type="Texture2D" uid="uid://cjrsss045q2v1" path="res://UI/Assets/Visuals/pausebutton.png" id="32_7uaga"]
+[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="33_upfhq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34hgd"]
 size = Vector2(500, 30.805)
@@ -779,9 +782,8 @@ hframes = 2
 
 [node name="FreshenerTag" type="Sprite2D" parent="Visuals/FreshenerTag"]
 position = Vector2(-4, 3)
-texture = ExtResource("22_pd0of")
-hframes = 2
-frame = 1
+texture = ExtResource("22_1ifsp")
+hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/FreshenerTag"]
 shape = SubResource("CircleShape2D_7uaga")
@@ -879,6 +881,33 @@ softness = 16.0
 angular_limit_enabled = true
 angular_limit_lower = -0.2617994
 angular_limit_upper = 0.2617994
+
+[node name="RearviewMask" type="TextureRect" parent="Visuals"]
+clip_children = 1
+offset_left = 57.0
+offset_top = -124.0
+offset_right = 165.0
+offset_bottom = -84.0
+texture = ExtResource("25_upfhq")
+
+[node name="RearviewMirror" type="SubViewportContainer" parent="Visuals/RearviewMask"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -4.0
+offset_right = 103.0
+offset_bottom = 26.0
+rotation = 0.065053016
+
+[node name="SubViewport" type="SubViewport" parent="Visuals/RearviewMask/RearviewMirror"]
+handle_input_locally = false
+size = Vector2i(90, 30)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Visuals/RearviewMask/RearviewMirror/SubViewport"]
+transform = Transform3D(1, 8.742278e-08, 0, -5.0143647e-08, 0.57357645, 0.81915206, -7.161255e-08, 0.81915206, -0.57357645, 10, 5, 10)
+projection = 2
+size = 0.09
+far = 400.0
 
 [node name="Score" type="RichTextLabel" parent="."]
 visible = false
@@ -1045,6 +1074,16 @@ frame_progress = 0.179725
 [node name="CarDefault" type="Sprite2D" parent="."]
 position = Vector2(635, 115)
 texture = ExtResource("29_tcnov")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.39200002)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 26.0
+texture = ExtResource("32_7uaga")
+expand_mode = 1
+script = ExtResource("33_upfhq")
 
 [connection signal="drag_started" from="Visuals/WidgetWheel/DraggableItem/MouseDragComponent" to="." method="_steering_wheel_get_y"]
 [connection signal="input_event" from="Visuals/WidgetGear/Area2D" to="Visuals/WidgetGear/DraggableItem" method="_on_input_event"]

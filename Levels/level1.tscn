@@ -324,6 +324,10 @@ mesh = SubResource("PlaneMesh_sqs0x")
 transform = Transform3D(1, 0, 0, 0, 0.999455, -0.0329982, 0, 0.0329982, 0.999455, 17.4796, -43.927216, -60.888992)
 mesh = SubResource("PlaneMesh_r7a1c")
 
+[node name="BackgroundFurther2" type="MeshInstance3D" parent="." index="16"]
+transform = Transform3D(-1, 2.8847957e-09, 8.7375135e-08, 8.083396e-08, 0.41116437, 0.911561, -3.3295912e-08, 0.911561, -0.41116437, -67.2748, -82.67656, 62.991226)
+mesh = SubResource("PlaneMesh_lr1ra")
+
 [editable path="Player"]
 [editable path="Player/Visuals/WidgetWheel"]
 [editable path="Player/Visuals/WidgetWheel/DraggableItem"]

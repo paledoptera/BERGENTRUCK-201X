@@ -170,9 +170,11 @@ func _physics_process(delta: float) -> void:
 
 func set_car_pos(delta: float):
 	$Camera3D.position.x = lerp($Camera3D.position.x,car_position.x+10,5*delta)
-	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/500),0.1)
+	$Camera3D.frustum_offset.x = lerp($Camera3D.frustum_offset.x,(car_angle.x/400),0.1)
 	$Camera3D.size = frustum_size + (boost/900)
-
+	$Visuals/RearviewMask/RearviewMirror/SubViewport/Camera3D.position.x = $Camera3D.position.x
+	$Visuals/RearviewMask/RearviewMirror/SubViewport/Camera3D.frustum_offset.x = -$Camera3D.frustum_offset.x*25
+	$Visuals/RearviewMask/RearviewMirror/SubViewport/Camera3D.rotation.y = -$Camera3D.frustum_offset.x*10
 
 func skin_change():
 	var skin_nodes = [$Visuals/Asgore,$Visuals/Hand,$Visuals/Hand/Forearm,$Visuals/Hand/Forearm/UpperArm]
@@ -233,39 +235,10 @@ func bobble_change():
 	
 	bobblehead.frame = Global.player_save.flags.current_bobble_id
 	bobbleroot.frame = Global.player_save.flags.current_bobble_id
-	
-	#match Global.player_save.flags.current_bobble_id:
-		##0 is default
-		#1:
-			#bobblehead.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
-			#bobbleroot.texture = preload("uid://oia1536htgc0") #krisdark-sheet.png
-		##2: #TV Time
-			#
-		##3:  #Comedian
-			#
-		##4:  #Fren
-			#
-		##5:  #Mike
-			#
-		##6:  #Wrong Knight
-			
 
 func freshner_change():
 	var freshner = $Visuals/FreshenerTag/FreshenerTag
-	match Global.player_save.flags.current_freshener_id:
-		#0 is default
-		1:  #Fluffy Dice
-			pass
-		#2: #Christmas Tree
-			
-		#3:  #Delta Rune
-			
-		#4:  #Odd Mushroom
-			
-		#5:  #Cool Cherry
-			
-		#6:  #Annoying Dog
-			
+	freshner.frame = Global.player_save.flags.current_freshener_id
 
 func _hand_visuals() -> void:
 	if Input.is_action_pressed("click"):
@@ -604,6 +577,7 @@ func _gravity_mechanics(delta: float) -> void:
 			in_air = true
 			car_velocity.z *= 1.1
 		friction = 0
+	$Visuals/RearviewMask/RearviewMirror/SubViewport/Camera3D.position.y = $Camera3D.position.y-3
 
 
 

@@ -15,8 +15,7 @@
 
 [sub_resource type="Environment" id="Environment_3k8q0"]
 background_mode = 1
-background_color = Color(0.3825825, 0.54276276, 1, 1)
-background_energy_multiplier = 0.9
+background_color = Color(0.6472143, 0.7489612, 1, 1)
 fog_mode = 1
 fog_light_color = Color(0.8930768, 0.51573336, 0.78663945, 1)
 fog_light_energy = 0.5
@@ -83,7 +82,7 @@ render_priority = -128
 shader = ExtResource("6_f8dhg")
 shader_parameter/pixel_size = 6
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_dbqd3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_f8dhg"]
 resource_name = "ground_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-67.5, -10, -10, 135, 20, 20),
@@ -99,13 +98,16 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3r6y7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylm6e"]
 shading_mode = 0
+diffuse_mode = 1
 specular_mode = 2
 disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
+albedo_color = Color(1.0964829, 1.0964829, 1.0964829, 1)
 albedo_texture = ExtResource("3_3k8q0")
+albedo_texture_force_srgb = true
 texture_filter = 0
 proximity_fade_distance = 0.01
 distance_fade_min_distance = 37.15
@@ -178,8 +180,12 @@ bkg_item_spawn_threshold = 80.0
 [node name="WorldEnvironment" parent="." index="0"]
 environment = SubResource("Environment_3k8q0")
 
+[node name="Parallax2D" parent="Player/Visuals" index="10"]
+visible = false
+
 [node name="GPUParticles3D2" parent="Player/Camera3D" index="1" instance=ExtResource("10_8e548")]
 transform = Transform3D(10.465, 0, 0, 0, 4.8455324, 4.1962976, 0, -4.1962976, 4.8455324, 0, -3.1380186, -2.6066475)
+visible = false
 material_override = SubResource("StandardMaterial3D_rd5ux")
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_8e548")
@@ -187,13 +193,14 @@ draw_pass_1 = SubResource("QuadMesh_8e548")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03697586, -0.06404066)
+visible = false
 sorting_offset = 1000000000.0
 mesh = SubResource("QuadMesh_rd5ux")
 surface_material_override/0 = SubResource("ShaderMaterial_lemp5")
 
 [node name="Ground" parent="Player" index="14"]
-mesh = SubResource("ArrayMesh_dbqd3")
-surface_material_override/0 = SubResource("StandardMaterial3D_3r6y7")
+mesh = SubResource("ArrayMesh_f8dhg")
+surface_material_override/0 = SubResource("StandardMaterial3D_ylm6e")
 
 [node name="ColorRect3" type="TextureRect" parent="Player" index="25"]
 light_mask = 512

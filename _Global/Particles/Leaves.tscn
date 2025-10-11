@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://du0uq38sl2de1"]
+
+[ext_resource type="PackedScene" uid="uid://ci1pueoaiu5vg" path="res://_Global/Particles/Smokepuff.tscn" id="1_l6jer"]
+[ext_resource type="Texture2D" uid="uid://dpcg5q834h248" path="res://Items/Visuals/leaf.png" id="2_l6jer"]
+
+[sub_resource type="Curve" id="Curve_5nixd"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0.01, -9.53674e-06), 0.0, 369.395, 0, 0, Vector2(0.07, 122.4), 0.0, 0.0, 0, 0, Vector2(0.66, -14.4), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+metadata/_snap_count = 100
+
+[sub_resource type="Curve" id="Curve_83hac"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0552699, 4.76535), 0.0, 0.0, 0, 0, Vector2(0.286632, -17.7617), 0.0, 0.0, 0, 0, Vector2(0.613111, 1.01083), 0.0, 0.0, 0, 0, Vector2(0.75964, -21.5163), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[node name="Leaves" instance=ExtResource("1_l6jer")]
+scale = Vector2(15, 8)
+texture = ExtResource("2_l6jer")
+lifetime = 2.5
+randomness = 0.55
+emission_sphere_radius = 4.0
+direction = Vector2(0, -10)
+spread = 10.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+angular_velocity_min = -1.0
+angular_velocity_max = -1.0
+angular_velocity_curve = SubResource("Curve_5nixd")
+radial_accel_min = 59.9
+radial_accel_max = 59.9
+tangential_accel_min = -0.1
+tangential_accel_max = 0.1
+tangential_accel_curve = SubResource("Curve_83hac")
+damping_min = 25.362
+damping_max = 25.362
+angle_min = -360.0
+scale_amount_min = 0.01
+scale_amount_max = 0.2
+color = Color(0.755386, 0.755386, 0.755386, 1)

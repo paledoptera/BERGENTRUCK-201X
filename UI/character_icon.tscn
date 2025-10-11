@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvu2jwykeb5yj"]
 
-[ext_resource type="Texture2D" uid="uid://dqlpv1ta3uvy2" path="res://UI/Assets/Visuals/character_button.png" id="1_nngmf"]
-[ext_resource type="Script" uid="uid://c2tcnn3bsg4qy" path="res://UI/character_icon.gd" id="1_utdib"]
+[ext_resource type="Texture2D" uid="uid://dqlpv1ta3uvy2" path="res://UI/Visuals/character_button.png" id="1_nngmf"]
+[ext_resource type="Script" uid="uid://c2tcnn3bsg4qy" path="res://UI/Scripts/character_icon.gd" id="1_utdib"]
 
 [node name="Character" type="TextureRect"]
 custom_minimum_size = Vector2(50, 0)

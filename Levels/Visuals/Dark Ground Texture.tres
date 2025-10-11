@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv6kvghvtgwro"]
+
+[ext_resource type="Texture2D" uid="uid://c28msqb2p7xm2" path="res://Levels/Visuals/ground.png" id="1_sutfg"]
+
+[resource]
+resource_name = "Ground"
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.455538, 0.629463, 0.67451, 1)
+albedo_texture = ExtResource("1_sutfg")
+texture_filter = 0

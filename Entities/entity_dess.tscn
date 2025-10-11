@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0tgrulyxroeg"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_ebw5f"]
-[ext_resource type="Texture2D" uid="uid://bodeubup707r6" path="res://Entities/Assets/Visuals/dess.png" id="2_hn2xo"]
-[ext_resource type="Script" uid="uid://duktd6w1d73ip" path="res://Entities/entity_dess.gd" id="2_up123"]
-[ext_resource type="Texture2D" uid="uid://bied1lw6u544q" path="res://Entities/Assets/Visuals/dess scream.png" id="4_mfed2"]
+[ext_resource type="Texture2D" uid="uid://bodeubup707r6" path="res://Entities/Visuals/dess.png" id="2_hn2xo"]
+[ext_resource type="Script" uid="uid://duktd6w1d73ip" path="res://Entities/Scripts/entity_dess.gd" id="2_up123"]
+[ext_resource type="Texture2D" uid="uid://bied1lw6u544q" path="res://Entities/Visuals/dess scream.png" id="4_mfed2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_up123"]
 atlas = ExtResource("2_hn2xo")

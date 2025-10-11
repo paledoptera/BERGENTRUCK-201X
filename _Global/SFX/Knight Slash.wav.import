@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://r7gf0adp5ot2"
+path="res://.godot/imported/Knight Slash.wav-d7acfcd5a7ce3efaef00770e715cf45a.sample"
+
+[deps]
+
+source_file="res://_Global/SFX/Knight Slash.wav"
+dest_files=["res://.godot/imported/Knight Slash.wav-d7acfcd5a7ce3efaef00770e715cf45a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

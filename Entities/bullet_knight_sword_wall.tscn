@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://jln43btq2gy"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_4wfsx"]
-[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_4wfsx"]
-[ext_resource type="Texture2D" uid="uid://bgppqrvao3fvf" path="res://Entities/Assets/Visuals/Knight/knight_sword_wall.png" id="3_4wfsx"]
-[ext_resource type="AudioStream" uid="uid://ckmfbwkgjypnr" path="res://Global/SFX/Knight Large Slash.wav" id="3_ak32a"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/Scripts/bullet.gd" id="2_4wfsx"]
+[ext_resource type="Texture2D" uid="uid://bgppqrvao3fvf" path="res://Entities/Visuals/Knight/knight_sword_wall.png" id="3_4wfsx"]
+[ext_resource type="AudioStream" uid="uid://ckmfbwkgjypnr" path="res://_Global/SFX/Knight Large Slash.wav" id="3_ak32a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak32a"]
 size = Vector3(74.1627, 13.0161, 1.09012)

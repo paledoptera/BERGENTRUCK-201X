@@ -1,17 +1,17 @@
 [gd_scene load_steps=34 format=4 uid="uid://fshgeql7ofkj"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_lqeym"]
-[ext_resource type="AudioStream" uid="uid://cvcpmwcicdcp" path="res://Global/Music/Sandrise.ogg" id="2_b5jn4"]
+[ext_resource type="AudioStream" uid="uid://cvcpmwcicdcp" path="res://_Global/Music/Sandrise.ogg" id="2_b5jn4"]
 [ext_resource type="PackedScene" uid="uid://ctqvlpvnb0dxs" path="res://Entities/bkg_tree_palm.tscn" id="3_2m3sh"]
-[ext_resource type="Texture2D" uid="uid://ckd3hw1nfopw6" path="res://Levels/Assets/Visuals/ground_sand.png" id="3_3k8q0"]
-[ext_resource type="Texture2D" uid="uid://ckxnh2qwh3g02" path="res://Levels/Assets/Visuals/backgrounds/Background_207.png" id="3_dbqd3"]
-[ext_resource type="Texture2D" uid="uid://djxywvud8iy6a" path="res://Levels/Assets/Visuals/backgrounds/Background_218.png" id="4_2m3sh"]
-[ext_resource type="Texture2D" uid="uid://dcpgr65exsmmg" path="res://Levels/Assets/Visuals/backgrounds/Background_217.png" id="5_luvwr"]
-[ext_resource type="Shader" uid="uid://bt2opdfmb6b3a" path="res://Levels/3d_mosaic_test.gdshader" id="6_f8dhg"]
-[ext_resource type="Shader" uid="uid://do6ig3soufyor" path="res://Levels/2d_mosaic.gdshader" id="8_ylm6e"]
-[ext_resource type="PackedScene" uid="uid://db25rqqt0w0td" path="res://Global/Particles/3DSmoke.tscn" id="9_2m3sh"]
-[ext_resource type="PackedScene" uid="uid://c3a4oi8k5x1mp" path="res://Global/Particles/3DSmokeReal.tscn" id="10_8e548"]
-[ext_resource type="Texture2D" uid="uid://u01xdshxcsxb" path="res://Global/Particles/Assets/Visuals/realsmoke.png" id="11_f8dhg"]
+[ext_resource type="Texture2D" uid="uid://ckd3hw1nfopw6" path="res://Levels/Visuals/ground_sand.png" id="3_3k8q0"]
+[ext_resource type="Texture2D" uid="uid://ckxnh2qwh3g02" path="res://Levels/Visuals/backgrounds/Background_207.png" id="3_dbqd3"]
+[ext_resource type="Texture2D" uid="uid://djxywvud8iy6a" path="res://Levels/Visuals/backgrounds/Background_218.png" id="4_2m3sh"]
+[ext_resource type="Texture2D" uid="uid://dcpgr65exsmmg" path="res://Levels/Visuals/backgrounds/Background_217.png" id="5_luvwr"]
+[ext_resource type="Shader" uid="uid://bt2opdfmb6b3a" path="res://Levels/Visuals/3d_mosaic_test.gdshader" id="6_f8dhg"]
+[ext_resource type="Shader" uid="uid://do6ig3soufyor" path="res://Levels/Visuals/2d_mosaic.gdshader" id="8_ylm6e"]
+[ext_resource type="PackedScene" uid="uid://db25rqqt0w0td" path="res://_Global/Particles/3DSmoke.tscn" id="9_2m3sh"]
+[ext_resource type="PackedScene" uid="uid://c3a4oi8k5x1mp" path="res://_Global/Particles/3DSmokeReal.tscn" id="10_8e548"]
+[ext_resource type="Texture2D" uid="uid://u01xdshxcsxb" path="res://_Global/Particles/Visuals/realsmoke.png" id="11_f8dhg"]
 
 [sub_resource type="Environment" id="Environment_3k8q0"]
 background_mode = 1
@@ -118,12 +118,12 @@ stencil_flags = 2
 shader = ExtResource("8_ylm6e")
 shader_parameter/cell_size = 3
 
-[sub_resource type="Gradient" id="Gradient_8e548"]
+[sub_resource type="Gradient" id="Gradient_f8dhg"]
 offsets = PackedFloat32Array(0, 0.47348484, 0.8125, 1)
 colors = PackedColorArray(1, 0.87034494, 0, 1, 1, 0, 0.7741893, 1, 0.69577837, 0.47079715, 0.91528577, 1, 0.3547218, 0.43050805, 0.78031594, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_f8dhg"]
-gradient = SubResource("Gradient_8e548")
+gradient = SubResource("Gradient_f8dhg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8e548"]
 transparency = 2

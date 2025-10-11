@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtidq3duskfdb"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_p4m8j"]
-[ext_resource type="Texture2D" uid="uid://58816ydmyulx" path="res://Items/Assets/Visuals/egg.png" id="2_bya5j"]
-[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="4_s6yh8"]
+[ext_resource type="Texture2D" uid="uid://58816ydmyulx" path="res://Items/Visuals/egg.png" id="2_bya5j"]
+[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Visuals/floor texture.png" id="4_s6yh8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gfcs1"]
 radius = 37.0135

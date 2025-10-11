@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf1rq4vlvj1hf"]
 
-[ext_resource type="Script" uid="uid://dnse1mnaox1qe" path="res://UI/victory.gd" id="1_6bkvq"]
-[ext_resource type="Texture2D" uid="uid://b68yc6yrhyn4k" path="res://UI/Assets/Visuals/victory.png" id="2_t877b"]
+[ext_resource type="Script" uid="uid://dnse1mnaox1qe" path="res://UI/Scripts/victory.gd" id="1_6bkvq"]
+[ext_resource type="Texture2D" uid="uid://b68yc6yrhyn4k" path="res://UI/Visuals/victory.png" id="2_t877b"]
 
 [node name="Victory" type="Node"]
 script = ExtResource("1_6bkvq")

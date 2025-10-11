@@ -1,24 +1,24 @@
 [gd_scene load_steps=21 format=3 uid="uid://c5out100kqebr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_a77xe"]
-[ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/queen.gd" id="2_4sese"]
+[ext_resource type="Script" uid="uid://d2bicwb16xlbc" path="res://Entities/Scripts/queen.gd" id="2_4sese"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_6n5x4"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_umk3c"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="7_jhqtb"]
 [ext_resource type="PackedScene" uid="uid://h60nwbgep8g0" path="res://Entities/bullet_knight_slash.tscn" id="7_ksqgp"]
-[ext_resource type="SpriteFrames" uid="uid://drnc3dk5kp260" path="res://Entities/Assets/Visuals/Queen/queen_frames.tres" id="7_uf544"]
+[ext_resource type="SpriteFrames" uid="uid://drnc3dk5kp260" path="res://Entities/Visuals/Queen/queen_frames.tres" id="7_uf544"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_sun1j"]
-[ext_resource type="AnimationLibrary" uid="uid://cprk67p6w6f70" path="res://Entities/Assets/QueenAnimations.res" id="10_7b0sr"]
-[ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Assets/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
-[ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Assets/Visuals/Queen/Baseball.png" id="11_v0ou4"]
-[ext_resource type="Texture2D" uid="uid://cw86fvjr3eka8" path="res://Entities/Assets/Visuals/Queen/LaserSign.png" id="11_wec7u"]
-[ext_resource type="AudioStream" uid="uid://b0t51gebb5hp0" path="res://Global/SFX/Queen Laugh.wav" id="13_womkt"]
+[ext_resource type="AnimationLibrary" uid="uid://cprk67p6w6f70" path="res://QueenAnimations.res" id="10_7b0sr"]
+[ext_resource type="Texture2D" uid="uid://bbdxlu3s7rxqv" path="res://Entities/Visuals/The_Roaring_Knight.png" id="10_q2ppl"]
+[ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Visuals/Queen/Baseball.png" id="11_v0ou4"]
+[ext_resource type="Texture2D" uid="uid://cw86fvjr3eka8" path="res://Entities/Visuals/Queen/LaserSign.png" id="11_wec7u"]
+[ext_resource type="AudioStream" uid="uid://b0t51gebb5hp0" path="res://_Global/SFX/Queen Laugh.wav" id="13_womkt"]
 [ext_resource type="PackedScene" uid="uid://bduavdq3r3w4p" path="res://UI/speech_bubble_3d.tscn" id="14_in3w3"]
-[ext_resource type="AudioStream" uid="uid://c7uqep3r3hp01" path="res://Global/SFX/snd_txtq_2.wav" id="15_61ha4"]
+[ext_resource type="AudioStream" uid="uid://c7uqep3r3hp01" path="res://_Global/SFX/snd_txtq_2.wav" id="15_61ha4"]
 
 [sub_resource type="GDScript" id="GDScript_7b0sr"]
 resource_name = "punch"
-script/source = "extends \"res://Entities/bullet.gd\"
+script/source = "extends \"res://Entities/Scripts/bullet.gd\"
 
 func hit(player) -> void:
 	player.particle_trigger(particle_effect)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://bckbyuh31d5xb"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_riiub"]
-[ext_resource type="Script" uid="uid://btnrgqsxlomik" path="res://Entities/queen_wall.gd" id="2_riiub"]
-[ext_resource type="AudioStream" uid="uid://r7gf0adp5ot2" path="res://Global/SFX/Knight Slash.wav" id="3_riiub"]
-[ext_resource type="Texture2D" uid="uid://0evmut23mdud" path="res://Entities/Assets/Visuals/Queen/QueenKick.png" id="4_eqnkq"]
-[ext_resource type="Texture2D" uid="uid://8c6t47qjj53q" path="res://Entities/Assets/Visuals/Queen/QueenLaugh.png" id="5_dbyhq"]
+[ext_resource type="Script" uid="uid://btnrgqsxlomik" path="res://Entities/Scripts/queen_wall.gd" id="2_riiub"]
+[ext_resource type="AudioStream" uid="uid://r7gf0adp5ot2" path="res://_Global/SFX/Knight Slash.wav" id="3_riiub"]
+[ext_resource type="Texture2D" uid="uid://0evmut23mdud" path="res://Entities/Visuals/Queen/QueenKick.png" id="4_eqnkq"]
+[ext_resource type="Texture2D" uid="uid://8c6t47qjj53q" path="res://Entities/Visuals/Queen/QueenLaugh.png" id="5_dbyhq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jsf10"]
 size = Vector3(72.0558, 18.8259, 1.09012)

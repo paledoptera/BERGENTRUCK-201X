@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=4 uid="uid://ct3dpsy4rsd6j"]
+
+[ext_resource type="Script" uid="uid://snm7s1bioedx" path="res://_Common/MouseClickWidgets/Scripts/_clickable.gd" id="1"]
+[ext_resource type="Script" uid="uid://ec1d8h0v3rka" path="res://_Common/MouseClickWidgets/Components/mouse_click_component.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ce8hjyeqgxo7j" path="res://icon.svg" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vauvt"]
+size = Vector2(128, 128)
+
+[node name="ClickableItem" type="Area2D"]
+script = ExtResource("1")
+
+[node name="MouseClickComponent" type="Node" parent="."]
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://ec1d8h0v3rka"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vauvt")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="clicked" from="MouseClickComponent" to="." method="_on_item_clicked"]

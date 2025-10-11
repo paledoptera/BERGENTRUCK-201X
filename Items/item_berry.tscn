@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct0d8c3r2ijcf"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_ve8xw"]
-[ext_resource type="Texture2D" uid="uid://b2fkvqv6b4sym" path="res://Items/Assets/Visuals/berry.png" id="2_ve8xw"]
+[ext_resource type="Texture2D" uid="uid://b2fkvqv6b4sym" path="res://Items/Visuals/berry.png" id="2_ve8xw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nf08d"]
 radius = 13.0384

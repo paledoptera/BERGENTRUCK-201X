@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bujhn23r8iqh8"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p4wtv"]
-[ext_resource type="Texture2D" uid="uid://c4sf6rpiu2a44" path="res://Entities/Assets/Visuals/tree.png" id="2_q1jem"]
-[ext_resource type="Texture2D" uid="uid://xdxd7xkm753k" path="res://Levels/Assets/Visuals/shadow.png" id="3_pnx8q"]
+[ext_resource type="Texture2D" uid="uid://c4sf6rpiu2a44" path="res://Entities/Visuals/tree.png" id="2_q1jem"]
+[ext_resource type="Texture2D" uid="uid://xdxd7xkm753k" path="res://Levels/Visuals/shadow.png" id="3_pnx8q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pnx8q"]
 radius = 15.0

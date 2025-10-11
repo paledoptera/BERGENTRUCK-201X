@@ -1,18 +1,18 @@
 [gd_scene load_steps=35 format=4 uid="uid://c547y3wpuauvr"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_dumou"]
-[ext_resource type="Script" uid="uid://cbuu4p4vonadu" path="res://Levels/level_d.gd" id="2_6d0ew"]
-[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_aqnv7"]
-[ext_resource type="Texture2D" uid="uid://dq8own0hd6suw" path="res://Levels/Assets/Visuals/ground_racetrack.png" id="3_8jmtf"]
-[ext_resource type="Texture2D" uid="uid://cgbls7vqt4a5m" path="res://Levels/Assets/Visuals/road texture.png" id="4_aepm4"]
+[ext_resource type="Script" uid="uid://cbuu4p4vonadu" path="res://Levels/Scripts/level_d.gd" id="2_6d0ew"]
+[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://_Global/Music/Vampires Invading Heaven.ogg" id="2_aqnv7"]
+[ext_resource type="Texture2D" uid="uid://dq8own0hd6suw" path="res://Levels/Visuals/ground_racetrack.png" id="3_8jmtf"]
+[ext_resource type="Texture2D" uid="uid://cgbls7vqt4a5m" path="res://Levels/Visuals/road texture.png" id="4_aepm4"]
 [ext_resource type="PackedScene" uid="uid://q0y2miqm1o6c" path="res://Entities/dog.tscn" id="5_qufdn"]
-[ext_resource type="Texture2D" uid="uid://bu2av6lh5ysv3" path="res://Levels/Assets/Visuals/dogblock-sheet.png" id="7_14q77"]
-[ext_resource type="Texture2D" uid="uid://cqsggoatvsvkd" path="res://Levels/Assets/Visuals/backgrounds/Background_237.png" id="7_miv1i"]
-[ext_resource type="Texture2D" uid="uid://cjmsfvw1phvnc" path="res://Levels/Assets/Visuals/backgrounds/Background_233.png" id="8_rmgja"]
-[ext_resource type="Texture2D" uid="uid://cf1vipn47hv1t" path="res://Levels/Assets/Visuals/backgrounds/Background_261.png" id="9_ewel5"]
-[ext_resource type="Texture2D" uid="uid://cserucy4lblyg" path="res://Levels/Assets/Visuals/backgrounds/BackgroundColor.png" id="10_rmgja"]
-[ext_resource type="Texture2D" uid="uid://dt5g3ortdpmkb" path="res://Levels/Assets/Visuals/backgrounds/Background_279.png" id="11_n7i1e"]
-[ext_resource type="Texture2D" uid="uid://6g6j1wxm6k4s" path="res://UI/Assets/Visuals/Shine.png" id="12_qs5h0"]
+[ext_resource type="Texture2D" uid="uid://bu2av6lh5ysv3" path="res://Levels/Visuals/dogblock-sheet.png" id="7_14q77"]
+[ext_resource type="Texture2D" uid="uid://cqsggoatvsvkd" path="res://Levels/Visuals/backgrounds/Background_237.png" id="7_miv1i"]
+[ext_resource type="Texture2D" uid="uid://cjmsfvw1phvnc" path="res://Levels/Visuals/backgrounds/Background_233.png" id="8_rmgja"]
+[ext_resource type="Texture2D" uid="uid://cf1vipn47hv1t" path="res://Levels/Visuals/backgrounds/Background_261.png" id="9_ewel5"]
+[ext_resource type="Texture2D" uid="uid://cserucy4lblyg" path="res://Levels/Visuals/backgrounds/BackgroundColor.png" id="10_rmgja"]
+[ext_resource type="Texture2D" uid="uid://dt5g3ortdpmkb" path="res://Levels/Visuals/backgrounds/Background_279.png" id="11_n7i1e"]
+[ext_resource type="Texture2D" uid="uid://6g6j1wxm6k4s" path="res://UI/Visuals/Shine.png" id="12_qs5h0"]
 
 [sub_resource type="Environment" id="Environment_rmgja"]
 background_mode = 1
@@ -32,7 +32,7 @@ fog_depth_begin = 14.0
 
 [sub_resource type="GDScript" id="GDScript_8jmtf"]
 resource_name = "dograce player"
-script/source = "extends \"res://Levels/player.gd\"
+script/source = "extends \"res://Levels/Scripts/player.gd\"
 @export var road_turning_angle: float = 0.0
 #
 

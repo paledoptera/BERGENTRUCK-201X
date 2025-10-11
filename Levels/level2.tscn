@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfltl3btm1pp6"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_24phs"]
-[ext_resource type="AudioStream" uid="uid://dxn0k1wd4q32p" path="res://Global/Music/Midnight Motorist.ogg" id="2_ty1rc"]
+[ext_resource type="AudioStream" uid="uid://dxn0k1wd4q32p" path="res://_Global/Music/Midnight Motorist.ogg" id="2_ty1rc"]
 
 [sub_resource type="Environment" id="Environment_24phs"]
 background_mode = 1

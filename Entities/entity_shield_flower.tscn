@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://butoedeih22pw"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_jl6cv"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_6fn5a"]
-[ext_resource type="AudioStream" uid="uid://dehfocd64thhc" path="res://Global/SFX/snd_bomb.wav" id="4_v2iim"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="2_6fn5a"]
+[ext_resource type="AudioStream" uid="uid://dehfocd64thhc" path="res://_Global/SFX/snd_bomb.wav" id="4_v2iim"]
 [ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="5_2iig8"]
-[ext_resource type="Texture2D" uid="uid://7hxti8ttgf6a" path="res://Entities/Assets/Visuals/shieldbush.png" id="6_jl6cv"]
+[ext_resource type="Texture2D" uid="uid://7hxti8ttgf6a" path="res://Entities/Visuals/shieldbush.png" id="6_jl6cv"]
 
 [sub_resource type="Resource" id="Resource_x1hwt"]
 script = ExtResource("2_6fn5a")

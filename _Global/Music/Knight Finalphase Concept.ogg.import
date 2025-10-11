@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://qnhh0v6jmp2o"
+path="res://.godot/imported/Knight Finalphase Concept.ogg-b525e4d4fd301e64d979649668e0302e.oggvorbisstr"
+
+[deps]
+
+source_file="res://_Global/Music/Knight Finalphase Concept.ogg"
+dest_files=["res://.godot/imported/Knight Finalphase Concept.ogg-b525e4d4fd301e64d979649668e0302e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=2.79
+bpm=0.0
+beat_count=0
+bar_beats=4

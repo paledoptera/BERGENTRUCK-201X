@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://byiyp5l2tjvif"]
 
-[ext_resource type="Script" uid="uid://bs4y4n5swxu60" path="res://UI/options.gd" id="1_ua1a0"]
-[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_b7fs8"]
-[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="4_ixc72"]
-[ext_resource type="Texture2D" uid="uid://c6o8ppdbrwcsr" path="res://UI/Assets/Visuals/heart icon.png" id="5_cubmi"]
-[ext_resource type="Script" uid="uid://cwi6nvsxcdwby" path="res://UI/volume_slider.gd" id="5_q8egh"]
+[ext_resource type="Script" uid="uid://bs4y4n5swxu60" path="res://UI/Scripts/options.gd" id="1_ua1a0"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://_Global/Fonts/DefaultMono.ttf" id="2_b7fs8"]
+[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/Scripts/menu_option.gd" id="4_ixc72"]
+[ext_resource type="Texture2D" uid="uid://c6o8ppdbrwcsr" path="res://UI/Visuals/heart icon.png" id="5_cubmi"]
+[ext_resource type="Script" uid="uid://cwi6nvsxcdwby" path="res://UI/Scripts/volume_slider.gd" id="5_q8egh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6k2x"]
 content_margin_top = 4.0

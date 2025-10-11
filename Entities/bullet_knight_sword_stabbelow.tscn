@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://prb751bd056k"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_pb0jp"]
-[ext_resource type="Script" uid="uid://i7dmctmhelxe" path="res://Entities/bullet_knight_sword_stabbelow.gd" id="2_pb0jp"]
-[ext_resource type="Texture2D" uid="uid://bjrgt1eee4qgu" path="res://Entities/Assets/Visuals/Knight/knight_sword_below.png" id="3_r6x1a"]
+[ext_resource type="Script" uid="uid://i7dmctmhelxe" path="res://Entities/Scripts/bullet_knight_sword_stabbelow.gd" id="2_pb0jp"]
+[ext_resource type="Texture2D" uid="uid://bjrgt1eee4qgu" path="res://Entities/Visuals/Knight/knight_sword_below.png" id="3_r6x1a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfug4"]
 atlas = ExtResource("3_r6x1a")

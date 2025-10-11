@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bc8vcjm8kaofg"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_06yxo"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_2385j"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Visuals/skybox_2.png" id="2_2385j"]
 [ext_resource type="PackedScene" uid="uid://d0tgrulyxroeg" path="res://Entities/entity_dess.tscn" id="4_eh6o7"]
-[ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Assets/Visuals/Dark Ground Texture.tres" id="4_vr4rd"]
+[ext_resource type="Material" uid="uid://bv6kvghvtgwro" path="res://Levels/Visuals/Dark Ground Texture.tres" id="4_vr4rd"]
 
 [sub_resource type="Environment" id="Environment_06yxo"]
 background_mode = 1

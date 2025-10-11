@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2xygcidcdw4m"]
 
-[ext_resource type="Texture2D" uid="uid://bpsa2sev8yh1g" path="res://UI/controls.png" id="1_1f6o4"]
-[ext_resource type="Script" uid="uid://cqvh6h1qo10kc" path="res://UI/control_flash.gd" id="1_b5p8i"]
-[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="3_w4bo1"]
+[ext_resource type="Texture2D" uid="uid://bpsa2sev8yh1g" path="res://UI/Visuals/controls.png" id="1_1f6o4"]
+[ext_resource type="Script" uid="uid://cqvh6h1qo10kc" path="res://UI/Scripts/control_flash.gd" id="1_b5p8i"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://_Global/Fonts/Default.ttf" id="3_w4bo1"]
 
 [node name="ControlSplash" type="Node"]
 script = ExtResource("1_b5p8i")

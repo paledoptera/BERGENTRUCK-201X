@@ -1,35 +1,35 @@
 [gd_scene load_steps=64 format=3 uid="uid://8ue6vqtkskwt"]
 
-[ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/level_dog_chase.gd" id="1_8m5h0"]
-[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_fcbso"]
-[ext_resource type="Texture2D" uid="uid://bmmwo35sp1ufv" path="res://Levels/Assets/Visuals/road crossjunction texture.png" id="2_po82j"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="2_x8rsx"]
-[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Assets/Visuals/floor texture.png" id="3_f6p25"]
-[ext_resource type="Script" uid="uid://thtwdoa14og" path="res://Levels/playerKart.gd" id="3_po82j"]
-[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="4_kb8qp"]
-[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="5_8m5h0"]
-[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Assets/Visuals/speedometer dial.png" id="6_fcbso"]
-[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="7_oejat"]
-[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Assets/Visuals/satisfaction gage.png" id="8_bmnbb"]
-[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Assets/Visuals/emptybeerometer.png" id="9_xtdoy"]
-[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Assets/Visuals/beerometer.png" id="10_rm0vb"]
-[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="11_k5dun"]
-[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="12_w7d7v"]
-[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="13_c6qow"]
-[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="14_4lg2l"]
-[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="15_el8sa"]
-[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="16_ylxu4"]
-[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Assets/Visuals/arm upperarm.png" id="17_rou4v"]
-[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="18_ibhpg"]
-[ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Assets/Visuals/asgore_nose.png" id="19_8ic5o"]
-[ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Assets/Visuals/windscreen_sheen.png" id="20_ruk7g"]
-[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="21_u4hha"]
-[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="23_y8nxh"]
-[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="24_mato5"]
-[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="25_tupof"]
-[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="26_8ugdk"]
+[ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/Scripts/level_dog_chase.gd" id="1_8m5h0"]
+[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://_Global/Music/Vampires Invading Heaven.ogg" id="2_fcbso"]
+[ext_resource type="Texture2D" uid="uid://bmmwo35sp1ufv" path="res://Levels/Visuals/road crossjunction texture.png" id="2_po82j"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Visuals/skybox_2.png" id="2_x8rsx"]
+[ext_resource type="Texture2D" uid="uid://dqsopy4lb7gof" path="res://Levels/Visuals/floor texture.png" id="3_f6p25"]
+[ext_resource type="Script" uid="uid://thtwdoa14og" path="res://Levels/Scripts/playerKart.gd" id="3_po82j"]
+[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Visuals/car.png" id="4_kb8qp"]
+[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Visuals/speedometer.png" id="5_8m5h0"]
+[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Visuals/speedometer dial.png" id="6_fcbso"]
+[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Visuals/fuel gage.png" id="7_oejat"]
+[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Visuals/satisfaction gage.png" id="8_bmnbb"]
+[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Visuals/emptybeerometer.png" id="9_xtdoy"]
+[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Visuals/beerometer.png" id="10_rm0vb"]
+[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://_Common/MouseClickWidgets/widget_joystick_half.tscn" id="11_k5dun"]
+[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Visuals/steering wheel.png" id="12_w7d7v"]
+[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://_Common/MouseClickWidgets/widget_slider.tscn" id="13_c6qow"]
+[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Visuals/gearshift.png" id="14_4lg2l"]
+[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Visuals/arm hand.png" id="15_el8sa"]
+[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Visuals/arm forearm.png" id="16_ylxu4"]
+[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Visuals/arm upperarm.png" id="17_rou4v"]
+[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Visuals/asgore.png" id="18_ibhpg"]
+[ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Visuals/asgore_nose.png" id="19_8ic5o"]
+[ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Visuals/windscreen_sheen.png" id="20_ruk7g"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://_Global/Fonts/Default.ttf" id="21_u4hha"]
+[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://_Global/SFX/Horn.wav" id="23_y8nxh"]
+[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://_Global/SFX/Car Engine.wav" id="24_mato5"]
+[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://_Global/SFX/Hurt.wav" id="25_tupof"]
+[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Visuals/damage splash.png" id="26_8ugdk"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="27_vsxlg"]
-[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="28_fwvmc"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://_Global/SFX/Collision.wav" id="28_fwvmc"]
 [ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="28_kb8qp"]
 
 [sub_resource type="Environment" id="Environment_po82j"]
@@ -628,6 +628,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entities", "entity_hitbox")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -733.377, 0, -1310.33)
 script = ExtResource("3_po82j")
+screenshake_speed = 400.0
+screenshake_decay = 3.0
 hand = NodePath("Visuals/Hand")
 widget_gear = NodePath("Visuals/WidgetGear")
 widget_wheel = NodePath("Visuals/WidgetWheel")
@@ -636,8 +638,6 @@ visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
 visual_asgore = NodePath("Visuals/Asgore")
 entities = NodePath("../Entities")
 entity_hitbox = NodePath("Camera3D/Area3D")
-screenshake_speed = 400.0
-screenshake_decay = 3.0
 
 [node name="Particles" type="Node2D" parent="Player"]
 modulate = Color(0.34902, 0.486275, 0.670588, 1)

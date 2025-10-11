@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8403mld7gc7p"
+path="res://.godot/imported/Vampires Invading Heaven.ogg-4b79c6535ef4443b998c036d2cba4984.oggvorbisstr"
+
+[deps]
+
+source_file="res://_Global/Music/Vampires Invading Heaven.ogg"
+dest_files=["res://.godot/imported/Vampires Invading Heaven.ogg-4b79c6535ef4443b998c036d2cba4984.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1ndyk3fba3cr"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_83ejl"]
-[ext_resource type="Script" uid="uid://hhj31gia7f7y" path="res://Entities/queen_ball.gd" id="2_ldsao"]
-[ext_resource type="Texture2D" uid="uid://bsgbyl1ure8lp" path="res://Entities/Assets/Visuals/Queen/Baseball Flash.png" id="4_hshey"]
-[ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Assets/Visuals/Queen/Baseball.png" id="5_83ejl"]
-[ext_resource type="Texture2D" uid="uid://blkpd84ru06ci" path="res://Entities/Assets/Visuals/Queen/AimMarker.png" id="5_gj2hg"]
+[ext_resource type="Script" uid="uid://hhj31gia7f7y" path="res://Entities/Scripts/queen_ball.gd" id="2_ldsao"]
+[ext_resource type="Texture2D" uid="uid://bsgbyl1ure8lp" path="res://Entities/Visuals/Queen/Baseball Flash.png" id="4_hshey"]
+[ext_resource type="Texture2D" uid="uid://cg3u1w51l16gt" path="res://Entities/Visuals/Queen/Baseball.png" id="5_83ejl"]
+[ext_resource type="Texture2D" uid="uid://blkpd84ru06ci" path="res://Entities/Visuals/Queen/AimMarker.png" id="5_gj2hg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vfbav"]
 height = 16.3849

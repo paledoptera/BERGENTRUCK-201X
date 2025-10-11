@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhxugegrs270h"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_wvhif"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_6ofv2"]
-[ext_resource type="AudioStream" uid="uid://bg7ham6vgii6k" path="res://Global/SFX/snd_knight_teleport.wav" id="6_6ofv2"]
-[ext_resource type="Texture2D" uid="uid://bytdso1wubgcj" path="res://Levels/Assets/Visuals/boost.png" id="7_6ofv2"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="2_6ofv2"]
+[ext_resource type="AudioStream" uid="uid://bg7ham6vgii6k" path="res://_Global/SFX/snd_knight_teleport.wav" id="6_6ofv2"]
+[ext_resource type="Texture2D" uid="uid://bytdso1wubgcj" path="res://Levels/Visuals/boost.png" id="7_6ofv2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ofv2"]
 size = Vector3(39.5876, 4.34717, 38.5068)

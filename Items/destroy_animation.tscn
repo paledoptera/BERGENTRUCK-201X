@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b58co3jtahjlj"]
 
-[ext_resource type="Script" uid="uid://bgwf2468m0n72" path="res://Items/destroy_animation.gd" id="1_rermn"]
-[ext_resource type="Texture2D" uid="uid://dyr6s7eqrecta" path="res://Items/Assets/Visuals/flower.png" id="2_ksfe4"]
+[ext_resource type="Script" uid="uid://bgwf2468m0n72" path="res://Items/Scripts/destroy_animation.gd" id="1_rermn"]
+[ext_resource type="Texture2D" uid="uid://dyr6s7eqrecta" path="res://Items/Visuals/flower.png" id="2_ksfe4"]
 
 [sub_resource type="Animation" id="Animation_ppesk"]
 length = 0.001

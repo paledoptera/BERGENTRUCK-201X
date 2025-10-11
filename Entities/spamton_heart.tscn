@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2xiab3w6t8uf"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_p8fhw"]
-[ext_resource type="Script" uid="uid://u4ndqmv4bohu" path="res://Entities/Assets/Scripts/spamton_heart.gd" id="2_8pilv"]
-[ext_resource type="Texture2D" uid="uid://dpr4dm8ungltp" path="res://Entities/Assets/Visuals/Spamton/heart.png" id="3_p8fhw"]
-[ext_resource type="Texture2D" uid="uid://cdroslw0y1fx2" path="res://Entities/Assets/Visuals/Spamton/heartblink.png" id="4_tcn2o"]
+[ext_resource type="Script" uid="uid://u4ndqmv4bohu" path="res://Entities/Scripts/spamton_heart.gd" id="2_8pilv"]
+[ext_resource type="Texture2D" uid="uid://dpr4dm8ungltp" path="res://Entities/Visuals/Spamton/heart.png" id="3_p8fhw"]
+[ext_resource type="Texture2D" uid="uid://cdroslw0y1fx2" path="res://Entities/Visuals/Spamton/heartblink.png" id="4_tcn2o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8fhw"]
 size = Vector3(8.76147, 8.03174, 4.070801)

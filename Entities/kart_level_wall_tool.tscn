@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cb30t4c210fmc"]
 
-[ext_resource type="Script" uid="uid://cl487cppli2lo" path="res://Levels/walltool.gd" id="1_2bcvf"]
-[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="2_bw71g"]
+[ext_resource type="Script" uid="uid://cl487cppli2lo" path="res://Levels/Scripts/walltool.gd" id="1_2bcvf"]
+[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Scripts/entity.gd" id="2_bw71g"]
 
 [node name="wall" type="StaticBody3D"]
 script = ExtResource("1_2bcvf")

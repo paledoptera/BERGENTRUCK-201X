@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="4_kek77"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_4c57u"]
-[ext_resource type="Texture2D" uid="uid://bu325xsdlvy3f" path="res://Global/Borders/Blank.png" id="6_efxa6"]
-[ext_resource type="Script" uid="uid://dpa0bdsngjtpf" path="res://Common/discord_manager.gd" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://bu325xsdlvy3f" path="res://_Global/Borders/Blank.png" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://dpa0bdsngjtpf" path="res://_Common/discord_manager.gd" id="7_272bh"]
 
 [sub_resource type="Animation" id="Animation_hbaan"]
 length = 0.001

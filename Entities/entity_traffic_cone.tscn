@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds3gw8cnub01d"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_nttc0"]
-[ext_resource type="Texture2D" uid="uid://d0uwlkcjq2krd" path="res://Entities/Assets/Visuals/traffic_cone.png" id="2_lyurc"]
+[ext_resource type="Texture2D" uid="uid://d0uwlkcjq2krd" path="res://Entities/Visuals/traffic_cone.png" id="2_lyurc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lyurc"]
 radius = 0.608

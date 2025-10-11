@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c72ogrigwj54j"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_63yhs"]
-[ext_resource type="Texture2D" uid="uid://b08cip1yq028r" path="res://Entities/Assets/Visuals/dog_gate.png" id="2_b42mq"]
+[ext_resource type="Texture2D" uid="uid://b08cip1yq028r" path="res://Entities/Visuals/dog_gate.png" id="2_b42mq"]
 
 [sub_resource type="GDScript" id="GDScript_b42mq"]
 resource_name = "dog_gate"

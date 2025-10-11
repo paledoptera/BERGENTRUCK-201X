@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjuchij38e3hi"]
 
-[ext_resource type="Script" uid="uid://dn1scowa0babs" path="res://UI/pause_menu.gd" id="1_ltd3m"]
-[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="2_03fe5"]
-[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="3_0b5ob"]
+[ext_resource type="Script" uid="uid://dn1scowa0babs" path="res://UI/Scripts/pause_menu.gd" id="1_ltd3m"]
+[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/Scripts/menu_option.gd" id="2_03fe5"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://_Global/Fonts/DefaultMono.ttf" id="3_0b5ob"]
 
 [node name="PauseMenu" type="Node2D"]
 process_mode = 3

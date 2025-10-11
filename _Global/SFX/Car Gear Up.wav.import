@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf8yyq2r0tegw"
+path="res://.godot/imported/Car Gear Up.wav-ad0707aea5616c43965306b918252ddc.sample"
+
+[deps]
+
+source_file="res://_Global/SFX/Car Gear Up.wav"
+dest_files=["res://.godot/imported/Car Gear Up.wav-ad0707aea5616c43965306b918252ddc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

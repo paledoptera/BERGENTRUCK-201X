@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3q7waomg7hnc"]
 
-[ext_resource type="PackedScene" uid="uid://damk4alcsir7j" path="res://Common/MouseClickWidgets/widget_rigidobject.tscn" id="1_o3gxl"]
+[ext_resource type="PackedScene" uid="uid://damk4alcsir7j" path="res://_Common/MouseClickWidgets/widget_rigidobject.tscn" id="1_o3gxl"]
 
 [node name="Item" instance=ExtResource("1_o3gxl")]
 

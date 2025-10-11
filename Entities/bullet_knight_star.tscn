@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf2p6vdud7gtc"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_4xi6e"]
-[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_8ee6g"]
-[ext_resource type="Texture2D" uid="uid://b41oqr1hrgnya" path="res://Entities/Assets/Visuals/Knight/knight_star.png" id="3_4xi6e"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/Scripts/bullet.gd" id="2_8ee6g"]
+[ext_resource type="Texture2D" uid="uid://b41oqr1hrgnya" path="res://Entities/Visuals/Knight/knight_star.png" id="3_4xi6e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xi6e"]
 radius = 0.731609

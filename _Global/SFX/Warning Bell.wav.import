@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjxhvobfoami7"
+path="res://.godot/imported/Warning Bell.wav-8c66882e5a07c046479ec89e03dd3dff.sample"
+
+[deps]
+
+source_file="res://_Global/SFX/Warning Bell.wav"
+dest_files=["res://.godot/imported/Warning Bell.wav-8c66882e5a07c046479ec89e03dd3dff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

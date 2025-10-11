@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://v61c3korcj8d"]
 
-[ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Assets/Visuals/level_icons.png" id="1_61kut"]
-[ext_resource type="Script" uid="uid://cgjqtfvhjivqy" path="res://UI/level_icon_bonus.gd" id="1_wkijm"]
-[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
-[ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Assets/Visuals/tickmark.png" id="4_wkijm"]
+[ext_resource type="Texture2D" uid="uid://7iimxv6wpvnl" path="res://UI/Visuals/level_icons.png" id="1_61kut"]
+[ext_resource type="Script" uid="uid://cgjqtfvhjivqy" path="res://UI/Scripts/level_icon_bonus.gd" id="1_wkijm"]
+[ext_resource type="FontFile" uid="uid://d6rswd5tsvq0" path="res://_Global/Fonts/DefaultMono.ttf" id="2_mbt8g"]
+[ext_resource type="Texture2D" uid="uid://canb661fbcg2" path="res://UI/Visuals/tickmark.png" id="4_wkijm"]
 
 [node name="LevelIcon" type="ColorRect"]
 self_modulate = Color(1, 1, 1, 0)

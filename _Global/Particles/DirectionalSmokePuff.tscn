@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7fkad0xg0gc"]
+
+[ext_resource type="PackedScene" uid="uid://ci1pueoaiu5vg" path="res://_Global/Particles/Smokepuff.tscn" id="1_5stgw"]
+
+[node name="Smokepuff" instance=ExtResource("1_5stgw")]
+direction = Vector2(0, 50)
+spread = 15.0
+color = Color(1, 1, 1, 0.0862745)

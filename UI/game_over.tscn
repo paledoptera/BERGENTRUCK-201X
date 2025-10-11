@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhue5xb8addio"]
 
-[ext_resource type="Script" uid="uid://yyngiap5pxgw" path="res://UI/game_over.gd" id="1_3y5qq"]
-[ext_resource type="Texture2D" uid="uid://dbstl51bktq4c" path="res://UI/Assets/Visuals/gameover.png" id="1_jawqf"]
-[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/menuoption.gd" id="3_wruqd"]
-[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="4_phit2"]
+[ext_resource type="Script" uid="uid://yyngiap5pxgw" path="res://UI/Scripts/game_over.gd" id="1_3y5qq"]
+[ext_resource type="Texture2D" uid="uid://dbstl51bktq4c" path="res://UI/Visuals/gameover.png" id="1_jawqf"]
+[ext_resource type="Script" uid="uid://ri47f5qti7h5" path="res://UI/Scripts/menu_option.gd" id="3_wruqd"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://_Global/Fonts/Default.ttf" id="4_phit2"]
 
 [node name="GameOver" type="Node"]
 script = ExtResource("1_3y5qq")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://f4pdbbpsxjgt"
+path="res://.godot/imported/Car Gear Down.wav-4b251ad77d724c81a4a65a424a8244b7.sample"
+
+[deps]
+
+source_file="res://_Global/SFX/Car Gear Down.wav"
+dest_files=["res://.godot/imported/Car Gear Down.wav-4b251ad77d724c81a4a65a424a8244b7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxdf0t3rf0pnj"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_x71b0"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="3_43lgf"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="3_43lgf"]
 [ext_resource type="PackedScene" uid="uid://bc4etjw8e8l01" path="res://Items/item_gun.tscn" id="4_gbimh"]
-[ext_resource type="Texture2D" uid="uid://du13ryhly8sl6" path="res://Entities/Assets/Visuals/gunbush.png" id="5_kagxs"]
+[ext_resource type="Texture2D" uid="uid://du13ryhly8sl6" path="res://Entities/Visuals/gunbush.png" id="5_kagxs"]
 
 [sub_resource type="Resource" id="Resource_ant45"]
 script = ExtResource("3_43lgf")

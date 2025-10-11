@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bos6rfssdin4y"]
 
-[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="1_qgafo"]
-[ext_resource type="AudioStream" uid="uid://bahw1y0vma66d" path="res://Global/SFX/Small Item Hit 2.wav" id="2_aqyan"]
-[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Assets/Visuals/tree_giant.png" id="2_qmwl5"]
+[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Scripts/entity.gd" id="1_qgafo"]
+[ext_resource type="AudioStream" uid="uid://bahw1y0vma66d" path="res://_Global/SFX/Small Item Hit 2.wav" id="2_aqyan"]
+[ext_resource type="Texture2D" uid="uid://b30enj4fl0sv6" path="res://Entities/Visuals/tree_giant.png" id="2_qmwl5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aqyan"]
 radius = 0.867574

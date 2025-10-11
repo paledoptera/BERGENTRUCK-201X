@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcxhye6g77fhl"
+path="res://.godot/imported/THE GENERATOR.ogg-bc64ea0e195f63ba46470f8e071f76fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://_Global/Music/THE GENERATOR.ogg"
+dest_files=["res://.godot/imported/THE GENERATOR.ogg-bc64ea0e195f63ba46470f8e071f76fe.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

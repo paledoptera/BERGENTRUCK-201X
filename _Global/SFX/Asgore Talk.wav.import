@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjkg2bw1yl0j8"
+path="res://.godot/imported/Asgore Talk.wav-046b6ae60eef3c84ab7a1e57fd6761de.sample"
+
+[deps]
+
+source_file="res://_Global/SFX/Asgore Talk.wav"
+dest_files=["res://.godot/imported/Asgore Talk.wav-046b6ae60eef3c84ab7a1e57fd6761de.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

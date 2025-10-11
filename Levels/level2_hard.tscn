@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlbag4r2ncy86"]
 
 [ext_resource type="PackedScene" uid="uid://bmfdo622wwei3" path="res://Levels/_level.tscn" id="1_wjoae"]
-[ext_resource type="AudioStream" uid="uid://dcxhye6g77fhl" path="res://Global/Music/THE GENERATOR.ogg" id="2_wjoae"]
-[ext_resource type="Texture2D" uid="uid://cgid23bdecbuk" path="res://Levels/Assets/Visuals/ground_snow.png" id="3_6x3kj"]
+[ext_resource type="AudioStream" uid="uid://dcxhye6g77fhl" path="res://_Global/Music/THE GENERATOR.ogg" id="2_wjoae"]
+[ext_resource type="Texture2D" uid="uid://cgid23bdecbuk" path="res://Levels/Visuals/ground_snow.png" id="3_6x3kj"]
 [ext_resource type="PackedScene" uid="uid://cvfw5knxdmsmo" path="res://Entities/bkg_tree_christmas.tscn" id="3_cgx6m"]
-[ext_resource type="Texture2D" uid="uid://d18s87aum88fg" path="res://Levels/Assets/Visuals/skybox_fancynight.png" id="4_3u2gq"]
+[ext_resource type="Texture2D" uid="uid://d18s87aum88fg" path="res://Levels/Visuals/skybox_fancynight.png" id="4_3u2gq"]
 
 [sub_resource type="Environment" id="Environment_3u2gq"]
 background_mode = 1

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dod06qvkdjumy"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_yigum"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_eh35o"]
-[ext_resource type="AudioStream" uid="uid://cfwg8525vo6lm" path="res://Global/SFX/Small Item Hit 1.wav" id="2_tymhi"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="2_eh35o"]
+[ext_resource type="AudioStream" uid="uid://cfwg8525vo6lm" path="res://_Global/SFX/Small Item Hit 1.wav" id="2_tymhi"]
 [ext_resource type="PackedScene" uid="uid://bnb2xiobf6qwh" path="res://Items/item_leaf.tscn" id="3_qei76"]
 [ext_resource type="PackedScene" uid="uid://4f5wnn3da3ug" path="res://Items/item_thorns.tscn" id="4_eh35o"]
-[ext_resource type="Texture2D" uid="uid://tyf1jytfl8nd" path="res://Entities/Assets/Visuals/bush_thorns.png" id="4_xr5a3"]
+[ext_resource type="Texture2D" uid="uid://tyf1jytfl8nd" path="res://Entities/Visuals/bush_thorns.png" id="4_xr5a3"]
 
 [sub_resource type="Resource" id="Resource_wcjbc"]
 script = ExtResource("2_eh35o")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cuu8u82sv6b75"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_2w5dm"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_d4hl2"]
-[ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Assets/Visuals/bush_flower.png" id="2_j58kf"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="2_d4hl2"]
+[ext_resource type="Texture2D" uid="uid://pmvvi3qfbo7o" path="res://Entities/Visuals/bush_flower.png" id="2_j58kf"]
 [ext_resource type="PackedScene" uid="uid://b6isk1oqmri8h" path="res://Items/item_flower.tscn" id="2_x4tte"]
 [ext_resource type="PackedScene" uid="uid://bnb2xiobf6qwh" path="res://Items/item_leaf.tscn" id="3_7sk2g"]
 [ext_resource type="PackedScene" uid="uid://cn4siko4qnuog" path="res://Items/item_beer.tscn" id="4_x1hwt"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cy5s1qmefmmj7"]
 
-[ext_resource type="Texture2D" uid="uid://btr7flpovr0ou" path="res://Entities/Assets/Visuals/spawn_beam.png" id="1_aio2s"]
-[ext_resource type="Script" uid="uid://s7l2pcagunn4" path="res://Entities/spawn_beam.gd" id="2_2dmpa"]
+[ext_resource type="Texture2D" uid="uid://btr7flpovr0ou" path="res://Entities/Visuals/spawn_beam.png" id="1_aio2s"]
+[ext_resource type="Script" uid="uid://s7l2pcagunn4" path="res://Entities/Scripts/spawn_beam.gd" id="2_2dmpa"]
 
 [sub_resource type="Animation" id="Animation_2dmpa"]
 length = 0.001

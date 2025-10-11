@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cqhgj0b8d0w3x"]
 
 [ext_resource type="PackedScene" uid="uid://btetd788ltvnu" path="res://Entities/entity_bush.tscn" id="1_nffrs"]
-[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://ItemDropData.gd" id="2_ccl36"]
+[ext_resource type="Script" uid="uid://x4oraccw1vua" path="res://Levels/Scripts/ItemDropData.gd" id="2_ccl36"]
 [ext_resource type="PackedScene" uid="uid://dak48q88s8bep" path="res://Items/item_pipis.tscn" id="3_nffrs"]
-[ext_resource type="AudioStream" uid="uid://bigavjv4ovlma" path="res://Global/SFX/Bump.wav" id="4_ccl36"]
-[ext_resource type="Texture2D" uid="uid://dx1sr4noofccg" path="res://Entities/Assets/Visuals/shieldpipis.png" id="4_nffrs"]
+[ext_resource type="AudioStream" uid="uid://bigavjv4ovlma" path="res://_Global/SFX/Bump.wav" id="4_ccl36"]
+[ext_resource type="Texture2D" uid="uid://dx1sr4noofccg" path="res://Entities/Visuals/shieldpipis.png" id="4_nffrs"]
 
 [sub_resource type="Resource" id="Resource_x1hwt"]
 script = ExtResource("2_ccl36")

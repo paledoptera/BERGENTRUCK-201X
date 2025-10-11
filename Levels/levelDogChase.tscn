@@ -1,45 +1,45 @@
 [gd_scene load_steps=107 format=3 uid="uid://0luro7goxv45"]
 
-[ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/level_dog_chase.gd" id="1_ra5q3"]
-[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://Global/Music/Vampires Invading Heaven.ogg" id="2_0vxqt"]
-[ext_resource type="Texture2D" uid="uid://cpfveou26a5e6" path="res://Entities/Assets/Scripts/dog.png" id="3_fp5un"]
-[ext_resource type="Texture2D" uid="uid://bmmwo35sp1ufv" path="res://Levels/Assets/Visuals/road crossjunction texture.png" id="3_p3ygm"]
-[ext_resource type="Script" uid="uid://cs4upmn04oirj" path="res://Entities/dogfollow.gd" id="3_syoe7"]
-[ext_resource type="Texture2D" uid="uid://c6h5shpo2wvf1" path="res://Levels/Assets/Visuals/road.png" id="4_0vxqt"]
-[ext_resource type="Texture2D" uid="uid://dsfpn52y4tpe1" path="res://Levels/Assets/Visuals/dogplans1.png" id="4_ra5q3"]
-[ext_resource type="Texture2D" uid="uid://cla0tuxr5663k" path="res://Levels/Assets/Visuals/road junction texture.png" id="5_5dooj"]
-[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Assets/Visuals/skybox_2.png" id="5_dbu1h"]
-[ext_resource type="Texture2D" uid="uid://cmdfmmxgpseek" path="res://Levels/Assets/Visuals/dirtroad.png" id="5_p3ygm"]
-[ext_resource type="Script" uid="uid://thtwdoa14og" path="res://Levels/playerKart.gd" id="6_6inao"]
-[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Assets/Visuals/car.png" id="7_787wp"]
-[ext_resource type="Texture2D" uid="uid://cvb8mcm0ncmer" path="res://Levels/Assets/Visuals/arrow.png" id="8_dbu1h"]
-[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Assets/Visuals/speedometer.png" id="8_uhnpn"]
-[ext_resource type="Script" uid="uid://cl487cppli2lo" path="res://Levels/walltool.gd" id="9_787wp"]
-[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Assets/Visuals/speedometer dial.png" id="9_fp5un"]
-[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Assets/Visuals/fuel gage.png" id="10_syoe7"]
-[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Assets/Scripts/entity.gd" id="10_uhnpn"]
+[ext_resource type="Script" uid="uid://ck6oy7ux7t5lx" path="res://Levels/Scripts/level_dog_chase.gd" id="1_ra5q3"]
+[ext_resource type="AudioStream" uid="uid://c8403mld7gc7p" path="res://_Global/Music/Vampires Invading Heaven.ogg" id="2_0vxqt"]
+[ext_resource type="Texture2D" uid="uid://cpfveou26a5e6" path="res://Entities/Scripts/dog.png" id="3_fp5un"]
+[ext_resource type="Texture2D" uid="uid://bmmwo35sp1ufv" path="res://Levels/Visuals/road crossjunction texture.png" id="3_p3ygm"]
+[ext_resource type="Script" uid="uid://cs4upmn04oirj" path="res://Entities/Scripts/dogfollow.gd" id="3_syoe7"]
+[ext_resource type="Texture2D" uid="uid://c6h5shpo2wvf1" path="res://Levels/Visuals/road.png" id="4_0vxqt"]
+[ext_resource type="Texture2D" uid="uid://dsfpn52y4tpe1" path="res://Levels/Visuals/dogplans1.png" id="4_ra5q3"]
+[ext_resource type="Texture2D" uid="uid://cla0tuxr5663k" path="res://Levels/Visuals/road junction texture.png" id="5_5dooj"]
+[ext_resource type="Texture2D" uid="uid://bubaumweqa0jw" path="res://Levels/Visuals/skybox_2.png" id="5_dbu1h"]
+[ext_resource type="Texture2D" uid="uid://cmdfmmxgpseek" path="res://Levels/Visuals/dirtroad.png" id="5_p3ygm"]
+[ext_resource type="Script" uid="uid://thtwdoa14og" path="res://Levels/Scripts/playerKart.gd" id="6_6inao"]
+[ext_resource type="Texture2D" uid="uid://dwq5gutderyyr" path="res://Levels/Visuals/car.png" id="7_787wp"]
+[ext_resource type="Texture2D" uid="uid://cvb8mcm0ncmer" path="res://Levels/Visuals/arrow.png" id="8_dbu1h"]
+[ext_resource type="Texture2D" uid="uid://bg62usq8gw41" path="res://Levels/Visuals/speedometer.png" id="8_uhnpn"]
+[ext_resource type="Script" uid="uid://cl487cppli2lo" path="res://Levels/Scripts/walltool.gd" id="9_787wp"]
+[ext_resource type="Texture2D" uid="uid://ku41j5o8kmv8" path="res://Levels/Visuals/speedometer dial.png" id="9_fp5un"]
+[ext_resource type="Texture2D" uid="uid://fq7lsc1bumfe" path="res://Levels/Visuals/fuel gage.png" id="10_syoe7"]
+[ext_resource type="Script" uid="uid://dr8cn01y826lu" path="res://Entities/Scripts/entity.gd" id="10_uhnpn"]
 [ext_resource type="PackedScene" uid="uid://cb30t4c210fmc" path="res://Entities/kart_level_wall_tool.tscn" id="11_0g8oa"]
-[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Assets/Visuals/satisfaction gage.png" id="11_a54e5"]
-[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Assets/Visuals/emptybeerometer.png" id="12_0g8oa"]
-[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Assets/Visuals/beerometer.png" id="13_af0kk"]
-[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://Common/MouseClickWidgets/widget_joystick_half.tscn" id="14_68mkr"]
-[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Assets/Visuals/steering wheel.png" id="15_oe6ui"]
-[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://Common/MouseClickWidgets/widget_slider.tscn" id="16_eptlp"]
-[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Assets/Visuals/gearshift.png" id="17_xuwng"]
-[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Assets/Visuals/arm hand.png" id="18_ngfqa"]
-[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Assets/Visuals/arm forearm.png" id="19_lapei"]
-[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Assets/Visuals/arm upperarm.png" id="20_v4dhx"]
-[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Assets/Visuals/asgore.png" id="21_a2g7w"]
-[ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Assets/Visuals/asgore_nose.png" id="22_cojaf"]
-[ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Assets/Visuals/windscreen_sheen.png" id="23_s88vx"]
-[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="24_0kpnr"]
-[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://Global/SFX/Horn.wav" id="25_bi7jc"]
-[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://Global/SFX/Car Engine.wav" id="26_bdh7p"]
-[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://Global/SFX/Hurt.wav" id="27_28siu"]
-[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Assets/Visuals/damage splash.png" id="28_lay2k"]
+[ext_resource type="Texture2D" uid="uid://bscofretgv5tk" path="res://Levels/Visuals/satisfaction gage.png" id="11_a54e5"]
+[ext_resource type="Texture2D" uid="uid://6it3xtu0ojcj" path="res://Levels/Visuals/emptybeerometer.png" id="12_0g8oa"]
+[ext_resource type="Texture2D" uid="uid://dyx5qi1m2gnlu" path="res://Levels/Visuals/beerometer.png" id="13_af0kk"]
+[ext_resource type="PackedScene" uid="uid://dt46i8eeout7" path="res://_Common/MouseClickWidgets/widget_joystick_half.tscn" id="14_68mkr"]
+[ext_resource type="Texture2D" uid="uid://cocw50h6ah7c3" path="res://Levels/Visuals/steering wheel.png" id="15_oe6ui"]
+[ext_resource type="PackedScene" uid="uid://chgr6wfa8ldsh" path="res://_Common/MouseClickWidgets/widget_slider.tscn" id="16_eptlp"]
+[ext_resource type="Texture2D" uid="uid://cvcxfvvfg7qq3" path="res://Levels/Visuals/gearshift.png" id="17_xuwng"]
+[ext_resource type="Texture2D" uid="uid://dk0gwmqa86m7c" path="res://Levels/Visuals/arm hand.png" id="18_ngfqa"]
+[ext_resource type="Texture2D" uid="uid://caeaqdell5u2i" path="res://Levels/Visuals/arm forearm.png" id="19_lapei"]
+[ext_resource type="Texture2D" uid="uid://b7jobqju0ynj3" path="res://Levels/Visuals/arm upperarm.png" id="20_v4dhx"]
+[ext_resource type="Texture2D" uid="uid://4cb4hag40ex1" path="res://Levels/Visuals/asgore.png" id="21_a2g7w"]
+[ext_resource type="Texture2D" uid="uid://b65dl5kmmmmqk" path="res://Levels/Visuals/asgore_nose.png" id="22_cojaf"]
+[ext_resource type="Texture2D" uid="uid://5vawkavc8grl" path="res://Levels/Visuals/windscreen_sheen.png" id="23_s88vx"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://_Global/Fonts/Default.ttf" id="24_0kpnr"]
+[ext_resource type="AudioStream" uid="uid://d072k0bb3hijn" path="res://_Global/SFX/Horn.wav" id="25_bi7jc"]
+[ext_resource type="AudioStream" uid="uid://c5tutfka77r2h" path="res://_Global/SFX/Car Engine.wav" id="26_bdh7p"]
+[ext_resource type="AudioStream" uid="uid://c4ta6hdrl6ci5" path="res://_Global/SFX/Hurt.wav" id="27_28siu"]
+[ext_resource type="Texture2D" uid="uid://caabhvpusojp6" path="res://Levels/Visuals/damage splash.png" id="28_lay2k"]
 [ext_resource type="PackedScene" uid="uid://bympmn5b7p10t" path="res://Entities/entity_tree.tscn" id="29_xyxsw"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="30_ke48v"]
-[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="31_x8him"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://_Global/SFX/Collision.wav" id="31_x8him"]
 [ext_resource type="PackedScene" uid="uid://dhxugegrs270h" path="res://Entities/entity_speed_booster.tscn" id="34_6inao"]
 
 [sub_resource type="Environment" id="Environment_ra5q3"]
@@ -367,7 +367,7 @@ environment = SubResource("Environment_ra5q3")
 curve = SubResource("Curve3D_syoe7")
 
 [node name="dogfollow" type="PathFollow3D" parent="dogpath"]
-transform = Transform3D(0.0263626, -2.25054e-05, -0.99965, -9.09494e-13, 0.999999, -2.25132e-05, 0.999651, 5.93511e-07, 0.0263626, -11093.3, -0.396973, 478.522)
+transform = Transform3D(0.026362622, -2.2505446e-05, -0.99965, -9.094935e-13, 0.999999, -2.251324e-05, 0.999651, 5.935106e-07, 0.026362594, -11093.3, -0.396973, 478.522)
 script = ExtResource("3_syoe7")
 
 [node name="Sprite3D" type="Sprite3D" parent="dogpath/dogfollow"]
@@ -997,7 +997,7 @@ shape = SubResource("BoxShape3D_bi7jc")
 shape = SubResource("BoxShape3D_bi7jc")
 
 [node name="Trees" parent="walls/wall31/CollisionShape3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 205.505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 205.5055)
 
 [node name="wall32" parent="walls" instance=ExtResource("11_0g8oa")]
 transform = Transform3D(-0.994035, 0, -0.109058, 0, 1, 0, 0.109058, 0, -0.994035, -6341.47, 0, -1131.17)
@@ -1011,7 +1011,7 @@ shape = SubResource("BoxShape3D_bdh7p")
 shape = SubResource("BoxShape3D_bdh7p")
 
 [node name="Trees" parent="walls/wall32/CollisionShape3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.6555)
 
 [node name="wall33" parent="walls" instance=ExtResource("11_0g8oa")]
 transform = Transform3D(-0.994035, 0, -0.109058, 0, 1, 0, 0.109058, 0, -0.994035, -6287.53, 0, 534.018)
@@ -1025,7 +1025,7 @@ shape = SubResource("BoxShape3D_bdh7p")
 shape = SubResource("BoxShape3D_bdh7p")
 
 [node name="Trees" parent="walls/wall33/CollisionShape3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 239.6555)
 
 [node name="wall4" type="StaticBody3D" parent="walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6834.73, 14.6091, -1824.15)
@@ -1137,7 +1137,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall7/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 411.892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 411.8915)
 
 [node name="wall8" type="StaticBody3D" parent="walls"]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2335.92, 14.6091, -2736.39)
@@ -1193,7 +1193,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall9/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall10" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.219489, 0, 0.975615, 0, 1, 0, -0.975615, 0, 0.219489, 3487.98, 14.6091, -2628.47)
@@ -1221,7 +1221,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall10/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall11" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.424405, 0, 0.905473, 0, 1, 0, -0.905473, 0, 0.424405, 4142.31, 14.6091, -2481)
@@ -1249,7 +1249,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall11/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall12" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.649063, 0, 0.760734, 0, 1, 0, -0.760734, 0, 0.649063, 4733.2, 14.6091, -2204.37)
@@ -1277,7 +1277,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall12/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall13" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.732602, 0, 0.680657, 0, 1, 0, -0.680657, 0, 0.732602, 5240.45, 14.6091, -1789.4)
@@ -1305,7 +1305,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall13/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall14" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.847937, 0, 0.530097, 0, 1, 0, -0.530097, 0, 0.847937, 5703.13, 14.6091, -1298.02)
@@ -1333,7 +1333,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall14/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall15" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.970004, 0, 0.24309, 0, 1, 0, -0.24309, 0, 0.970004, 6045.14, 14.6091, -763.088)
@@ -1361,7 +1361,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall15/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall17" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.46961, 0, -0.882874, 0, 1, 0, 0.882874, 0, 0.46961, 6169.22, 14.6091, 1986.5)
@@ -1389,7 +1389,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall17/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 333.7165)
 
 [node name="wall18" type="StaticBody3D" parent="walls"]
 transform = Transform3D(0.0131593, 0, -0.999913, 0, 1, 0, 0.999913, 0, 0.0131593, 5577.26, 14.6091, 2312.93)
@@ -1417,7 +1417,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall18/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1540.61)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1540.615)
 
 [node name="wall19" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-0.995033, 0, 0.0995456, 0, 1, 0, -0.0995456, 0, -0.995033, 2471.46, 14.6091, 2312.93)
@@ -1445,7 +1445,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall19/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1336.86)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1336.865)
 
 [node name="wall48" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-0.999976, -0.000255818, 0.00697654, -0.000115626, 0.999798, 0.0200878, -0.00698027, 0.0200865, -0.999774, 2798.32, 14.6091, -327.496)
@@ -1531,7 +1531,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall20/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1604.74)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1604.745)
 
 [node name="wall21" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-0.00867403, 0, 0.999962, 0, 1, 0, -0.999962, 0, -0.00867403, 1861.1, 14.6091, 2723.28)
@@ -1559,7 +1559,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall21/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 2172.82)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 2172.825)
 
 [node name="wall22" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-0.766168, 0, 0.642641, 0, 1, 0, -0.642641, 0, -0.766168, 6182.36, 14.6091, 2723.28)
@@ -2231,7 +2231,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall16/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1050.64)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 1050.635)
 
 [node name="wall2" type="StaticBody3D" parent="walls"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6143.12, 14.6091, -405.594)
@@ -2287,7 +2287,7 @@ debug_color = Color(1, 1, 1, 0.42)
 visible = false
 
 [node name="Trees" type="Node3D" parent="walls/wall3/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 4095.67)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4814, 0, 4095.665)
 
 [node name="Lakituzones" type="Node3D" parent="."]
 
@@ -2400,6 +2400,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c5oim")
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("hand", "widget_gear", "widget_wheel", "visual_gear", "visual_wheel", "visual_asgore", "entities", "entity_hitbox")]
 transform = Transform3D(-0.00151836, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00151836, -11220, 0, 563.643)
 script = ExtResource("6_6inao")
+screenshake_speed = 400.0
+screenshake_decay = 3.0
 hand = NodePath("Visuals/Hand")
 widget_gear = NodePath("Visuals/WidgetGear")
 widget_wheel = NodePath("Visuals/WidgetWheel")
@@ -2408,8 +2410,6 @@ visual_wheel = NodePath("Visuals/WidgetWheel/SteeringWheel")
 visual_asgore = NodePath("Visuals/Asgore")
 entities = NodePath("../Entities")
 entity_hitbox = NodePath("Camera3D/Area3D")
-screenshake_speed = 400.0
-screenshake_decay = 3.0
 
 [node name="Particles" type="Node2D" parent="Player"]
 modulate = Color(0.34902, 0.486275, 0.670588, 1)

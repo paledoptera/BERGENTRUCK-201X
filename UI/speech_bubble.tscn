@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://1nxnu6rfn7aw"]
 
-[ext_resource type="Texture2D" uid="uid://bvmdri2h6pd2u" path="res://UI/Assets/Visuals/speech_bubble_large.png" id="1_hqh3f"]
-[ext_resource type="Script" uid="uid://w4d7loh3wdcq" path="res://UI/speech_bubble.gd" id="2_re2bb"]
-[ext_resource type="AudioStream" uid="uid://cjkg2bw1yl0j8" path="res://Global/SFX/Asgore Talk.wav" id="3_re2bb"]
-[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://Global/Fonts/Default.ttf" id="4_re2bb"]
+[ext_resource type="Texture2D" uid="uid://bvmdri2h6pd2u" path="res://UI/Visuals/speech_bubble_large.png" id="1_hqh3f"]
+[ext_resource type="Script" uid="uid://w4d7loh3wdcq" path="res://UI/Scripts/speech_bubble.gd" id="2_re2bb"]
+[ext_resource type="AudioStream" uid="uid://cjkg2bw1yl0j8" path="res://_Global/SFX/Asgore Talk.wav" id="3_re2bb"]
+[ext_resource type="FontFile" uid="uid://doksmkmkpmkgg" path="res://_Global/Fonts/Default.ttf" id="4_re2bb"]
 
 [sub_resource type="Theme" id="Theme_re2bb"]
 default_font = ExtResource("4_re2bb")

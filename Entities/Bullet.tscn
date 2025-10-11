@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o1r3g44fw357"]
 
-[ext_resource type="Script" uid="uid://buvesva5uacf4" path="res://Entities/playerbullet.gd" id="1_d66xm"]
-[ext_resource type="Texture2D" uid="uid://dyr6s7eqrecta" path="res://Items/Assets/Visuals/flower.png" id="1_ume81"]
+[ext_resource type="Script" uid="uid://buvesva5uacf4" path="res://Entities/Scripts/playerbullet.gd" id="1_d66xm"]
+[ext_resource type="Texture2D" uid="uid://dyr6s7eqrecta" path="res://Items/Visuals/flower.png" id="1_ume81"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d66xm"]
 size = Vector3(1.66382, 1.72559, 0.274414)

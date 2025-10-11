@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="BERGENTRUCK_201X"
+config/name="BERGENTRUCK 201X"
 config/description="Hey, that bump... is shaped like a deer!"
-config/version="V.2.0"
+config/version="Full Release V.1.0"
 run/main_scene="uid://pfn2cpkppd67"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
@@ -25,9 +25,9 @@ config/icon="uid://dl05mcmdann36"
 [autoload]
 
 Utility="*res://Utility.gd"
-Audio="*res://Common/Audio.gd"
-SaveLoad="*res://Common/SaveLoad/SaveLoad.gd"
-Global="*res://global.gd"
+Audio="*res://_Common/Audio.gd"
+SaveLoad="*res://_Common/SaveLoad/SaveLoad.gd"
+Global="*res://_Global/global.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [display]
@@ -43,6 +43,16 @@ mouse_cursor/custom_image="uid://pyp0tphgxcl6"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Entities/": "orange",
+"res://Items/": "orange",
+"res://Levels/": "green",
+"res://UI/": "pink",
+"res://addons/": "gray"
+}
 
 [global_group]
 

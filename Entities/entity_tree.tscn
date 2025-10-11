@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bympmn5b7p10t"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_okohi"]
-[ext_resource type="Script" uid="uid://drtgywgenhb8p" path="res://Entities/entity_tree.gd" id="2_qdqso"]
-[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="3_qgdxx"]
+[ext_resource type="Script" uid="uid://drtgywgenhb8p" path="res://Entities/Scripts/entity_tree.gd" id="2_qdqso"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://_Global/SFX/Collision.wav" id="3_qgdxx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qgdxx"]
 radius = 1.62747

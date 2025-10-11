@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmk1aphpb3k4"]
 
 [ext_resource type="PackedScene" uid="uid://bos6rfssdin4y" path="res://Entities/_entity.tscn" id="1_e8d3l"]
-[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/bullet.gd" id="2_qlsbs"]
-[ext_resource type="Texture2D" uid="uid://bfl2trss1i4uf" path="res://Entities/Assets/Visuals/Spamton/noseprojectile.png" id="3_e8d3l"]
+[ext_resource type="Script" uid="uid://cliisekcpcm7m" path="res://Entities/Scripts/bullet.gd" id="2_qlsbs"]
+[ext_resource type="Texture2D" uid="uid://bfl2trss1i4uf" path="res://Entities/Visuals/Spamton/noseprojectile.png" id="3_e8d3l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlsbs"]
 size = Vector3(1, 24.3966, 15.6304)

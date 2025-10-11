@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmfdo622wwei3"]
 
 [ext_resource type="PackedScene" uid="uid://dmxrsb6vf3fo0" path="res://Levels/player.tscn" id="1_nv0ke"]
-[ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/level.gd" id="1_wnisn"]
-[ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://Global/Music/Small Talk.ogg" id="2_43noc"]
-[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://Global/SFX/Collision.wav" id="7_ccp6f"]
+[ext_resource type="Script" uid="uid://b5poflj4kpbcv" path="res://Levels/Scripts/level.gd" id="1_wnisn"]
+[ext_resource type="AudioStream" uid="uid://t683bwk7mu3" path="res://_Global/Music/Small Talk.ogg" id="2_43noc"]
+[ext_resource type="AudioStream" uid="uid://8y5b87trowbj" path="res://_Global/SFX/Collision.wav" id="7_ccp6f"]
 [ext_resource type="PackedScene" uid="uid://d06ifvv7wbeni" path="res://Entities/entity_wall.tscn" id="7_remni"]
 
 [sub_resource type="Environment" id="Environment_s57tf"]

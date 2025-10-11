@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://t683bwk7mu3"
+path="res://.godot/imported/Small Talk.ogg-a5fa22162e314dc471157730a065a206.oggvorbisstr"
+
+[deps]
+
+source_file="res://_Global/Music/Small Talk.ogg"
+dest_files=["res://.godot/imported/Small Talk.ogg-a5fa22162e314dc471157730a065a206.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

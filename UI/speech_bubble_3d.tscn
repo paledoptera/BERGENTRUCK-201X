@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bduavdq3r3w4p"]
 
 [ext_resource type="PackedScene" uid="uid://1nxnu6rfn7aw" path="res://UI/speech_bubble.tscn" id="1_3rrwn"]
-[ext_resource type="Script" uid="uid://cf0o0ln53ruxq" path="res://UI/speech_bubble_3d.gd" id="1_xjbqy"]
+[ext_resource type="Script" uid="uid://cf0o0ln53ruxq" path="res://UI/Scripts/speech_bubble_3d.gd" id="1_xjbqy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3rrwn"]
 viewport_path = NodePath("SubViewport")

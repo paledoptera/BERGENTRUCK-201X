@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cguaj6qonrj1x"]
 
-[ext_resource type="Script" uid="uid://cf1c1j3eagbhg" path="res://UI/story_screen.gd" id="1_n245v"]
-[ext_resource type="Texture2D" uid="uid://biaxud1qqjxmy" path="res://UI/storyframe.png" id="2_n245v"]
+[ext_resource type="Script" uid="uid://cf1c1j3eagbhg" path="res://UI/Scripts/story_screen.gd" id="1_n245v"]
+[ext_resource type="Texture2D" uid="uid://biaxud1qqjxmy" path="res://UI/Visuals/storyframe.png" id="2_n245v"]
 
 [node name="StoryScreen" type="Node"]
 script = ExtResource("1_n245v")

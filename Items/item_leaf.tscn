@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnb2xiobf6qwh"]
 
 [ext_resource type="PackedScene" uid="uid://b3q7waomg7hnc" path="res://Items/_item.tscn" id="1_dknip"]
-[ext_resource type="Texture2D" uid="uid://dpcg5q834h248" path="res://Items/Assets/Visuals/leaf.png" id="3_dknip"]
+[ext_resource type="Texture2D" uid="uid://dpcg5q834h248" path="res://Items/Visuals/leaf.png" id="3_dknip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nf08d"]
 radius = 13.0384
